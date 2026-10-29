@@ -1,0 +1,2 @@
+import{describe,expect,it}from'vitest';import{parseOriginalAnalysis}from'./original';
+describe('original analysis parser',()=>{it('creates source-only timestamped shot descriptions',()=>{const md='### 镜头 2｜00:02.0–00:04.2\n- **景别/机位**：街谷大全景。\n- **运镜**：轻微跟摇。\n- **动作**：蜘蛛侠高速接近。';const rows=parseOriginalAnalysis(md);expect(rows[0]).toMatchObject({start:2,end:4.2});expect(rows[0].text).toContain('街谷大全景');expect(rows[0].text).not.toContain('@图片')})});
