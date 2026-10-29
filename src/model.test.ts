@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createProject, addRecreation, addNote, currentPassage, exportReview } from './model';
+import { createProject, addRecreation, addNote, deleteNote, currentPassage, exportReview } from './model';
 
 describe('review workbench model', () => {
   it('creates a project with source and first recreation bound to prompt version', () => {
@@ -26,6 +26,22 @@ describe('review workbench model', () => {
   it('finds prompt passage by playback time', () => {
     const project = createProject({ name:'x', source:{name:'s',url:'s',duration:10}, recreation:{name:'r',url:'r',duration:10}, promptText:'0-4.2 first\n4.2-8.2 second', sessionId:'' });
     expect(currentPassage(project.promptVersions[0].passages, 5)?.text).toBe('second');
+  });
+
+  it('deletes one note without touching the others', () => {
+    let project = createProject({ name:'x', source:{name:'s',url:'s',duration:10}, recreation:{name:'r',url:'r',duration:10}, promptText:'0-10 test', sessionId:'sid' });
+    project = addNote(project, { at:2, start:1, end:3, body:'one', keep:'', change:'' });
+    project = addNote(project, { at:5, start:4, end:6, body:'two', keep:'', change:'' });
+    const next = deleteNote(project, project.notes[0].id);
+    expect(next.notes.map(n=>n.body)).toEqual(['two']);
+  });
+
+  it('exports note context so another agent can resolve its timestamp and prompt', () => {
+    let project = createProject({ name:'x', source:{name:'source.mp4',url:'/source.mp4',duration:10}, recreation:{name:'rec.mp4',url:'/rec.mp4',duration:10}, promptText:'0-10 test', sessionId:'sid' });
+    project = addNote(project, { at:5, start:4, end:6, body:'推进太快', keep:'人物', change:'运镜' });
+    const item:any = exportReview(project).json.notes[0];
+    expect(item.context).toMatchObject({sourceAsset:'source.mp4',recreationAsset:'rec.mp4',anchorSec:5,promptVersion:1});
+    expect(item.context.promptExcerpt).toBe('test');
   });
 
   it('stores a note with exact context and exports review', () => {
