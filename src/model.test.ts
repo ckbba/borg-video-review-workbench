@@ -39,8 +39,8 @@ describe('review workbench model', () => {
   it('exports note context so another agent can resolve its timestamp and prompt', () => {
     let project = createProject({ name:'x', source:{name:'source.mp4',url:'/source.mp4',duration:10}, recreation:{name:'rec.mp4',url:'/rec.mp4',duration:10}, promptText:'0-10 test', sessionId:'sid' });
     project = addNote(project, { at:5, start:4, end:6, body:'推进太快', keep:'人物', change:'运镜' });
-    const item:any = exportReview(project).json.notes[0];
-    expect(item.context).toMatchObject({sourceAsset:'source.mp4',recreationAsset:'rec.mp4',anchorSec:5,promptVersion:1});
+    const item:any = exportReview(project,[{id:'source-shot',start:0,end:10,text:'原片固定机位'}]).json.notes[0];
+    expect(item.context).toMatchObject({sourceAsset:'source.mp4',recreationAsset:'rec.mp4',anchorSec:5,promptVersion:1,sourceAnalysisExcerpt:'原片固定机位'});
     expect(item.context.promptExcerpt).toBe('test');
   });
 

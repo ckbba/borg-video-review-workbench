@@ -47,11 +47,12 @@ export function deleteNote(project: Project, noteId: string): Project {
 
 export function currentPassage(passages: Passage[], time: number) { return passages.find(p => time >= p.start && time < p.end); }
 
-export function exportReview(project: Project) {
+export function exportReview(project: Project, sourcePassages: Passage[] = []) {
   const recreation = project.recreations.find(r => r.id === project.selectedRecreationId)!;
   const notes = project.notes.filter(n=>n.recreationId===recreation.id).map(n => {
     const passage = project.promptVersions.find(p=>p.version===n.promptVersion)?.passages.find(p=>n.at>=p.start&&n.at<p.end);
-    return { ...n, context: { sourceAsset: project.source.name, recreationAsset: recreation.name, recreationId: recreation.id, anchorSec: n.at, sourceRangeSec: [n.start,n.end], recreationLocalRangeSec: [Math.max(0,n.start-(recreation.sourceOffset||0)),Math.max(0,n.end-(recreation.sourceOffset||0))], promptVersion: n.promptVersion, promptPassageId: passage?.id || null, promptExcerpt: passage?.text || '', sessionId: project.sessionId || null } };
+    const sourcePassage = sourcePassages.find(p=>n.at>=p.start&&n.at<p.end);
+    return { ...n, context: { sourceAsset: project.source.name, recreationAsset: recreation.name, recreationId: recreation.id, anchorSec: n.at, sourceRangeSec: [n.start,n.end], recreationLocalRangeSec: [Math.max(0,n.start-(recreation.sourceOffset||0)),Math.max(0,n.end-(recreation.sourceOffset||0))], sourcePassageId: sourcePassage?.id || null, sourceAnalysisExcerpt: sourcePassage?.text || '', promptVersion: n.promptVersion, promptPassageId: passage?.id || null, promptExcerpt: passage?.text || '', sessionId: project.sessionId || null } };
   });
   const json = { schemaVersion:'1.1', projectId:project.id, projectName:project.name, source:project.source, recreation, sessionId:project.sessionId, promptVersion:recreation.promptVersion, prompt:project.promptVersions.find(p=>p.version===recreation.promptVersion), notes };
   const lines = [`# ${project.name} 复盘`, '', `- 原片：${project.source.name}`, `- 复刻：${recreation.name}`, `- 原 Hermes Session：${project.sessionId || '未绑定'}`, `- 提示词版本：V${recreation.promptVersion}`, '', '## 时间点备注'];
