@@ -7,3 +7,9 @@ export function resolveReviewKey(key:string,time:number,lastPressAt:number,stamp
  if(key==='ArrowLeft'){const previous=stamps.filter(x=>x<time-.05).at(-1);return{type:'seek',time:previous??0}}
  const next=stamps.find(x=>x>time+.05);return{type:'seek',time:next??time};
 }
+// ↑/↓: previous/next record in the same list; stays put at either end
+export function adjacentId(ids:string[],current:string,key:string):string|null{
+ if(key!=='ArrowUp'&&key!=='ArrowDown')return null;
+ const i=ids.indexOf(current),j=i+(key==='ArrowUp'?-1:1);
+ return i<0||j<0||j>=ids.length?null:ids[j];
+}

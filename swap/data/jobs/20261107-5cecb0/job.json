@@ -1,0 +1,238 @@
+{
+ "id": "20261107-5cecb0",
+ "templateId": "replica",
+ "created": 1794023833930,
+ "stage": "failed",
+ "message": "已取消",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\6a8b474e11b8351f.jpeg",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "11:57:13 看懂原片",
+  "11:57:36 画面太宽或太高，视频模型不接受：裁成 1800×720（原来 1866×720）",
+  "11:57:39 制定方案",
+  "11:57:39 方案模型没有回应（没有找到模型密钥环境变量 AIROUTER_TEST_API_KEY），改用基础方案",
+  "11:57:39 路线：完整路线（没有方案模型的判断，不知道片子难不难；30 秒，超过模型一次能做的 15 秒，要分段）",
+  "11:57:39 给每个场景挑图（4 张）",
+  "11:57:39 文案检查没有完成（没有找到模型密钥环境变量 AIROUTER_TEST_API_KEY），不影响视频",
+  "11:57:39 挑图没有完成（没有找到模型密钥环境变量 AIROUTER_TEST_API_KEY），按上传顺序用"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "failed",
+   "startedAt": 1794023833932,
+   "error": "你选了不复刻。没有生成，也没有花钱。"
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261107-5cecb0\\source-crop.mp4",
+  "prompt": "",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\6a8b474e11b8351f.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\01498ec18379a8b7.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\e2ff26e47d4c9eb3.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\f694b32cdb68590f.jpeg"
+  ],
+  "shapeRefs": [],
+  "productId": "p-20261106-078ba4",
+  "productNotes": [],
+  "productName": "领克900l",
+  "knownWeb": [],
+  "scoutOn": false,
+  "voiceOn": true,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "30.0 秒，12 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "12/12 个镜头要改，1 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "waiting"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "waiting"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "waiting"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "waiting"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "waiting"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "waiting"
+   }
+  ],
+  "keyframes": [],
+  "segments": [],
+  "plan": {
+   "by": "basic",
+   "subject": "the thing in @image2",
+   "target": "the matching main subject",
+   "keep": "everything else",
+   "change": "the main subject becomes the one in the reference pictures",
+   "summary": "基础方案（模型没回应）：所有镜头都按你的图替换主体",
+   "views": [],
+   "variants": [],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "keyAt": 0.5,
+     "edit": "replace the main subject with the one from the reference pictures"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 3.25,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 2,
+     "start": 3.25,
+     "end": 3.92,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 3,
+     "start": 3.92,
+     "end": 5.46,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 4,
+     "start": 5.46,
+     "end": 6.21,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 5,
+     "start": 6.21,
+     "end": 7.96,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 6,
+     "start": 7.96,
+     "end": 13.83,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 7,
+     "start": 13.83,
+     "end": 17.04,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 8,
+     "start": 17.04,
+     "end": 20.04,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 9,
+     "start": 20.04,
+     "end": 21.04,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 10,
+     "start": 21.04,
+     "end": 26.37,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 11,
+     "start": 26.37,
+     "end": 27.96,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 12,
+     "start": 27.96,
+     "end": 30.04,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    }
+   ],
+   "gaps": []
+  },
+  "route": {
+   "kind": "full",
+   "reasons": [
+    "没有方案模型的判断，不知道片子难不难",
+    "30 秒，超过模型一次能做的 15 秒，要分段"
+   ]
+  }
+ },
+ "pid": 11956,
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "error": "你选了不复刻。没有生成，也没有花钱。"
+}

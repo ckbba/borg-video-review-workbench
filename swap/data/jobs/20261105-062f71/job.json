@@ -1,0 +1,152 @@
+{
+ "id": "20261105-062f71",
+ "templateId": "replica",
+ "created": 1793878380000,
+ "stage": "done",
+ "message": "完成",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-062f71\\upload-1.png",
+ "frames": [],
+ "extras": [],
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "step": "补全素材",
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "yuan": 0.1,
+   "at": 1793878380000
+  },
+  {
+   "step": "补全素材",
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "yuan": 0.1,
+   "at": 1793878380000
+  },
+  {
+   "step": "关键画面 A",
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "yuan": 0.1,
+   "at": 1793878380000
+  },
+  {
+   "step": "关键画面 A",
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "yuan": 0.1,
+   "at": 1793878380000
+  },
+  {
+   "step": "关键画面 A",
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "yuan": 0.1,
+   "at": 1793878380000
+  },
+  {
+   "step": "视频",
+   "model": "minimax-h3-max",
+   "units": "12 秒 768p · 2 张参考图",
+   "yuan": 17.4,
+   "taskId": "687820d8-fc5f-4978-ac1f-9b3110b01ecb",
+   "at": 1793878380000
+  },
+  {
+   "step": "视频 · 修复",
+   "model": "minimax-h3-max",
+   "units": "12 秒 768p · 2 张参考图",
+   "yuan": 17.4,
+   "taskId": "701fc61c-1c45-4137-849d-b31a2d2d4021",
+   "at": 1793878380000
+  }
+ ],
+ "log": [
+  "恢复：任务目录被误删，记录没有备份。视频从博观取回，方案、关键画面和提示词已丢失（11月6日）"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "done",
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-062f71\\final.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-062f71\\compare.mp4",
+   "check": {
+    "pass": false,
+    "trimTail": 0,
+    "summary": "当时质检提示动作和原片对不上，详情已丢失"
+   }
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-062f71\\source.mp4",
+  "prompt": "把她脚上的白色运动鞋换成我图里这双安踏 C202 6代 PRO 跑鞋，鞋带照原片系，手、袜子、地毯都不变",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-062f71\\upload-1.png"
+  ],
+  "shapeRefs": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-062f71\\shape-1.jpg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-062f71\\shape-2.jpg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-062f71\\shape-3.jpg"
+  ],
+  "voiceOn": false,
+  "picture": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-062f71\\final.mp4",
+  "keyframes": [],
+  "segments": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "记录已丢失"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "记录已丢失"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "done",
+    "note": "记录已丢失"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "记录已丢失"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "done",
+    "note": "两次结果都在 takes 文件夹"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "done",
+    "note": "记录已丢失"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "done",
+    "note": "用重做的那次重新合成"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "skipped",
+    "note": "这次保留原声"
+   }
+  ]
+ }
+}

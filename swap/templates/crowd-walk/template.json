@@ -1,0 +1,116 @@
+{
+  "id": "crowd-walk",
+  "title": "逆行人群",
+  "desc": "主角转身，走进一整片整齐的人群。上传一张角色图，主角就换成你的角色。",
+  "note": "内部测试：原片来自网络，不可对外发布",
+  "source": "source.mp4",
+  "cover": "cover.jpg",
+  "ratio": "16:9",
+  "seconds": 10,
+  "who": "the young man with very short blond hair in the white shirt and loose striped tie",
+  "frameAt": 0.3,
+  "slot": {
+    "id": "main",
+    "label": "主角",
+    "hint": "上传一张人物图，全身照或带服装的图效果最好",
+    "preset": "recast",
+    "fill": {
+      "new_person": "the character from @image2, with the same face, hair and body, wearing the white shirt and loose striped tie"
+    },
+    "framePrompt": "Photo retouch. Keep the photograph @image1 exactly as it is: same framing, same crowd of students in dark blazers behind, same light, focus and grain. Only the person in the front changes: instead of the young blond man it is the character from @image2, same face, hair and features as in @image2, at the same size and position, wearing exactly the same white shirt and loose striped tie. Lit by the same soft daylight. It must look photographed, not pasted on. No text, no letters, no logos.",
+    "modes": [
+      {
+        "id": "whole",
+        "label": "换整个人（含衣服）",
+        "preset": "my-character",
+        "hint": "脸、发型、身材、衣服、配饰都换成你图里的样子，动作和走位照原片",
+        "whoAfter": "the main character in front",
+        "fill": {},
+        "framePrompt": "Photo retouch. Keep the photograph @image1 exactly as it is: same framing, same crowd of students in dark blazers behind, same light, focus and grain. Only the person in the front changes: replace them completely with the person from @image2 — the same face, hair, body, clothes, shoes and accessories as in @image2, nothing kept from the original person's outfit — at the same size and position in the frame, in the same pose, head angle and expression as the person in @image1. Lit by the same soft daylight. @image2 may be a character sheet (a face close-up plus front, side and back views): it is all one single person, use it only to know what they look like; put exactly one of them in the shot. It must look photographed, not pasted on. No text, no letters, no logos."
+      },
+      {
+        "id": "face",
+        "label": "只换脸，保留原片衣服",
+        "hint": "只换脸和发型，衣服沿用原片的白衬衫和领带",
+        "whoAfter": "the character in the white shirt and striped tie",
+        "fill": {
+          "new_person": "the character from @image2, with the same face, hair and body, wearing the white shirt and loose striped tie"
+        },
+        "framePrompt": "Photo retouch. Keep the photograph @image1 exactly as it is: same framing, same crowd of students in dark blazers behind, same light, focus and grain. Only the person in the front changes: instead of the young blond man it is the character from @image2, same face, hair and features as in @image2, at the same size and position, wearing exactly the same white shirt and loose striped tie. Lit by the same soft daylight. @image2 may be a character sheet (a face close-up plus front, side and back views): it is all one single person, use it only to know what they look like; put exactly one of them in the shot. It must look photographed, not pasted on. No text, no letters, no logos."
+      }
+    ]
+  },
+  "versions": [
+    {
+      "id": "anime",
+      "label": "动漫版",
+      "preset": "anime",
+      "fill": {
+        "place": "the rows of students in dark blazers"
+      }
+    },
+    {
+      "id": "3d",
+      "label": "3D 动画版",
+      "preset": "3d-feature",
+      "fill": {
+        "place": "the rows of students in dark blazers"
+      }
+    },
+    {
+      "id": "comic",
+      "label": "漫画版",
+      "preset": "comic-ink",
+      "fill": {
+        "place": "the rows of students in dark blazers"
+      }
+    },
+    {
+      "id": "night",
+      "label": "夜景版",
+      "preset": "time-of-day",
+      "fill": {
+        "time": "night, lit by warm street lamps"
+      }
+    }
+  ],
+  "choices": [
+    {
+      "id": "crowd",
+      "label": "背后人群换成",
+      "options": [
+        {
+          "id": "red",
+          "label": "红色吊带裙",
+          "preset": "outfit",
+          "who": "the main character in front, and every student in the rows behind",
+          "fill": {
+            "outfit": "every student in the rows behind wears a red satin slip dress with thin straps; the character in front keeps their own clothes exactly as they are"
+          },
+          "framePrompt": "Photo retouch. Keep the photograph @image1 exactly as it is: same framing, every person in the same place and pose, same faces and hair, same light, focus and grain. Only the clothes of the students standing in the rows behind change: every one of them now wears a red satin slip dress with thin straps. The person in front keeps exactly their own clothes. The fabric sits and creases naturally on every body, lit by the same soft daylight. It must look photographed, not pasted on. No text, no letters, no logos."
+        },
+        {
+          "id": "wedding",
+          "label": "白色婚纱",
+          "preset": "outfit",
+          "who": "the main character in front, and every student in the rows behind",
+          "fill": {
+            "outfit": "every student in the rows behind wears a white wedding dress; the character in front keeps their own clothes exactly as they are"
+          },
+          "framePrompt": "Photo retouch. Keep the photograph @image1 exactly as it is: same framing, every person in the same place and pose, same faces and hair, same light, focus and grain. Only the clothes of the students standing in the rows behind change: every one of them now wears a white wedding dress. The person in front keeps exactly their own clothes. The fabric sits and creases naturally on every body, lit by the same soft daylight. It must look photographed, not pasted on. No text, no letters, no logos."
+        },
+        {
+          "id": "sport",
+          "label": "荧光运动服",
+          "preset": "outfit",
+          "who": "the main character in front, and every student in the rows behind",
+          "fill": {
+            "outfit": "every student in the rows behind wears a bright neon green tracksuit; the character in front keeps their own clothes exactly as they are"
+          },
+          "framePrompt": "Photo retouch. Keep the photograph @image1 exactly as it is: same framing, every person in the same place and pose, same faces and hair, same light, focus and grain. Only the clothes of the students standing in the rows behind change: every one of them now wears a bright neon green tracksuit. The person in front keeps exactly their own clothes. The fabric sits and creases naturally on every body, lit by the same soft daylight. It must look photographed, not pasted on. No text, no letters, no logos."
+        }
+      ]
+    }
+  ],
+  "audio": "source"
+}

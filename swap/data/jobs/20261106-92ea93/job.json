@@ -1,0 +1,702 @@
+{
+ "id": "20261106-92ea93",
+ "templateId": "replica",
+ "created": 1793978124137,
+ "stage": "failed",
+ "message": "生成失败",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\6a8b474e11b8351f.jpeg",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "23:15:24 看懂原片",
+  "23:15:38 制定方案",
+  "23:17:11 路线：完整路线（有 5 个场景，换场景后商品容易走样；30 秒，超过模型一次能做的 15 秒，要分段；有 5 个镜头不用改，要保留原片；需要处理 前排座椅背部）",
+  "23:23:21 给每个场景挑图（4 张）",
+  "23:24:01 素材提醒：未见明显异车或异常偏色；照片1有暖阳照射，象牙白内饰局部偏暖。现有照片缺少纯侧面、垂直俯拍及开门状态参考，场景D的俯拍与关门结构参考不足；场景C描述同时包含前侧和后侧视角，已兼顾选图。",
+  "23:24:01 制作关键画面：5 张",
+  "23:24:01 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "23:24:10 制作关键画面 B：生成预览图（image-2.5-flare）…",
+  "23:24:10 制作关键画面 C：生成预览图（image-2.5-flare）…",
+  "23:24:10 制作关键画面 D：生成预览图（image-2.5-flare）…",
+  "23:24:10 制作关键画面 E：生成预览图（image-2.5-flare）…",
+  "23:24:19 制作关键画面：一起验收",
+  "23:25:19 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "23:25:19 制作关键画面 B：生成预览图（image-2.5-flare）…",
+  "23:25:19 制作关键画面 C：生成预览图（image-2.5-flare）…",
+  "23:25:19 制作关键画面 D：生成预览图（image-2.5-flare）…",
+  "23:25:19 制作关键画面 E：生成预览图（image-2.5-flare）…",
+  "23:25:29 制作关键画面：第 2 次验收",
+  "23:26:29 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "23:26:29 制作关键画面 B：生成预览图（image-2.5-flare）…",
+  "23:26:29 制作关键画面 C：生成预览图（image-2.5-flare）…",
+  "23:26:29 制作关键画面 D：生成预览图（image-2.5-flare）…",
+  "23:26:29 制作关键画面 E：生成预览图（image-2.5-flare）…",
+  "23:26:41 生成视频：4 段同时生成",
+  "23:26:59 第 2/4 段：已提交视频任务 4ad1fa88-7aaf-45fc-bfcd-2379a67206d3",
+  "23:27:02 第 2/4 段：生成中…（processing 10%）",
+  "23:27:02 第 1/4 段：已提交视频任务 4f9b03de-222e-4337-b8bb-f24ff8d440c7",
+  "23:27:03 第 3/4 段：已提交视频任务 d6b88e07-5b77-4c4b-91f6-24e83a8ea6c1",
+  "23:27:07 第 3/4 段：生成中…（processing 10%）",
+  "23:27:07 第 1/4 段：生成中…（processing 10%）",
+  "23:27:38 第 4/4 段：已提交视频任务 a6c7e548-8f88-4843-9cf0-d7bb09f17aa5",
+  "23:27:41 第 4/4 段：生成中…（processing 10%）",
+  "失败：第 1 段：content[1].image_url: invalid param: image aspect ratio 2.592 (=1866/720), expected in [0.4, 2.5]"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "failed",
+   "startedAt": 1793978124140,
+   "error": "第 1 段：content[1].image_url: invalid param: image aspect ratio 2.592 (=1866/720), expected in [0.4, 2.5]"
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\source.mp4",
+  "prompt": "",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\6a8b474e11b8351f.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\01498ec18379a8b7.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\e2ff26e47d4c9eb3.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\f694b32cdb68590f.jpeg"
+  ],
+  "shapeRefs": [],
+  "productId": "p-20261106-078ba4",
+  "productNotes": [],
+  "productName": "领克900l",
+  "knownWeb": [],
+  "scoutOn": false,
+  "voiceOn": true,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "30.0 秒，12 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "7/12 个镜头要改，5 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "skipped",
+    "note": "你的图已经够用"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "5 张，5 张重做后仍有小问题"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "failed",
+    "note": "4 段同时生成"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "waiting"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "waiting"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "waiting"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 5.83,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: At the warm-lit building entrance, replace the sedan's visible front section with the burgundy 900L nose, rectangular lighting signature, grille, front wheel, and correct vehicle badge, retaining the low framing, foreground blur, pavement reflections, and suited man in the background.. The new A metallic burgundy-red Lynk & Co 900L SUV with a tall, boxy body, a black panoramic glass roof, silver roof rails, dark tinted windows, flush door handles, intricate black-and-silver multi-spoke wheels, a broad rectangular front fascia with a full-width light strip and squared headlamp outlines, and a full-width rear light bar; the supplied cabin reference shows ivory perforated leather rear seating, a folding center armrest with cupholders, metallic door speakers, and a panoramic sunroof. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The featured Maextro S800 luxury sedan, with a glossy black lower body, champagne-gold hood and upper body, a long low silhouette, slim horizontal front lights with vertical corner lamps, bright disc-style wheels, a full-width red rear light strip, and a cognac-brown rear cabin with separate reclining seats. in @image1. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Replace the visible Maextro S800 completely with the reference metallic burgundy-red Lynk & Co 900L. Rebuild the visible front end with the reference broad rectangular fascia, full-width light strip, squared headlamp outlines, exact lower grille and bumper geometry, correct hood badge, and intricate black-and-silver multi-spoke front wheel. Remove all champagne-gold paint, Maextro badges, S800 plate text, vertical corner lamps, and disc-style wheels. Match the reference branding without additional text. Preserve the original close framing, camera angle, background people, clothing, wet pavement, warm lighting, and reflections.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\A-t3\\frame-1.jpg",
+    "ok": false,
+    "issue": "关键画面未完成替换，仍是黑色下车身、香槟金机盖的尊界S800；原车标、尊界S800车牌、竖向角灯、横条下格栅和亮面盘式轮毂全部残留，与酒红色领克900L参考图不符。背景、人物与构图保持一致。"
+   },
+   {
+    "scene": "B",
+    "at": 10.89,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\B-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the cognac cabin with the referenced ivory 900L rear seating, door trim, center armrest, cupholders, and panoramic roof; keep the same suited man seated in the corresponding rear position with his hand supported by the armrest, and constrain both the open-door and closed-door states to the actual SUV structure.. The new A metallic burgundy-red Lynk & Co 900L SUV with a tall, boxy body, a black panoramic glass roof, silver roof rails, dark tinted windows, flush door handles, intricate black-and-silver multi-spoke wheels, a broad rectangular front fascia with a full-width light strip and squared headlamp outlines, and a full-width rear light bar; the supplied cabin reference shows ivory perforated leather rear seating, a folding center armrest with cupholders, metallic door speakers, and a panoramic sunroof. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The featured Maextro S800 luxury sedan, with a glossy black lower body, champagne-gold hood and upper body, a long low silhouette, slim horizontal front lights with vertical corner lamps, bright disc-style wheels, a full-width red rear light strip, and a cognac-brown rear cabin with separate reclining seats. in @image1. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Rebuild the visible cabin to match the supplied interior reference, using ivory perforated leather, the exact reference seat and headrest shapes, perforation patterns, folding center armrest with integrated cupholders, metallic door-speaker shape and placement, ivory door trim, and panoramic sunroof with matching overhead trim. Remove the original cognac-brown upholstery, S800 independent recliner architecture, fixed center console, twin circular door speakers, and original overhead layout. Replace visible vehicle door-frame surfaces with the appropriate burgundy 900L structure. Preserve the man's identity, expression, seated pose, hand position, suit, shirt, watch, and interaction with the car, along with the original open-door state, framing, exterior background, and lighting. Do not add reference-photo people, books, or drinks.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\B-t3\\frame-1.jpg",
+    "ok": false,
+    "issue": "关键画面仍完整保留原车棕色内饰，未替换成参考图的米白打孔皮革座舱。独立躺椅、固定中央扶手、门板双圆扬声器、座椅纹路和顶棚布局均沿用S800，参考图的折叠中央扶手及杯架、异形金属门扬声器和全景天窗未落实。男子姿态、手部、服装与原片一致。"
+   },
+   {
+    "scene": "C",
+    "at": 16.56,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\C-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the moving sedan with the burgundy 900L on the same sunlit boulevard, establishing its front fascia, tall cabin, side proportions, wheels, black glass roof, and consistent rear light bar for the following elevated rear angle while preserving the driving trajectory and tracking movement.. The new A metallic burgundy-red Lynk & Co 900L SUV with a tall, boxy body, a black panoramic glass roof, silver roof rails, dark tinted windows, flush door handles, intricate black-and-silver multi-spoke wheels, a broad rectangular front fascia with a full-width light strip and squared headlamp outlines, and a full-width rear light bar; the supplied cabin reference shows ivory perforated leather rear seating, a folding center armrest with cupholders, metallic door speakers, and a panoramic sunroof. must look exactly like @image2 and @image3 and @image4: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The featured Maextro S800 luxury sedan, with a glossy black lower body, champagne-gold hood and upper body, a long low silhouette, slim horizontal front lights with vertical corner lamps, bright disc-style wheels, a full-width red rear light strip, and a cognac-brown rear cabin with separate reclining seats. in @image1. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Replace the entire sedan with the reference metallic burgundy-red Lynk & Co 900L, matching its tall boxy SUV proportions, black panoramic glass roof, silver roof rails, tinted windows, flush handles, precise front fascia and squared lighting outlines, and black-and-silver multi-spoke wheels. Remove every Maextro badge, S800 plate, champagne-gold panel, sedan contour, and disc-style wheel. Keep the vehicle in the same road position and front three-quarter orientation, preserving the original camera framing, road markings, buildings, trees, sunset direction, lens flare, motion blur, and natural tire contact and shadows.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\C-t3\\frame-1.jpg",
+    "ok": false,
+    "issue": "关键画面与原片一致，仍为黑金双色低矮S800轿车，尊界S800车牌、原车前脸、竖向灯组及盘式轮毂均未替换；缺少900L高大方正SUV车体、酒红车漆、银色行李架和参考轮毂。道路、背景及逆光保持一致。"
+   },
+   {
+    "scene": "D",
+    "at": 25.57,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\D-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: At the waterfront building, establish the burgundy 900L in the original front three-quarter composition with its ivory cabin, roof rails, panoramic glass roof, and correctly hinged side door; apply the same vehicle identity throughout shot 10's incoming roadway transition and shot 11's overhead door-closing view, preserving the architecture, water reflections, and transition timing.. The new A metallic burgundy-red Lynk & Co 900L SUV with a tall, boxy body, a black panoramic glass roof, silver roof rails, dark tinted windows, flush door handles, intricate black-and-silver multi-spoke wheels, a broad rectangular front fascia with a full-width light strip and squared headlamp outlines, and a full-width rear light bar; the supplied cabin reference shows ivory perforated leather rear seating, a folding center armrest with cupholders, metallic door speakers, and a panoramic sunroof. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The featured Maextro S800 luxury sedan, with a glossy black lower body, champagne-gold hood and upper body, a long low silhouette, slim horizontal front lights with vertical corner lamps, bright disc-style wheels, a full-width red rear light strip, and a cognac-brown rear cabin with separate reclining seats. in @image1. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Replace the parked S800 with the exact reference burgundy-red Lynk & Co 900L, including its tall rectangular SUV body, black glass roof, silver roof rails, dark windows, flush handles, reference front lighting and grille, and intricate black-and-silver multi-spoke wheels. Remove all original sedan geometry, two-tone champagne-gold paint, Maextro branding, and S800 text. Update the vehicle's wet-ground reflection to accurately match the replacement SUV and its lighting. Preserve the original wide tilted composition, vehicle placement and orientation, woman and her clothing and pose, building slats, mountains, water, and ambient illumination.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\D-t3\\frame-1.jpg",
+    "ok": false,
+    "issue": "关键画面未替换车辆，仍为黑金双色S800轿车，车身轮廓、车灯、车牌及盘式轮毂全部沿用原车；湿地中的倒影也仍对应原轿车。人物、建筑和远景保持一致。"
+   },
+   {
+    "scene": "E",
+    "at": 28.27,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\E-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the sedan with the burgundy 900L in full side profile against the stone facade, retaining the original vehicle direction, screen position, tracking pace, and wheel contact while showing the SUV's taller roofline, flush handles, silver roof rails, and reference wheels.. The new A metallic burgundy-red Lynk & Co 900L SUV with a tall, boxy body, a black panoramic glass roof, silver roof rails, dark tinted windows, flush door handles, intricate black-and-silver multi-spoke wheels, a broad rectangular front fascia with a full-width light strip and squared headlamp outlines, and a full-width rear light bar; the supplied cabin reference shows ivory perforated leather rear seating, a folding center armrest with cupholders, metallic door speakers, and a panoramic sunroof. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The featured Maextro S800 luxury sedan, with a glossy black lower body, champagne-gold hood and upper body, a long low silhouette, slim horizontal front lights with vertical corner lamps, bright disc-style wheels, a full-width red rear light strip, and a cognac-brown rear cabin with separate reclining seats. in @image1. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Replace the complete side-view S800 with the reference metallic burgundy-red Lynk & Co 900L in the same left-facing orientation. Match the reference tall boxy silhouette, upright rear body, exact side-window divisions, black panoramic roof, silver roof rails, tinted glass, flush door handles, vertical trim behind the front wheel, wheel-arch cladding, lower sill geometry, and intricate black-and-silver multi-spoke wheels. Remove the champagne-gold upper body, sloping sedan roofline, Maextro script, disc-style wheels, and original side trim. Preserve the side-on camera angle, original framing and vehicle placement, stone-building background, road surface, warm highlights, motion characteristics, and realistic ground shadows.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\E-t3\\frame-1.jpg",
+    "ok": false,
+    "issue": "关键画面仍是原S800侧面，黑金双色、溜背轿车轮廓、Maextro侧标、盘式轮毂和原车侧饰条均残留；未呈现酒红900L的方正高车身、黑色玻璃车顶、银色行李架、参考侧窗及黑银多辐轮毂。构图、建筑背景和光线保持一致。"
+   }
+  ],
+  "segments": [
+   {
+    "index": 0,
+    "start": 3.335000000000001,
+    "end": 8.335,
+    "genStart": 3.335000000000001,
+    "join": "start",
+    "scenes": [
+     "A",
+     "B"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\A-t3\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\B-t3\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\e2ff26e47d4c9eb3.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\6a8b474e11b8351f.jpeg"
+    ],
+    "tries": 1,
+    "status": "failed",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve all original shots, cuts, framing, camera movements, timing, lighting, locations, narrative, actors, their clothing and accessories, and all objects outside the featured vehicle, including the man's original movements and interactions with the car.. Change only this: Replace the featured Maextro S800 exterior and visible cabin with the burgundy-red Lynk & Co 900L and ivory interior shown in the user references, adapting vehicle proportions, doors, seating, wheels, lights, and badges while retaining the original action and composition.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-0.58s: leave this shot exactly as in @video1. 0.58-2.12s: leave this shot exactly as in @video1. 2.12-2.87s: match @image1, colours Burgundy red, black glass, silver trim, and ivory upholstery. Low front three-quarter close-up of the stationary car, with the nose and near front wheel dominating the fram 2.87-4.62s: leave this shot exactly as in @video1. 4.62-5.00s: match @image2, colours Burgundy red, black glass, silver trim, and ivory upholstery. Wide view across the rear cabin with front seatbacks at left and an empty rear seat in the foreground; the man @image3 and @image4 show A metallic burgundy-red Lynk & Co 900L SUV with a tall, boxy body, a black panoramic glass roof, silver roof rails, dark tinted windows, flush door handles, intricate black-and-silver multi-spoke wheels, a broad rectangular front fascia with a full-width light strip and squared headlamp outlines, and a full-width rear light bar; the supplied cabin reference shows ivory perforated leather rear seating, a folding center armrest with cupholders, metallic door speakers, and a panoramic sunroof.: the same design in every frame, from every angle. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\segments\\seg0-src.mp4",
+    "error": "content[1].image_url: invalid param: image aspect ratio 2.592 (=1866/720), expected in [0.4, 2.5]"
+   },
+   {
+    "index": 1,
+    "start": 7.96,
+    "end": 13.83,
+    "genStart": 7.96,
+    "join": "start",
+    "scenes": [
+     "B"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\B-t3\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\6a8b474e11b8351f.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\f694b32cdb68590f.jpeg"
+    ],
+    "tries": 1,
+    "status": "failed",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve all original shots, cuts, framing, camera movements, timing, lighting, locations, narrative, actors, their clothing and accessories, and all objects outside the featured vehicle, including the man's original movements and interactions with the car.. Change only this: Replace the featured Maextro S800 exterior and visible cabin with the burgundy-red Lynk & Co 900L and ivory interior shown in the user references, adapting vehicle proportions, doors, seating, wheels, lights, and badges while retaining the original action and composition.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-5.87s: match @image1, colours Burgundy red, black glass, silver trim, and ivory upholstery. Wide view across the rear cabin with front seatbacks at left and an empty rear seat in the foreground; the man @image2 and @image3 show A metallic burgundy-red Lynk & Co 900L SUV with a tall, boxy body, a black panoramic glass roof, silver roof rails, dark tinted windows, flush door handles, intricate black-and-silver multi-spoke wheels, a broad rectangular front fascia with a full-width light strip and squared headlamp outlines, and a full-width rear light bar; the supplied cabin reference shows ivory perforated leather rear seating, a folding center armrest with cupholders, metallic door speakers, and a panoramic sunroof.: the same design in every frame, from every angle. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\segments\\seg1-src.mp4",
+    "error": "content[1].image_url: invalid param: image aspect ratio 2.592 (=1866/720), expected in [0.4, 2.5]"
+   },
+   {
+    "index": 2,
+    "start": 13.83,
+    "end": 20.04,
+    "genStart": 13.83,
+    "join": "hard",
+    "scenes": [
+     "C"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\C-t3\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\f694b32cdb68590f.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\01498ec18379a8b7.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\e2ff26e47d4c9eb3.jpeg"
+    ],
+    "tries": 1,
+    "status": "failed",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve all original shots, cuts, framing, camera movements, timing, lighting, locations, narrative, actors, their clothing and accessories, and all objects outside the featured vehicle, including the man's original movements and interactions with the car.. Change only this: Replace the featured Maextro S800 exterior and visible cabin with the burgundy-red Lynk & Co 900L and ivory interior shown in the user references, adapting vehicle proportions, doors, seating, wheels, lights, and badges while retaining the original action and composition.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-3.21s: match @image1, colours Burgundy red, black glass, silver trim, and ivory upholstery. The car drives along the boulevard as the tracking camera moves from a wider elevated front three-quarter angl 3.21-6.21s: match @image1, colours Burgundy red, black glass, silver trim, and ivory upholstery. Elevated rear three-quarter tracking view of the moving car, clearly exposing the rear light bar, roof glazing @image2 and @image3 and @image4 show A metallic burgundy-red Lynk & Co 900L SUV with a tall, boxy body, a black panoramic glass roof, silver roof rails, dark tinted windows, flush door handles, intricate black-and-silver multi-spoke wheels, a broad rectangular front fascia with a full-width light strip and squared headlamp outlines, and a full-width rear light bar; the supplied cabin reference shows ivory perforated leather rear seating, a folding center armrest with cupholders, metallic door speakers, and a panoramic sunroof.: the same design in every frame, from every angle. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\segments\\seg2-src.mp4",
+    "error": "content[1].image_url: invalid param: image aspect ratio 2.592 (=1866/720), expected in [0.4, 2.5]"
+   },
+   {
+    "index": 3,
+    "start": 21.04,
+    "end": 30.04,
+    "genStart": 21.04,
+    "join": "start",
+    "scenes": [
+     "D",
+     "E"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\D-t3\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\keyframes\\E-t3\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\f694b32cdb68590f.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\01498ec18379a8b7.jpeg"
+    ],
+    "tries": 1,
+    "status": "failed",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve all original shots, cuts, framing, camera movements, timing, lighting, locations, narrative, actors, their clothing and accessories, and all objects outside the featured vehicle, including the man's original movements and interactions with the car.. Change only this: Replace the featured Maextro S800 exterior and visible cabin with the burgundy-red Lynk & Co 900L and ivory interior shown in the user references, adapting vehicle proportions, doors, seating, wheels, lights, and badges while retaining the original action and composition.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-5.33s: match @image1, colours Burgundy red, black glass, silver trim, and ivory upholstery. Side tracking view of the moving car transitions into a wider front three-quarter view beside the waterfront b 5.33-6.92s: match @image1, colours Burgundy red, black glass, silver trim, and ivory upholstery. Near-vertical overhead view along the car's roof beside the waterfront walkway; the visible left-side door sta 6.92-9.00s: match @image2, colours Burgundy red, black glass, silver trim, and ivory upholstery. Full side-profile tracking view with the car facing screen left against a stone facade; both wheels, all side  @image3 and @image4 show A metallic burgundy-red Lynk & Co 900L SUV with a tall, boxy body, a black panoramic glass roof, silver roof rails, dark tinted windows, flush door handles, intricate black-and-silver multi-spoke wheels, a broad rectangular front fascia with a full-width light strip and squared headlamp outlines, and a full-width rear light bar; the supplied cabin reference shows ivory perforated leather rear seating, a folding center armrest with cupholders, metallic door speakers, and a panoramic sunroof.: the same design in every frame, from every angle. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\segments\\seg3-src.mp4",
+    "error": "content[1].image_url: invalid param: image aspect ratio 2.592 (=1866/720), expected in [0.4, 2.5]"
+   }
+  ],
+  "plan": {
+   "by": "llm",
+   "subject": "A metallic burgundy-red Lynk & Co 900L SUV with a tall, boxy body, a black panoramic glass roof, silver roof rails, dark tinted windows, flush door handles, intricate black-and-silver multi-spoke wheels, a broad rectangular front fascia with a full-width light strip and squared headlamp outlines, and a full-width rear light bar; the supplied cabin reference shows ivory perforated leather rear seating, a folding center armrest with cupholders, metallic door speakers, and a panoramic sunroof.",
+   "target": "The featured Maextro S800 luxury sedan, with a glossy black lower body, champagne-gold hood and upper body, a long low silhouette, slim horizontal front lights with vertical corner lamps, bright disc-style wheels, a full-width red rear light strip, and a cognac-brown rear cabin with separate reclining seats.",
+   "keep": "Preserve all original shots, cuts, framing, camera movements, timing, lighting, locations, narrative, actors, their clothing and accessories, and all objects outside the featured vehicle, including the man's original movements and interactions with the car.",
+   "change": "Replace the featured Maextro S800 exterior and visible cabin with the burgundy-red Lynk & Co 900L and ivory interior shown in the user references, adapting vehicle proportions, doors, seating, wheels, lights, and badges while retaining the original action and composition.",
+   "summary": "将原片中的黑金双色尊界S800及棕色座舱替换为用户图中的酒红色领克900L及米白内饰，保留原有男主、动作、场景、运镜和剪辑节奏。",
+   "views": [],
+   "gaps": [
+    {
+     "kind": "part",
+     "view": "front seatback view",
+     "label": "前排座椅背部",
+     "at": 8.84,
+     "need": "请从后排向前拍摄领克900L前排座椅背部及前排中央扶手后端，完整拍清座椅背板、储物结构、出风口和实际配备的控制区域；现有内饰图只露出局部，无法确认这些部位的完整结构。",
+     "fallback": "根据现有参考呈现米白座椅背部的简化外观，将缺少资料的区域置于阴影或景深中，不展示无法确认的按键、接口和具体功能；男主入座及关门动作保持原节奏。",
+     "shots": [
+      6
+     ],
+     "frame": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-92ea93\\review\\gap-0.jpg"
+    }
+   ],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "酒红车身米白内饰",
+     "desc": "Burgundy red, black glass, silver trim, and ivory upholstery",
+     "main": true,
+     "at": 16.56
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      4
+     ],
+     "keyAt": 5.83,
+     "edit": "At the warm-lit building entrance, replace the sedan's visible front section with the burgundy 900L nose, rectangular lighting signature, grille, front wheel, and correct vehicle badge, retaining the low framing, foreground blur, pavement reflections, and suited man in the background.",
+     "variant": "v1"
+    },
+    {
+     "id": "B",
+     "shots": [
+      6
+     ],
+     "keyAt": 10.89,
+     "edit": "Replace the cognac cabin with the referenced ivory 900L rear seating, door trim, center armrest, cupholders, and panoramic roof; keep the same suited man seated in the corresponding rear position with his hand supported by the armrest, and constrain both the open-door and closed-door states to the actual SUV structure.",
+     "variant": "v1"
+    },
+    {
+     "id": "C",
+     "shots": [
+      7,
+      8
+     ],
+     "keyAt": 16.56,
+     "edit": "Replace the moving sedan with the burgundy 900L on the same sunlit boulevard, establishing its front fascia, tall cabin, side proportions, wheels, black glass roof, and consistent rear light bar for the following elevated rear angle while preserving the driving trajectory and tracking movement.",
+     "variant": "v1"
+    },
+    {
+     "id": "D",
+     "shots": [
+      10,
+      11
+     ],
+     "keyAt": 25.57,
+     "edit": "At the waterfront building, establish the burgundy 900L in the original front three-quarter composition with its ivory cabin, roof rails, panoramic glass roof, and correctly hinged side door; apply the same vehicle identity throughout shot 10's incoming roadway transition and shot 11's overhead door-closing view, preserving the architecture, water reflections, and transition timing.",
+     "variant": "v1"
+    },
+    {
+     "id": "E",
+     "shots": [
+      12
+     ],
+     "keyAt": 28.27,
+     "edit": "Replace the sedan with the burgundy 900L in full side profile against the stone facade, retaining the original vehicle direction, screen position, tracking pace, and wheel contact while showing the SUV's taller roofline, flush handles, silver roof rails, and reference wheels.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 3.25,
+     "change": false,
+     "scene": "A",
+     "note": "Aerial harbor and city skyline at sunset; the featured vehicle is absent, so reuse the original footage.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 2,
+     "start": 3.25,
+     "end": 3.92,
+     "change": false,
+     "scene": "A",
+     "note": "The suited man appears beside the glass entrance; the featured vehicle is absent, so reuse the original footage.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 3,
+     "start": 3.92,
+     "end": 5.46,
+     "change": false,
+     "scene": "A",
+     "note": "The suited man walks past the glass entrance with foreground pedestrian occlusion; the featured vehicle is absent, so reuse the original footage.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 4,
+     "start": 5.46,
+     "end": 6.21,
+     "change": true,
+     "scene": "A",
+     "note": "Low front three-quarter close-up of the stationary car, with the nose and near front wheel dominating the frame and the suited man approaching in the background.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 5,
+     "start": 6.21,
+     "end": 7.96,
+     "change": false,
+     "scene": "A",
+     "note": "Close-up of the man's face outside the building; no identifiable part of the featured vehicle is visible, so reuse the original footage.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 6,
+     "start": 7.96,
+     "end": 13.83,
+     "change": true,
+     "scene": "B",
+     "note": "Wide view across the rear cabin with front seatbacks at left and an empty rear seat in the foreground; the man sits on the far rear seat, rests his arm on the armrest, and settles back as the initially open door closes.",
+     "fit": "rough",
+     "why": "原片是独立后排座椅，用户图是带中央扶手的连排座椅，需要适配男主坐姿和手臂位置，前排座椅背部也缺少完整参考。"
+    },
+    {
+     "index": 7,
+     "start": 13.83,
+     "end": 17.04,
+     "change": true,
+     "scene": "C",
+     "note": "The car drives along the boulevard as the tracking camera moves from a wider elevated front three-quarter angle into a closer, lower front three-quarter view, with strong sunset reflections and rotating wheels.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 8,
+     "start": 17.04,
+     "end": 20.04,
+     "change": true,
+     "scene": "C",
+     "note": "Elevated rear three-quarter tracking view of the moving car, clearly exposing the rear light bar, roof glazing, upper body, and side as it follows the original lane.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 9,
+     "start": 20.04,
+     "end": 21.04,
+     "change": false,
+     "scene": "A",
+     "note": "Sunset reflected in a glass building facade; the featured vehicle is absent, so reuse the original footage.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 10,
+     "start": 21.04,
+     "end": 26.37,
+     "change": true,
+     "scene": "D",
+     "note": "Side tracking view of the moving car transitions into a wider front three-quarter view beside the waterfront building, with the vehicle reflected in the dark foreground water.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 11,
+     "start": 26.37,
+     "end": 27.96,
+     "change": true,
+     "scene": "D",
+     "note": "Near-vertical overhead view along the car's roof beside the waterfront walkway; the visible left-side door starts open and closes while the panoramic roof reflects the sky.",
+     "fit": "rough",
+     "why": "用户图没有完整车顶俯视角度，天窗分区及开门后露出的边缘细节可能与实车有出入。"
+    },
+    {
+     "index": 12,
+     "start": 27.96,
+     "end": 30.04,
+     "change": true,
+     "scene": "E",
+     "note": "Full side-profile tracking view with the car facing screen left against a stone facade; both wheels, all side doors, the roofline, and dark windows remain clearly visible.",
+     "fit": "good",
+     "why": ""
+    }
+   ],
+   "dropText": false
+  },
+  "route": {
+   "kind": "full",
+   "reasons": [
+    "有 5 个场景，换场景后商品容易走样",
+    "30 秒，超过模型一次能做的 15 秒，要分段",
+    "有 5 个镜头不用改，要保留原片",
+    "需要处理 前排座椅背部"
+   ]
+  },
+  "copy": [],
+  "variantAssets": [],
+  "photoPicks": {
+   "photos": [
+    {
+     "file": "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\6a8b474e11b8351f.jpeg",
+     "view": "后排座舱广角",
+     "note": "象牙白打孔座椅、放下的中央扶手与杯架、车门金属扬声器及全景天窗清楚可见。"
+    },
+    {
+     "file": "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\01498ec18379a8b7.jpeg",
+     "view": "后侧四分之三全车",
+     "note": "完整展示车尾贯穿灯、侧面车门、双轮及黑色玻璃车顶，车头朝画面右侧。"
+    },
+    {
+     "file": "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\e2ff26e47d4c9eb3.jpeg",
+     "view": "低机位前侧四分之三全车",
+     "note": "前脸占比较大，贯穿灯、方形灯组轮廓、格栅及近侧前轮细节清楚。"
+    },
+    {
+     "file": "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\f694b32cdb68590f.jpeg",
+     "view": "前侧四分之三全车",
+     "note": "车头朝画面左侧，完整展示侧面比例、两只轮毂、隐藏式门把手及车顶轮廓。"
+    }
+   ],
+   "scenes": {
+    "A": {
+     "files": [
+      "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\e2ff26e47d4c9eb3.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\f694b32cdb68590f.jpeg"
+     ],
+     "why": "照片3最贴近低机位前侧视角且前脸细节清楚，照片4补充与场景朝向一致的车头及近侧前轮关系。"
+    },
+    "B": {
+     "files": [
+      "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\6a8b474e11b8351f.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\f694b32cdb68590f.jpeg"
+     ],
+     "why": "照片1直接对应横看后排的构图并清楚呈现座椅、扶手与门板，照片4保留整车外观参考。"
+    },
+    "C": {
+     "files": [
+      "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\f694b32cdb68590f.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\01498ec18379a8b7.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\e2ff26e47d4c9eb3.jpeg"
+     ],
+     "why": "照片4对应前侧跟拍的整车外形，照片2补充后侧跟拍所需的尾灯与玻璃车顶，照片3补充低机位前脸细节。"
+    },
+    "D": {
+     "files": [
+      "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\f694b32cdb68590f.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\01498ec18379a8b7.jpeg"
+     ],
+     "why": "照片4最适合侧面转前侧的整车镜头，照片2提供更多车顶玻璃、行李架及后侧结构信息以辅助俯拍。"
+    },
+    "E": {
+     "files": [
+      "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\f694b32cdb68590f.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-078ba4\\01498ec18379a8b7.jpeg"
+     ],
+     "why": "照片4与车头朝左的场景一致且两轮、车门和车顶线条完整可见，照片2补充更接近侧面的车身比例。"
+    }
+   },
+   "issue": "未见明显异车或异常偏色；照片1有暖阳照射，象牙白内饰局部偏暖。现有照片缺少纯侧面、垂直俯拍及开门状态参考，场景D的俯拍与关门结构参考不足；场景C描述同时包含前侧和后侧视角，已兼顾选图。"
+  }
+ },
+ "pid": 78484,
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "29430958-bfb8-40d9-95a8-533326a160ea",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1793978650212
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "08de9c60-b099-4ea1-a503-90c25ea2d790",
+   "yuan": 0.1,
+   "step": "关键画面 B",
+   "at": 1793978655144
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "28c476e7-d6a2-4547-9da9-61d5598f534c",
+   "yuan": 0.1,
+   "step": "关键画面 C",
+   "at": 1793978659015
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "c01a993e-e990-4e72-9605-ada277631626",
+   "yuan": 0.1,
+   "step": "关键画面 E",
+   "at": 1793978659208
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "3d6db3f7-f0e2-48af-84b2-e30576185241",
+   "yuan": 0.1,
+   "step": "关键画面 D",
+   "at": 1793978659341
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "463c0249-9edc-4d54-940d-61eccf0f4e63",
+   "yuan": 0.1,
+   "step": "关键画面 C",
+   "at": 1793978724513
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "c7d51a43-8a76-4a9b-a3ff-d127d547a66a",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1793978724971
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "04a8f1af-1a1a-40b3-94b0-c7c12a4e6d53",
+   "yuan": 0.1,
+   "step": "关键画面 B",
+   "at": 1793978726479
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "6598a631-64b0-4eb5-a917-a329d4f8089d",
+   "yuan": 0.1,
+   "step": "关键画面 D",
+   "at": 1793978726717
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "4d97d0ea-331d-4088-ad49-1c847cd397f3",
+   "yuan": 0.1,
+   "step": "关键画面 E",
+   "at": 1793978729132
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "fc8d66d5-3986-4fcc-a386-32eac5ec28b5",
+   "yuan": 0.1,
+   "step": "关键画面 B",
+   "at": 1793978796018
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "67fef1d8-f338-4bc2-8c70-1c1465c77eee",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1793978796182
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "a229653f-b03a-42d0-9bae-8b737b16e8e2",
+   "yuan": 0.1,
+   "step": "关键画面 D",
+   "at": 1793978796634
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "3c7061d5-66b3-48f3-a8d3-b4607dd1ceea",
+   "yuan": 0.1,
+   "step": "关键画面 E",
+   "at": 1793978797273
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "33eb3a19-5b59-45dc-97c0-8868f20b0a80",
+   "yuan": 0.1,
+   "step": "关键画面 C",
+   "at": 1793978801331
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "5 秒 480p · 4 张参考图",
+   "taskId": "4f9b03de-222e-4337-b8bb-f24ff8d440c7",
+   "yuan": 0,
+   "note": "失败未计费：content[1].image_url: invalid param: ima",
+   "step": "第 1/4 段",
+   "at": 1793978849104
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "6 秒 480p · 3 张参考图",
+   "taskId": "4ad1fa88-7aaf-45fc-bfcd-2379a67206d3",
+   "yuan": 0,
+   "note": "失败未计费：content[1].image_url: invalid param: ima",
+   "step": "第 2/4 段",
+   "at": 1793978862175
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "7 秒 480p · 4 张参考图",
+   "taskId": "d6b88e07-5b77-4c4b-91f6-24e83a8ea6c1",
+   "yuan": 0,
+   "note": "失败未计费：content[1].image_url: invalid param: ima",
+   "step": "第 3/4 段",
+   "at": 1793978865407
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "9 秒 480p · 4 张参考图",
+   "taskId": "a6c7e548-8f88-4843-9cf0-d7bb09f17aa5",
+   "yuan": 0,
+   "note": "失败未计费：content[1].image_url: invalid param: ima",
+   "step": "第 4/4 段",
+   "at": 1793978883979
+  }
+ ],
+ "error": "第 1 段：content[1].image_url: invalid param: image aspect ratio 2.592 (=1866/720), expected in [0.4, 2.5]"
+}

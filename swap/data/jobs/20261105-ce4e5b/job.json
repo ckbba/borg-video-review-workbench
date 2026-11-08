@@ -1,0 +1,804 @@
+{
+ "id": "20261105-ce4e5b",
+ "templateId": "replica",
+ "created": 1793855556614,
+ "stage": "done",
+ "message": "完成",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\upload-1.png",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "13:12:36 看懂原片",
+  "13:13:05 制定方案",
+  "13:14:16 补全素材：补 side view",
+  "13:14:16 补全素材：生成预览图（image-2.5-flare）…",
+  "13:15:31 补全素材：做 蓝灰款、粉色款 的颜色",
+  "13:15:31 补全素材 蓝灰款：生成预览图（image-2.5-flare）…",
+  "13:15:31 补全素材 粉色款：生成预览图（image-2.5-flare）…",
+  "13:17:33 补全素材 粉色款：生成预览图（image-2.5-flare）…",
+  "13:17:37 补全素材 蓝灰款：生成预览图（image-2.5-flare）…",
+  "13:19:41 制作关键画面：6 张",
+  "13:19:42 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "13:19:42 制作关键画面 B：生成预览图（image-2.5-flare）…",
+  "13:19:42 制作关键画面 C：生成预览图（image-2.5-flare）…",
+  "13:20:41 制作关键画面 D：生成预览图（image-2.5-flare）…",
+  "13:20:41 制作关键画面 E：生成预览图（image-2.5-flare）…",
+  "13:20:41 制作关键画面 F：生成预览图（image-2.5-flare）…",
+  "13:21:52 制作关键画面：一起验收",
+  "13:22:26 验收模型没有回应（Upstream returned HTTP 413），按通过处理",
+  "13:22:26 生成视频：3 段同时生成",
+  "13:22:53 第 2/3 段：已提交视频任务 f95a6987-3f84-4b4d-9b67-99dfcdcbf8d4",
+  "13:22:54 第 3/3 段：已提交视频任务 4b07e0e4-d05f-4ce8-bfd6-ee4364b76e7b",
+  "13:22:54 第 1/3 段：已提交视频任务 5b54ae14-6b9a-4f1e-9e8a-d9dfc2a2ba3d",
+  "13:22:59 第 3/3 段：生成中…（submitted）",
+  "13:22:59 第 2/3 段：生成中…（submitted）",
+  "13:23:01 第 1/3 段：生成中…（submitted）",
+  "13:24:12 第 1/3 段：被审核拦截，自动重试（第 2/3 次）",
+  "13:24:13 第 3/3 段：被审核拦截，自动重试（第 2/3 次）",
+  "13:24:20 第 2/3 段：被审核拦截，自动重试（第 2/3 次）",
+  "13:24:29 第 1/3 段：已提交视频任务 c10b5574-cd4c-46db-be33-6f145606eb0d",
+  "13:24:29 第 3/3 段：已提交视频任务 80ac4774-cd42-4085-a94d-656d4434b145",
+  "13:24:33 第 2/3 段：已提交视频任务 71ea78f6-ebc9-4a2f-8657-ba217646ad97",
+  "13:24:35 第 3/3 段：生成中…（submitted）",
+  "13:24:36 第 1/3 段：生成中…（submitted）",
+  "13:24:36 第 2/3 段：生成中…（submitted）",
+  "13:25:25 第 1/3 段：被审核拦截，自动重试（第 3/3 次）",
+  "13:25:25 第 2/3 段：被审核拦截，自动重试（第 3/3 次）",
+  "13:25:29 第 3/3 段：被审核拦截，自动重试（第 3/3 次）",
+  "13:25:37 第 1/3 段：已提交视频任务 66e56eeb-c0fc-4346-9cef-c7aceb67acc5",
+  "13:25:40 第 1/3 段：生成中…（submitted）",
+  "13:25:41 第 2/3 段：已提交视频任务 de52a41a-47c8-4d64-afa2-d3bae6bc927b",
+  "13:25:41 第 3/3 段：已提交视频任务 f3c126f0-80ab-4ba7-bbaa-5e405f3a7cac",
+  "13:25:44 第 2/3 段：生成中…（submitted）",
+  "13:25:48 第 3/3 段：生成中…（submitted）",
+  "失败：第 2 段：图片没有通过视频模型的审核，通常是因为有写实人脸。（The request failed because the input image 'content[2]' 'content[3]' may contain real person. Request id: 02179385633762483b1843fbf122f4733ac47d5f3a75f9d30d4ac）",
+  "13:32:17 生成视频：3 段同时生成",
+  "失败：第 1 段：模型 minimax-h3-max 当前最多支持 4 张参考图。",
+  "13:34:01 生成视频：3 段同时生成",
+  "13:34:24 第 2/3 段：已提交视频任务 a67419a9-dfe6-46c1-96ef-2d00201ac856",
+  "13:34:24 第 3/3 段：已提交视频任务 9f878e5d-06e7-4881-87fb-ecfd0e9852b1",
+  "13:34:26 第 1/3 段：已提交视频任务 8bca2e87-e13f-43ab-84bd-16a769acede6",
+  "13:34:29 第 3/3 段：生成中…（processing 10%）",
+  "13:34:30 第 1/3 段：生成中…（processing 10%）",
+  "13:34:30 第 2/3 段：生成中…（processing 10%）",
+  "13:35:45 第 1/3 段：生成中…（processing 10%）",
+  "13:35:48 第 2/3 段：生成中…（processing 10%）",
+  "13:39:02 检查修复：检查动作、外观和接缝",
+  "13:39:02 检查修复：重做 3 段",
+  "13:39:03 第 2 段修复失败（提示词 3071 字，超过 2500 字上限），保留第一次的结果",
+  "13:39:03 第 3 段修复失败（提示词 2792 字，超过 2500 字上限），保留第一次的结果",
+  "13:39:11 第 1/3 段：已提交视频任务 e8d792ed-fbee-4493-8031-f6999075b729",
+  "13:39:18 第 1/3 段：生成中…（processing 10%）",
+  "13:40:32 第 1/3 段：生成中…（processing 10%）",
+  "13:43:39 合成成片",
+  "01:48:14 恢复：任务目录被误删，按备份记录和博观上的原始结果重建（11月6日）"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "done",
+   "startedAt": 1793856841118,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\final.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\compare.mp4",
+   "endedAt": 1793857477945,
+   "check": {
+    "pass": false,
+    "trimTail": 0,
+    "summary": "有 3 段修复后仍有提示：自动质检提示：中间有一段画面跑偏；中间有一段画面跑偏；中间有一段画面跑偏；中间有一段画面跑偏；动作和原片对不上；有跳帧或突变；自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变；外观：D：象牙白配浅棕边基本正确，但袖部浮雕卷纹明显放大、排列变稀，与目标细密的竖向绞花及卷纹不一致；胸前熊脸和文字被遮挡，无法完整核验。背景与关键画面的镜前、落地灯及沙发场景不一致。E：主色、V领门襟、圆扣及口袋浅棕边基本符合，但胸前熊脸和字样缩小且细节不清，裤腰新增明显外露抽绳；背景由木门变成开放式厨房。A：衣裤偏奶黄，浮雕纹理明显弱化，远看接近平整面料，未保持目标厚实清晰的竖向纹理；裤脚变成窄收口，缺少目标宽厚绒毛脚口，袖口浅棕边也不清晰。三组可见部位未发现明确肢体畸形；单帧无法判断是否存在闪回原款，D、E未展示裤脚，无法验收脚口。；自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变；外观：场景A：象牙白与浅棕滚边基本正确，V领、圆扣、双贴袋及左胸小熊图案基本一致；袖部浮雕纹理较模糊，未见明确肢体畸形。场景D：颜色及滚边基本正确，但袖子和裤腿变成明显粗大的麻花辫纹，缺少目标款细密的纵向卷曲浮雕纹，纹样比例不一致；胸标被头发遮挡，无法完整核验。场景F：颜色、胸标及口袋基本一致，但画面左侧挽起的袖口变成平滑的象牙白包边，目标浅棕边及厚绒袖口结构缺失，裤腿纹样也偏粗。未见明确原奶黄款残留；单帧无法判断闪回。人物、道具和背景未见可明确认定的异常改换。"
+   }
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\source.mp4",
+  "prompt": "只换主角身上的家居服，原片里奶黄、蓝灰、粉色三款都换成我图里这套，蓝灰和粉色款保留原片颜色；玩偶、毛毯、拖鞋、字幕都不变",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\upload-1.png"
+  ],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "30.0 秒，19 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "仅将主角身上的三款家居服统一换成图中小熊纹理开衫裤装，奶黄款改为参考图的象牙白配浅棕边，蓝灰和粉色款保留原片配色，玩偶、毛毯、拖鞋、字幕及全部镜头动作与节奏保持不变。（19/19 个镜头要改，6 张关键画面）"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "done",
+    "note": "做好 蓝灰款、粉色款，1 款颜色有小问题"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "6 张，验收通过"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "done",
+    "note": "3 段"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "done",
+    "note": "修了 1/3 段"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "done"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 26.95,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: In the daylight living-room and kitchen view, replace the visible pullover and trousers with the reference ivory cardigan and matching trousers; clearly establish the V-neck, button placket, left-chest bear and lettering, patch pockets, raised texture and tan edging while preserving the protagonist's frontal stance, face, hair, lowered arms and original framing, and carry the same garment construction through all full-body, side and rear angles.. The new A two-piece ivory plush loungewear set with raised vertical cable and scroll textures, a loose V-neck button-front cardigan, ribbed ivory neckline and placket, round cream buttons, two front patch pockets, thin tan trim at the pocket openings and sleeve cuffs, a brown bear face and 'CUTE BEAR' lettering on the wearer's left chest, and matching loose straight-leg trousers with wide plush ankle cuffs edged in tan. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Only the female protagonist's plush loungewear tops and matching trousers: a pale butter-yellow crewneck pullover set with a large penguin graphic and blue lettering, a blue-grey crewneck set with ivory neckline and cuffs and a large apple graphic, and a pale pink set with a partly obscured chest motif. in @image1. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\A-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "B",
+    "at": 5.73,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\B-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the seated protagonist's blue-grey pullover with the reference cardigan in pale blue-grey with ivory trim, retaining the reference bear graphic, buttons, pockets and raised texture; preserve her face, hair, hands over the blanket, the laptop on her lap, adjacent plush toys and the blanket's complete coverage of her lower body.. The new A two-piece ivory plush loungewear set with raised vertical cable and scroll textures, a loose V-neck button-front cardigan, ribbed ivory neckline and placket, round cream buttons, two front patch pockets, thin tan trim at the pocket openings and sleeve cuffs, a brown bear face and 'CUTE BEAR' lettering on the wearer's left chest, and matching loose straight-leg trousers with wide plush ankle cuffs edged in tan. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Only the female protagonist's plush loungewear tops and matching trousers: a pale butter-yellow crewneck pullover set with a large penguin graphic and blue lettering, a blue-grey crewneck set with ivory neckline and cuffs and a large apple graphic, and a pale pink set with a partly obscured chest motif. in @image1. In this scene its colours are: Pale blue-grey with ivory trim. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\B-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "C",
+    "at": 2.35,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\C-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the pale pink loungewear visible in the mirror with the reference cardigan and matching straight-leg trousers recolored pale pink, retaining the bear chest design, buttons, pockets and raised texture; preserve the phone covering her face, raised sleeve-covered hand, crossed legs, original slippers, warm lighting and mirror reflection.. The new A two-piece ivory plush loungewear set with raised vertical cable and scroll textures, a loose V-neck button-front cardigan, ribbed ivory neckline and placket, round cream buttons, two front patch pockets, thin tan trim at the pocket openings and sleeve cuffs, a brown bear face and 'CUTE BEAR' lettering on the wearer's left chest, and matching loose straight-leg trousers with wide plush ankle cuffs edged in tan. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Only the female protagonist's plush loungewear tops and matching trousers: a pale butter-yellow crewneck pullover set with a large penguin graphic and blue lettering, a blue-grey crewneck set with ivory neckline and cuffs and a large apple graphic, and a pale pink set with a partly obscured chest motif. in @image1. In this scene its colours are: Pale dusty pink. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\C-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "D",
+    "at": 4.06,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\D-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: In the warmly lit room with cream cabinets, floor lamp and upholstered chair, replace the yellow set with the reference ivory cardigan and trousers, clearly showing its frontal V-neck, buttons, bear chest design, pockets, texture and tan edging; preserve the phone and hand occlusions in the key frame and maintain this construction through the sleeve close-up, plush-toy embrace and seated mirror view.. The new A two-piece ivory plush loungewear set with raised vertical cable and scroll textures, a loose V-neck button-front cardigan, ribbed ivory neckline and placket, round cream buttons, two front patch pockets, thin tan trim at the pocket openings and sleeve cuffs, a brown bear face and 'CUTE BEAR' lettering on the wearer's left chest, and matching loose straight-leg trousers with wide plush ankle cuffs edged in tan. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Only the female protagonist's plush loungewear tops and matching trousers: a pale butter-yellow crewneck pullover set with a large penguin graphic and blue lettering, a blue-grey crewneck set with ivory neckline and cuffs and a large apple graphic, and a pale pink set with a partly obscured chest motif. in @image1. @image4 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\D-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "E",
+    "at": 20.29,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\E-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: At the dark wooden doorway, replace the yellow set with the reference ivory cardigan and matching trousers, retaining the V-neck, fastened button placket, bear chest design, patch pockets, raised texture and tan trim; preserve both hands pulling the lower sides outward and carry the garment consistently through the subsequent knee lifts.. The new A two-piece ivory plush loungewear set with raised vertical cable and scroll textures, a loose V-neck button-front cardigan, ribbed ivory neckline and placket, round cream buttons, two front patch pockets, thin tan trim at the pocket openings and sleeve cuffs, a brown bear face and 'CUTE BEAR' lettering on the wearer's left chest, and matching loose straight-leg trousers with wide plush ankle cuffs edged in tan. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Only the female protagonist's plush loungewear tops and matching trousers: a pale butter-yellow crewneck pullover set with a large penguin graphic and blue lettering, a blue-grey crewneck set with ivory neckline and cuffs and a large apple graphic, and a pale pink set with a partly obscured chest motif. in @image1. @image4 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\E-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "F",
+    "at": 29.5,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\F-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the protagonist's yellow top and trousers on the sofa with the reference ivory cardigan and matching trousers, retaining the bear chest design, buttons, pockets, raised texture and tan edging; preserve her pushed-up sleeves, seated position, arm around the large pink plush toy, smaller toy at her torso and all original overlaps.. The new A two-piece ivory plush loungewear set with raised vertical cable and scroll textures, a loose V-neck button-front cardigan, ribbed ivory neckline and placket, round cream buttons, two front patch pockets, thin tan trim at the pocket openings and sleeve cuffs, a brown bear face and 'CUTE BEAR' lettering on the wearer's left chest, and matching loose straight-leg trousers with wide plush ankle cuffs edged in tan. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Only the female protagonist's plush loungewear tops and matching trousers: a pale butter-yellow crewneck pullover set with a large penguin graphic and blue lettering, a blue-grey crewneck set with ivory neckline and cuffs and a large apple graphic, and a pale pink set with a partly obscured chest motif. in @image1. @image4 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\F-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   }
+  ],
+  "segments": [
+   {
+    "index": 0,
+    "start": 0,
+    "end": 14.46,
+    "genStart": 0,
+    "join": "start",
+    "scenes": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\A-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\B-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\C-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\D-t1\\frame-1.png"
+    ],
+    "tries": 2,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the protagonist's identity, face, hair, body, expressions and movements, all other people's clothing, plush toys and their outfits, blankets, slippers, phones, laptop, furniture, locations, lighting, subtitles and screen graphics, together with every original shot, cut, composition, camera movement, timing, sound and narrative beat.. Change only this: Replace all three loungewear versions worn by the protagonist with the reference cardigan-and-trouser set, preserving its texture, cut, buttons, pockets, bear chest graphic and lettering, using the reference ivory and tan colors for the main butter-yellow version and retaining the original blue-grey and pale pink color palettes for the other two versions.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-0.88s: match @image1, colours Ivory with light tan trim. 0.88-1.79s: match @image2, colours Pale blue-grey with ivory trim. 1.79-2.92s: match @image3, colours Pale dusty pink. 2.92-3.67s: match @image1, colours Ivory with light tan trim. 3.67-4.46s: match @image4, colours Ivory with light tan trim. 4.46-5.08s: match @image1, colours Ivory with light tan trim. 5.08-6.38s: match @image2, colours Pale blue-grey with ivory trim. 6.38-9.33s: match @image1, colours Ivory with light tan trim. 9.33-11.08s: match @image1, colours Ivory with light tan trim. 11.08-12.67s: match @image1, colours Ivory with light tan trim. 12.67-14.46s: match @image1, colours Ivory with light tan trim. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\segments\\seg0-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\segments\\seg0-t2-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：中间有一段画面跑偏；中间有一段画面跑偏；中间有一段画面跑偏；中间有一段画面跑偏；动作和原片对不上；有跳帧或突变"
+    },
+    "repaired": true
+   },
+   {
+    "index": 1,
+    "start": 14.46,
+    "end": 24.96,
+    "genStart": 14.46,
+    "join": "hard",
+    "scenes": [
+     "D",
+     "E",
+     "A"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\D-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\E-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\A-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\assets\\frame-1.png"
+    ],
+    "tries": 2,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the protagonist's identity, face, hair, body, expressions and movements, all other people's clothing, plush toys and their outfits, blankets, slippers, phones, laptop, furniture, locations, lighting, subtitles and screen graphics, together with every original shot, cut, composition, camera movement, timing, sound and narrative beat.. Change only this: Replace all three loungewear versions worn by the protagonist with the reference cardigan-and-trouser set, preserving its texture, cut, buttons, pockets, bear chest graphic and lettering, using the reference ivory and tan colors for the main butter-yellow version and retaining the original blue-grey and pale pink color palettes for the other two versions.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-2.96s: match @image1, colours Ivory with light tan trim. 2.96-5.46s: match @image1, colours Ivory with light tan trim. 5.46-7.92s: match @image2, colours Ivory with light tan trim. 7.92-9.12s: match @image3, colours Ivory with light tan trim. 9.12-10.04s: match @image3, colours Ivory with light tan trim. 10.04-10.50s: match @image3, colours Ivory with light tan trim. @image4 shows A two-piece ivory plush loungewear set with raised vertical cable and scroll textures, a loose V-neck button-front cardigan, ribbed ivory neckline and placket, round cream buttons, two front patch pockets, thin tan trim at the pocket openings and sleeve cuffs, a brown bear face and 'CUTE BEAR' lettering on the wearer's left chest, and matching loose straight-leg trousers with wide plush ankle cuffs edged in tan.: the same design in every frame, from every angle. Fix: Match the reference garment consistently in scenes D, E, and A: ivory plush fabric with thin light tan trim, dense raised vertical cable and scroll textures at the reference scale, a loose V-neck cardigan with ribbed ivory neckline and placket, round cream buttons, two front patch pockets, and the correctly sized brown bear face above legible 'CUTE BEAR' lettering on the wearer's left chest. In D, reduce the oversized sleeve scrolls and restore the dense reference texture. In E, restore the reference chest embroidery proportions and remove the added exposed trouser drawstring. In A, correct the yellow cast, restore clearly raised plush textures on both pieces, and use loose straight-leg trousers with wide plush ankle cuffs edged in tan instead of narrow gathered cuffs. Preserve the original video's person, movements, hands, hair, background, props, camera framing, lighting, and subtitles; restrict edits to the clothing. Verify garment consistency throughout the full clips and prevent any reappearance of the original outfit. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\segments\\seg1-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\segments\\seg1-t1-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变；外观：D：象牙白配浅棕边基本正确，但袖部浮雕卷纹明显放大、排列变稀，与目标细密的竖向绞花及卷纹不一致；胸前熊脸和文字被遮挡，无法完整核验。背景与关键画面的镜前、落地灯及沙发场景不一致。E：主色、V领门襟、圆扣及口袋浅棕边基本符合，但胸前熊脸和字样缩小且细节不清，裤腰新增明显外露抽绳；背景由木门变成开放式厨房。A：衣裤偏奶黄，浮雕纹理明显弱化，远看接近平整面料，未保持目标厚实清晰的竖向纹理；裤脚变成窄收口，缺少目标宽厚绒毛脚口，袖口浅棕边也不清晰。三组可见部位未发现明确肢体畸形；单帧无法判断是否存在闪回原款，D、E未展示裤脚，无法验收脚口。"
+    }
+   },
+   {
+    "index": 2,
+    "start": 24.96,
+    "end": 29.96,
+    "genStart": 24.75166666666667,
+    "join": "soft",
+    "scenes": [
+     "A",
+     "D",
+     "F"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\A-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\D-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\keyframes\\F-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\assets\\frame-1.png"
+    ],
+    "tries": 2,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the protagonist's identity, face, hair, body, expressions and movements, all other people's clothing, plush toys and their outfits, blankets, slippers, phones, laptop, furniture, locations, lighting, subtitles and screen graphics, together with every original shot, cut, composition, camera movement, timing, sound and narrative beat.. Change only this: Replace all three loungewear versions worn by the protagonist with the reference cardigan-and-trouser set, preserving its texture, cut, buttons, pockets, bear chest graphic and lettering, using the reference ivory and tan colors for the main butter-yellow version and retaining the original blue-grey and pale pink color palettes for the other two versions.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-2.63s: match @image1, colours Ivory with light tan trim. 2.63-4.29s: match @image2, colours Ivory with light tan trim. 4.29-5.21s: match @image3, colours Ivory with light tan trim. @image4 shows A two-piece ivory plush loungewear set with raised vertical cable and scroll textures, a loose V-neck button-front cardigan, ribbed ivory neckline and placket, round cream buttons, two front patch pockets, thin tan trim at the pocket openings and sleeve cuffs, a brown bear face and 'CUTE BEAR' lettering on the wearer's left chest, and matching loose straight-leg trousers with wide plush ankle cuffs edged in tan.: the same design in every frame, from every angle. Fix: Match the reference garment consistently in scenes A, D, and F: ivory plush fabric with thin light tan trim, fine raised vertical cable-and-scroll textures, an ivory ribbed V-neck and button placket, round cream buttons, two front patch pockets, and the brown bear face with exact 'CUTE BEAR' lettering on the wearer's left chest. In A, preserve defined raised textures on both sleeves. In D, replace the oversized braided cables on the sleeves and trousers with the reference's finer cable-and-scroll pattern and spacing. In F, retain the thick plush cuff construction and visible thin tan trim when the sleeve is pushed up; remove the plain smooth cuff edge and match the trouser texture scale to the reference. Preserve the source video's person, movements, phone, slippers, plush toys, furniture, background, lighting, and subtitles. Keep garment details stable throughout the video without reverting to the original pale-yellow outfit. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\segments\\seg2-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\segments\\seg2-t1-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变；外观：场景A：象牙白与浅棕滚边基本正确，V领、圆扣、双贴袋及左胸小熊图案基本一致；袖部浮雕纹理较模糊，未见明确肢体畸形。场景D：颜色及滚边基本正确，但袖子和裤腿变成明显粗大的麻花辫纹，缺少目标款细密的纵向卷曲浮雕纹，纹样比例不一致；胸标被头发遮挡，无法完整核验。场景F：颜色、胸标及口袋基本一致，但画面左侧挽起的袖口变成平滑的象牙白包边，目标浅棕边及厚绒袖口结构缺失，裤腿纹样也偏粗。未见明确原奶黄款残留；单帧无法判断闪回。人物、道具和背景未见可明确认定的异常改换。",
+     "seam": 0.67
+    }
+   }
+  ],
+  "plan": {
+   "by": "llm",
+   "subject": "A two-piece ivory plush loungewear set with raised vertical cable and scroll textures, a loose V-neck button-front cardigan, ribbed ivory neckline and placket, round cream buttons, two front patch pockets, thin tan trim at the pocket openings and sleeve cuffs, a brown bear face and 'CUTE BEAR' lettering on the wearer's left chest, and matching loose straight-leg trousers with wide plush ankle cuffs edged in tan.",
+   "target": "Only the female protagonist's plush loungewear tops and matching trousers: a pale butter-yellow crewneck pullover set with a large penguin graphic and blue lettering, a blue-grey crewneck set with ivory neckline and cuffs and a large apple graphic, and a pale pink set with a partly obscured chest motif.",
+   "keep": "Preserve the protagonist's identity, face, hair, body, expressions and movements, all other people's clothing, plush toys and their outfits, blankets, slippers, phones, laptop, furniture, locations, lighting, subtitles and screen graphics, together with every original shot, cut, composition, camera movement, timing, sound and narrative beat.",
+   "change": "Replace all three loungewear versions worn by the protagonist with the reference cardigan-and-trouser set, preserving its texture, cut, buttons, pockets, bear chest graphic and lettering, using the reference ivory and tan colors for the main butter-yellow version and retaining the original blue-grey and pale pink color palettes for the other two versions.",
+   "summary": "仅将主角身上的三款家居服统一换成图中小熊纹理开衫裤装，奶黄款改为参考图的象牙白配浅棕边，蓝灰和粉色款保留原片配色，玩偶、毛毯、拖鞋、字幕及全部镜头动作与节奏保持不变。",
+   "views": [
+    "side view"
+   ],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "象牙白浅棕边款（原奶黄款）",
+     "desc": "Ivory with light tan trim",
+     "main": true,
+     "at": 26.95
+    },
+    {
+     "id": "v2",
+     "label": "蓝灰款",
+     "desc": "Pale blue-grey with ivory trim",
+     "main": false,
+     "at": 5.73
+    },
+    {
+     "id": "v3",
+     "label": "粉色款",
+     "desc": "Pale dusty pink",
+     "main": false,
+     "at": 2.35
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1,
+      4,
+      6,
+      8,
+      9,
+      10,
+      11,
+      15,
+      16,
+      17
+     ],
+     "keyAt": 26.95,
+     "edit": "In the daylight living-room and kitchen view, replace the visible pullover and trousers with the reference ivory cardigan and matching trousers; clearly establish the V-neck, button placket, left-chest bear and lettering, patch pockets, raised texture and tan edging while preserving the protagonist's frontal stance, face, hair, lowered arms and original framing, and carry the same garment construction through all full-body, side and rear angles.",
+     "variant": "v1"
+    },
+    {
+     "id": "B",
+     "shots": [
+      2,
+      7
+     ],
+     "keyAt": 5.73,
+     "edit": "Replace the seated protagonist's blue-grey pullover with the reference cardigan in pale blue-grey with ivory trim, retaining the reference bear graphic, buttons, pockets and raised texture; preserve her face, hair, hands over the blanket, the laptop on her lap, adjacent plush toys and the blanket's complete coverage of her lower body.",
+     "variant": "v2"
+    },
+    {
+     "id": "C",
+     "shots": [
+      3
+     ],
+     "keyAt": 2.35,
+     "edit": "Replace the pale pink loungewear visible in the mirror with the reference cardigan and matching straight-leg trousers recolored pale pink, retaining the bear chest design, buttons, pockets and raised texture; preserve the phone covering her face, raised sleeve-covered hand, crossed legs, original slippers, warm lighting and mirror reflection.",
+     "variant": "v3"
+    },
+    {
+     "id": "D",
+     "shots": [
+      5,
+      12,
+      13,
+      18
+     ],
+     "keyAt": 4.06,
+     "edit": "In the warmly lit room with cream cabinets, floor lamp and upholstered chair, replace the yellow set with the reference ivory cardigan and trousers, clearly showing its frontal V-neck, buttons, bear chest design, pockets, texture and tan edging; preserve the phone and hand occlusions in the key frame and maintain this construction through the sleeve close-up, plush-toy embrace and seated mirror view.",
+     "variant": "v1"
+    },
+    {
+     "id": "E",
+     "shots": [
+      14
+     ],
+     "keyAt": 20.29,
+     "edit": "At the dark wooden doorway, replace the yellow set with the reference ivory cardigan and matching trousers, retaining the V-neck, fastened button placket, bear chest design, patch pockets, raised texture and tan trim; preserve both hands pulling the lower sides outward and carry the garment consistently through the subsequent knee lifts.",
+     "variant": "v1"
+    },
+    {
+     "id": "F",
+     "shots": [
+      19
+     ],
+     "keyAt": 29.5,
+     "edit": "Replace the protagonist's yellow top and trousers on the sofa with the reference ivory cardigan and matching trousers, retaining the bear chest design, buttons, pockets, raised texture and tan edging; preserve her pushed-up sleeves, seated position, arm around the large pink plush toy, smaller toy at her torso and all original overlaps.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 0.88,
+     "change": true,
+     "scene": "A",
+     "note": "Frontal medium view of the worn top with the lower outfit cropped; both hands wave in front of the chest and then meet, while long hair overlaps one shoulder and part of the chest."
+    },
+    {
+     "index": 2,
+     "start": 0.88,
+     "end": 1.79,
+     "change": true,
+     "scene": "B",
+     "note": "Seated three-quarter frontal view of the blue-grey top; bent sleeves lead to hands typing on the laptop, while the laptop and patterned blanket obscure the lower torso and trousers."
+    },
+    {
+     "index": 3,
+     "start": 1.79,
+     "end": 2.92,
+     "change": true,
+     "scene": "C",
+     "note": "Frontal full-outfit mirror view of the pale pink set; a phone and raised sleeve-covered hand overlap the upper body, and the trousers bend over crossed knees and end above the unchanged slippers."
+    },
+    {
+     "index": 4,
+     "start": 2.92,
+     "end": 3.67,
+     "change": true,
+     "scene": "A",
+     "note": "Frontal medium view of the yellow top and upper trousers; arms hang beside the torso as she gently sways, and hair partially covers the chest."
+    },
+    {
+     "index": 5,
+     "start": 3.67,
+     "end": 4.46,
+     "change": true,
+     "scene": "D",
+     "note": "Standing frontal mirror view of the yellow top and upper trousers; one hand holds the phone over the face while the other rests near the neckline, with hair overlapping the chest."
+    },
+    {
+     "index": 6,
+     "start": 4.46,
+     "end": 5.08,
+     "change": true,
+     "scene": "A",
+     "note": "Frontal full-body view of the yellow set; arms swing slightly outward and back down, with trouser hems above the original penguin slippers."
+    },
+    {
+     "index": 7,
+     "start": 5.08,
+     "end": 6.38,
+     "change": true,
+     "scene": "B",
+     "note": "Seated frontal view of the blue-grey top; hands cross and smooth a sleeve above the blanket, while the closed laptop rests on her covered lap and plush toys remain beside her."
+    },
+    {
+     "index": 8,
+     "start": 6.38,
+     "end": 9.33,
+     "change": true,
+     "scene": "A",
+     "note": "Frontal medium view of the yellow top and upper trousers; both hands gesture toward the shoulders and neckline, with fingers and hair intermittently overlapping the garment."
+    },
+    {
+     "index": 9,
+     "start": 9.33,
+     "end": 11.08,
+     "change": true,
+     "scene": "A",
+     "note": "Frontal full-body view of the yellow set; arms move from slightly extended to hands on hips, creating folds at the waist and elbows, with slippers fully visible."
+    },
+    {
+     "index": 10,
+     "start": 11.08,
+     "end": 12.67,
+     "change": true,
+     "scene": "A",
+     "note": "Close side and three-quarter view of the yellow top and upper trousers; she turns her torso while looking toward the camera, one arm swings backward and hair falls across the upper back."
+    },
+    {
+     "index": 11,
+     "start": 12.67,
+     "end": 14.46,
+     "change": true,
+     "scene": "A",
+     "note": "Frontal full-body view of the yellow set; hands move from hips to outstretched arms, with the top draping over the trouser waistband and the original slippers below."
+    },
+    {
+     "index": 12,
+     "start": 14.46,
+     "end": 17.42,
+     "change": true,
+     "scene": "D",
+     "note": "Close frontal view dominated by the yellow sleeves; one forearm is raised vertically near the face while the opposite hand strokes and presses its cuff and sleeve, partially obscuring the chest."
+    },
+    {
+     "index": 13,
+     "start": 17.42,
+     "end": 19.92,
+     "change": true,
+     "scene": "D",
+     "note": "Standing three-quarter side view of the yellow top and upper trousers; both arms embrace a large pink plush toy, compressing the sleeves and hiding much of the chest behind the toy and hands."
+    },
+    {
+     "index": 14,
+     "start": 19.92,
+     "end": 22.38,
+     "change": true,
+     "scene": "E",
+     "note": "Frontal doorway view of the yellow set; both hands pull the top's lower sides outward, then alternating raised knees bend and bunch the trouser legs."
+    },
+    {
+     "index": 15,
+     "start": 22.38,
+     "end": 23.58,
+     "change": true,
+     "scene": "A",
+     "note": "Frontal medium view of the yellow top and upper trousers; both arms extend sideways and diagonally upward, stretching the sleeves and lifting folds around the shoulders and hem."
+    },
+    {
+     "index": 16,
+     "start": 23.58,
+     "end": 24.5,
+     "change": true,
+     "scene": "A",
+     "note": "Full-body view rotating from front through side to rear three-quarter; hands stay on the hips, hair overlaps the back of the top, and the trouser legs shift with the turning stance."
+    },
+    {
+     "index": 17,
+     "start": 24.5,
+     "end": 27.38,
+     "change": true,
+     "scene": "A",
+     "note": "Close frontal view of the yellow top and upper trousers; sleeve-covered hands rise near the neck and shoulders before lowering, revealing more of the chest while hair overlaps one side."
+    },
+    {
+     "index": 18,
+     "start": 27.38,
+     "end": 29.04,
+     "change": true,
+     "scene": "D",
+     "note": "Seated frontal mirror view of the yellow set; the phone and raised hand overlap the face and upper chest, the top folds across the lap, and crossed trouser legs lead down to the unchanged penguin slippers."
+    },
+    {
+     "index": 19,
+     "start": 29.04,
+     "end": 29.96,
+     "change": true,
+     "scene": "F",
+     "note": "Seated frontal view of the yellow top and trousers; sleeves are pushed up to expose the forearms, one arm holds the large pink plush toy, a smaller toy overlaps the torso, and the free hand rises into a V sign."
+    }
+   ]
+  },
+  "sheet": {
+   "views": [
+    "side view"
+   ],
+   "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\assets\\frame-1.png",
+   "ok": true,
+   "issue": "未发现明显问题。设定图与原图的服装外形、宽松比例、奶油白颜色、绒面纹理、熊头及胸前文字、纽扣、口袋和浅棕色滚边基本一致；已补齐左右侧视图，无多余文字或明显畸形。"
+  },
+  "variantAssets": [
+   {
+    "id": "v2",
+    "label": "蓝灰款",
+    "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\assets\\v2\\frame-1.png",
+    "ok": true,
+    "issue": "未发现明显问题：版型、口袋、胸口小熊及文字图案均与原图一致，绒面纹理保留；主体为浅蓝灰色，领口、门襟及滚边为象牙白，接近参考配色。"
+   },
+   {
+    "id": "v3",
+    "label": "粉色款",
+    "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-ce4e5b\\assets\\v3\\frame-1.png",
+    "ok": false,
+    "issue": "颜色基本接近参考的浅灰粉色，版型和口袋布局大体保留；但并非单纯改色：绒面浮雕纹样被重新生成，卷曲纹路的形状、密度与原图不同；胸口熊脸及下方小字细节有变化，纽扣也变成了明显的四孔样式。"
+   }
+  ]
+ },
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "9d1b37e1-7fd7-498e-8bd0-8d0499f611d5",
+   "yuan": 0.1,
+   "step": "补全素材",
+   "at": 1793855704385,
+   "billedByCli": 0.497
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "9054d7ca-a9a7-4f10-b168-8cc322c51279",
+   "yuan": 0.1,
+   "step": "素材 蓝灰款",
+   "at": 1793855793041,
+   "billedByCli": 0.497
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "9b01505e-01d0-412b-ab54-8bb731d65144",
+   "yuan": 0.1,
+   "step": "素材 粉色款",
+   "at": 1793855801573,
+   "billedByCli": 0.497
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "5e01fad0-f862-4e36-a6e0-4a36c5688d5b",
+   "yuan": 0.1,
+   "step": "素材 粉色款",
+   "at": 1793855911129,
+   "billedByCli": 0.497
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "839d7605-929a-43fd-9731-2625c7d4802b",
+   "yuan": 0.1,
+   "step": "素材 蓝灰款",
+   "at": 1793855934560,
+   "billedByCli": 0.497
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "3302c6bc-1000-46aa-9c63-c1457b9bc587",
+   "yuan": 0.1,
+   "step": "关键画面 B",
+   "at": 1793856030419,
+   "billedByCli": 0.497
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "70e8ad65-ad7d-4d2d-8db9-d1d1fab40a52",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1793856032657,
+   "billedByCli": 0.497
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "3d6e663b-9b8a-4b74-9f19-095e5a2ed04d",
+   "yuan": 0.1,
+   "step": "关键画面 C",
+   "at": 1793856040490,
+   "billedByCli": 0.497
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "c8dd2726-8c6f-4f4e-9297-e2b118c6a75d",
+   "yuan": 0.1,
+   "step": "关键画面 D",
+   "at": 1793856100301,
+   "billedByCli": 0.497
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "b43424e9-4d65-4fee-937e-068e7e1552a8",
+   "yuan": 0.1,
+   "step": "关键画面 F",
+   "at": 1793856109593,
+   "billedByCli": 0.497
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "8de1b35c-e942-42e4-8f1b-1d912199e3f5",
+   "yuan": 0.1,
+   "step": "关键画面 E",
+   "at": 1793856112075,
+   "billedByCli": 0.497
+  },
+  {
+   "model": "seedance-2.5",
+   "units": "15 秒 720p · 5 张参考图",
+   "taskId": "5b54ae14-6b9a-4f1e-9e8a-d9dfc2a2ba3d",
+   "note": "失败：图片没有通过视频模型的审核，通常是因为有写实人脸。（The request fa",
+   "step": "第 1/3 段",
+   "at": 1793856252589,
+   "billedByCli": null,
+   "yuan": 0
+  },
+  {
+   "model": "seedance-2.5",
+   "units": "5 秒 720p · 5 张参考图",
+   "taskId": "4b07e0e4-d05f-4ce8-bfd6-ee4364b76e7b",
+   "note": "失败：图片没有通过视频模型的审核，通常是因为有写实人脸。（The request fa",
+   "step": "第 3/3 段",
+   "at": 1793856253846,
+   "billedByCli": null,
+   "yuan": 0
+  },
+  {
+   "model": "seedance-2.5",
+   "units": "12 秒 720p · 5 张参考图",
+   "taskId": "f95a6987-3f84-4b4d-9b67-99dfcdcbf8d4",
+   "note": "失败：图片没有通过视频模型的审核，通常是因为有写实人脸。（The request fa",
+   "step": "第 2/3 段",
+   "at": 1793856260329,
+   "billedByCli": null,
+   "yuan": 0
+  },
+  {
+   "model": "seedance-2.5",
+   "units": "15 秒 720p · 5 张参考图",
+   "taskId": "c10b5574-cd4c-46db-be33-6f145606eb0d",
+   "note": "失败：图片没有通过视频模型的审核，通常是因为有写实人脸。（The request fa",
+   "step": "第 1/3 段",
+   "at": 1793856325584,
+   "billedByCli": null,
+   "yuan": 0
+  },
+  {
+   "model": "seedance-2.5",
+   "units": "12 秒 720p · 5 张参考图",
+   "taskId": "71ea78f6-ebc9-4a2f-8657-ba217646ad97",
+   "note": "失败：图片没有通过视频模型的审核，通常是因为有写实人脸。（The request fa",
+   "step": "第 2/3 段",
+   "at": 1793856325926,
+   "billedByCli": null,
+   "yuan": 0
+  },
+  {
+   "model": "seedance-2.5",
+   "units": "5 秒 720p · 5 张参考图",
+   "taskId": "80ac4774-cd42-4085-a94d-656d4434b145",
+   "note": "失败：图片没有通过视频模型的审核，通常是因为有写实人脸。（The request fa",
+   "step": "第 3/3 段",
+   "at": 1793856329373,
+   "billedByCli": null,
+   "yuan": 0
+  },
+  {
+   "model": "seedance-2.5",
+   "units": "12 秒 720p · 5 张参考图",
+   "taskId": "de52a41a-47c8-4d64-afa2-d3bae6bc927b",
+   "note": "失败：图片没有通过视频模型的审核，通常是因为有写实人脸。（The request fa",
+   "step": "第 2/3 段",
+   "at": 1793856401613,
+   "billedByCli": null,
+   "yuan": 0
+  },
+  {
+   "model": "seedance-2.5",
+   "units": "15 秒 720p · 5 张参考图",
+   "taskId": "66e56eeb-c0fc-4346-9cef-c7aceb67acc5",
+   "note": "失败：图片没有通过视频模型的审核，通常是因为有写实人脸。（The request fa",
+   "step": "第 1/3 段",
+   "at": 1793856404140,
+   "billedByCli": null,
+   "yuan": 0
+  },
+  {
+   "model": "seedance-2.5",
+   "units": "5 秒 720p · 5 张参考图",
+   "taskId": "f3c126f0-80ab-4ba7-bbaa-5e405f3a7cac",
+   "note": "失败：图片没有通过视频模型的审核，通常是因为有写实人脸。（The request fa",
+   "step": "第 3/3 段",
+   "at": 1793856406745,
+   "billedByCli": null,
+   "yuan": 0
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "6 秒 768p · 4 张参考图",
+   "taskId": "9f878e5d-06e7-4881-87fb-ecfd0e9852b1",
+   "yuan": 9.05,
+   "step": "第 3/3 段",
+   "at": 1793856950060,
+   "billedByCli": 1.8
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "11 秒 768p · 4 张参考图",
+   "taskId": "a67419a9-dfe6-46c1-96ef-2d00201ac856",
+   "yuan": 16.69,
+   "step": "第 2/3 段",
+   "at": 1793856971641,
+   "billedByCli": 3.3
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "15 秒 768p · 4 张参考图",
+   "taskId": "8bca2e87-e13f-43ab-84bd-16a769acede6",
+   "yuan": 22.53,
+   "step": "第 1/3 段",
+   "at": 1793857010323,
+   "billedByCli": 4.5
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "15 秒 768p · 4 张参考图",
+   "taskId": "e8d792ed-fbee-4493-8031-f6999075b729",
+   "yuan": 22.53,
+   "step": "第 1/3 段 · 修复",
+   "at": 1793857308381,
+   "billedByCli": 4.5
+  }
+ ]
+}

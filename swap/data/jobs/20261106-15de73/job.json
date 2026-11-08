@@ -1,0 +1,659 @@
+{
+ "id": "20261106-15de73",
+ "templateId": "replica",
+ "created": 1793940855728,
+ "stage": "failed",
+ "message": "生成失败",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-3f5804\\85b207be11f94970.jpeg",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "12:54:16 看懂原片",
+  "12:57:49 视频超过 60 秒，只处理前 60 秒",
+  "12:58:30 制定方案",
+  "13:00:10 素材员开始联网找图",
+  "13:00:48 素材员看了 4 张图",
+  "13:01:02 素材员找到了主驾与前排内饰",
+  "13:01:18 素材员结束：找到 1/1 项（缺口 1 已选用 web2，暂无未找到的缺口。所选图片为车内正面视角，与原片从主驾门外斜拍的机位存在差异，但主驾与前排内饰结构清晰完整。）",
+  "13:03:31 剪掉做不了的片段：25.7 秒，剩 34.3 秒",
+  "13:04:30 补全素材：补 front view",
+  "13:04:30 补全素材：模拟生成预览图 1/1",
+  "13:04:32 制作关键画面：5 张",
+  "13:04:33 制作关键画面 A：模拟生成预览图 1/1",
+  "13:04:35 制作关键画面 B：模拟生成预览图 1/1",
+  "13:04:35 制作关键画面 C：模拟生成预览图 1/1",
+  "13:04:35 制作关键画面 D：模拟生成预览图 1/1",
+  "13:04:35 制作关键画面 E：模拟生成预览图 1/1",
+  "13:04:37 制作关键画面：一起验收",
+  "13:04:37 生成视频：7 段同时生成",
+  "失败：Error: Command failed: ffmpeg -nostdin -v error -y -i E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\source-cut.mp4 -vf trim=start_frame=0:end_frame=138,setpts=PTS-STARTPTS -af atrim=start=0:end=5.75,asetpts=PTS-STARTPTS -c:v libx264 -crf 17 -pix_fmt yuv420p -c:a aac E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\segments\\seg0-src.mp4\n"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "failed",
+   "startedAt": 1793940856713,
+   "error": "Error: Command failed: ffmpeg -nostdin -v error -y -i E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\source-cut.mp4 -vf trim=start_frame=0:end_frame=138,setpts=PTS-STARTPTS -af atrim=start=0:end=5.75,asetpts=PTS-STARTPTS -c:v libx264 -crf 17 -pix_fmt yuv420p -c:a aac E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\segments\\seg0-src.mp4\n"
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\source-cut.mp4",
+  "prompt": "把原片里的萤火虫汽车换成我的理想 i8",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-3f5804\\85b207be11f94970.jpeg"
+  ],
+  "shapeRefs": [],
+  "productId": "p-20261106-3f5804",
+  "productNotes": [],
+  "productName": "理想 i8",
+  "knownWeb": [],
+  "scoutOn": true,
+  "voiceOn": true,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "60.0 秒，15 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "15/15 个镜头要改，6 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "done",
+    "note": "已补 front view"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "5 张，验收通过"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "failed",
+    "note": "7 段同时生成"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "waiting"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "waiting"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "waiting"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 0.29,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the parked foreground Firefly with the pearl-white i8 in the same front three-quarter orientation, establishing its larger SUV proportions and correct front design while retaining the man approaching from the right, his phone, the background white vehicle, and the overcast plaza; preserve the indicator timing using the i8's actual lamp positions.. The new The user's Li Auto i8, a large pearl-white SUV with a long rounded body, a gloss-black roof and window surround, dark rear privacy glass, flush body-colored door handles, black lower cladding, and large two-tone silver-and-dark aerodynamic wheels; use the supplied side-profile photograph as the exterior reference. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The featured metallic silver-grey Firefly compact five-door hatchback, with a dark roof, black mirrors, short rounded proportions, a black front panel carrying a white Firefly emblem, three circular light elements on each side, dark wheels, and a cream-and-black cabin with a rounded rectangular steering wheel, a small driver display, and a landscape center touchscreen. in @image1. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\keyframes\\A-t1\\frame-1.jpg",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "B",
+    "at": 17.14,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\keyframes\\B-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the visible driving cabin with the user's actual i8 cockpit, establishing the steering wheel, dashboard, screen placement, trim, driver clothing, and hand contact in one driver-eye composition; retain the windshield road view, traffic, sunlight, grip changes, and steering motion, with screen content sourced from verified i8 material.. The new The user's Li Auto i8, a large pearl-white SUV with a long rounded body, a gloss-black roof and window surround, dark rear privacy glass, flush body-colored door handles, black lower cladding, and large two-tone silver-and-dark aerodynamic wheels; use the supplied side-profile photograph as the exterior reference. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The featured metallic silver-grey Firefly compact five-door hatchback, with a dark roof, black mirrors, short rounded proportions, a black front panel carrying a white Firefly emblem, three circular light elements on each side, dark wheels, and a cream-and-black cabin with a rounded rectangular steering wheel, a small driver display, and a landscape center touchscreen. in @image1. @image4 is a photo found online of the real 主驾与前排内饰 of this product: in @image1 the 主驾与前排内饰 must be rebuilt exactly like @image4, its layout, shape, screens, colours and materials, seen from the camera position and framing of @image1. Nothing of the original 主驾与前排内饰 stays. The colours of the 主驾与前排内饰 come from @image4, not from the other pictures. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\keyframes\\B-t1\\frame-1.jpg",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "C",
+    "at": 8.69,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\keyframes\\C-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Establish a clear frontal view of the pearl-white i8 driving on the sunny elevated highway, fixing its front identity, black roof, wheel design, larger body proportions, and visible driver; apply this identity to all frontal and side tracking views while preserving road geometry, barriers, traffic, vehicle paths, camera distances, wheel motion, reflections, and headlight timing through the i8's actual lamps.. The new The user's Li Auto i8, a large pearl-white SUV with a long rounded body, a gloss-black roof and window surround, dark rear privacy glass, flush body-colored door handles, black lower cladding, and large two-tone silver-and-dark aerodynamic wheels; use the supplied side-profile photograph as the exterior reference. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The featured metallic silver-grey Firefly compact five-door hatchback, with a dark roof, black mirrors, short rounded proportions, a black front panel carrying a white Firefly emblem, three circular light elements on each side, dark wheels, and a cream-and-black cabin with a rounded rectangular steering wheel, a small driver display, and a landscape center touchscreen. in @image1. @image4 shows the same thing already placed in another shot of this film: match it exactly. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\keyframes\\C-t1\\frame-1.jpg",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "D",
+    "at": 12.66,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\keyframes\\D-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the sunlit parked foreground Firefly with the pearl-white i8 in the same front three-quarter position beside the yellow road markings, retaining the foreground gesturing arm, its changing occlusion, the following parked car, building reflections, trees, and handheld camera movement.. The new The user's Li Auto i8, a large pearl-white SUV with a long rounded body, a gloss-black roof and window surround, dark rear privacy glass, flush body-colored door handles, black lower cladding, and large two-tone silver-and-dark aerodynamic wheels; use the supplied side-profile photograph as the exterior reference. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The featured metallic silver-grey Firefly compact five-door hatchback, with a dark roof, black mirrors, short rounded proportions, a black front panel carrying a white Firefly emblem, three circular light elements on each side, dark wheels, and a cream-and-black cabin with a rounded rectangular steering wheel, a small driver display, and a landscape center touchscreen. in @image1. @image4 shows the same thing already placed in another shot of this film: match it exactly. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\keyframes\\D-t1\\frame-1.jpg",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "E",
+    "at": 15.2,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\keyframes\\E-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the open-door Firefly cabin and visible body frame with the user's i8 front interior and pearl-white door surround, establishing the actual steering wheel, dashboard, screens, seat, console, and door-opening geometry while preserving the exterior viewpoint, slow camera movement, greenery, and daylight.. The new The user's Li Auto i8, a large pearl-white SUV with a long rounded body, a gloss-black roof and window surround, dark rear privacy glass, flush body-colored door handles, black lower cladding, and large two-tone silver-and-dark aerodynamic wheels; use the supplied side-profile photograph as the exterior reference. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The featured metallic silver-grey Firefly compact five-door hatchback, with a dark roof, black mirrors, short rounded proportions, a black front panel carrying a white Firefly emblem, three circular light elements on each side, dark wheels, and a cream-and-black cabin with a rounded rectangular steering wheel, a small driver display, and a landscape center touchscreen. in @image1. @image4 is a photo found online of the real 主驾与前排内饰 of this product: in @image1 the 主驾与前排内饰 must be rebuilt exactly like @image4, its layout, shape, screens, colours and materials, seen from the camera position and framing of @image1. Nothing of the original 主驾与前排内饰 stays. The colours of the 主驾与前排内饰 come from @image4, not from the other pictures. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\keyframes\\E-t1\\frame-1.jpg",
+    "ok": true,
+    "issue": ""
+   }
+  ],
+  "segments": [
+   {
+    "index": 0,
+    "start": 0,
+    "end": 5.75,
+    "genStart": 0,
+    "join": "start",
+    "scenes": [
+     "A",
+     "B"
+    ],
+    "images": [],
+    "tries": 0,
+    "status": "waiting"
+   },
+   {
+    "index": 1,
+    "start": 5.75,
+    "end": 11.5,
+    "genStart": 5.75,
+    "join": "hard",
+    "scenes": [
+     "C"
+    ],
+    "images": [],
+    "tries": 0,
+    "status": "waiting"
+   },
+   {
+    "index": 2,
+    "start": 11.5,
+    "end": 16.58,
+    "genStart": 11.5,
+    "join": "hard",
+    "scenes": [
+     "D",
+     "E"
+    ],
+    "images": [],
+    "tries": 0,
+    "status": "waiting"
+   },
+   {
+    "index": 3,
+    "start": 16.58,
+    "end": 20.33,
+    "genStart": 16.58,
+    "join": "hard",
+    "scenes": [
+     "B"
+    ],
+    "images": [],
+    "tries": 0,
+    "status": "waiting"
+   },
+   {
+    "index": 4,
+    "start": 20.33,
+    "end": 24.67,
+    "genStart": 20.33,
+    "join": "hard",
+    "scenes": [
+     "B"
+    ],
+    "images": [],
+    "tries": 0,
+    "status": "waiting"
+   },
+   {
+    "index": 5,
+    "start": 24.67,
+    "end": 30.84,
+    "genStart": 24.67,
+    "join": "hard",
+    "scenes": [
+     "C"
+    ],
+    "images": [],
+    "tries": 0,
+    "status": "waiting"
+   },
+   {
+    "index": 6,
+    "start": 30.84,
+    "end": 34.34,
+    "genStart": 30.84,
+    "join": "hard",
+    "scenes": [
+     "C"
+    ],
+    "images": [],
+    "tries": 0,
+    "status": "waiting"
+   }
+  ],
+  "plan": {
+   "by": "llm",
+   "subject": "The user's Li Auto i8, a large pearl-white SUV with a long rounded body, a gloss-black roof and window surround, dark rear privacy glass, flush body-colored door handles, black lower cladding, and large two-tone silver-and-dark aerodynamic wheels; use the supplied side-profile photograph as the exterior reference.",
+   "target": "The featured metallic silver-grey Firefly compact five-door hatchback, with a dark roof, black mirrors, short rounded proportions, a black front panel carrying a white Firefly emblem, three circular light elements on each side, dark wheels, and a cream-and-black cabin with a rounded rectangular steering wheel, a small driver display, and a landscape center touchscreen.",
+   "keep": "Preserve every shot's duration, cuts, framing, camera movement, action timing, driving trajectories, narrative order, locations, lighting, people, clothing, hands, phones, background vehicles, buildings, vegetation, and road furniture.",
+   "change": "Replace the featured Firefly car, including its visible exterior and cabin, with the user's pearl-white Li Auto i8 while preserving the original staging and motion, using supplied real i8 footage for demonstrated screen operations.",
+   "summary": "将原片中的银灰色萤火虫汽车及其内饰统一替换为你图中的珍珠白理想 i8，保留原片镜头、动作和节奏，补充车头与内饰素材，车机教程按你的实车操作适配。",
+   "views": [
+    "front view"
+   ],
+   "gaps": [
+    {
+     "view": "front view",
+     "label": "车头正面",
+     "at": 8.69,
+     "frame": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\review\\gap-0.jpg"
+    },
+    {
+     "kind": "part",
+     "view": "driver cockpit view",
+     "label": "主驾与前排内饰",
+     "at": 15.2,
+     "need": "请提供你的理想 i8 实车前排照片：打开主驾车门，从门外斜拍完整方向盘、中控台、屏幕、前排座椅和门框；再从驾驶员视角拍一张，覆盖方向盘、仪表区域、中控屏及前挡风玻璃，照片需能看清实际内饰颜色与结构。",
+     "fallback": "按理想 i8 的内饰结构近似重建，保留原镜头视角、手部动作和车外道路，内饰颜色与局部细节可能和你的实车有差异；屏幕不展示未经核实的具体菜单或功能状态。",
+     "shots": [
+      2,
+      6,
+      7,
+      8
+     ],
+     "frame": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\review\\gap-1.jpg",
+     "found": {
+      "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\scout\\web2.jpg",
+      "url": "https://global-img.bitauto.com/usercenter/autoalbum/20250805/354/w1200_yichecar_437865235425711.jpg.webp",
+      "page": "https://www.bitauto.com/zh-us/li/i8/image-58641-s1780-g7-a1-p0/",
+      "why": "理想 i8 同款内饰实拍，能清楚看到方向盘及其仪表屏、中控与副驾双联屏、前排座椅和中央杯架，浅色内饰结构完整，可作为主驾与前排内饰参考，机位为车内正面视角，与原片车门外斜拍略有不同。",
+      "label": "主驾与前排内饰"
+     }
+    }
+   ],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "珍珠白黑顶款",
+     "desc": "Pearl white with gloss black and silver accents",
+     "main": true,
+     "at": 8.69
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1
+     ],
+     "keyAt": 0.29,
+     "edit": "Replace the parked foreground Firefly with the pearl-white i8 in the same front three-quarter orientation, establishing its larger SUV proportions and correct front design while retaining the man approaching from the right, his phone, the background white vehicle, and the overcast plaza; preserve the indicator timing using the i8's actual lamp positions.",
+     "variant": "v1"
+    },
+    {
+     "id": "B",
+     "shots": [
+      2,
+      7,
+      8
+     ],
+     "keyAt": 17.14,
+     "edit": "Replace the visible driving cabin with the user's actual i8 cockpit, establishing the steering wheel, dashboard, screen placement, trim, driver clothing, and hand contact in one driver-eye composition; retain the windshield road view, traffic, sunlight, grip changes, and steering motion, with screen content sourced from verified i8 material.",
+     "variant": "v1"
+    },
+    {
+     "id": "C",
+     "shots": [
+      3,
+      4,
+      9,
+      10
+     ],
+     "keyAt": 8.69,
+     "edit": "Establish a clear frontal view of the pearl-white i8 driving on the sunny elevated highway, fixing its front identity, black roof, wheel design, larger body proportions, and visible driver; apply this identity to all frontal and side tracking views while preserving road geometry, barriers, traffic, vehicle paths, camera distances, wheel motion, reflections, and headlight timing through the i8's actual lamps.",
+     "variant": "v1"
+    },
+    {
+     "id": "D",
+     "shots": [
+      5
+     ],
+     "keyAt": 12.66,
+     "edit": "Replace the sunlit parked foreground Firefly with the pearl-white i8 in the same front three-quarter position beside the yellow road markings, retaining the foreground gesturing arm, its changing occlusion, the following parked car, building reflections, trees, and handheld camera movement.",
+     "variant": "v1"
+    },
+    {
+     "id": "E",
+     "shots": [
+      6
+     ],
+     "keyAt": 15.2,
+     "edit": "Replace the open-door Firefly cabin and visible body frame with the user's i8 front interior and pearl-white door surround, establishing the actual steering wheel, dashboard, screens, seat, console, and door-opening geometry while preserving the exterior viewpoint, slow camera movement, greenery, and daylight.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 1.92,
+     "change": true,
+     "scene": "A",
+     "note": "The car is parked in a front three-quarter view; a man holding a phone walks from the right across its nose toward the near-side front door, briefly occluding the body as the front indicators illuminate and return to white.",
+     "fit": "rough",
+     "why": "理想 i8 比原车大很多，且你提供的照片没有完整车头，人物经过车前时的遮挡和灯光细节需要重新匹配。"
+    },
+    {
+     "index": 2,
+     "start": 1.92,
+     "end": 5.75,
+     "change": true,
+     "scene": "B",
+     "note": "Driver-eye highway view with the steering wheel and dashboard filling the foreground; the right hand holds the lower-right rim while the left hand rests near the lap, with road traffic visible through the windshield.",
+     "fit": "rough",
+     "why": "你的照片只有车外侧面，方向盘、中控台和屏幕布局需要补充实车内饰参考。"
+    },
+    {
+     "index": 3,
+     "start": 5.75,
+     "end": 9.21,
+     "change": true,
+     "scene": "C",
+     "note": "The moving car is tracked from a low front three-quarter angle into an almost straight frontal view, with spinning wheels and the driver visible behind the windshield.",
+     "fit": "rough",
+     "why": "两辆车的车头和车身比例差别较大，需要补充理想 i8 车头照片才能更准确还原。"
+    },
+    {
+     "index": 4,
+     "start": 9.21,
+     "end": 11.5,
+     "change": true,
+     "scene": "C",
+     "note": "A wider parallel tracking shot shows the car moving along the highway in a front-side three-quarter view, with its side profile, rotating wheels, and driver visible.",
+     "fit": "rough",
+     "why": "侧面外观已有参考，但换成长车身 SUV 后，前脸、车轮运动和路面位置仍需重新匹配。"
+    },
+    {
+     "index": 5,
+     "start": 11.5,
+     "end": 13.83,
+     "change": true,
+     "scene": "D",
+     "note": "The car is stationary in a close front three-quarter view on a sunny roadside; a foreground hand presents and points toward its nose while another parked car remains directly behind it.",
+     "fit": "rough",
+     "why": "需要补全照片中看不清的车头，并让更大的车身与前景手势及后方车辆自然衔接。"
+    },
+    {
+     "index": 6,
+     "start": 13.83,
+     "end": 16.58,
+     "change": true,
+     "scene": "E",
+     "note": "The camera looks through the open front door and slowly shifts across the steering wheel, dashboard, center screen, front seat, and console, with no person inside.",
+     "fit": "rough",
+     "why": "原片展示了整套前排内饰，单凭你的外观照片无法准确确定这些部位的样子。"
+    },
+    {
+     "index": 7,
+     "start": 16.58,
+     "end": 20.33,
+     "change": true,
+     "scene": "B",
+     "note": "Driver-eye highway view with both hands holding the lower sides of the steering wheel as the car moves relative to lane markings and traffic; the dashboard and center screen remain visible.",
+     "fit": "rough",
+     "why": "行驶和握方向盘的画面可以保留，但理想 i8 的内饰与屏幕位置需要按实车重新匹配。"
+    },
+    {
+     "index": 8,
+     "start": 20.33,
+     "end": 24.67,
+     "change": true,
+     "scene": "B",
+     "note": "The driver maintains a two-handed lower-rim grip during highway travel; the steering wheel, instrument area, and center display stay in the foreground while vehicles remain ahead.",
+     "fit": "rough",
+     "why": "道路行驶画面能复刻，但你的照片没有内饰，方向盘和中控细节需要额外参考。"
+    },
+    {
+     "index": 9,
+     "start": 24.67,
+     "end": 30.840000000000003,
+     "change": true,
+     "scene": "C",
+     "note": "The moving car shifts from front three-quarter to frontal tracking views beside highway sound barriers; its front lights brighten during the sequence and the following camera distance changes.",
+     "fit": "rough",
+     "why": "可以复刻行驶、跟拍和亮灯时机，但理想 i8 的车头尺寸及灯组形状与原车不同。"
+    },
+    {
+     "index": 10,
+     "start": 30.84,
+     "end": 34.34,
+     "change": true,
+     "scene": "C",
+     "note": "The car approaches in a front three-quarter tracking view, grows large beside the camera, and moves into a closer side-biased view with spinning wheels; other traffic remains in the distant lanes.",
+     "fit": "rough",
+     "why": "更长的理想 i8 需要重新匹配靠近镜头时的车身透视、画面占比和车轮位置。"
+    }
+   ],
+   "dropText": true
+  },
+  "scout": {
+   "running": false,
+   "rounds": 3,
+   "viewed": 4,
+   "found": 1,
+   "stopped": "缺口 1 已选用 web2，暂无未找到的缺口。所选图片为车内正面视角，与原片从主驾门外斜拍的机位存在差异，但主驾与前排内饰结构清晰完整。",
+   "steps": [
+    {
+     "round": 1,
+     "seconds": 37,
+     "pics": [
+      {
+       "id": "web4",
+       "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\scout\\web4.jpg",
+       "url": "https://global-img.bitauto.com/usercenter/autoalbum/20250805/817/w1200_yichecar_437865481739017.jpg.webp",
+       "page": "https://www.bitauto.com/zh-us/li/i8/image-58641-s1780-g7-a1-p0/"
+      },
+      {
+       "id": "web3",
+       "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\scout\\web3.jpg",
+       "url": "https://global-img.bitauto.com/usercenter/autoalbum/20250805/583/w1200_yichecar_437865358376069.jpg.webp",
+       "page": "https://www.bitauto.com/zh-us/li/i8/image-58641-s1780-g7-a1-p0/"
+      },
+      {
+       "id": "web2",
+       "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\scout\\web2.jpg",
+       "url": "https://global-img.bitauto.com/usercenter/autoalbum/20250805/354/w1200_yichecar_437865235425711.jpg.webp",
+       "page": "https://www.bitauto.com/zh-us/li/i8/image-58641-s1780-g7-a1-p0/"
+      },
+      {
+       "id": "web1",
+       "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\scout\\web1.jpg",
+       "url": "https://global-img.bitauto.com/usercenter/autoalbum/20250805/253/w1200_yichecar_437865025362916.jpg.webp",
+       "page": "https://www.bitauto.com/zh-us/li/i8/image-58641-s1780-g7-a1-p0/"
+      }
+     ],
+     "picks": [],
+     "searches": [
+      "理想 i8 内饰 方向盘 主驾 实拍 汽车之家",
+      "理想 i8 内饰 图片 太平洋汽车"
+     ],
+     "said": "我会查找理想 i8 的主驾与前排内饰实拍，优先选从驾驶席车门外拍入、能看清方向盘和中控台的角度。"
+    },
+    {
+     "round": 2,
+     "seconds": 52,
+     "pics": [],
+     "picks": [
+      {
+       "gap": "主驾与前排内饰",
+       "id": "web2",
+       "why": "理想 i8 同款内饰实拍，能清楚看到方向盘及其仪表屏、中控与副驾双联屏、前排座椅和中央杯架，浅色内饰结构完整，可作为主驾与前排内饰参考，机位为车内正面视角，与原片车门外斜拍略有不同。"
+      }
+     ],
+     "searches": [],
+     "said": "web1 能看到完整前排，但机位较远；web2 清楚展示方向盘、仪表台、双联屏和中控台，适合补这个缺口，选用 web2。web3 仅有方向盘与仪表局部，web4 偏重主驾近景，两张都缺少完整前排结构。"
+    },
+    {
+     "round": 3,
+     "seconds": 68,
+     "pics": [],
+     "picks": [],
+     "searches": [],
+     "said": "web1 展示了完整前排，但机位较远；web2 能清楚看见方向盘、双联屏、中央台和座椅，已选用。web3 仅有仪表特写，web4 主要展示方向盘，两张都不足以覆盖前排整体。",
+     "finish": "缺口 1 已选用 web2，暂无未找到的缺口。所选图片为车内正面视角，与原片从主驾门外斜拍的机位存在差异，但主驾与前排内饰结构清晰完整。"
+    }
+   ]
+  },
+  "copy": [
+   {
+    "at": 0.3,
+    "from": "是不是很多萤火虫车主觉得",
+    "to": "测试保留输入",
+    "sure": true
+   },
+   {
+    "at": 14.2,
+    "from": "让你的萤火虫支驾舒适性",
+    "to": "让你的爱车在驾驶舒适性上",
+    "sure": false,
+    "why": "请用户确认车辆型号及相关设置对驾驶舒适性的实际影响。"
+   },
+   {
+    "at": 17.15,
+    "from": "这样车子就会自己打开转向灯",
+    "to": "具体转向灯逻辑要看车辆设置",
+    "sure": false,
+    "why": "请用户确认该车在相应辅助驾驶模式下是否会自动开启转向灯。"
+   },
+   {
+    "at": 20.95,
+    "from": "车辆不再保守",
+    "to": "留意车辆表现",
+    "sure": false,
+    "why": "请用户确认调整设置后车辆驾驶策略是否确实发生变化。"
+   },
+   {
+    "at": 22.55,
+    "from": "佛系超车提速逻辑",
+    "to": "看看超车提速表现",
+    "sure": false,
+    "why": "请用户确认该车相应模式下的超车和提速逻辑。"
+   },
+   {
+    "at": 24.05,
+    "from": "完全贴近老司机操作",
+    "to": "具体表现还要实际体验",
+    "sure": false,
+    "why": "请用户确认该车实际辅助驾驶表现是否支持这一评价。"
+   },
+   {
+    "at": 27.77,
+    "from": "从而来提醒前方车辆",
+    "to": "注意观察前方的车辆",
+    "sure": false,
+    "why": "请用户确认该车是否会在超车时通过灯光自动提醒前方车辆。"
+   },
+   {
+    "at": 31.36,
+    "from": "彻底解决提速慢不敢跑的问题",
+    "to": "调整之后再看看实际行驶表现",
+    "sure": false,
+    "why": "请用户确认相关设置对该车提速和行驶表现的实际效果。"
+   },
+   {
+    "at": 33.86,
+    "from": "通行效率直接拉满",
+    "to": "通行表现实际看看",
+    "sure": false,
+    "why": "请用户确认调整设置后该车通行效率的实际变化。"
+   }
+  ],
+  "variantAssets": [],
+  "partRefs": [
+   {
+    "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\scout\\web2.jpg",
+    "label": "主驾与前排内饰",
+    "scenes": [
+     "B",
+     "E"
+    ],
+    "web": true
+   }
+  ],
+  "fullSource": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\source.mp4",
+  "sheet": {
+   "views": [
+    "front view"
+   ],
+   "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\assets\\sheet-t1\\frame-1.jpg",
+   "ok": true,
+   "issue": ""
+  }
+ },
+ "pid": 38824,
+ "engine": {
+  "image": "模拟预览图",
+  "video": "模拟视频编辑",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "补全素材",
+   "at": 1793941470512
+  },
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "关键画面 A",
+   "at": 1793941473534
+  },
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "关键画面 B",
+   "at": 1793941475239
+  },
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "关键画面 C",
+   "at": 1793941475248
+  },
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "关键画面 D",
+   "at": 1793941475257
+  },
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "关键画面 E",
+   "at": 1793941475266
+  }
+ ],
+ "error": "Error: Command failed: ffmpeg -nostdin -v error -y -i E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\source-cut.mp4 -vf trim=start_frame=0:end_frame=138,setpts=PTS-STARTPTS -af atrim=start=0:end=5.75,asetpts=PTS-STARTPTS -c:v libx264 -crf 17 -pix_fmt yuv420p -c:a aac E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-15de73\\segments\\seg0-src.mp4\n"
+}

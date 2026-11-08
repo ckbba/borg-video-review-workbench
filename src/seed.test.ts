@@ -15,4 +15,12 @@ describe('seed project', () => {
     expect(p.promptVersions[0].passages.map(x=>x.start)).toEqual([0,30,60,90]);
     expect(p.sessionId).toContain('local-caf1e85');
   });
+  it('adds V2 as a separate prompt-bound recreation', () => {
+    const p=createSeedProject(['0-2 first','0-3 second','0-4 third','0-5 fourth'],'【U01-A】\n0-2秒：V2镜头');
+    const v2=p.recreations.find(x=>x.id==='fold8-recreation-full-v2')!;
+    expect(v2.promptVersion).toBe(2);
+    expect(v2.url).toBe('/media/aero-hound-v2-full.mp4');
+    expect(p.promptVersions[1].passages.map(x=>x.text)).toEqual(['V2镜头']);
+    expect(p.recreations.find(x=>x.id==='fold8-recreation-edit-r1')?.promptVersion).toBe(0);
+  });
 });

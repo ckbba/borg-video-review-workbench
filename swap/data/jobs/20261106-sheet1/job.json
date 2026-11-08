@@ -1,0 +1,187 @@
+{
+ "id": "20261106-sheet1",
+ "templateId": "replica",
+ "created": 1793894925364,
+ "stage": "done",
+ "message": "补全素材：生成预览图（image-2.5-flare）…",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\upload-1.png",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "00:53:04 补全素材：补 outer side view、inner side view、back view、top view",
+  "00:53:04 补全素材：生成预览图（image-2.5-flare）…",
+  "00:54:52 补全素材：生成预览图（image-2.5-flare）…"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "done",
+   "startedAt": 1793894925367,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\final.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\compare.mp4",
+   "endedAt": 1793895768636,
+   "check": {
+    "pass": false,
+    "trimTail": 0,
+    "summary": "有 1 段修复后仍有小问题，详情在完整链路里"
+   }
+  },
+  {
+   "id": "anime",
+   "label": "动画风",
+   "status": "done",
+   "preset": "anime",
+   "startedAt": 1793895768637,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\style-anime\\final.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\style-anime\\compare.mp4",
+   "endedAt": 1793895857367
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\source.mp4",
+  "prompt": "把她脚上的白色运动鞋换成我图里这双安踏 C202 6代 PRO 跑鞋，鞋带照原片系，手、袜子、地毯都不变",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-sheet1\\upload-1.png"
+  ],
+  "shapeRefs": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-sheet1\\shape-1.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-sheet1\\shape-2.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-sheet1\\shape-3.jpeg"
+  ],
+  "voiceOn": false,
+  "styles": [
+   "anime"
+  ],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "11.8 秒，1 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "1/1 个镜头要改，1 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "done",
+    "note": "补出来的图和原图不够一致，没用它，只用你的原图"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "1 张，1 张重做后仍有小问题"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "done",
+    "note": "1 段"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "done",
+    "note": "修了 1/1 段"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "done"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "skipped",
+    "note": "这次保留原声"
+   }
+  ],
+  "keyframes": [],
+  "segments": [],
+  "plan": {
+   "by": "llm",
+   "subject": "ANTA C202 6th Generation PRO running shoe with a light grey-white textured mesh upper, fine cyan-blue lines and a large cyan-blue lateral ANTA logo, white laces, a sculpted white midsole, vivid coral-orange and pale orange cushioning, and a black exposed section under the arch.",
+   "target": "The white Adidas running shoe worn on the woman's foot, with a white mesh upper, three black side stripes, a black Adidas tongue logo, grey collar lining, white laces, a thick white sole, and a black toe outsole patch.",
+   "keep": "Preserve the woman's hands, legs, white socks and their black logos, beige carpet, background, lighting, framing, camera movement, editing, timing, foot movements, hand gestures, and original lace-tying sequence.",
+   "change": "Replace only the shoe on her foot with the reference ANTA C202 6th Generation PRO running shoe, preserving its reference design and colors while making its white laces follow the original threading, hand interactions, tightening, and final bow.",
+   "summary": "仅将她脚上的白色运动鞋替换为参考图中的安踏 C202 6代 PRO 跑鞋，保留参考鞋配色，鞋带按原片过程系好，手、袜子、地毯及全部镜头动作和节奏保持不变。",
+   "views": [
+    "outer side view",
+    "inner side view",
+    "back view",
+    "top view"
+   ],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "灰白青蓝橙色款",
+     "desc": "Light grey-white with cyan-blue, coral-orange, pale orange, and black accents",
+     "main": true,
+     "at": 1.77
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1
+     ],
+     "keyAt": 1.77,
+     "edit": "Replace the shoe in the clear overhead frontal frame with the reference ANTA running shoe, matching the existing foot position, scale, perspective, and carpet contact. Show the grey-white mesh, cyan-blue detailing, sculpted white midsole, and orange cushioning wherever visible from this angle. Keep the original hands holding the white lace ends, preserve their occlusion and contact with the laces, and retain the sock, leg, carpet, and composition. Maintain the same shoe design throughout the subsequent bow tying and foot rotation.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 11.77,
+     "change": true,
+     "scene": "A",
+     "note": "A continuous close-up begins with the shoe viewed from above and the toe pointing toward the bottom of the frame as both hands pull and tie its laces. The finished bow rests over the tongue while a hand gestures over the toe. The foot then rotates into a three-quarter side view, exposing the side panel and heel while a hand points beside the shoe; the sock and carpet remain visible throughout."
+    }
+   ],
+   "dropText": false
+  },
+  "sheet": {
+   "views": [
+    "outer side view",
+    "inner side view",
+    "back view",
+    "top view"
+   ],
+   "ok": false,
+   "issue": "1）outer side view（左上）：蓝色线条的数量、交汇位置和中足网状图案被重新设计，与原图的走向及覆盖范围不一致；后跟灰黑色安踏标志的轮廓和角度也有偏差。原图外底侧面可见的黑色小字标识被遗漏。2）inner side view（左下）：没有直接展示该侧完整细节的实拍依据，却补出了密集斜向编织条纹、分区纹理及中底前掌长梭形凹面，这些具体细节缺少依据，应简化。保持内侧无外侧蓝色图案是合理的，不应再镜像添加。3）back view（中间）：参考实拍后跟中央渐变竖带上有白色文字，设定图将其全部删去；底部两块黑色橡胶的形状、覆盖范围及表面纹理与实拍不一致，新增了规则凸点。后跟竖带顶部呈紫色，但侧视和俯视中的后跟顶部呈粉色，视图间配色不统一。4）top view（右侧）：外侧蓝色图案向鞋头延伸的路线、分叉及粗细与参考中可见的图案不一致；鞋舌增加了完整的安踏标志加C202组合，原图只露出部分字样，其他参考也未证实这一完整组合，属于擅自补全。5）四个所需视角均已包含，未见额外说明文字或明显肢体式畸形，但上述图案、纹理及跨视图一致性问题导致不通过。"
+  }
+ },
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "e88fcc1f-8c2f-46eb-ab99-41f25ca85248",
+   "yuan": 0.1,
+   "step": "补全素材",
+   "at": 1793897645791
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "31d83c65-63f1-4547-87bd-8d8c42228712",
+   "yuan": 0.1,
+   "step": "补全素材",
+   "at": 1793897767827
+  }
+ ]
+}

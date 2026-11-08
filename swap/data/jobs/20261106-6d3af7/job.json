@@ -1,0 +1,431 @@
+{
+ "id": "20261106-6d3af7",
+ "templateId": "replica",
+ "created": 1793956411708,
+ "stage": "done",
+ "message": "完成",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-1.jpeg",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "17:13:31 看懂原片",
+  "17:13:36 制定方案",
+  "17:22:21 给每个场景挑图（3 张）",
+  "17:23:09 素材提醒：照片3的衣身和袖子较照片1、2明显偏浅、偏蓝，可能受拍摄光线影响，不宜作为主色依据，故不排第一；其领口被吊牌部分遮挡，袖口拇指开口未清楚展示；三张照片均缺少独立侧面视角。",
+  "17:23:09 制作关键画面：1 张",
+  "17:23:09 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "17:24:57 制作关键画面：一起验收",
+  "17:26:03 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "17:28:02 制作关键画面：第 2 次验收",
+  "17:29:21 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "17:31:17 生成视频：2 段同时生成",
+  "17:31:45 第 1/2 段：已提交视频任务 5042bca6-ee83-40a3-aa3d-62e97183ff82",
+  "17:31:48 第 1/2 段：生成中…（submitted）",
+  "17:31:58 第 2/2 段：已提交视频任务 c2fadaaa-9f25-4bd6-a3f8-6fe5a1dd200b",
+  "17:32:02 第 2/2 段：生成中…（processing 10%）",
+  "17:34:24 检查修复：检查动作、外观和接缝",
+  "17:34:24 检查修复：重做 2 段",
+  "17:35:12 第 2/2 段：已提交视频任务 8b015417-62ff-4a29-9528-75438113b157",
+  "17:35:16 第 2/2 段：生成中…（processing 10%）",
+  "17:35:25 第 1/2 段：已提交视频任务 25e98d95-7ed7-4d82-8185-ea0c43e00df8",
+  "17:35:27 第 1/2 段：生成中…（submitted）",
+  "17:36:29 第 2/2 段：生成中…（processing 10%）",
+  "17:37:51 合成成片",
+  "17:38:02 配音和字幕",
+  "17:38:02 配音和字幕：听写原片口播",
+  "17:38:27 配音和字幕：改写文案",
+  "17:38:33 配音和字幕：配音 1 句",
+  "17:38:44 配音和字幕：完成"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "done",
+   "startedAt": 1793956411710,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\voiced-1793957917566.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\compare.mp4",
+   "endedAt": 1793957937066,
+   "check": {
+    "pass": false,
+    "trimTail": 0,
+    "summary": "有 2 段修复后仍有小问题，详情在完整链路里"
+   }
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\source.mp4",
+  "prompt": "",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-1.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-2.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-3.jpeg"
+  ],
+  "shapeRefs": [],
+  "scoutOn": false,
+  "voiceOn": true,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "15.1 秒，9 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "9/9 个镜头要改，1 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "skipped",
+    "note": "你的图已经够用"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "1 张，1 张重做后仍有小问题"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "done",
+    "note": "2 段"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "done",
+    "note": "修了 2/2 段"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "done"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "done"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 13.53,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Use the frontal stadium portrait to establish the original athlete wearing the user's navy PSG top, with the full torso, collar, sleeves, cuffs, and hem visible in the original composition and sunlight; accurately place the white swoosh, PSG crest, and QATAR AIRWAYS lettering, replace the quilted chest with the reference fabric texture, and establish the blue shoulder accents and grey sleeves for consistent movement and detail shots; use the supplied rear reference to maintain the plain navy back.. The new A fitted PSG football training top with a dark navy body, textured slate-grey raglan sleeves, royal-blue shoulder and collar accents, a short front zipper, a stand collar, and extended cuffs with thumb openings; white Nike swoosh on the wearer's right chest, PSG crest on the left chest, and large white QATAR AIRWAYS lettering across the front; plain navy back with a small lower-back mark. must look exactly like @image2 and @image3 and @image4: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The male athlete's KELME long-sleeve quarter-zip training top, with a white torso and back, slate-grey raglan sleeves and outer collar, a white stand-collar front, a large rounded white chest panel with wave-shaped quilting, and black KELME paw logos on the upper sleeves. in @image1. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Reproduce the PSG crest faithfully from the supplied close-up reference, including the correct PARIS and SAINT-GERMAIN lettering, Eiffel Tower, and lower emblem, with natural detail at the final image resolution. Remove the added bright-blue binding around both thumb openings and match the reference's slate-grey extended cuffs and dark thumb-opening construction. Preserve the original athlete, hands, trousers, framing, stadium, goal, and lighting.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\keyframes\\A-t3\\frame-1.png",
+    "ok": false,
+    "issue": "左胸PSG队徽的下弧文字已变成乱码，内部细节与参考实拍图不一致；两侧拇指孔边缘新增了明显的亮蓝色包边，参考图对应位置为灰袖延伸的深色袖口结构。其余主体配色、胸前标识布局、人物姿态及球场构图基本一致。"
+   }
+  ],
+  "segments": [
+   {
+    "index": 0,
+    "start": 0,
+    "end": 7.25,
+    "genStart": 0,
+    "join": "start",
+    "scenes": [
+     "A"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\keyframes\\A-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-1.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-2.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-3.jpeg"
+    ],
+    "tries": 2,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the original athlete's identity, face, hair, body, trousers, footwear, stadium, grass, goal, lighting, framing, camera movement, actions, hand interactions, shot order, cuts, pacing, and narrative.. Change only this: Replace only the athlete's KELME training top with the user's PSG top, preserving the reference garment's colors, fitted cut, textured fabric, shoulder panels, collar, zipper, cuffs, chest logos, and sponsor lettering throughout every shot.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-2.75s: match @image1, colours Dark navy with slate-grey sleeves, royal-blue accents, and white details. 2.75-4.79s: match @image1, colours Dark navy with slate-grey sleeves, royal-blue accents, and white details. 4.79-7.25s: match @image1, colours Dark navy with slate-grey sleeves, royal-blue accents, and white details. @image2 and @image3 and @image4 show A fitted PSG football training top with a dark navy body, textured slate-grey raglan sleeves, royal-blue shoulder and collar accents, a short front zipper, a stand collar, and extended cuffs with thumb openings; white Nike swoosh on the wearer's right chest, PSG crest on the left chest, and large white QATAR AIRWAYS lettering across the front; plain navy back with a small lower-back mark.: the same design in every frame, from every angle. Fix: Match the reference PSG crest with an accurate circular outline, legible lettering, and intact internal details. Preserve the dark navy body, textured slate-grey raglan sleeves, royal-blue shoulder and collar accents, short front zipper, and white chest graphics. Restore the reference framing so the Remove all captions, subtitles and decorative titles of @video1 from every frame. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\segments\\seg0-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\segments\\seg0-t2-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变"
+    },
+    "repaired": true
+   },
+   {
+    "index": 1,
+    "start": 7.25,
+    "end": 15.09,
+    "genStart": 7.25,
+    "join": "hard",
+    "scenes": [
+     "A"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\keyframes\\A-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-1.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-2.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-3.jpeg"
+    ],
+    "tries": 2,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the original athlete's identity, face, hair, body, trousers, footwear, stadium, grass, goal, lighting, framing, camera movement, actions, hand interactions, shot order, cuts, pacing, and narrative.. Change only this: Replace only the athlete's KELME training top with the user's PSG top, preserving the reference garment's colors, fitted cut, textured fabric, shoulder panels, collar, zipper, cuffs, chest logos, and sponsor lettering throughout every shot.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-1.33s: match @image1, colours Dark navy with slate-grey sleeves, royal-blue accents, and white details. 1.33-2.17s: match @image1, colours Dark navy with slate-grey sleeves, royal-blue accents, and white details. 2.17-3.00s: match @image1, colours Dark navy with slate-grey sleeves, royal-blue accents, and white details. 3.00-3.83s: match @image1, colours Dark navy with slate-grey sleeves, royal-blue accents, and white details. 3.83-4.71s: match @image1, colours Dark navy with slate-grey sleeves, royal-blue accents, and white details. 4.71-7.84s: match @image1, colours Dark navy with slate-grey sleeves, royal-blue accents, and white details. @image2 and @image3 and @image4 show A fitted PSG football training top with a dark navy body, textured slate-grey raglan sleeves, royal-blue shoulder and collar accents, a short front zipper, a stand collar, and extended cuffs with thumb openings; white Nike swoosh on the wearer's right chest, PSG crest on the left chest, and large white QATAR AIRWAYS lettering across the front; plain navy back with a small lower-back mark.: the same design in every frame, from every angle. Fix: Match the reference top's visible vertical knit texture on the dark navy torso and textured slate-grey raglan sleeves. Restore extended cuffs that cover the base of each hand, with anatomically correct thumb openings and thumbs passing through them. Render the PSG crest clearly and accurately. Prese Remove all captions, subtitles and decorative titles of @video1 from every frame. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\segments\\seg1-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\segments\\seg1-t2-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变；外观：整体深海军蓝衣身、灰色插肩袖、宝蓝肩领拼接及白色胸前标识基本匹配，立领和短拉链保留。但衣身的纵向织纹明显弱化，接近光滑面料；PSG队徽细节模糊、内部图案失真；袖口未呈现目标图中包覆手背的延长结构和清晰拇指孔，生成帧中袖口停在腕部附近。未见明显肢体畸形或原服装残留；单帧无法确认有无闪回，背面亦无法验收。人物姿态和镜头构图不同，无法仅凭这组图判定是否属于误改。"
+    },
+    "repaired": true
+   }
+  ],
+  "plan": {
+   "by": "llm",
+   "subject": "A fitted PSG football training top with a dark navy body, textured slate-grey raglan sleeves, royal-blue shoulder and collar accents, a short front zipper, a stand collar, and extended cuffs with thumb openings; white Nike swoosh on the wearer's right chest, PSG crest on the left chest, and large white QATAR AIRWAYS lettering across the front; plain navy back with a small lower-back mark.",
+   "target": "The male athlete's KELME long-sleeve quarter-zip training top, with a white torso and back, slate-grey raglan sleeves and outer collar, a white stand-collar front, a large rounded white chest panel with wave-shaped quilting, and black KELME paw logos on the upper sleeves.",
+   "keep": "Preserve the original athlete's identity, face, hair, body, trousers, footwear, stadium, grass, goal, lighting, framing, camera movement, actions, hand interactions, shot order, cuts, pacing, and narrative.",
+   "change": "Replace only the athlete's KELME training top with the user's PSG top, preserving the reference garment's colors, fitted cut, textured fabric, shoulder panels, collar, zipper, cuffs, chest logos, and sponsor lettering throughout every shot.",
+   "summary": "仅将主角的灰白 KELME 上衣替换为用户图中的深海军蓝 PSG 训练上衣，保留原人物、裤装、球场以及全部镜头、动作和节奏。",
+   "views": [],
+   "gaps": [],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "深海军蓝拼灰袖款",
+     "desc": "Dark navy with slate-grey sleeves, royal-blue accents, and white details",
+     "main": true,
+     "at": 13.53
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+     ],
+     "keyAt": 13.53,
+     "edit": "Use the frontal stadium portrait to establish the original athlete wearing the user's navy PSG top, with the full torso, collar, sleeves, cuffs, and hem visible in the original composition and sunlight; accurately place the white swoosh, PSG crest, and QATAR AIRWAYS lettering, replace the quilted chest with the reference fabric texture, and establish the blue shoulder accents and grey sleeves for consistent movement and detail shots; use the supplied rear reference to maintain the plain navy back.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 2.75,
+     "change": true,
+     "scene": "A",
+     "note": "Front-facing upright portrait with arms relaxed beside the body; the framing moves from a torso-dominant view toward the face and chest, keeping the zipped collar and front garment surface clearly visible.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 2,
+     "start": 2.75,
+     "end": 4.79,
+     "change": true,
+     "scene": "A",
+     "note": "Three-quarter front view during a torso rotation and sweeping arm warm-up; one sleeve passes across and partly obscures the chest while the other arm extends behind, with natural fabric tension at the shoulders and waist.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 3,
+     "start": 4.79,
+     "end": 7.25,
+     "change": true,
+     "scene": "A",
+     "note": "Rear view facing the goal; bent arms move near the waist before lowering to the sides, showing the back panel, rear collar, shoulder seams, sleeves, and hem above the unchanged trousers.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 4,
+     "start": 7.25,
+     "end": 8.58,
+     "change": true,
+     "scene": "A",
+     "note": "Front three-quarter jogging view with elbows bent and hands alternating beside the lower chest and waist; the top moves with the torso and forms shifting folds around the abdomen and elbows.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 5,
+     "start": 8.58,
+     "end": 9.42,
+     "change": true,
+     "scene": "A",
+     "note": "Close three-quarter view of the neck and upper torso; the athlete's raised hand grips and adjusts the short zipper at the stand collar, partially covering the zipper and upper chest.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 6,
+     "start": 9.42,
+     "end": 10.25,
+     "change": true,
+     "scene": "A",
+     "note": "Cropped front torso view; one hand releases the collar area while the other pinches and pulls the lower hem beside the hip, stretching the front fabric above the unchanged trouser waistband.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 7,
+     "start": 10.25,
+     "end": 11.08,
+     "change": true,
+     "scene": "A",
+     "note": "Tight frontal detail of the stand collar, short zipper, and chest with no hands present; the replacement's textured navy fabric and chest graphics occupy the area originally covered by the white quilted panel.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 8,
+     "start": 11.08,
+     "end": 11.96,
+     "change": true,
+     "scene": "A",
+     "note": "Close three-quarter crop showing the lower face, collar, chest, and wearer's left shoulder and upper sleeve; the arm hangs down, exposing the sleeve surface and shoulder construction.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 9,
+     "start": 11.96,
+     "end": 15.09,
+     "change": true,
+     "scene": "A",
+     "note": "Centered frontal standing portrait with arms relaxed and hands beside the hips; the framing gradually tightens, prominently displaying the collar, chest graphics, grey sleeves, blue shoulder accents, and navy torso.",
+     "fit": "good",
+     "why": ""
+    }
+   ],
+   "dropText": true
+  },
+  "copy": [
+   {
+    "at": 0.4,
+    "from": "KELME",
+    "to": "改成NIKE",
+    "sure": true
+   }
+  ],
+  "variantAssets": [],
+  "photoPicks": {
+   "photos": [
+    {
+     "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-1.jpeg",
+     "view": "正面全身",
+     "note": "可见上衣完整穿着轮廓、胸前标识、肩部配色及带拇指开口的加长袖口。"
+    },
+    {
+     "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-2.jpeg",
+     "view": "背面全身",
+     "note": "清楚展示纯藏蓝背片、蓝色后领、灰色衣袖及下背部小标识。"
+    },
+    {
+     "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-3.jpeg",
+     "view": "正面平铺",
+     "note": "胸前标识和面料纹理最清晰，但领口被吊牌部分遮挡，整体颜色明显比前两张浅。"
+    }
+   ],
+   "scenes": {
+    "A": {
+     "files": [
+      "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-1.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-2.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\upload-3.jpeg"
+     ],
+     "why": "照片1优先提供正面穿着整体、立领和袖口参考，照片2对应后背镜头，照片3补充胸前标识、肩袖拼接及面料纹理细节。"
+    }
+   },
+   "issue": "照片3的衣身和袖子较照片1、2明显偏浅、偏蓝，可能受拍摄光线影响，不宜作为主色依据，故不排第一；其领口被吊牌部分遮挡，袖口拇指开口未清楚展示；三张照片均缺少独立侧面视角。"
+  },
+  "picture": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-6d3af7\\final.mp4",
+  "voice": {
+   "status": "done",
+   "lines": [
+    {
+     "start": 0,
+     "end": 15,
+     "from": "请点赞 订阅 转发 打赏 打赏 打赏",
+     "to": "请点赞 订阅 转发 打赏 打赏 打赏"
+    }
+   ],
+   "by": "zh-CN-XiaoxiaoNeural"
+  }
+ },
+ "pid": 78484,
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "2389a623-781b-4188-9664-d21f8299a9d6",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1793957094331
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "08d6506a-c20c-4998-b0a1-19ff4a06f867",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1793957278932
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "299b3476-68ff-40db-94b0-49492c769c2f",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1793957474597
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "8 秒 480p · 4 张参考图",
+   "taskId": "5042bca6-ee83-40a3-aa3d-62e97183ff82",
+   "yuan": 6.32,
+   "step": "第 1/2 段",
+   "at": 1793957581488
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "8 秒 480p · 4 张参考图",
+   "taskId": "c2fadaaa-9f25-4bd6-a3f8-6fe5a1dd200b",
+   "yuan": 6.54,
+   "step": "第 2/2 段",
+   "at": 1793957600481
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "8 秒 480p · 4 张参考图",
+   "taskId": "25e98d95-7ed7-4d82-8185-ea0c43e00df8",
+   "yuan": 6.32,
+   "step": "第 1/2 段 · 修复",
+   "at": 1793957799817
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "8 秒 480p · 4 张参考图",
+   "taskId": "8b015417-62ff-4a29-9528-75438113b157",
+   "yuan": 6.54,
+   "step": "第 2/2 段 · 修复",
+   "at": 1793957807418
+  }
+ ]
+}

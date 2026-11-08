@@ -1,0 +1,66 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "swap-test",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "vite",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "5180",
+        "--strictPort"
+      ],
+      "port": 5180
+    },
+    {
+      "name": "swap-minimax",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "swap/scripts/dev.mjs",
+        "borg",
+        "minimax-h3-max",
+        "5182",
+        "image-2.5-flare",
+        "480p"
+      ],
+      "port": 5182
+    },
+    {
+      "name": "swap-seedance",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "swap/scripts/dev.mjs",
+        "borg",
+        "seedance-2.5",
+        "5183",
+        "image-2.5-flare",
+        "480p"
+      ],
+      "port": 5183
+    },
+    {
+      "name": "swap-minimax-480",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "swap/scripts/dev.mjs",
+        "borg",
+        "minimax-h3-max",
+        "5185",
+        "image-2.5-flare",
+        "480p"
+      ],
+      "port": 5185
+    },
+    {
+      "name": "swap-live-5185",
+      "runtimeExecutable": "C:\\Program Files\\Git\\usr\\bin\\bash.exe",
+      "runtimeArgs": [
+        "-lc",
+        "cd \"$OLDPWD\" 2>/dev/null; . ~/.bash_profile; cd \"/e/模型视频分析提示词复刻还原\"; node swap/scripts/dev.mjs borg minimax-h3-max 5185 image-2.5-flare 480p"
+      ],
+      "port": 5185
+    }
+  ]
+}

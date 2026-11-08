@@ -1,0 +1,537 @@
+{
+ "id": "20261106-b48917",
+ "templateId": "replica",
+ "created": 1793938514037,
+ "stage": "slots",
+ "message": "开始前确认",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-b4bcf9\\85b207be11f94970.jpeg",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "12:15:14 看懂原片",
+  "12:17:13 视频超过 60 秒，只处理前 60 秒",
+  "12:17:31 制定方案",
+  "12:19:00 素材员开始联网找图",
+  "12:19:55 素材员看了 4 张图",
+  "12:20:50 素材员看了 5 张图",
+  "12:21:33 素材员结束：找到 0/1 项（缺口1（主驾及前排内饰）未找到合格图片：已查看的5张中，web1是副驾视角，web2方向盘与中控被伪装布大面积遮挡，web3主要展示后排，web4和web5仅展示中控屏特写，均无法清楚呈现原片所需的完整方向盘、主驾座椅及前排布局。补查图库页面未能取得可查看的新图片，故不选用，请用户补充理想i8打开主驾车门、从门外斜拍方向盘和前排座椅的实拍图。）"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "running",
+   "startedAt": 1793938514040
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-b48917\\source.mp4",
+  "prompt": "把原片里的萤火虫汽车换成我的理想 i8",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-b4bcf9\\85b207be11f94970.jpeg"
+  ],
+  "shapeRefs": [],
+  "productId": "p-20261106-b4bcf9",
+  "productNotes": [],
+  "productName": "理想 i8",
+  "knownWeb": [],
+  "scoutOn": true,
+  "voiceOn": true,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "60.0 秒，15 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "15/15 个镜头要改，6 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "waiting"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "waiting"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "waiting"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "waiting"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "waiting"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "waiting"
+   }
+  ],
+  "keyframes": [],
+  "segments": [],
+  "plan": {
+   "by": "llm",
+   "subject": "The user's Li Auto i8, a large pearl-white SUV with a long rounded body, a black roof and pillars, dark rear glazing, flush door handles, black lower trim, large silver-and-dark aerodynamic wheels, a slim rear light strip, and vertically arranged front corner lamps, matching the supplied side-profile photograph.",
+   "target": "The featured metallic silver-grey Firefly compact five-door hatchback, with a dark roof, black mirrors, dark wheels, a black front fascia with a central white emblem, three circular lamps at each front corner, and a cream-and-black cabin with a rounded rectangular steering wheel, a small driver display, and a landscape center touchscreen.",
+   "keep": "Preserve every shot's duration, cut, framing, camera movement, action timing, driving trajectory, setting, lighting, presenter, hands, clothing, personal items, surrounding vehicles, and narrative order.",
+   "change": "Replace the featured Firefly car throughout all exterior, cabin, and touchscreen shots with the user's pearl-white Li Auto i8, using supplied references and authentic footage for its actual interior and screen operations.",
+   "summary": "将全片萤火虫汽车的外观和座舱替换为图中的珍珠白理想 i8，保留原片镜头、动作与节奏，车机教学需补充实车操作视频，无法对应的步骤改为同长度展示并同步调整文案。",
+   "views": [
+    "front view"
+   ],
+   "gaps": [
+    {
+     "view": "front view",
+     "label": "车头正面",
+     "at": 8.69,
+     "frame": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-b48917\\review\\gap-0.jpg"
+    },
+    {
+     "kind": "part",
+     "view": "driver cockpit view",
+     "label": "主驾及前排内饰",
+     "at": 15.2,
+     "need": "请提供这辆理想 i8 的真实前排内饰照片：从打开的主驾门外拍一张，完整包含方向盘、中控台、座椅和门板；再从驾驶员眼睛位置拍一张，包含方向盘、前挡风玻璃和中控屏，拍清实际配色、屏幕布局及方向盘标识。",
+     "fallback": "按已确认的理想 i8 座舱资料近似还原原镜位与手部动作，内饰细节无法保证与这辆实车完全一致，屏幕不展示未经核实的设置步骤。",
+     "shots": [
+      2,
+      6,
+      8,
+      10
+     ],
+     "frame": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-b48917\\review\\gap-1.jpg"
+    },
+    {
+     "kind": "screen",
+     "view": "center touchscreen operation",
+     "label": "辅助驾驶设置实拍",
+     "at": 22.1,
+     "need": "请在停车状态下，固定机位正对这辆理想 i8 的中控屏，从第一步开始连续拍一条清晰视频，包含手指、完整屏幕和每次点击后的结果；按原片顺序核对并演示：进入辅助驾驶页面、选择领航辅助模式、设置变道确认方式、选择通行效率优先、开启智能灯光提醒、下滑进入限速设置并选择百分比及调整至百分之十、最后开启辅助驾驶提示灯；菜单路径或名称不同就按实车实际操作拍，没有的选项请说明，不要用其他功能冒充。",
+     "fallback": "在各操作镜头原有时长内改为理想 i8 真实屏幕或座舱的静态展示，去掉逐项点击和滑动教学，字幕及口播同步删除未经实车证实的菜单名、步骤、百分之十参数及对应效果承诺，改为以实车支持的功能为准。",
+     "shots": [
+      7,
+      9,
+      11,
+      13,
+      15
+     ],
+     "frame": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-b48917\\review\\gap-2.jpg"
+    }
+   ],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "珍珠白黑顶款",
+     "desc": "Pearl white with black roof and silver-and-dark wheels",
+     "main": true,
+     "at": 0.29
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1
+     ],
+     "keyAt": 0.29,
+     "edit": "Replace the parked foreground hatchback with the pearl-white Li Auto i8 in the same front three-quarter orientation, grounding its larger SUV proportions on the pavement and preserving the presenter's crossing path, phone, background car, railing, trees, and overcast reflections; translate the timed lamp flashes to the i8's actual indicator locations.",
+     "variant": "v1"
+    },
+    {
+     "id": "B",
+     "shots": [
+      2,
+      8,
+      10
+     ],
+     "keyAt": 28.19,
+     "edit": "Establish the actual i8 cockpit from the same driver-eye viewpoint, including its steering wheel, dashboard, visible displays, door trim, windshield framing, and the driver's hands and lap, preserving the highway view and changing hand positions across shots without inventing screen functions.",
+     "variant": "v1"
+    },
+    {
+     "id": "C",
+     "shots": [
+      3,
+      4,
+      12,
+      14
+     ],
+     "keyAt": 8.69,
+     "edit": "Establish the pearl-white i8 in a clear frontal highway tracking frame with its authentic front fascia, lamps, black roof, SUV proportions, wheels, and visible driver, then carry that identity through all frontal and oblique passes while preserving road geometry, lane trajectories, tracking distance changes, wheel rotation, daylight, shadows, and motion blur.",
+     "variant": "v1"
+    },
+    {
+     "id": "D",
+     "shots": [
+      5
+     ],
+     "keyAt": 12.66,
+     "edit": "Replace only the featured parked hatchback with the pearl-white i8 in the same front three-quarter placement beside the yellow road markings, preserving warm sunlight, building reflections, the foreground pointing hand, and the separate car behind it.",
+     "variant": "v1"
+    },
+    {
+     "id": "E",
+     "shots": [
+      6
+     ],
+     "keyAt": 15.2,
+     "edit": "Replace the open-door cabin with the user's actual i8 front interior, showing its real steering wheel, dashboard, center display, seat, door opening, and console within the original camera sweep, preserving outdoor greenery and daylight.",
+     "variant": "v1"
+    },
+    {
+     "id": "F",
+     "shots": [
+      7,
+      9,
+      11,
+      13,
+      15
+     ],
+     "keyAt": 58.37,
+     "edit": "Establish the actual i8 center display and surrounding dashboard from the parked passenger-side filming position, retaining the outdoor columns, greenery, and demonstrator's hand; use authentic i8 operation footage for every readable interface and touch response, adapting finger destinations to real controls while preserving shot timing.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 1.92,
+     "change": true,
+     "scene": "A",
+     "note": "The car is parked in front three-quarter view as a man holding a phone walks from right to left across its nose toward the driver's side; the front indicators flash and return to their resting state.",
+     "fit": "rough",
+     "why": "理想 i8 比原车大很多，车头造型和灯的位置也不同，需要重新匹配人物经过车前的遮挡关系。"
+    },
+    {
+     "index": 2,
+     "start": 1.92,
+     "end": 5.75,
+     "change": true,
+     "scene": "B",
+     "note": "The moving car is seen from the driver's seat, with the steering wheel and dashboard filling the foreground, the driver's right hand on the lower-right rim, the left hand near the lap, and highway traffic ahead.",
+     "fit": "rough",
+     "why": "用户图只有外观，方向盘和中控布局需要补充内饰照片才能准确替换。"
+    },
+    {
+     "index": 3,
+     "start": 5.75,
+     "end": 9.21,
+     "change": true,
+     "scene": "C",
+     "note": "The car drives along an elevated highway in a low tracking shot that moves from an oblique front view to a centered frontal view, with a driver visible through the windshield and rotating wheels below.",
+     "fit": "rough",
+     "why": "可以保留行驶和跟拍效果，但理想 i8 的车身比例与车头细节需要根据补充正面图重新匹配。"
+    },
+    {
+     "index": 4,
+     "start": 9.21,
+     "end": 11.5,
+     "change": true,
+     "scene": "C",
+     "note": "The car travels nose-left in a parallel tracking shot, showing its front corner and broad side profile against the highway barrier, with road markings moving beneath its wheels.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 5,
+     "start": 11.5,
+     "end": 13.83,
+     "change": true,
+     "scene": "D",
+     "note": "The car is parked in a sunlit front three-quarter view beside yellow road markings as a foreground hand sweeps toward it and then points at its front lamps; a separate parked car remains behind it.",
+     "fit": "rough",
+     "why": "车头尺寸和灯组位置不同，需要让原来的指车动作仍能自然指向替换后的车。"
+    },
+    {
+     "index": 6,
+     "start": 13.83,
+     "end": 16.58,
+     "change": true,
+     "scene": "E",
+     "note": "The unoccupied front cabin is filmed through the open driver's door during a slow camera move, showing the steering wheel, dashboard screens, front seat, footwell, and center console.",
+     "fit": "rough",
+     "why": "这一段展示了用户图里没有的完整前排内饰，需要实车照片确认布局和配色。"
+    },
+    {
+     "index": 7,
+     "start": 16.58,
+     "end": 27.63,
+     "change": true,
+     "scene": "F",
+     "note": "A close view of the parked car's center touchscreen shows a hand entering the assistance settings, selecting navigation assistance, and changing the lane-change confirmation setting.",
+     "fit": "no",
+     "why": "画面在教人逐步点击真实菜单，不能把萤火虫的界面直接换标当成理想 i8，需要实车操作视频。"
+    },
+    {
+     "index": 8,
+     "start": 27.63,
+     "end": 31.38,
+     "change": true,
+     "scene": "B",
+     "note": "The moving cockpit is seen from the driver's viewpoint with both hands low on the steering wheel as the car changes its position relative to highway lane markings; the driver display and center screen remain visible.",
+     "fit": "rough",
+     "why": "行驶画面和握方向盘的动作可以保留，但需要按理想 i8 的真实座舱重新匹配方向盘、屏幕和手的位置。"
+    },
+    {
+     "index": 9,
+     "start": 31.38,
+     "end": 34.08,
+     "change": true,
+     "scene": "F",
+     "note": "The parked car's assistance settings fill the center-screen close-up as the demonstrator points to and selects the traffic-efficiency preference.",
+     "fit": "no",
+     "why": "是否有这个选项、在哪里点击都要以理想 i8 实车为准，外观照片无法提供这些信息。"
+    },
+    {
+     "index": 10,
+     "start": 34.08,
+     "end": 38.42,
+     "change": true,
+     "scene": "B",
+     "note": "The car continues along the highway in a steady driver-eye shot, with both hands on the lower steering-wheel rim, traffic ahead, and changing content on the visible center display.",
+     "fit": "rough",
+     "why": "高速行驶镜头可以复刻，但用户没有提供座舱资料，屏幕和内饰细节需要另外确认。"
+    },
+    {
+     "index": 11,
+     "start": 38.42,
+     "end": 40.5,
+     "change": true,
+     "scene": "F",
+     "note": "The demonstrator scrolls the parked car's assistance settings and taps the smart lighting reminder toggle, visibly changing its on-screen state.",
+     "fit": "no",
+     "why": "这段包含真实开关及开启后的界面变化，需要理想 i8 对应功能的实拍才能准确展示。"
+    },
+    {
+     "index": 12,
+     "start": 40.5,
+     "end": 46.67,
+     "change": true,
+     "scene": "C",
+     "note": "The moving car is tracked from front three-quarter and frontal positions beside highway sound barriers, with changing camera separation and visible changes in headlamp brightness.",
+     "fit": "rough",
+     "why": "跟拍和车灯亮度变化可以呈现，但车头、灯组及车身比例与原车不同，需要重新匹配。"
+    },
+    {
+     "index": 13,
+     "start": 46.67,
+     "end": 54.58,
+     "change": true,
+     "scene": "F",
+     "note": "A tighter touchscreen view shows a hand scrolling to speed-limit customization, choosing percentage mode, and adjusting the relative speed-limit value while the interface updates.",
+     "fit": "no",
+     "why": "百分比模式和限速数值属于真实设置步骤，必须用理想 i8 实车确认并拍摄，不能照搬原车界面。"
+    },
+    {
+     "index": 14,
+     "start": 54.58,
+     "end": 58.08,
+     "change": true,
+     "scene": "C",
+     "note": "The car approaches in a highway tracking view, grows large in front three-quarter view, and then passes into a more side-on view, with spinning wheels and strong moving reflections on the body.",
+     "fit": "rough",
+     "why": "可以保留接近和掠过的节奏，但从正面转到侧面时需要让更大的理想 i8 车身始终保持一致。"
+    },
+    {
+     "index": 15,
+     "start": 58.08,
+     "end": 60,
+     "change": true,
+     "scene": "F",
+     "note": "The center touchscreen fills the frame as a finger points toward the assistance indicator-light setting beneath another enabled toggle; the sampled frames show the lower control still grey without a confirmed activation.",
+     "fit": "no",
+     "why": "原画面展示具体设置位置，提供的帧也未显示该项已开启，需要实拍理想 i8 的对应操作和最终状态。"
+    }
+   ]
+  },
+  "copy": [
+   {
+    "at": 0.3,
+    "from": "是不是很多萤火虫车主觉得",
+    "to": "是不是很多这款车车主觉得",
+    "sure": false,
+    "why": "请用户确认替换车辆的品牌和型号，图片无法可靠确认车型名称。"
+   },
+   {
+    "at": 14.2,
+    "from": "让你的萤火虫支驾舒适性",
+    "to": "让你的爱车辅助驾驶舒适性",
+    "sure": false,
+    "why": "请用户确认替换车辆的车型及辅助驾驶配置，不能沿用萤火虫的车型指代。"
+   },
+   {
+    "at": 18.2,
+    "from": "进入辅助驾驶页面",
+    "to": "找到驾驶辅助相关设置",
+    "sure": false,
+    "why": "请用户确认替换车辆的车机菜单名称及入口位置。"
+   },
+   {
+    "at": 22.1,
+    "from": "切换成领航辅助模式",
+    "to": "选择适用的辅助驾驶模式",
+    "sure": false,
+    "why": "请用户确认替换车辆是否支持领航辅助及其实际模式名称。"
+   },
+   {
+    "at": 26,
+    "from": "把变道确认方式切换为无需确认",
+    "to": "把变道相关选项按实际需求设置",
+    "sure": false,
+    "why": "请用户确认替换车辆是否提供变道确认选项及无需确认模式。"
+   },
+   {
+    "at": 28.2,
+    "from": "这样车子就会自己打开转向灯",
+    "to": "具体转向灯联动要看车辆设置",
+    "sure": false,
+    "why": "请用户确认替换车辆在辅助变道时是否会自动开启转向灯及其触发条件。"
+   },
+   {
+    "at": 31.8,
+    "from": "第三步开启通行效率优先",
+    "to": "第三步查看通行偏好设置",
+    "sure": false,
+    "why": "请用户确认替换车辆是否提供通行效率优先或类似偏好设置。"
+   },
+   {
+    "at": 38.7,
+    "from": "第四步把智能灯光提醒打开",
+    "to": "第四步查看灯光提醒相关设置",
+    "sure": false,
+    "why": "请用户确认替换车辆是否支持智能灯光提醒及其设置名称。"
+   },
+   {
+    "at": 43.6,
+    "from": "从而来提醒前方车辆",
+    "to": "提醒方式以实车为准",
+    "sure": false,
+    "why": "请用户确认替换车辆是否会在辅助超车时通过灯光提醒前方车辆。"
+   },
+   {
+    "at": 50.6,
+    "from": "将限速调整调到百分之十",
+    "to": "将巡航车速按道路限速设置",
+    "sure": false,
+    "why": "请用户确认替换车辆是否支持按百分比调整巡航速度及该选项的实际含义。"
+   },
+   {
+    "at": 53.4,
+    "from": "车子会贴着限速标准跑",
+    "to": "具体车速以实际设置为准",
+    "sure": false,
+    "why": "请用户确认替换车辆的巡航速度与道路限速之间的实际联动规则。"
+   },
+   {
+    "at": 58.4,
+    "from": "最后再把支架辅助小蓝灯开启功能",
+    "to": "最后再查看驾驶辅助状态提示功能",
+    "sure": false,
+    "why": "请用户确认替换车辆是否配备辅助驾驶小蓝灯及对应的开启选项。"
+   }
+  ],
+  "scout": {
+   "rounds": 3,
+   "viewed": 5,
+   "found": 0,
+   "stopped": "缺口1（主驾及前排内饰）未找到合格图片：已查看的5张中，web1是副驾视角，web2方向盘与中控被伪装布大面积遮挡，web3主要展示后排，web4和web5仅展示中控屏特写，均无法清楚呈现原片所需的完整方向盘、主驾座椅及前排布局。补查图库页面未能取得可查看的新图片，故不选用，请用户补充理想i8打开主驾车门、从门外斜拍方向盘和前排座椅的实拍图。",
+   "steps": [
+    {
+     "round": 1,
+     "seconds": 55,
+     "pics": [
+      {
+       "id": "web4",
+       "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-b48917\\scout\\web4.jpg",
+       "url": "https://car2.autoimg.cn/cardfs/product/g28/M01/C2/45/autohomecar__Chxkmmh5tDOAIIxoACqLZhaXAeQ821.jpg",
+       "page": "https://www.autohome.com.cn/cars/imgs-7727-74102-10-x/11696925.html"
+      },
+      {
+       "id": "web3",
+       "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-b48917\\scout\\web3.jpg",
+       "url": "https://www2.autoimg.cn/chejiahaodfs/g30/M08/EF/A5/620x0_1_autohomecar__CjIFU2h0aiSAEd7RAAO1vRuC-t4127.jpg",
+       "page": "https://www.autohome.com.cn/news/202507/1307386.html"
+      },
+      {
+       "id": "web2",
+       "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-b48917\\scout\\web2.jpg",
+       "url": "https://www2.autoimg.cn/chejiahaodfs/g30/M01/8B/86/620x0_1_autohomecar__Chtk2Gh0ajeAWhs4AAQMJe-dP-U668.jpg",
+       "page": "https://www.autohome.com.cn/news/202507/1307386.html"
+      },
+      {
+       "id": "web1",
+       "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-b48917\\scout\\web1.jpg",
+       "url": "https://www2.autoimg.cn/chejiahaodfs/g30/M09/EF/A5/620x0_1_autohomecar__CjIFU2h0aiWAPFGwAATLYf48K1o928.jpg",
+       "page": "https://www.autohome.com.cn/news/202507/1307386.html"
+      }
+     ],
+     "picks": [],
+     "searches": [
+      "理想i8 内饰 主驾 实拍 汽车之家",
+      "理想i8 内饰 方向盘 太平洋汽车 图片",
+      "理想i8 实拍 内饰 主驾 车门 方向盘",
+      "理想i8 内饰 实拍 site.pcauto.com.cn 2025"
+     ],
+     "said": "我会找理想 i8 的主驾及前排内饰实拍，优先匹配从主驾车门向内拍摄的角度，并核对方向盘、中控屏和座椅结构。"
+    },
+    {
+     "round": 2,
+     "seconds": 110,
+     "pics": [
+      {
+       "id": "web5",
+       "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-b48917\\scout\\web5.jpg",
+       "url": "https://img.pcauto.com.cn/images/upload/upc/tx/auto5/2507/17/c5/538259298_1752683405225_1024.jpg",
+       "page": "https://price.pcauto.com.cn/cars/image/8471779-1-m135873-o1.html"
+      }
+     ],
+     "picks": [],
+     "searches": [
+      "理想i8 主驾驶 内饰 实拍 方向盘 汽车之家",
+      "理想i8 内饰 主驾 方向盘 实拍 图片",
+      "理想i8 内饰 site.pcauto.com.cn 方向盘",
+      "site.price.pcauto.com.cn/cars/image/ 理想i8 主驾驶",
+      "site.price.pcauto.com.cn/cars/image/ 理想i8 中控 内饰"
+     ],
+     "said": "这批暂不选：web1 是副驾侧，web2 的方向盘和中控被伪装布遮挡；web3 主要展示后排，web4 是屏幕特写，都缺少完整的主驾视角。我继续找理想 i8 的主驾实拍。\n 图库部分页面无法打开，目前已拿到一张理想 i8 中控实拍的图片直链；我会下载核对，看它能否覆盖方向盘和前排结构。"
+    },
+    {
+     "round": 3,
+     "seconds": 153,
+     "pics": [],
+     "picks": [],
+     "searches": [
+      "理想 i8 主驾 内饰 实拍 方向盘 汽车之家",
+      "理想i8 内饰 主驾 \"img\"",
+      "理想i8 内饰 方向盘 实拍 驾驶舱"
+     ],
+     "said": "web1 是副驾门口视角，web2 有大面积伪装遮挡，web3 主要展示后排，都不适合这个缺口；web4 和 web5 仅有中控特写，缺少完整方向盘和主驾座椅。我再查找理想 i8 的主驾全景实拍。",
+     "finish": "缺口1（主驾及前排内饰）未找到合格图片：已查看的5张中，web1是副驾视角，web2方向盘与中控被伪装布大面积遮挡，web3主要展示后排，web4和web5仅展示中控屏特写，均无法清楚呈现原片所需的完整方向盘、主驾座椅及前排布局。补查图库页面未能取得可查看的新图片，故不选用，请用户补充理想i8打开主驾车门、从门外斜拍方向盘和前排座椅的实拍图。"
+    }
+   ]
+  }
+ },
+ "pid": 18248,
+ "engine": {
+  "image": "模拟预览图",
+  "video": "模拟视频编辑",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ }
+}

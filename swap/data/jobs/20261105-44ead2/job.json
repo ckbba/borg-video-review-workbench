@@ -1,0 +1,280 @@
+{
+ "id": "20261105-44ead2",
+ "templateId": "replica",
+ "created": 1793894925364,
+ "stage": "done",
+ "message": "动画风：生成中…（processing 10%）",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\upload-1.png",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "00:08:45 看懂原片",
+  "00:08:49 制定方案",
+  "00:09:15 补全素材：补 top view、side view、back view",
+  "00:09:15 补全素材：生成预览图（image-2.5-flare）…",
+  "00:12:00 制作关键画面：1 张",
+  "00:12:00 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "00:13:42 制作关键画面：一起验收",
+  "00:14:28 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "00:16:05 制作关键画面：第 2 次验收",
+  "00:17:03 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "00:18:10 生成视频：1 段同时生成",
+  "00:18:19 视频：已提交视频任务 ec2270a8-a695-4487-ac2f-6b8d368e2546",
+  "00:18:26 视频：生成中…（processing 10%）",
+  "00:20:18 检查修复：检查动作、外观和接缝",
+  "00:20:18 检查修复：重做 1 段",
+  "00:20:26 视频：已提交视频任务 56167435-e746-4b1c-8630-de0f98687f88",
+  "00:20:32 视频：生成中…（processing 10%）",
+  "00:22:40 合成成片",
+  "00:22:59 动画风：已提交视频任务 1349ce9d-149c-4329-b7cc-c917cff9461b",
+  "00:23:04 动画风：生成中…（processing 10%）"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "done",
+   "startedAt": 1793894925367,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\final.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\compare.mp4",
+   "endedAt": 1793895768636,
+   "check": {
+    "pass": false,
+    "trimTail": 0,
+    "summary": "有 1 段修复后仍有小问题，详情在完整链路里"
+   }
+  },
+  {
+   "id": "anime",
+   "label": "动画风",
+   "status": "done",
+   "preset": "anime",
+   "startedAt": 1793895768637,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\style-anime\\final.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\style-anime\\compare.mp4",
+   "endedAt": 1793895857367
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\source.mp4",
+  "prompt": "把她脚上的白色运动鞋换成我图里这双安踏 C202 6代 PRO 跑鞋，鞋带照原片系，手、袜子、地毯都不变",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\upload-1.png"
+  ],
+  "shapeRefs": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\shape-1.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\shape-2.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\shape-3.jpeg"
+  ],
+  "voiceOn": false,
+  "styles": [
+   "anime"
+  ],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "11.8 秒，1 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "1/1 个镜头要改，1 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "done",
+    "note": "已补 top view、side view、back view"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "1 张，1 张重做后仍有小问题"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "done",
+    "note": "1 段"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "done",
+    "note": "修了 1/1 段"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "done"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "skipped",
+    "note": "这次保留原声"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 1.77,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the shoe in the clear overhead frontal frame with the reference ANTA running shoe, matching the existing foot position, scale, perspective, and carpet contact. Show the grey-white mesh, cyan-blue detailing, sculpted white midsole, and orange cushioning wherever visible from this angle. Keep the original hands holding the white lace ends, preserve their occlusion and contact with the laces, and retain the sock, leg, carpet, and composition. Maintain the same shoe design throughout the subsequent bow tying and foot rotation.. The new ANTA C202 6th Generation PRO running shoe with a light grey-white textured mesh upper, fine cyan-blue lines and a large cyan-blue lateral ANTA logo, white laces, a sculpted white midsole, vivid coral-orange and pale orange cushioning, and a black exposed section under the arch. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The white Adidas running shoe worn on the woman's foot, with a white mesh upper, three black side stripes, a black Adidas tongue logo, grey collar lining, white laces, a thick white sole, and a black toe outsole patch. in @image1. @image4, @image5, @image6 show the same model from other angles, possibly in another colourway: take only its shape from them (sole, heel, side panels, silhouette) and use it for the angle seen in @image1. Every colour, material and marking comes from @image2 and @image3 only, never from @image4, @image5, @image6. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Restrict the edit to the shoe and its laces. Restore the original beige carpet outside the shoe silhouette, preserving its fine, dense loop-pile texture, color, lighting, and shadows. Preserve the original hands, legs, white socks and black sock logos, background, framing, and lace-pulling gesture. Keep the reference-matched ANTA C202 6 PRO design and colorway.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\keyframes\\A-t3\\frame-1.png",
+    "ok": false,
+    "issue": "替换鞋的灰白网布、青蓝线条、黑色鞋舌标识及橙色鞋底基本符合参考图，构图和拉鞋带姿态基本一致。但鞋外区域也被重绘：米色地毯由原片细密、规则的短绒圈纹变成明显更粗大、不规则的网状纹理，未满足只替换鞋子的要求。"
+   }
+  ],
+  "segments": [
+   {
+    "index": 0,
+    "start": 0,
+    "end": 11.77,
+    "genStart": 0,
+    "join": "start",
+    "scenes": [
+     "A"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\keyframes\\A-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\assets\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\upload-1.png"
+    ],
+    "tries": 2,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the woman's hands, legs, white socks and their black logos, beige carpet, background, lighting, framing, camera movement, editing, timing, foot movements, hand gestures, and original lace-tying sequence.. Change only this: Replace only the shoe on her foot with the reference ANTA C202 6th Generation PRO running shoe, preserving its reference design and colors while making its white laces follow the original threading, hand interactions, tightening, and final bow.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-11.77s: match @image1, colours Light grey-white with cyan-blue, coral-orange, pale orange, and black accents. A continuous close-up begins with the shoe viewed from above and the toe pointing toward the bottom of the fra @image2 and @image3 show ANTA C202 6th Generation PRO running shoe with a light grey-white textured mesh upper, fine cyan-blue lines and a large cyan-blue lateral ANTA logo, white laces, a sculpted white midsole, vivid coral-orange and pale orange cushioning, and a black exposed section under the arch.: the same design in every frame, from every angle. Fix: Remove the added black bars at the top and bottom and preserve the reference's full-frame vertical composition. Keep the ANTA C202 6th Generation PRO shoe geometry, light grey-white textured mesh, fine cyan-blue lines, white laces, black tongue logo, and coral-orange and pale-orange accents consiste Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\segments\\seg0-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\segments\\seg0-t2-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；中间有一段画面跑偏；动作和原片对不上；有跳帧或突变"
+    },
+    "repaired": true
+   }
+  ],
+  "plan": {
+   "by": "llm",
+   "subject": "ANTA C202 6th Generation PRO running shoe with a light grey-white textured mesh upper, fine cyan-blue lines and a large cyan-blue lateral ANTA logo, white laces, a sculpted white midsole, vivid coral-orange and pale orange cushioning, and a black exposed section under the arch.",
+   "target": "The white Adidas running shoe worn on the woman's foot, with a white mesh upper, three black side stripes, a black Adidas tongue logo, grey collar lining, white laces, a thick white sole, and a black toe outsole patch.",
+   "keep": "Preserve the woman's hands, legs, white socks and their black logos, beige carpet, background, lighting, framing, camera movement, editing, timing, foot movements, hand gestures, and original lace-tying sequence.",
+   "change": "Replace only the shoe on her foot with the reference ANTA C202 6th Generation PRO running shoe, preserving its reference design and colors while making its white laces follow the original threading, hand interactions, tightening, and final bow.",
+   "summary": "仅将她脚上的白色运动鞋替换为参考图中的安踏 C202 6代 PRO 跑鞋，保留参考鞋配色，鞋带按原片过程系好，手、袜子、地毯及全部镜头动作和节奏保持不变。",
+   "views": [
+    "top view",
+    "side view",
+    "back view"
+   ],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "灰白青蓝橙色款",
+     "desc": "Light grey-white with cyan-blue, coral-orange, pale orange, and black accents",
+     "main": true,
+     "at": 1.77
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1
+     ],
+     "keyAt": 1.77,
+     "edit": "Replace the shoe in the clear overhead frontal frame with the reference ANTA running shoe, matching the existing foot position, scale, perspective, and carpet contact. Show the grey-white mesh, cyan-blue detailing, sculpted white midsole, and orange cushioning wherever visible from this angle. Keep the original hands holding the white lace ends, preserve their occlusion and contact with the laces, and retain the sock, leg, carpet, and composition. Maintain the same shoe design throughout the subsequent bow tying and foot rotation.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 11.77,
+     "change": true,
+     "scene": "A",
+     "note": "A continuous close-up begins with the shoe viewed from above and the toe pointing toward the bottom of the frame as both hands pull and tie its laces. The finished bow rests over the tongue while a hand gestures over the toe. The foot then rotates into a three-quarter side view, exposing the side panel and heel while a hand points beside the shoe; the sock and carpet remain visible throughout."
+    }
+   ],
+   "dropText": false
+  },
+  "sheet": {
+   "views": [
+    "top view",
+    "side view",
+    "back view"
+   ],
+   "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261105-44ead2\\assets\\frame-1.png",
+   "ok": true,
+   "issue": ""
+  }
+ },
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "95c5977d-68ed-4ee0-89d5-48e02300485f",
+   "yuan": 0.1,
+   "step": "补全素材",
+   "at": 1793895096751
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "178f3e6e-d8e5-4091-a707-8927c66acc0a",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1793895212542
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "e6485a50-d530-44b3-ba05-abdb62b99252",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1793895364300
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "7a484854-6e8d-41b4-b190-cdf70b4b3e76",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1793895489122
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "12 秒 480p · 3 张参考图",
+   "taskId": "ec2270a8-a695-4487-ac2f-6b8d368e2546",
+   "yuan": 8.81,
+   "step": "视频",
+   "at": 1793895567164
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "12 秒 480p · 3 张参考图",
+   "taskId": "56167435-e746-4b1c-8630-de0f98687f88",
+   "yuan": 8.81,
+   "step": "视频 · 修复",
+   "at": 1793895712241
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "12 秒 480p",
+   "taskId": "1349ce9d-149c-4329-b7cc-c917cff9461b",
+   "yuan": 8.31,
+   "step": "动画风",
+   "at": 1793895843502
+  }
+ ]
+}

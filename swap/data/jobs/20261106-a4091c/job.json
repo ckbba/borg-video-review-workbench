@@ -1,0 +1,339 @@
+{
+ "id": "20261106-a4091c",
+ "templateId": "replica",
+ "created": 1793956063332,
+ "stage": "done",
+ "message": "完成",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\31a9a5abf8fc574f.jpeg",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "17:07:43 看懂原片",
+  "17:07:48 制定方案",
+  "17:07:48 制作关键画面：1 张",
+  "17:07:48 制作关键画面 A：模拟生成预览图 1/1",
+  "17:07:50 制作关键画面：一起验收",
+  "17:07:50 生成视频：3 段同时生成",
+  "17:07:53 第 1/3 段：模拟视频编辑…",
+  "17:07:53 第 2/3 段：模拟视频编辑…",
+  "17:07:53 第 3/3 段：模拟视频编辑…",
+  "17:08:10 检查修复：检查动作、外观和接缝",
+  "17:08:10 合成成片"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "done",
+   "startedAt": 1793956063335,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\final.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\compare.mp4",
+   "endedAt": 1793956104210,
+   "check": {
+    "pass": true,
+    "trimTail": 0,
+    "summary": "自动检查通过"
+   }
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\source.mp4",
+  "prompt": "",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\31a9a5abf8fc574f.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\e3606eaef933232d.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\ca3a982cc0763519.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\3edc01b980b5058c.png"
+  ],
+  "shapeRefs": [],
+  "productId": "p-20261106-6048e3",
+  "productNotes": [],
+  "productName": "nike巴黎训练服",
+  "knownWeb": [],
+  "scoutOn": false,
+  "voiceOn": true,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "15.1 秒，9 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "9/9 个镜头要改，1 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "skipped",
+    "note": "你的图已经够用"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "1 张，验收通过"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "done",
+    "note": "3 段"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "done",
+    "note": "全部通过，不用修"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "done"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "skipped",
+    "note": "文案不用改"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 0.5,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: replace the main subject with the one from the reference pictures. The new the thing in @image2 must look exactly like @image2 and @image3 and @image4 and @image5: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as the matching main subject in @image1. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\keyframes\\A-t1\\frame-1.jpg",
+    "ok": true,
+    "issue": ""
+   }
+  ],
+  "segments": [
+   {
+    "index": 0,
+    "start": 0,
+    "end": 7.25,
+    "genStart": 0,
+    "join": "start",
+    "scenes": [
+     "A"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\keyframes\\A-t1\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\31a9a5abf8fc574f.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\e3606eaef933232d.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\ca3a982cc0763519.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\3edc01b980b5058c.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: everything else. Change only this: the main subject becomes the one in the reference pictures. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-2.75s: match @image1. 2.75-4.79s: match @image1. 4.79-7.25s: match @image1. @image2 and @image3 and @image4 and @image5 show the thing in @image2: the same design in every frame, from every angle. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\segments\\seg0-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\segments\\seg0-t1-fit.mp4",
+    "qa": {
+     "pass": true,
+     "summary": "自动质检通过"
+    }
+   },
+   {
+    "index": 1,
+    "start": 7.25,
+    "end": 11.96,
+    "genStart": 7.25,
+    "join": "hard",
+    "scenes": [
+     "A"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\keyframes\\A-t1\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\31a9a5abf8fc574f.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\e3606eaef933232d.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\ca3a982cc0763519.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\3edc01b980b5058c.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: everything else. Change only this: the main subject becomes the one in the reference pictures. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-1.33s: match @image1. 1.33-2.17s: match @image1. 2.17-3.00s: match @image1. 3.00-3.83s: match @image1. 3.83-4.71s: match @image1. @image2 and @image3 and @image4 and @image5 show the thing in @image2: the same design in every frame, from every angle. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\segments\\seg1-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\segments\\seg1-t1-fit.mp4",
+    "qa": {
+     "pass": true,
+     "summary": "自动质检通过"
+    }
+   },
+   {
+    "index": 2,
+    "start": 11.96,
+    "end": 15.09,
+    "genStart": 11.96,
+    "join": "hard",
+    "scenes": [
+     "A"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\keyframes\\A-t1\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\31a9a5abf8fc574f.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\e3606eaef933232d.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\ca3a982cc0763519.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\products\\p-20261106-6048e3\\3edc01b980b5058c.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: everything else. Change only this: the main subject becomes the one in the reference pictures. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-3.13s: match @image1. @image2 and @image3 and @image4 and @image5 show the thing in @image2: the same design in every frame, from every angle. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\segments\\seg2-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261106-a4091c\\segments\\seg2-t1-fit.mp4",
+    "qa": {
+     "pass": true,
+     "summary": "自动质检通过"
+    }
+   }
+  ],
+  "plan": {
+   "by": "basic",
+   "subject": "the thing in @image2",
+   "target": "the matching main subject",
+   "keep": "everything else",
+   "change": "the main subject becomes the one in the reference pictures",
+   "summary": "基础方案：所有镜头都按你的图替换主体",
+   "views": [],
+   "variants": [],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+     ],
+     "keyAt": 0.5,
+     "edit": "replace the main subject with the one from the reference pictures"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 2.75,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 2,
+     "start": 2.75,
+     "end": 4.79,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 3,
+     "start": 4.79,
+     "end": 7.25,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 4,
+     "start": 7.25,
+     "end": 8.58,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 5,
+     "start": 8.58,
+     "end": 9.42,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 6,
+     "start": 9.42,
+     "end": 10.25,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 7,
+     "start": 10.25,
+     "end": 11.08,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 8,
+     "start": 11.08,
+     "end": 11.96,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 9,
+     "start": 11.96,
+     "end": 15.09,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    }
+   ],
+   "gaps": [],
+   "dropText": false
+  }
+ },
+ "pid": 35688,
+ "engine": {
+  "image": "模拟预览图",
+  "video": "模拟视频编辑",
+  "guard": "方案：基础（不调模型）",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "关键画面 A",
+   "at": 1793956068442
+  },
+  {
+   "model": "mock",
+   "units": "8 秒",
+   "yuan": 0,
+   "step": "第 1/3 段",
+   "at": 1793956073362
+  },
+  {
+   "model": "mock",
+   "units": "5 秒",
+   "yuan": 0,
+   "step": "第 2/3 段",
+   "at": 1793956073364
+  },
+  {
+   "model": "mock",
+   "units": "4 秒",
+   "yuan": 0,
+   "step": "第 3/3 段",
+   "at": 1793956073365
+  }
+ ]
+}

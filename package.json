@@ -7,7 +7,9 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "swap:template": "node swap/scripts/addTemplate.mjs",
+    "swap:dev": "node swap/scripts/dev.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",

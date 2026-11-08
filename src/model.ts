@@ -1,7 +1,7 @@
 export type Media = { name: string; url: string; duration: number };
 export type Passage = { id: string; start: number; end: number; text: string };
 export type PromptVersion = { version: number; text: string; passages: Passage[] };
-export type Recreation = Media & { id: string; attemptNo: number; label: string; promptVersion: number; sourceOffset?: number; sourceEnd?: number };
+export type Recreation = Media & { id: string; attemptNo: number; label: string; promptVersion: number; sourceOffset?: number; sourceEnd?: number; group?: string };
 export type ReviewNote = { id: string; at: number; start: number; end: number; body: string; keep: string; change: string; recreationId: string; promptVersion: number; createdAt: string };
 export type Project = { id: string; name: string; source: Media; recreations: Recreation[]; selectedRecreationId: string; promptVersions: PromptVersion[]; notes: ReviewNote[]; sessionId: string; createdAt: string };
 

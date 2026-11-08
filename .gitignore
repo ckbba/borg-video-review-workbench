@@ -4,3 +4,18 @@ dist/
 .DS_Store
 .vscode/
 .idea/
+.cache/
+.env.local
+swap/products/
+# scratch
+tmp/
+.tmp_frames/
+.playwright-cli/
+.shiying-review/
+# swap jobs: keep only the delivered videos and each job's record, not the intermediates
+swap/data/**
+!swap/data/**/
+!swap/data/jobs/**/final.mp4
+!swap/data/jobs/**/compare.mp4
+!swap/data/jobs/**/voiced-*.mp4
+!swap/data/jobs/*/job.json
