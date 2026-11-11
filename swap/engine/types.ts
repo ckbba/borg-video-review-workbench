@@ -187,7 +187,10 @@ export type Plan = {
   /** Colour / style versions of the target in the film. `main` = shown as uploaded; the others get a recoloured asset. */
   variants: Variant[];
   scenes: { id: string; shots: number[]; keyAt: number; edit: string; variant?: string }[];
-  shots: { index: number; start: number; end: number; change: boolean; scene: string; note: string }[];
+  /** `facing`: where the target faces in this shot, in order (e.g. "back > side > front"), read from the frames.
+   *  `beats`: the shot's action from start to end, in order, short English steps; never cut (11 Nov, bd358f: a 110-character
+   *  cut sent "holding the." and turned 9.5 s of choreography into one pose). Both absent on plans made before. */
+  shots: { index: number; start: number; end: number; change: boolean; scene: string; note: string; facing?: string; beats?: string[] }[];
   /** 'llm' or 'basic' (no model: every shot changes, one scene). */
   by: string;
 };
@@ -216,7 +219,8 @@ export type Voice = { status: 'running' | 'done' | 'failed'; lines?: VoiceLine[]
 /** src: where the line was found — the spoken voiceover, the on-screen captions, or both.
  *  price: a price or size the user has to fill in; `from` is the source's number, `to` stays equal to it until they do. */
 export type CopyItem = { at: number; from: string; to: string; sure: boolean; why?: string; src?: 'voice' | 'caption' | 'both'; price?: boolean };
-export type Keyframe = { scene: string; at: number; source: string; out?: string; prompt?: string; tries: number; ok?: boolean; issue?: string };
+/** `seg`: set on a keyframe made for one segment only, from a frame inside it (see `segKeyframes`). */
+export type Keyframe = { scene: string; at: number; source: string; out?: string; prompt?: string; tries: number; ok?: boolean; issue?: string; seg?: number };
 /** One generated piece. `genStart` < `start` when it carries an overlap with the previous piece (soft seam). */
 export type ReplicaSeg = {
   index: number; start: number; end: number; genStart: number; join: 'start' | 'hard' | 'soft';
@@ -276,5 +280,9 @@ export type Replica = {
   /** The final video before sound and subtitles, so they can be redone without touching the picture. */
   picture?: string;
   keyframes: Keyframe[];
+  /** A scene's keyframe goes only to the segment its frame is in. Another segment showing the same scene gets its own,
+   *  made from a frame inside that segment with the scene's keyframe as the look anchor (11 Nov, 936637: segment 2 got a
+   *  side-on knee lift from 16 s against a back view walking into steam at 7 s). */
+  segKeyframes?: Keyframe[];
   segments: ReplicaSeg[];
 };

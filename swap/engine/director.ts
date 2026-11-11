@@ -393,7 +393,7 @@ async function render(id: string, plan: Plan, ratio: Ratio, source: string, fps:
     : planSegs(plan, info.fps, p.video.minSeconds, p.video.maxSeconds).map((s, index) => ({ ...s, index }));
   edit(id, r => { r.segments = segs; });
   if (simple) await generateSimple(id, plan, ratio, source);
-  else await generate(id, plan, ratio, source, info.fps);
+  else { await makeSegKeyframes(id, plan, ratio, source); await generate(id, plan, ratio, source, info.fps); }
   await finishFilm(id, plan, source, info.fps, true);
 }
 
@@ -484,6 +484,7 @@ export function redoSegment(id: string, index: number) {
   void (async () => {
     const plan = rep(id).plan!, source = r.source, info = await probe(source), ratio = ratioOf(info.width, info.height);
     if (plan.scenes.some(c => !rep(id).keyframes.some(k => k.scene === c.id && k.out))) await makeKeyframes(id, plan, ratio, source);
+    await makeSegKeyframes(id, plan, ratio, source, index);
     await generate(id, plan, ratio, source, info.fps, index);
     await refitPieces(id);
     await finishFilm(id, plan, source, info.fps, false);
@@ -501,6 +502,7 @@ export async function resumeReplica(id: string) {
     x.engine = { ...x.engine!, video: p.video.name, checker: p.checker.name };
     Object.assign(x.versions[0], { status: 'running', error: undefined, startedAt: Date.now() });
     x.replica!.segments = [];
+    x.replica!.segKeyframes = undefined; // indexed by segment: the segments are planned again
     x.replica!.keyframeStop = undefined;
     x.replica!.phases.forEach(f => { if (['generate', 'repair', 'compose'].includes(f.id)) { f.status = 'waiting'; f.note = undefined; } if (f.id === 'keyframes' && f.status === 'failed') { f.status = 'done'; f.note = '没通过验收，你选择继续'; } });
   });
@@ -568,16 +570,19 @@ const PLAN_ASK = (n: number, prompt: string, seconds: number) => `你是广告�
  "views":[{"view":"英文短语，只能是 side view / back view / sole / folded 这类","label":"中文，如 侧面","at":秒}],
  "needs":[{"kind":"part / screen / cast","view":"英文短语，如 driver cockpit view","label":"中文，如 主驾内饰","at":秒,"need":"中文，具体要用户提供什么、怎么拍","fallback":"中文，用户不提供时这段怎么处理","shots":[用到它的镜头编号],"generate":false}],
  "variants":[{"id":"v1","label":"中文，如 奶黄企鹅款","desc":"英文，只写这一版的颜色，12 个词以内，如 pale grey-blue with ivory collar；不写图案、款式和替换动作","main":true,"at":秒}],
- "scenes":[{"id":"A","variant":"v1","shots":[镜头编号],"keyAt":秒,"edit":"英文，这个场景的关键画面怎么改"}],
- "shots":[{"index":镜头编号,"change":true,"scene":"A","note":"英文，这个镜头里 target 的状态：角度、动作、形态、和手/人/其他物体的关系","fit":"good","why":""}]}
+ "scenes":[{"id":"A","variant":"v1","shots":[镜头编号],"keyAt":秒,"edit":"英文，这个场景的关键画面换什么、换成什么；不写姿势和朝向"}],
+ "shots":[{"index":镜头编号,"change":true,"scene":"A","facing":"英文，target 在这个镜头里的朝向，只能用 front / three-quarter / side / back，中途转了按顺序写，如 back > side > front","beats":["英文短句，这个镜头从头到尾按顺序的动作节拍，每条 8 个词以内，最多 6 条"],"note":"英文一句，target 的形态、和手/人/其他物体的关系；动作已在 beats 里，不要重复","fit":"good","why":""}]}
 
 规则：
 0. recast：用户的说明要求换掉画面里的人（换演员、换人种、换长相）时为 true，此时出现这些人的镜头都 change=true；否则 false。
    speech：用户要求视频里的人改说另一种语言时，写这种语言的英文名（如 "Russian"、"English"、"Spanish"、"Chinese"），否则空字符串。
    noCaptions：用户要求去掉原片字幕时为 true。
 1. 画面里出现 target 的镜头 change=true；完全没出现的镜头 change=false，直接用原片，不重新生成。
-2. 场景 = 同一地点、光线、人物组合，且 target 看起来差不多的一组镜头。target 在画面里的样子差到一张图说明不了时（比如汽车的正面、俯视、背面、车内），要分成不同场景：视频模型只能照着看得到的关键画面做，没有对应画面的镜头会照原片画。每个场景只出一张关键画面，这张图要同时表达该场景所有需要约束的信息（身份、外观、动作形态、构图），一张能说清的绝不出两张。
-3. keyAt 选该场景里 target 最大、最清楚、最接近正面、遮挡最少的一帧（时间必须落在该场景一个 change=true 的镜头内）。同一场景里只是角度略有变化的镜头共用这张。
+2. 场景 = 同一地点、光线、人物组合，且 target 看起来差不多的一组镜头。target 在画面里的样子差到一张图说明不了时（比如汽车的正面、俯视、背面、车内），要分成不同场景：视频模型只能照着看得到的关键画面做，没有对应画面的镜头会照原片画。每个场景只出一张关键画面，它只负责换完之后的样子（身份、外观、材质、颜色）；动作、姿势、朝向一律以原片为准，不靠关键画面表达。一张能说清的绝不出两张。
+   edit 只写换什么、换成什么。不写姿势、朝向、动作，不写"面向镜头""展示脸/胸徽/Logo""让某处清楚可见"：关键画面是在原片那一帧上改，原片背身就还是背身。
+3. keyAt 选该场景里 target 最大、最清楚、遮挡最少的一帧（时间必须落在该场景一个 change=true 的镜头内），不要求正面。同一场景里只是角度略有变化的镜头共用这张。
+3.5 facing 和 beats 只根据这个镜头自己的帧判断，不根据其他镜头或你对角色的期望：看到后脑勺、后背就是 back，不能为了让换上去的角色露脸写成 front。
+   beats 要覆盖整个镜头，按顺序写清每一步：转身（背身 → 侧身 → 正面）、抬腿、落脚、手的动作，也包括机位变化（拉远到全景、推近）和画面里的大变化（巨浪升起、灯光亮起）。一个长镜头不能只写成一个姿势。
 4. 每个 change=true 的镜头都必须属于一个场景；样子相近的镜头共用一张，不要多出。
 4.5 views 只列原片里 target 清楚出现、而用户图里看不到的物体角度或形态，最多 3 个；人物的姿势和动作（坐着、拉衣角）不算；用户图已覆盖就空数组。at 选原片里这个角度最清楚的一帧的秒数。
 4.6 needs 列 AI 从用户图推测不出来的东西，最多 4 个；用户图已覆盖、或 views 已列的不要重复，没有就空数组。
@@ -614,6 +619,8 @@ async function makePlan(id: string, shots: { start: number; end: number }[], fra
       .map((n: any) => ({ kind: n.kind, view: String(n.view || n.label), label: String(n.label), at: Math.min(Number(n.at) || 0, seconds - 0.1), need: String(n.need || ''), fallback: String(n.fallback || ''), ...(n.kind === 'cast' ? { generate: n.generate === true } : {}), shots: (Array.isArray(n.shots) ? n.shots : []).map(Number).filter((k: number) => k > 0) }));
     const byIdx = new Map<number, any>((j.shots || []).map((s: any) => [Number(s.index), s]));
     const planShots = shots.map((s, i) => { const x = byIdx.get(i + 1) || {}; return { index: i + 1, start: s.start, end: s.end, change: x.change !== false, scene: String(x.scene || 'A'), note: String(x.note || ''),
+      facing: typeof x.facing === 'string' && x.facing.trim() ? x.facing.trim().slice(0, 60) : undefined,
+      beats: Array.isArray(x.beats) ? x.beats.map((b: unknown) => String(b ?? '').trim().replace(/\.$/, '')).filter(Boolean).slice(0, 6) : undefined,
       fit: (['good', 'rough', 'no'].includes(x.fit) ? x.fit : 'good') as 'good' | 'rough' | 'no', why: String(x.why || '') }; });
     let variants: Variant[] = (j.variants || []).map((v: any) => ({ id: String(v.id), label: String(v.label || v.id), desc: String(v.desc || '').slice(0, 80), main: !!v.main, at: Number(v.at) }));
     if (variants.length && variants.filter(v => v.main).length !== 1) variants = variants.map((v, i) => ({ ...v, main: i === 0 }));
@@ -718,6 +725,10 @@ const variantOf = (plan: Plan, scene?: string) => plan.variants.find(v => v.id =
 const notesFor = (r: Replica) => r.productNotes?.length ? `\n这个商品的已知要点（以前出过错，逐条核对，违反任何一条就不通过）：\n${r.productNotes.map(n => '- ' + n).join('\n')}` : '';
 
 // ---------- 制作关键画面 ----------
+/** 11 Nov, bd358f: the plan said "facing the camera, showing the Shiba face and chest emblem" for shots filmed from behind,
+ *  the keyframes turned the body round, and the video got a front pose against a back-view source. */
+const KEEP_FACING = 'Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it.';
+
 /** Makes the keyframes a scene does not have yet: all of them on a new job, only the added ones on a redo. */
 async function makeKeyframes(id: string, plan: Plan, ratio: Ratio, source: string) {
   const p = await providers(), dir = path.join(dirOf(id), 'keyframes');
@@ -739,7 +750,7 @@ async function makeKeyframes(id: string, plan: Plan, ratio: Ratio, source: strin
       const src = wide ? await letterbox(kfs[i].source, path.join(dir, `${c.id}-box.jpg`)) : kfs[i].source, refs = [src, ...cast.map(x => x.file)];
       const prompt = `Photo edit. Keep the photograph @image1 as it is: the same framing, composition, poses, hands, clothes, accessories, background, light, focus and grain. ` +
         cast.map((x, k) => `The person in @image1 to be recast as "${x.label}" (the one of the matching sex) becomes the person in @image${k + 2}: their face, skin and facial features in this exact pose, angle and expression; a different person from the one in @image1. `).join('') +
-        `Change: ${c.edit || plan.change}.` +
+        `Change: ${c.edit || plan.change}. ${KEEP_FACING}` +
         (wide ? ' @image1 has black bars above and below the picture: keep them exactly as they are, pure black, with nothing in them.' : '') +
         (plan.dropText ? ' Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them.' : '') +
         ` It must look photographed in this light, not pasted on. No text, no letters, no logos added.${fix}`;
@@ -762,7 +773,7 @@ async function makeKeyframes(id: string, plan: Plan, ratio: Ratio, source: strin
     const a = assets.map((_, k) => `@image${k + 2}`).join(' and ');
     const prompt = `Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. ` +
       `Change only this: ${c.edit || plan.change}. ${plan.subject ? `The new ${plan.subject} must look exactly like ${a}` : `The new subject must look exactly like ${a}`}: same shape, proportions, colours, materials and markings, ` +
-      `at the same size, position, angle and state as ${plan.target || 'the original'} in @image1.` + (v?.desc && !v.main ? ` In this scene its colours are: ${v.desc}.` : '') +
+      `at the same size, position, angle and state as ${plan.target || 'the original'} in @image1. ${KEEP_FACING}` + (v?.desc && !v.main ? ` In this scene its colours are: ${v.desc}.` : '') +
       (shape.length ? ` ${shapeTags} show the same model from other angles, possibly in another colourway: take only its shape from them (sole, heel, side panels, silhouette) and use it for the angle seen in @image1. Every colour, material and marking comes from ${a} only, never from ${shapeTags}.` : '') +
       partLine + ` ${plan.recast ? 'Only the people this change names are replaced; the reference pictures\' own models and props are never copied.' : NO_PHOTO_PEOPLE}` +
       (wide ? ' @image1 has black bars above and below the picture: keep them exactly as they are, pure black, with nothing in them.' : '') +
@@ -813,7 +824,7 @@ async function judgeKeyframes(id: string, r: Replica, plan: Plan) {
   try {
     const j = parseJson(await ask([
       text(`验收关键画面。先是用户的参考图${r.sheet?.file ? '和补全的多视图设定图' : ''}${r.shapeRefs?.length ? '、同款其他角度的实拍图（可能是别的配色）' : ''}，然后每个场景给两张：原片帧、改好的关键画面。要替换的：${plan.target} → ${plan.subject}；要保留：${plan.keep}。
-逐张检查：0）商品已知要点（见下）全部满足；有部位图的场景，这个部位的布局、结构、屏幕和颜色要和部位图一致，原片的样子不能残留，颜色不以外观图为准；1）替换后的东西和参考图是否是同一个（配色、材质、logo 以用户的图为准；同款其他角度的实拍图决定形状和图案位置；参考图都看不到的部位，出现了参考图里没有的线条、图案或纹理就不通过）；2）构图、姿态、手、背景、光线是否和原片帧一致；3）同款是否一致（颜色按各场景标注的版本，版本不同颜色就该不同）；4）只换了该换的东西，原片的人物不能变，参考图里的人和物品（模特、杂志、水杯等）不能出现，其他人的衣服、玩偶、毛毯、鞋没被改；5）有无贴图感、多余文字、畸形。
+逐张检查：0）商品已知要点（见下）全部满足；有部位图的场景，这个部位的布局、结构、屏幕和颜色要和部位图一致，原片的样子不能残留，颜色不以外观图为准；1）替换后的东西和参考图是否是同一个（配色、材质、logo 以用户的图为准；同款其他角度的实拍图决定形状和图案位置；参考图都看不到的部位，出现了参考图里没有的线条、图案或纹理就不通过）；2）构图、姿态、手、背景、光线是否和原片帧一致；朝向必须和原片帧相同：原片是背身或侧身，关键画面改成了正面（哪怕是为了露出脸、胸徽、Logo）就不通过；3）同款是否一致（颜色按各场景标注的版本，版本不同颜色就该不同）；4）只换了该换的东西，原片的人物不能变，参考图里的人和物品（模特、杂志、水杯等）不能出现，其他人的衣服、玩偶、毛毯、鞋没被改；5）有无贴图感、多余文字、畸形。
 只输出 JSON：{"results":[{"id":"场景id","ok":true,"issue":"中文，问题","fix":"英文，重做时追加的修改要求"}]}${notesFor(r)}`),
       ...baseRefs(r).map(image), ...(r.shapeRefs || []).map(image),
       ...(r.partRefs || []).flatMap(x => [text(`部位图「${x.label}」，只用于场景 ${x.scenes.join('、')}：`), image(x.file)]),
@@ -825,6 +836,77 @@ async function judgeKeyframes(id: string, r: Replica, plan: Plan) {
     say(id, `验收模型没有回应（${e.message}），按通过处理`);
     return r.keyframes.map(() => ({ ok: true, issue: '', fix: '' }));
   }
+}
+
+// ---------- 本段关键画面 ----------
+/** Whether a keyframe's frame lies inside the seconds a segment generates. */
+const inSeg = (s: ReplicaSeg, at: number) => at >= s.genStart - 1e-6 && at < s.end - 1e-6;
+
+/** Where to take a segment's own frame for a scene whose keyframe lies outside it: the middle of the scene's longest
+ *  stretch inside the segment. Undefined when the scene's keyframe is already in the segment (or it has no shot here). */
+export function localFrameAt(plan: Plan, s: ReplicaSeg, scene: string): number | undefined {
+  const c = plan.scenes.find(x => x.id === scene);
+  if (!c || inSeg(s, c.keyAt)) return undefined;
+  const spans = plan.shots.filter(x => x.change && x.scene === scene)
+    .map(x => ({ a: Math.max(x.start, s.genStart), b: Math.min(x.end, s.end) })).filter(x => x.b - x.a > 0.05)
+    .sort((x, y) => (y.b - y.a) - (x.b - x.a));
+  return spans.length ? Math.round((spans[0].a + spans[0].b) / 2 * 100) / 100 : undefined;
+}
+
+/** The keyframe a segment sends for each of its scenes: the scene's own when its frame is in the segment, else the
+ *  segment's own one if it passed; otherwise none (the photos carry the look). Never another segment's pose. */
+export function segKfs(r: Pick<Replica, 'keyframes' | 'segKeyframes'>, s: ReplicaSeg): Keyframe[] {
+  return s.scenes.map(c => {
+    const main = r.keyframes.find(k => k.scene === c && k.out);
+    if (main && inSeg(s, main.at)) return main;
+    const own = (r.segKeyframes || []).find(k => k.seg === s.index && k.scene === c && k.out);
+    return own && own.ok !== false ? own : undefined;
+  }).filter(Boolean).slice(0, MAX_SEG_SCENES) as Keyframe[];
+}
+
+/** Makes the missing segment keyframes (all segments, or `only`). Each is the segment's own source frame, edited to show
+ *  the scene's finished keyframe's subject, facing and pose kept; checked once, made again once with the fix. */
+async function makeSegKeyframes(id: string, plan: Plan, ratio: Ratio, source: string, only?: number) {
+  const p = await providers(), dir = path.join(dirOf(id), 'keyframes'), r0 = rep(id);
+  const film = await probe(source), wide = ratio === '21:9', aspect = film.width / film.height;
+  const want = r0.segments.filter(s => only == null || s.index === only).flatMap(s => s.scenes.slice(0, MAX_SEG_SCENES).map(scene => ({ s, scene, at: localFrameAt(plan, s, scene) })))
+    .filter(x => x.at != null && r0.keyframes.some(k => k.scene === x.scene && k.out) && !(r0.segKeyframes || []).some(k => k.seg === x.s.index && k.scene === x.scene && k.out && k.ok !== false));
+  if (!want.length) return;
+  fs.mkdirSync(dir, { recursive: true });
+  say(id, `${want.length} 个场景跨段，给所在段各补一张本段的关键画面`);
+  const put = (k: Keyframe) => edit(id, r => { const list = (r.segKeyframes ||= []), i = list.findIndex(y => y.seg === k.seg && y.scene === k.scene); if (i < 0) list.push(k); else list[i] = k; });
+  await Promise.all(want.map(async ({ s, scene, at }) => {
+    const c = plan.scenes.find(x => x.id === scene)!, v = variantOf(plan, scene), main = rep(id).keyframes.find(k => k.scene === scene && k.out)!;
+    const tag = `${scene}-seg${s.index + 1}`;
+    const src = await frameAt(source, at!, path.join(dir, `${tag}-source.jpg`));
+    const cast = castFor(rep(id), [scene]);
+    const extra = cast.length ? cast.map(x => x.file) : assetRefs(rep(id), c.variant, scene).slice(0, 2);
+    const refs = [wide ? await letterbox(src, path.join(dir, `${tag}-box.jpg`)) : src, main.out!, ...extra];
+    const more = extra.map((_, k) => `@image${k + 3}`).join(' and ');
+    const k: Keyframe = { scene, at: at!, source: src, tries: 0, seg: s.index };
+    let fix = '';
+    for (let t = 1; t <= 2; t++) {
+      const prompt = `Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. ` +
+        `Change only this: ${c.edit || plan.change}. @image2 shows the finished change in another moment of this film: the ${cast.length ? 'new person' : plan.subject.split(/[:,.]/)[0] || 'new subject'} in @image1 must look exactly like the one in @image2` +
+        (more ? ` and ${more}` : '') + `: same design, colours, materials and markings, at the size, position and state of ${plan.target || 'the original'} in @image1. ` +
+        `Take nothing else from @image2: not its pose, facing, framing or background. ${KEEP_FACING}` + (v?.desc && !v.main ? ` In this scene its colours are: ${v.desc}.` : '') +
+        ` ${plan.recast ? 'Only the people this change names are replaced.' : NO_PHOTO_PEOPLE}` +
+        (wide ? ' @image1 has black bars above and below the picture: keep them exactly as they are, pure black, with nothing in them.' : '') +
+        (plan.dropText ? ' Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them.' : '') +
+        ` It must look photographed in this light, not pasted on. No text, no letters, no logos added.${fix}`;
+      const tmp = path.join(dir, `${tag}-t${t}`); fs.mkdirSync(tmp, { recursive: true });
+      const got = (await p.image.targetFrames({ prompt, refs, ratio: wide ? '16:9' : ratio, count: 1, outDir: tmp, log: m => say(id, `本段关键画面 ${tag}：${m}`), bill: biller(id, `关键画面 ${scene} · 第 ${s.index + 1} 段`) }))[0];
+      Object.assign(k, { prompt, tries: t, out: wide ? await unbox(got, aspect, path.join(tmp, 'frame-film.jpg')) : got });
+      const j = await judge(id, [text(`三张图：原片这一帧、这个场景已做好的关键画面（外观标准，姿势不用管）、刚做的本帧关键画面。
+只有明显错误才 ok=false：1）朝向或姿势和原片这一帧不同（原片背身就必须背身，转成正面露脸、露胸徽就不通过）；2）换上去的东西和已做好的关键画面不是同一个（款式、颜色、标志）；3）构图、背景、其他人变了；4）畸形、贴图感、多出文字。
+只输出 JSON：{"ok":true,"issue":"中文，问题","fix":"英文，重做时追加的修改要求"}${notesFor(rep(id))}`), image(src), image(main.out!), image(k.out!)]);
+      Object.assign(k, { ok: j.ok, issue: j.issue });
+      put({ ...k });
+      if (j.ok) break;
+      fix = j.fix ? ` Fix: ${j.fix}` : '';
+    }
+    if (k.ok === false) say(id, `本段关键画面 ${tag} 没通过（${k.issue}），这一段这个场景不发关键画面，只用你的图`);
+  }));
 }
 
 // ---------- 分段 ----------
@@ -873,17 +955,27 @@ export const mouthRule = (plan: Plan) => plan.speech
   ? `The people speak ${plan.speech}: their lips move naturally with ${plan.speech} speech wherever they speak in @video1.`
   : MOUTHS;
 
-/** Which picture rules which seconds of the piece: this is what makes a 1 s pink shot come out pink. */
-export function timeline(plan: Plan, s: ReplicaSeg, refOf: (scene: string) => number | undefined) {
+/** How much of each shot's description goes out. 'full': facing, beats and the note; 'beats': the note only where there
+ *  are no beats; 'bare': facing and beats only. Nothing is ever cut mid-sentence (11 Nov, bd358f: a 110-character cut sent
+ *  "holding the." and "before extending.", and a 9.5 s shot lost its turn, its pull-back and the wave). */
+export type Detail = 'full' | 'beats' | 'bare';
+
+/** Which picture rules which seconds of the piece (this is what makes a 1 s pink shot come out pink), and what happens in them. */
+export function timeline(plan: Plan, s: ReplicaSeg, refOf: (scene: string) => number | undefined, detail: Detail = 'full') {
   const f = (t: number) => Math.max(0, t - s.genStart).toFixed(2);
+  const dot = (t: string) => t.trim().replace(/[.;,\s]+$/, '') + '.';
   return plan.shots.filter(x => x.end > s.genStart + 0.01 && x.start < s.end - 0.01).map(x => {
     const span = `${f(Math.max(x.start, s.genStart))}-${f(Math.min(x.end, s.end))}s`;
     if (!x.change) return `${span}: leave this shot exactly as in @video1.`;
     const v = variantOf(plan, x.scene), ref = refOf(x.scene);
     // A colour only for the other colour versions: the main one is what the pictures already show (10 Nov: "colours blue-silver" on a woman's close-up).
-    // The note is the planner's English description of the shot: kept short and cut at a word, never mid-word.
-    const note = x.note ? ' ' + (x.note.length > 110 ? x.note.slice(0, 110).replace(/[,;]?\s+\S*$/, '') + '.' : x.note) : '';
-    return `${span}: ${ref ? `match @image${ref}` : 'apply the change'}${v?.desc && !v.main ? `, colours ${v.desc}` : ''}.${note}`;
+    const head = `${span}: ${ref ? `the look of @image${ref}` : 'apply the change'}${v?.desc && !v.main ? `, colours ${v.desc}` : ''}.`;
+    const beats = x.beats?.length ? x.beats : undefined;
+    const facing = x.facing ? ` Facing ${x.facing}, as in @video1.` : '';
+    const action = beats ? ` Action as in @video1: ${dot(beats.join(', then '))}` : '';
+    // Old plans have no beats: their note is the action, so it stays whole unless the prompt is too long.
+    const note = x.note && (detail === 'full' || (detail === 'beats' && !beats)) ? ' ' + dot(x.note) : '';
+    return head + facing + action + note;
   });
 }
 
@@ -896,7 +988,9 @@ export function segPrompt(plan: Plan, s: ReplicaSeg, kfScenes: string[], assetCo
   const ref = (scene: string) => { const i = kfScenes.indexOf(scene); return i < 0 ? undefined : i + 1; };
   const line = (lines: string[]) => [
     '@video1 is the original footage: keep its shots, cuts, camera, timing, actions and light.',
-    kfCount ? 'The pictures show it with the change made:' : `Change: ${plan.change || 'the main subject becomes the one in the reference pictures'}.`,
+    // 11 Nov, bd358f: a keyframe also carries a pose, and the video leaned to it (turned early, kept the arm up).
+    kfCount ? 'The pictures show only how the changed subject looks: its design, colours and materials. Its facing, pose and movement in every frame come from @video1, never from the pictures:'
+      : `Change: ${plan.change || 'the main subject becomes the one in the reference pictures'}.`,
     ...lines,
     ...cast.map((label, k) => `Replace the person in @video1 who is ${label} with the person in @image${kfCount + k + 1}.`),
     as ? `${as} ${assetCount > 1 ? 'show' : 'shows'} the ${plan.subject.split(/[:,.]/)[0] || 'new subject'}: the same design in every frame.` : '',
@@ -908,9 +1002,10 @@ export function segPrompt(plan: Plan, s: ReplicaSeg, kfScenes: string[], assetCo
     as && !plan.recast ? NO_PHOTO_PEOPLE : '',
     'No new text or logos.'
   ].filter(Boolean).join(' ');
-  const lines = timeline(plan, s, ref);
-  const full = line(lines);
-  return full.length <= 2400 ? full : line(lines.map(l => l.replace(/(\.) .*$/, '$1')));
+  // Too long: the notes go first, the beats last; a sentence is never cut.
+  let out = '';
+  for (const d of ['full', 'beats', 'bare'] as Detail[]) { out = line(timeline(plan, s, ref, d)); if (out.length <= 2400) break; }
+  return out;
 }
 
 /** One run of the whole film. The look is checked once and reported; a redo costs money, so that is the user's call. */
@@ -951,8 +1046,7 @@ async function generate(id: string, plan: Plan, ratio: Ratio, source: string, fp
 
   const once = async (s: ReplicaSeg, fix: string) => {
     const r = rep(id), tryNo = r.segments[s.index].tries + 1, tag = n > 1 ? `第 ${s.index + 1}/${n} 段` : '视频';
-    const made = r.keyframes.filter(k => k.out && s.scenes.includes(k.scene));
-    const kfs = s.scenes.map(c => made.find(k => k.scene === c)).filter(Boolean).slice(0, MAX_SEG_SCENES) as Keyframe[];
+    const kfs = segKfs(r, s);
     const main = plan.scenes.find(c => c.id === s.scenes[0])?.variant;
     // The free slots go to the photos this piece's scenes need most.
     const own = r.variantAssets?.find(a => a.id === main)?.file;

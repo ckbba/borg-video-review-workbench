@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { planSegs, segPrompt, timeline } from './director';
+import { localFrameAt, planSegs, segKfs, segPrompt, timeline } from './director';
 import { simplePrompt } from './route';
 import { applyCopy, assText, captions, fitTempo, trustedSpeech } from './voice';
 import type { Plan, ReplicaSeg } from './types';
@@ -53,6 +53,30 @@ describe('colour versions', () => {
     const s = { ...planSegs(p, 30, 5, 15)[0], images: [] } as ReplicaSeg;
     expect(timeline(p, { ...s, genStart: 0, end: 3 }, () => 1).join(' ')).toContain('exactly as in @video1');
     expect(segPrompt(p, s, s.scenes, 1, '', '').length).toBeLessThan(2500);
+  });
+});
+
+// 11 Nov, bd358f: notes were cut at 110 characters ("holding the.") and a back-view shot became a front pose.
+describe('shot actions', () => {
+  const long = 'The traveler raises a knee in side view, turns away and continues bounding along the train roof, holding the microphone while the red scarf moves.';
+  const p: Plan = { ...plan, shots: plan.shots.map(x => ({ ...x, note: long, facing: 'back > side > front', beats: ['back to camera', 'turns to side', 'faces camera', 'lifts right knee', 'lands'] })) };
+  const s = { ...planSegs(p, 30, 5, 15)[0], images: [] } as ReplicaSeg;
+
+  it('sends every beat in order and never cuts a sentence', () => {
+    const line = timeline(p, s, () => 1)[0];
+    expect(line).toContain('back to camera, then turns to side, then faces camera, then lifts right knee, then lands.');
+    expect(line).toContain('Facing back > side > front');
+    expect(line).toContain(long);
+    expect(line).not.toMatch(/\bthe\.$/);
+  });
+
+  it('drops notes before beats when too long, and says the pictures rule only the look', () => {
+    const big: Plan = { ...p, shots: p.shots.map(x => ({ ...x, note: long.repeat(4) })) };
+    const out = segPrompt(big, s, s.scenes, 1, '', '');
+    expect(out.length).toBeLessThanOrEqual(2400);
+    expect(out).toContain('then lands.');
+    expect(out).not.toContain(long);
+    expect(out).toContain('never from the pictures');
   });
 });
 
@@ -122,5 +146,29 @@ describe('new people', () => {
     const p = segPrompt({ ...plan, recast: true }, seg, ['A'], 1, '', '', ['俄罗斯男演员']);
     expect(p).toContain('who is 俄罗斯男演员 with the person in @image2');
     expect(p).toContain('@image3 shows');
+  });
+});
+
+// 11 Nov, 936637: scene E (train roof) had shots at 6.75–10.67 s and 15.96–17.38 s, its keyframe at 16.17 s.
+// Segment 2 (6.75–14 s) got that side-on knee lift against a back view walking into steam.
+describe('a keyframe goes only to the segment its frame is in', () => {
+  const p: Plan = { ...plan, variants: [], scenes: [{ id: 'E', shots: [1, 3], keyAt: 16.17, edit: '' }, { id: 'F', shots: [2], keyAt: 11, edit: '' }],
+    shots: [{ index: 1, start: 6.75, end: 10.67, change: true, scene: 'E', note: '' }, { index: 2, start: 10.67, end: 14, change: true, scene: 'F', note: '' },
+      { index: 3, start: 15.96, end: 17.38, change: true, scene: 'E', note: '' }] };
+  const seg2 = { index: 1, start: 6.75, end: 14, genStart: 6.75, join: 'hard', scenes: ['E', 'F'], images: [], tries: 0, status: 'waiting' } as ReplicaSeg;
+  const seg3 = { ...seg2, index: 2, start: 14, end: 20, genStart: 14, scenes: ['E'] } as ReplicaSeg;
+  const kf = (scene: string, at: number, extra = {}) => ({ scene, at, source: '', out: `${scene}${at}.png`, tries: 1, ...extra });
+
+  it('takes its own frame from the scene inside the segment', () => {
+    expect(localFrameAt(p, seg2, 'E')).toBeCloseTo(8.71);
+    expect(localFrameAt(p, seg2, 'F')).toBeUndefined();
+    expect(localFrameAt(p, seg3, 'E')).toBeUndefined();
+  });
+  it('never sends another segment\'s keyframe', () => {
+    const r = { keyframes: [kf('E', 16.17), kf('F', 11)] };
+    expect(segKfs(r, seg2).map(k => k.out)).toEqual(['F11.png']);
+    expect(segKfs(r, seg3).map(k => k.out)).toEqual(['E16.17.png']);
+    expect(segKfs({ ...r, segKeyframes: [kf('E', 8.71, { seg: 1 })] }, seg2).map(k => k.out)).toEqual(['E8.71.png', 'F11.png']);
+    expect(segKfs({ ...r, segKeyframes: [kf('E', 8.71, { seg: 1, ok: false })] }, seg2).map(k => k.out)).toEqual(['F11.png']);
   });
 });

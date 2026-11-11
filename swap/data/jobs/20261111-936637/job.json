@@ -1,0 +1,966 @@
+{
+ "id": "20261111-936637",
+ "templateId": "replica",
+ "created": 1794388268848,
+ "stage": "done",
+ "message": "完成",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\upload-1.png",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "17:11:08 看懂原片",
+  "17:11:17 制定方案",
+  "17:13:13 路线：完整路线（有 12 个场景，换场景后商品容易走样；30 秒，超过模型一次能做的 15 秒，要分段）",
+  "17:18:45 制作关键画面：12 张",
+  "17:18:45 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "17:20:06 制作关键画面 B：生成预览图（image-2.5-flare）…",
+  "17:20:06 制作关键画面 C：生成预览图（image-2.5-flare）…",
+  "17:20:06 制作关键画面 D：生成预览图（image-2.5-flare）…",
+  "17:20:06 制作关键画面 E：生成预览图（image-2.5-flare）…",
+  "17:20:06 制作关键画面 F：生成预览图（image-2.5-flare）…",
+  "17:20:06 制作关键画面 G：生成预览图（image-2.5-flare）…",
+  "17:20:06 制作关键画面 H：生成预览图（image-2.5-flare）…",
+  "17:20:06 制作关键画面 I：生成预览图（image-2.5-flare）…",
+  "17:20:06 制作关键画面 J：生成预览图（image-2.5-flare）…",
+  "17:20:06 制作关键画面 K：生成预览图（image-2.5-flare）…",
+  "17:20:06 制作关键画面 L：生成预览图（image-2.5-flare）…",
+  "17:23:39 制作关键画面：一起验收",
+  "17:24:34 验收模型没有回应（HTTP 500），按通过处理",
+  "17:24:34 生成视频：4 段同时生成",
+  "17:24:49 第 1/4 段：已提交视频任务 d76e4d4f-a75e-4cbc-ac33-353e958fadfc",
+  "17:24:49 第 2/4 段：已提交视频任务 66a484a6-2618-4e51-a5c0-f257af8062a3",
+  "17:24:52 第 1/4 段：生成中…（processing 10%）",
+  "17:24:54 第 2/4 段：生成中…（processing 10%）",
+  "17:24:56 第 3/4 段：已提交视频任务 f1802946-e482-44eb-9027-0c8905d62802",
+  "17:24:58 第 3/4 段：生成中…（submitted）",
+  "17:26:18 第 4/4 段：已提交视频任务 14f1d56a-a173-40aa-beb4-50e2a8c53d5d",
+  "17:26:23 第 4/4 段：生成中…（processing 10%）",
+  "17:26:57 验收模型没有回应（HTTP 500），按通过处理",
+  "17:28:58 检查修复：检查动作、外观和接缝",
+  "17:28:58 合成成片",
+  "18:31:52 1 个场景跨段，给所在段各补一张本段的关键画面",
+  "18:31:53 本段关键画面 E-seg2：生成预览图（image-2.5-flare）…",
+  "18:33:51 本段关键画面 E-seg2：生成预览图（image-2.5-flare）…",
+  "18:35:29 生成视频：4 段同时生成",
+  "18:35:41 第 2/4 段：已提交视频任务 ef294c33-b2c4-4add-abcc-81fa308f9423",
+  "18:35:44 第 2/4 段：生成中…（processing 10%）",
+  "18:38:36 合成成片"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "done",
+   "startedAt": 1794388268853,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\final.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\compare.mp4",
+   "endedAt": 1794393541009,
+   "check": {
+    "pass": true,
+    "trimTail": 0,
+    "summary": "自动检查通过"
+   }
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\source.mp4",
+  "prompt": "把视频里每个镜头的主角都换成参考图里的飞狗侠：黑缎衬衫长发女、长袍女、黑银角盔甲武士、背红围巾和背包的旅人、鸭舌帽街装表演者、黑装马尾忍者、白色宇航服，全部换成同一只绿紫装甲柴犬英雄。背景观众和工作人员保留真人。保留原片动作、运镜、场景切换、道具、烧入字幕和音乐。",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\upload-1.png"
+  ],
+  "shapeRefs": [],
+  "scoutOn": false,
+  "voiceOn": false,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "30.1 秒，16 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "16/16 个镜头要改，12 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "skipped",
+    "note": "你的图已经够用"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "12 张，验收通过"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "done",
+    "note": "重做了第 2 段"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "done",
+    "note": "这次只重做一段"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "done"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "skipped",
+    "note": "这次保留原声"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 2.4,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the black-satin lead and the briefly appearing robed lead with the same reference-matched armored Shiba Inu hero; retain the handheld microphone and surrounding live-action crew.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\A-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "B",
+    "at": 5.01,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\B-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the cream-and-teal robed lead with the reference-matched armored Shiba Inu hero; retain the microphone, stage equipment, crew, and audience.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\B-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "C",
+    "at": 4.54,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\C-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the horned black-and-silver armored lead, including the helmet and original armor, with the reference-matched armored Shiba Inu hero; retain separate handheld props.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\C-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "D",
+    "at": 6.5,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\D-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the long-haired stage lead with the reference-matched armored Shiba Inu hero; retain the handheld microphone and illuminated audience.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\D-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "E",
+    "at": 16.17,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\E-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the train-roof traveler with the reference-matched armored Shiba Inu hero; retain the original red scarf, tan backpack, and handheld microphone as separate accessories.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\E-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "F",
+    "at": 10.78,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\F-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the cap-wearing streetwear lead and original clothing with the reference-matched armored Shiba Inu hero; retain the handheld microphone and live-action crowd.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\F-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "G",
+    "at": 12.13,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\G-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the robed lead on the grassy lakeside runway with the reference-matched armored Shiba Inu hero; retain the handheld microphone and landscape.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\G-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "H",
+    "at": 13.74,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\H-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the horned armored lead on the dusk runway with the reference-matched armored Shiba Inu hero; retain the crowd, phone lights, and runway.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\H-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "I",
+    "at": 15.67,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\I-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the black-clad ponytailed ninja with the reference-matched armored Shiba Inu hero; retain the separate sword and scabbard, moonlit tree, blossoms, and lanterns.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\I-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "J",
+    "at": 17.75,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\J-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the astronaut, spacesuit, and helmet with the reference-matched armored Shiba Inu hero; retain the separate life-support backpack, reflective platform, and asteroid environment.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\J-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "K",
+    "at": 20.44,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\K-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace both the brief ninja lead in the moonlit bridge opening and the streetwear lead in the subsequent palm-lined street setting with the same reference-matched armored Shiba Inu hero.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\K-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "L",
+    "at": 21.97,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\L-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the robed lakeside lead, including original clothing and bare feet, with the reference-matched armored Shiba Inu hero and armored boots; retain the microphone, reflective platform, mountains, lake, and wave effects.. The new Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\L-t1\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   }
+  ],
+  "segments": [
+   {
+    "index": 0,
+    "start": 0,
+    "end": 6.75,
+    "genStart": 0,
+    "join": "start",
+    "scenes": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\A-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\B-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\C-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\D-t1\\frame-1.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage: keep its shots, cuts, camera, timing, actions and light. The pictures show only how the changed subject looks: its design, colours and materials. Its facing, pose and movement in every frame come from @video1, never from the pictures: 0.00-1.33s: the look of @image1. Facing front > three-quarter, as in @video1. Action as in @video1: Walk forward past backstage equipment, then Swing arms with microphone held low, then Camera tracks alongside the advancing lead, then Lead appearance changes to layered robes, then Continue forward beside the camera operator. 1.33-3.46s: the look of @image1. Facing three-quarter > front, as in @video1. Action as in @video1: Walk forward beside the camera operator, then Turn head toward the open stage, then Continue toward the retreating camera, then Raise the microphone arm overhead, then Dip head as the arm reaches upward. 3.46-4.21s: the look of @image2. Facing front, as in @video1. Action as in @video1: Advance with the microphone arm raised, then Bow head and upper body, then Bend the raised elbow overhead, then Camera follows toward the bright stage edge. 4.21-4.88s: the look of @image3. Facing three-quarter > front, as in @video1. Action as in @video1: Hold the microphone arm overhead, then Bend the elbow across the head, then Lift the forearm upward again, then Shift weight toward the stage opening. 4.88-5.75s: the look of @image2. Facing front, as in @video1. Action as in @video1: Step forward with the microphone overhead, then Dip head and shoulders, then Begin lowering the bent microphone arm, then Camera tracks along the stage edge. 5.75-6.25s: the look of @image2. Facing three-quarter > side, as in @video1. Action as in @video1: Lower the microphone toward hip level, then Straighten the upper body, then Turn toward the audience, then Continue forward along the stage edge, then Camera follows into a side profile. 6.25-6.75s: the look of @image4. Facing side, as in @video1. Action as in @video1: Move along the stage facing right, then Lift the microphone toward chest level, then Lower the gaze and microphone slightly, then Camera tracks beside the lead. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. No new text or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\segments\\seg0-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\segments\\seg0-t1-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变",
+     "motion": 0.143
+    }
+   },
+   {
+    "index": 1,
+    "start": 6.75,
+    "end": 14,
+    "genStart": 6.75,
+    "join": "hard",
+    "scenes": [
+     "E",
+     "F",
+     "G",
+     "H"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\E-seg2-t2\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\F-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\G-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\H-t1\\frame-1.png"
+    ],
+    "tries": 2,
+    "status": "done",
+    "prompt": "@video1 is the original footage: keep its shots, cuts, camera, timing, actions and light. The pictures show only how the changed subject looks: its design, colours and materials. Its facing, pose and movement in every frame come from @video1, never from the pictures: 0.00-3.92s: the look of @image1. Facing side > back, as in @video1. Action as in @video1: Turn away along the train roof, then Step forward with the microphone lowered, then Lift one knee into a skipping step, then Plant the foot and shift weight, then Cross-step while continuing along the roof, then Steam billows beside the moving train. The original red scarf and tan backpack sit over the hero's armor, with the microphone in an armored glove and boots contacting the curved roof. 3.92-4.67s: the look of @image2. Facing back, as in @video1. Action as in @video1: Skip forward along the crowd-lined runway, then Lean the torso forward, then Swing the microphone hand outward, then Lift the opposite knee, then Continue alternating steps away from camera. The lead remains back-facing, with the reference's rear armor replacing the cap and streetwear; spectators on both sides remain human. 4.67-5.50s: the look of @image3. Facing back, as in @video1. Action as in @video1: Lean forward while stepping away, then Lift one knee into a skip, then Swing the free arm for balance, then Land and continue along the grassy runway. The hero's rear armor replaces the robe-covered body; the microphone remains beside the leg and the grassy runway stays unchanged. 5.50-7.25s: the look of @image4. Facing back, as in @video1. Action as in @video1: Lift one knee high, then Land and raise the opposite knee, then Advance away along the reflective runway, then Bring both hands toward the waist, then Settle into a straighter stepping rhythm. The lead's rear armor silhouette is replaced with the Shiba hero's reference-matched back armor; crowd phone lights and strong backlighting remain. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. No new text or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\segments\\seg1-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\segments\\seg1-t2-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变",
+     "motion": 0.07
+    }
+   },
+   {
+    "index": 2,
+    "start": 14,
+    "end": 20.54,
+    "genStart": 14,
+    "join": "hard",
+    "scenes": [
+     "I",
+     "E",
+     "J",
+     "K"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\I-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\E-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\J-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\K-t1\\frame-1.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage: keep its shots, cuts, camera, timing, actions and light. The pictures show only how the changed subject looks: its design, colours and materials. Its facing, pose and movement in every frame come from @video1, never from the pictures: 0.00-1.96s: the look of @image1. Facing back > three-quarter > side, as in @video1. Action as in @video1: Run upward along the broad tree trunk, then Plant a foot and straighten, then Pivot toward the right, then Lift one knee with elbows bent, then Sword and scabbard swing beside the hip. The ninja's mask, ponytail, and clothing are replaced by the canine head and armor; the original sword and scabbard remain attached equipment. 1.96-3.38s: the look of @image2. Facing side > back, as in @video1. Action as in @video1: Lift a knee while turning sideways, then Pivot away and plant the foot, then Kick the trailing heel backward, then Resume skipping forward along the roof, then Steam expands along both train sides. The red scarf and tan backpack remain over the hero's armor, and the microphone stays in the original hand. 3.38-5.88s: the look of @image3. Facing back, as in @video1. Action as in @video1: Skip away across the reflective platform, then Alternate raised knees and planted steps, then Camera pulls back to a wider view, then Spread both arms outward, then Bounce near the platform's far end. The white suit and helmet become the hero's standard armor and uncovered canine head; the separate equipment backpack remains over the rear armor. 5.88-6.54s: the look of @image4. Facing back, as in @video1. Action as in @video1: Spread both arms on the moonlit bridge, then Setting switches to a palm-lined street, then Bounce above the pale platform, then Land with feet apart, then Lower arms and settle weight. Both leads within this supplied shot become the same back-facing hero; preserve the internal location change at its original timing. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. No new text or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\segments\\seg2-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\segments\\seg2-t1-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变",
+     "motion": -0.036
+    }
+   },
+   {
+    "index": 3,
+    "start": 20.54,
+    "end": 30.08,
+    "genStart": 20.54,
+    "join": "hard",
+    "scenes": [
+     "L"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\L-t1\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\upload-1.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage: keep its shots, cuts, camera, timing, actions and light. The pictures show only how the changed subject looks: its design, colours and materials. Its facing, pose and movement in every frame come from @video1, never from the pictures: 0.00-9.54s: the look of @image1. Facing three-quarter > front > three-quarter, as in @video1. Action as in @video1: Dance with feet apart on reflective panels, then Hold the microphone near the face, then Camera rushes closer during a high kick, then Lower the leg and shift weight, then Camera returns to a wide composition, then Giant waves rise behind the dancing lead. Armored gloves retain the microphone, armored boots replace bare feet, and the platform reflection must match the hero throughout the close approach and wide wave reveal. @image2 shows the Feigouxia: the same design in every frame. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. No new text or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\segments\\seg3-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\segments\\seg3-t1-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变；外观小问题：未见明显替换错误。柴犬头部、成年人体型及橄榄绿装甲、黑色底衣、紫色拼片和银色护臂均符合要求；动作模糊使胸徽和装甲纹理不够清晰，不影响通过。",
+     "motion": 0.33
+    }
+   }
+  ],
+  "plan": {
+   "by": "llm",
+   "recast": true,
+   "speech": "",
+   "noCaptions": false,
+   "subject": "Feigouxia, a single anthropomorphic Shiba Inu superhero with an adult human-sized athletic body, an orange-tan canine head, upright triangular ears, cream cheeks and muzzle, dark eyes, and a black nose; wearing olive-green segmented armor with subtle hexagonal texture over a black undersuit with purple panels, a silver winged chest emblem, a circular silver winged back emblem, silver forearm guards, a green utility belt, armored gloves, and green armored boots, matching the supplied front, side, and back reference.",
+   "target": "Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit.",
+   "keep": "Preserve the original shot timing, editing, framing, choreography, camera movement, location changes, lighting, scenery, effects, music, props, and live-action background spectators and crew.",
+   "change": "Replace every lead performer throughout all shots, including brief appearances during transitions, with the same reference-matched green-and-purple armored Shiba Inu hero, preserving original actions, handheld props, the traveler's red scarf and backpack, other separate carried equipment, burned-in captions, and music.",
+   "summary": "将全部镜头及转场中出现的七类主角统一替换为参考图中的绿紫装甲柴犬飞狗侠，保留真人观众和工作人员，以及原片动作、运镜、剪辑、场景变化、道具、烧入字幕和音乐。",
+   "views": [],
+   "gaps": [],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "绿紫装甲飞狗侠",
+     "desc": "Olive green and black with purple panels and silver accents",
+     "main": true,
+     "at": 2.4
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1,
+      2
+     ],
+     "keyAt": 2.4,
+     "edit": "Replace the black-satin lead and the briefly appearing robed lead with the same reference-matched armored Shiba Inu hero; retain the handheld microphone and surrounding live-action crew.",
+     "variant": "v1"
+    },
+    {
+     "id": "B",
+     "shots": [
+      3,
+      5,
+      6
+     ],
+     "keyAt": 5.01,
+     "edit": "Replace the cream-and-teal robed lead with the reference-matched armored Shiba Inu hero; retain the microphone, stage equipment, crew, and audience.",
+     "variant": "v1"
+    },
+    {
+     "id": "C",
+     "shots": [
+      4
+     ],
+     "keyAt": 4.54,
+     "edit": "Replace the horned black-and-silver armored lead, including the helmet and original armor, with the reference-matched armored Shiba Inu hero; retain separate handheld props.",
+     "variant": "v1"
+    },
+    {
+     "id": "D",
+     "shots": [
+      7
+     ],
+     "keyAt": 6.5,
+     "edit": "Replace the long-haired stage lead with the reference-matched armored Shiba Inu hero; retain the handheld microphone and illuminated audience.",
+     "variant": "v1"
+    },
+    {
+     "id": "E",
+     "shots": [
+      8,
+      13
+     ],
+     "keyAt": 16.17,
+     "edit": "Replace the train-roof traveler with the reference-matched armored Shiba Inu hero; retain the original red scarf, tan backpack, and handheld microphone as separate accessories.",
+     "variant": "v1"
+    },
+    {
+     "id": "F",
+     "shots": [
+      9
+     ],
+     "keyAt": 10.78,
+     "edit": "Replace the cap-wearing streetwear lead and original clothing with the reference-matched armored Shiba Inu hero; retain the handheld microphone and live-action crowd.",
+     "variant": "v1"
+    },
+    {
+     "id": "G",
+     "shots": [
+      10
+     ],
+     "keyAt": 12.13,
+     "edit": "Replace the robed lead on the grassy lakeside runway with the reference-matched armored Shiba Inu hero; retain the handheld microphone and landscape.",
+     "variant": "v1"
+    },
+    {
+     "id": "H",
+     "shots": [
+      11
+     ],
+     "keyAt": 13.74,
+     "edit": "Replace the horned armored lead on the dusk runway with the reference-matched armored Shiba Inu hero; retain the crowd, phone lights, and runway.",
+     "variant": "v1"
+    },
+    {
+     "id": "I",
+     "shots": [
+      12
+     ],
+     "keyAt": 15.67,
+     "edit": "Replace the black-clad ponytailed ninja with the reference-matched armored Shiba Inu hero; retain the separate sword and scabbard, moonlit tree, blossoms, and lanterns.",
+     "variant": "v1"
+    },
+    {
+     "id": "J",
+     "shots": [
+      14
+     ],
+     "keyAt": 17.75,
+     "edit": "Replace the astronaut, spacesuit, and helmet with the reference-matched armored Shiba Inu hero; retain the separate life-support backpack, reflective platform, and asteroid environment.",
+     "variant": "v1"
+    },
+    {
+     "id": "K",
+     "shots": [
+      15
+     ],
+     "keyAt": 20.44,
+     "edit": "Replace both the brief ninja lead in the moonlit bridge opening and the streetwear lead in the subsequent palm-lined street setting with the same reference-matched armored Shiba Inu hero.",
+     "variant": "v1"
+    },
+    {
+     "id": "L",
+     "shots": [
+      16
+     ],
+     "keyAt": 21.97,
+     "edit": "Replace the robed lakeside lead, including original clothing and bare feet, with the reference-matched armored Shiba Inu hero and armored boots; retain the microphone, reflective platform, mountains, lake, and wave effects.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 1.33,
+     "change": true,
+     "scene": "A",
+     "note": "The lead passes behind foreground stage hardware; the briefly visible robed lead is also replaced, while nearby crew remain human.",
+     "facing": "front > three-quarter",
+     "beats": [
+      "Walk forward past backstage equipment",
+      "Swing arms with microphone held low",
+      "Camera tracks alongside the advancing lead",
+      "Lead appearance changes to layered robes",
+      "Continue forward beside the camera operator"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 2,
+     "start": 1.33,
+     "end": 3.46,
+     "change": true,
+     "scene": "A",
+     "note": "The handheld microphone remains in the hero's armored glove; camera operators and their equipment remain unchanged.",
+     "facing": "three-quarter > front",
+     "beats": [
+      "Walk forward beside the camera operator",
+      "Turn head toward the open stage",
+      "Continue toward the retreating camera",
+      "Raise the microphone arm overhead",
+      "Dip head as the arm reaches upward"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 3,
+     "start": 3.46,
+     "end": 4.21,
+     "change": true,
+     "scene": "B",
+     "note": "The original robe and hair belong to the replaced lead; the microphone, crew, hanging speakers, and stage monitors remain.",
+     "facing": "front",
+     "beats": [
+      "Advance with the microphone arm raised",
+      "Bow head and upper body",
+      "Bend the raised elbow overhead",
+      "Camera follows toward the bright stage edge"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 4,
+     "start": 4.21,
+     "end": 4.88,
+     "change": true,
+     "scene": "C",
+     "note": "The horned helmet and spiked body armor are fully replaced; the original microphone remains separate from the hero's armor.",
+     "facing": "three-quarter > front",
+     "beats": [
+      "Hold the microphone arm overhead",
+      "Bend the elbow across the head",
+      "Lift the forearm upward again",
+      "Shift weight toward the stage opening"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 5,
+     "start": 4.88,
+     "end": 5.75,
+     "change": true,
+     "scene": "B",
+     "note": "The hero occupies the robed lead's original silhouette and stage position, with the microphone retained and the crowd kept human.",
+     "facing": "front",
+     "beats": [
+      "Step forward with the microphone overhead",
+      "Dip head and shoulders",
+      "Begin lowering the bent microphone arm",
+      "Camera tracks along the stage edge"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 6,
+     "start": 5.75,
+     "end": 6.25,
+     "change": true,
+     "scene": "B",
+     "note": "The microphone remains in the same hand, and the hero retains the original spacing from the stage monitors and audience.",
+     "facing": "three-quarter > side",
+     "beats": [
+      "Lower the microphone toward hip level",
+      "Straighten the upper body",
+      "Turn toward the audience",
+      "Continue forward along the stage edge",
+      "Camera follows into a side profile"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 7,
+     "start": 6.25,
+     "end": 6.75,
+     "change": true,
+     "scene": "D",
+     "note": "The lead is replaced against the original field of audience phone lights; the microphone remains a separate handheld object.",
+     "facing": "side",
+     "beats": [
+      "Move along the stage facing right",
+      "Lift the microphone toward chest level",
+      "Lower the gaze and microphone slightly",
+      "Camera tracks beside the lead"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 8,
+     "start": 6.75,
+     "end": 10.67,
+     "change": true,
+     "scene": "E",
+     "note": "The original red scarf and tan backpack sit over the hero's armor, with the microphone in an armored glove and boots contacting the curved roof.",
+     "facing": "side > back",
+     "beats": [
+      "Turn away along the train roof",
+      "Step forward with the microphone lowered",
+      "Lift one knee into a skipping step",
+      "Plant the foot and shift weight",
+      "Cross-step while continuing along the roof",
+      "Steam billows beside the moving train"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 9,
+     "start": 10.67,
+     "end": 11.42,
+     "change": true,
+     "scene": "F",
+     "note": "The lead remains back-facing, with the reference's rear armor replacing the cap and streetwear; spectators on both sides remain human.",
+     "facing": "back",
+     "beats": [
+      "Skip forward along the crowd-lined runway",
+      "Lean the torso forward",
+      "Swing the microphone hand outward",
+      "Lift the opposite knee",
+      "Continue alternating steps away from camera"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 10,
+     "start": 11.42,
+     "end": 12.25,
+     "change": true,
+     "scene": "G",
+     "note": "The hero's rear armor replaces the robe-covered body; the microphone remains beside the leg and the grassy runway stays unchanged.",
+     "facing": "back",
+     "beats": [
+      "Lean forward while stepping away",
+      "Lift one knee into a skip",
+      "Swing the free arm for balance",
+      "Land and continue along the grassy runway"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 11,
+     "start": 12.25,
+     "end": 14,
+     "change": true,
+     "scene": "H",
+     "note": "The lead's rear armor silhouette is replaced with the Shiba hero's reference-matched back armor; crowd phone lights and strong backlighting remain.",
+     "facing": "back",
+     "beats": [
+      "Lift one knee high",
+      "Land and raise the opposite knee",
+      "Advance away along the reflective runway",
+      "Bring both hands toward the waist",
+      "Settle into a straighter stepping rhythm"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 12,
+     "start": 14,
+     "end": 15.96,
+     "change": true,
+     "scene": "I",
+     "note": "The ninja's mask, ponytail, and clothing are replaced by the canine head and armor; the original sword and scabbard remain attached equipment.",
+     "facing": "back > three-quarter > side",
+     "beats": [
+      "Run upward along the broad tree trunk",
+      "Plant a foot and straighten",
+      "Pivot toward the right",
+      "Lift one knee with elbows bent",
+      "Sword and scabbard swing beside the hip"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 13,
+     "start": 15.96,
+     "end": 17.38,
+     "change": true,
+     "scene": "E",
+     "note": "The red scarf and tan backpack remain over the hero's armor, and the microphone stays in the original hand.",
+     "facing": "side > back",
+     "beats": [
+      "Lift a knee while turning sideways",
+      "Pivot away and plant the foot",
+      "Kick the trailing heel backward",
+      "Resume skipping forward along the roof",
+      "Steam expands along both train sides"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 14,
+     "start": 17.38,
+     "end": 19.88,
+     "change": true,
+     "scene": "J",
+     "note": "The white suit and helmet become the hero's standard armor and uncovered canine head; the separate equipment backpack remains over the rear armor.",
+     "facing": "back",
+     "beats": [
+      "Skip away across the reflective platform",
+      "Alternate raised knees and planted steps",
+      "Camera pulls back to a wider view",
+      "Spread both arms outward",
+      "Bounce near the platform's far end"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 15,
+     "start": 19.88,
+     "end": 20.54,
+     "change": true,
+     "scene": "K",
+     "note": "Both leads within this supplied shot become the same back-facing hero; preserve the internal location change at its original timing.",
+     "facing": "back",
+     "beats": [
+      "Spread both arms on the moonlit bridge",
+      "Setting switches to a palm-lined street",
+      "Bounce above the pale platform",
+      "Land with feet apart",
+      "Lower arms and settle weight"
+     ],
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 16,
+     "start": 20.54,
+     "end": 30.08,
+     "change": true,
+     "scene": "L",
+     "note": "Armored gloves retain the microphone, armored boots replace bare feet, and the platform reflection must match the hero throughout the close approach and wide wave reveal.",
+     "facing": "three-quarter > front > three-quarter",
+     "beats": [
+      "Dance with feet apart on reflective panels",
+      "Hold the microphone near the face",
+      "Camera rushes closer during a high kick",
+      "Lower the leg and shift weight",
+      "Camera returns to a wide composition",
+      "Giant waves rise behind the dancing lead"
+     ],
+     "fit": "rough",
+     "why": "近距离高抬腿时要把裸脚和飘动长袍改成装甲腿靴，腿部细节及水面倒影可能有少量偏差。"
+    }
+   ],
+   "dropText": false
+  },
+  "route": {
+   "kind": "full",
+   "reasons": [
+    "有 12 个场景，换场景后商品容易走样",
+    "30 秒，超过模型一次能做的 15 秒，要分段"
+   ]
+  },
+  "variantAssets": [],
+  "segKeyframes": [
+   {
+    "scene": "E",
+    "at": 8.71,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\E-seg2-source.jpg",
+    "tries": 2,
+    "seg": 1,
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the train-roof traveler with the reference-matched armored Shiba Inu hero; retain the original red scarf, tan backpack, and handheld microphone as separate accessories.. @image2 shows the finished change in another moment of this film: the Feigouxia in @image1 must look exactly like the one in @image2 and @image3: same design, colours, materials and markings, at the size, position and state of Every featured lead performer: the long-haired woman in a black satin blouse, black jacket and trousers; the long-haired woman in layered cream and teal robes with a wide dark belt; the warrior in black and silver spiked armor and a horned helmet; the short-haired traveler in a dark outfit with a red scarf and tan backpack; the cap-wearing street performer in loose dark clothing and white sneakers; the black-clad ponytailed ninja; and the astronaut in a white spacesuit. in @image1. Take nothing else from @image2: not its pose, facing, framing or background. Everyone keeps the exact facing and pose of @image1: someone seen from behind stays seen from behind, and nobody turns to show a face, logo or emblem, even if the change above asks for it. Only the people this change names are replaced. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Replace the malformed double-headed microphone with the same single-headed microphone shown in the appearance reference: one silver mesh grille at the top and a plain black handle with a flat bottom. Preserve the current rear-facing pose, raised right leg, framing, train roof, and background.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261111-936637\\keyframes\\E-seg2-t2\\frame-1.png",
+    "ok": true,
+    "issue": "无明显错误，背身朝向、抬右腿姿势及场景构图与原片基本一致，角色外观与已做好关键画面一致。"
+   }
+  ]
+ },
+ "pid": 33212,
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "0f4208cd-e532-4b40-916a-6ae1542814e7",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1794388805348
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "32db878d-f43a-4d32-991d-a56194d0d2d1",
+   "yuan": 0.1,
+   "step": "关键画面 G",
+   "at": 1794388860024
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "d765bb53-3ae9-4898-9649-44c7ee68bb26",
+   "yuan": 0.1,
+   "step": "关键画面 H",
+   "at": 1794388870132
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "07efe0c1-1647-402b-aaea-1d77ca1af19b",
+   "yuan": 0.1,
+   "step": "关键画面 E",
+   "at": 1794388876069
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "f6254c15-42c9-421e-a121-4d497c286d65",
+   "yuan": 0.1,
+   "step": "关键画面 I",
+   "at": 1794388876119
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "b4457c2c-c524-4c60-9158-42e5fc5a0d46",
+   "yuan": 0.1,
+   "step": "关键画面 B",
+   "at": 1794388876325
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "13024073-00a7-401a-b1cf-fde2a98ec4e1",
+   "yuan": 0.1,
+   "step": "关键画面 K",
+   "at": 1794388876455
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "8cfab23b-46c5-4a63-b51a-55d980cc1fb0",
+   "yuan": 0.1,
+   "step": "关键画面 C",
+   "at": 1794388881147
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "752322a3-c0f3-4aeb-9cbe-48fb99360cab",
+   "yuan": 0.1,
+   "step": "关键画面 J",
+   "at": 1794388881379
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "de9cc6b2-72fa-484d-90b8-230badec9d7a",
+   "yuan": 0.1,
+   "step": "关键画面 F",
+   "at": 1794388883218
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "75945064-199c-4edd-9193-ff3898a494b9",
+   "yuan": 0.1,
+   "step": "关键画面 D",
+   "at": 1794388912501
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "1799ec8a-774a-4c27-8f14-ba108ceeeee3",
+   "yuan": 0.1,
+   "step": "关键画面 L",
+   "at": 1794389018200
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "7 秒 480p · 4 张参考图",
+   "taskId": "d76e4d4f-a75e-4cbc-ac33-353e958fadfc",
+   "yuan": 5.81,
+   "step": "第 1/4 段",
+   "at": 1794389164790
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "8 秒 480p · 4 张参考图",
+   "taskId": "66a484a6-2618-4e51-a5c0-f257af8062a3",
+   "yuan": 6.32,
+   "step": "第 2/4 段",
+   "at": 1794389166610
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "7 秒 480p · 4 张参考图",
+   "taskId": "f1802946-e482-44eb-9027-0c8905d62802",
+   "yuan": 5.73,
+   "step": "第 3/4 段",
+   "at": 1794389174440
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "10 秒 480p · 2 张参考图",
+   "taskId": "14f1d56a-a173-40aa-beb4-50e2a8c53d5d",
+   "yuan": 6.83,
+   "step": "第 4/4 段",
+   "at": 1794389259540
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "c3de7225-d5b4-4a46-81cb-dc442c10a739",
+   "yuan": 0.1,
+   "step": "关键画面 E · 第 2 段",
+   "at": 1794393184927
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "056f3bac-fdef-47eb-ab7c-eaf1bec25a55",
+   "yuan": 0.1,
+   "step": "关键画面 E · 第 2 段",
+   "at": 1794393285530
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "8 秒 480p · 4 张参考图",
+   "taskId": "ef294c33-b2c4-4add-abcc-81fa308f9423",
+   "yuan": 6.32,
+   "step": "第 2/4 段 · 重做这段",
+   "at": 1794393418759
+  }
+ ]
+}
