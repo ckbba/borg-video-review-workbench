@@ -9,6 +9,7 @@ dist/
 swap/products/
 # scratch
 tmp/
+tmp2/
 .tmp_frames/
 .playwright-cli/
 .shiying-review/

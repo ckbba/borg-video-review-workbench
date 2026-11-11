@@ -170,6 +170,12 @@ export type Phase = { id: PhaseId; label: string; status: 'waiting' | 'running' 
 export type Plan = {
   /** The source's captions and titles come out of the picture: our own subtitles replace them. */
   dropText?: boolean;
+  /** The user asked for the people on screen to change (new actors, another look): the "people stay as in the footage" rule is off. */
+  recast?: boolean;
+  /** The language the people should speak, in English (e.g. "Russian"), when the user asked for another one; empty = as in the footage. */
+  speech?: string;
+  /** The user asked for the source's captions to go. */
+  noCaptions?: boolean;
   /** English, for model prompts. */
   subject: string; target: string; keep: string; change: string;
   /** Chinese, for the user. */
@@ -193,7 +199,9 @@ export type ScoutStep = { round: number; seconds: number; searches: string[]; sa
 /** Something the film shows that the user's pictures do not.
  *  angle: another view of the same thing (default; old jobs have no kind). part: another part of it, like a car's cabin.
  *  screen: a real on-screen operation; never searched for or generated, only the user can supply it. */
-export type Gap = { view: string; label: string; at: number; frame?: string; kind?: 'angle' | 'part' | 'screen';
+/** cast: a new person the user wants on screen but gave no picture of (10 Nov: "换成俄罗斯人"); `view` describes them in English,
+ *  `generate` = the user said to let AI make them, so a portrait is made before the confirm page instead of asking for one. */
+export type Gap = { view: string; label: string; at: number; frame?: string; kind?: 'angle' | 'part' | 'screen' | 'cast'; generate?: boolean;
   /** Chinese: what to supply and how to shoot it. */ need?: string; /** Chinese: what happens without it. */ fallback?: string;
   /** Found by the scout, waiting for the user's yes on 开始前确认. */ found?: WebPic };
 export type Variant = { id: string; label: string; desc: string; main: boolean; at: number; /** That version in the film, shown on its slot. */ frame?: string };
@@ -201,10 +209,13 @@ export type VariantAsset = { id: string; label: string; file?: string; ok?: bool
 /** One line of captions / voiceover that no longer fits the new product. `sure` = readable from the picture;
  *  otherwise a fact the picture cannot give (brand, material) that the user should check. */
 /** One spoken line: what the source says and what the new voice says. */
-export type VoiceLine = { start: number; end: number; from: string; to: string };
+/** `voice`: who says it, read off the picture and the words: 'm' / 'f' picks the male or female preset voice. */
+export type VoiceLine = { start: number; end: number; from: string; to: string; voice?: 'm' | 'f'; onScreen?: boolean };
 export type Voice = { status: 'running' | 'done' | 'failed'; lines?: VoiceLine[]; by?: string; error?: string };
 /** src: where the line was found — the spoken voiceover, the on-screen captions, or both. */
-export type CopyItem = { at: number; from: string; to: string; sure: boolean; why?: string; src?: 'voice' | 'caption' | 'both' };
+/** src: where the line was found — the spoken voiceover, the on-screen captions, or both.
+ *  price: a price or size the user has to fill in; `from` is the source's number, `to` stays equal to it until they do. */
+export type CopyItem = { at: number; from: string; to: string; sure: boolean; why?: string; src?: 'voice' | 'caption' | 'both'; price?: boolean };
 export type Keyframe = { scene: string; at: number; source: string; out?: string; prompt?: string; tries: number; ok?: boolean; issue?: string };
 /** One generated piece. `genStart` < `start` when it carries an overlap with the previous piece (soft seam). */
 export type ReplicaSeg = {
@@ -227,6 +238,10 @@ export type Replica = {
   productName?: string;
   /** Pictures found online by earlier jobs of this product; the scout may reuse them. Not real photos: never in `uploads`. */
   knownWeb?: WebPic[];
+  /** Pictures of a part of the product (a cabin), each ruling the scenes that show it. */
+  partRefs?: { file: string; label: string; scenes: string[]; web: boolean }[];
+  /** The new people on screen: the user's photo or an AI portrait, each ruling the scenes its person is in. */
+  castRefs?: { file: string; label: string; scenes: string[]; ai: boolean }[];
   /** What the scout did, for 链路复盘. */
   /** Which real photos each scene uses, best first (engine/picks.ts). Absent: upload order. */
   photoPicks?: import('./picks').PhotoPicks;
@@ -256,6 +271,8 @@ export type Replica = {
   /** What the copy check looked at: spoken lines heard in the source (0 = none, or music only), and whether it finished. */
   copyCheck?: { heard: number; done: boolean; error?: string };
   voice?: Voice;
+  /** false = the new voice goes on without burned-in subtitles (the user's switch on the result page). */
+  subtitles?: boolean;
   /** The final video before sound and subtitles, so they can be redone without touching the picture. */
   picture?: string;
   keyframes: Keyframe[];

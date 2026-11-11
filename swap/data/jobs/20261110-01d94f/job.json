@@ -1,0 +1,568 @@
+{
+ "id": "20261110-01d94f",
+ "templateId": "replica",
+ "created": 1794319943610,
+ "stage": "done",
+ "message": "完成",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\upload-1.png",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "22:12:23 看懂原片",
+  "22:12:29 制定方案",
+  "22:13:45 路线：完整路线（有 5 个场景，换场景后商品容易走样；19 秒，超过模型一次能做的 15 秒，要分段；有 6 个镜头不用改，要保留原片）",
+  "22:13:45 听写口播没有完成（[out#0/mp3 @ 00000160080395c0] Error opening output E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\review\\voice\\audio-turbo.mp3: No such file or directory\r\nError opening output file E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\review\\voice\\audio-turbo.mp3.\r\nError opening output files: No such file or directory\r\n），只看字幕",
+  "22:14:28 制作关键画面：5 张",
+  "22:14:28 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "22:16:01 制作关键画面 B：生成预览图（image-2.5-flare）…",
+  "22:16:01 制作关键画面 C：生成预览图（image-2.5-flare）…",
+  "22:16:01 制作关键画面 D：生成预览图（image-2.5-flare）…",
+  "22:16:01 制作关键画面 E：生成预览图（image-2.5-flare）…",
+  "22:17:18 制作关键画面：一起验收",
+  "22:20:48 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "22:20:48 制作关键画面 B：生成预览图（image-2.5-flare）…",
+  "22:20:48 制作关键画面 C：生成预览图（image-2.5-flare）…",
+  "22:20:48 制作关键画面 D：生成预览图（image-2.5-flare）…",
+  "22:20:48 制作关键画面 E：生成预览图（image-2.5-flare）…",
+  "22:22:13 制作关键画面：第 2 次验收",
+  "22:23:57 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "22:23:57 制作关键画面 B：生成预览图（image-2.5-flare）…",
+  "22:23:57 制作关键画面 C：生成预览图（image-2.5-flare）…",
+  "22:25:13 制作关键画面：第 3 次验收",
+  "22:26:46 生成视频：2 段同时生成",
+  "22:26:58 第 2/2 段：已提交视频任务 d4bd358d-3cbf-4698-9f81-17e494252fd9",
+  "22:27:00 第 1/2 段：已提交视频任务 d74a251e-4118-4216-ac78-358c81c4ee5b",
+  "22:27:04 第 2/2 段：生成中…（processing 10%）",
+  "22:27:04 第 1/2 段：生成中…（processing 10%）",
+  "22:29:45 检查修复：检查动作、外观和接缝",
+  "22:29:45 合成成片"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "done",
+   "startedAt": 1794319943612,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\final.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\compare.mp4",
+   "endedAt": 1794321003082,
+   "check": {
+    "pass": true,
+    "trimTail": 0,
+    "summary": "自动检查通过"
+   }
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\source.mp4",
+  "prompt": "把开头的建筑换成图片1.把视频中的人物换成俄罗斯人，视频中的车包括人物的位置关系不要变化。 去掉视频中的字幕，视频中的人用俄罗斯语。\n配音和字幕\n开",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\upload-1.png"
+  ],
+  "shapeRefs": [],
+  "scoutOn": false,
+  "voiceOn": true,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "19.2 秒，13 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "7/13 个镜头要改，5 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "skipped",
+    "note": "你的图已经够用"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "5 张，2 张没通过验收"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "done",
+    "note": "2 段"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "done",
+    "note": "外观和接缝没问题，不用重做"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "done"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "skipped",
+    "note": "原片没有口播，字幕也不用改"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 0.38,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace only the Burj Khalifa with the reference tower, showing its continuous taper, faceted glass sides, silver ribs and pointed crown from the original extreme upward angle; preserve the diagonal placement, bright backlighting, sky, palm silhouettes and camera movement, and exclude the reference photo's watermark.. The new The skyscraper in image 1: an extremely tall, slender blue-silver glass tower with tapering, subtly twisting faceted sides, strong vertical silver ribs, a fine curtain-wall grid and a sharp pointed crown. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The Burj Khalifa in the opening two shots, seen from ground level against a bright sky, with a stepped, tiered silver-blue facade, rounded projecting wings and a thin spire. in @image1. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Keep the reference tower's tapering faceted form, silver vertical ribs, fine curtain-wall grid and pointed crown. Match the original frame's strong backlighting, dark facade exposure, atmospheric haze and image softness. Remove conspicuous cloud reflections unsupported by the original sky. Preserve the original camera angle, framing, sky gradient, glare and every palm frond outside the tower replacement mask.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\A-t3\\frame-1.png",
+    "ok": false,
+    "issue": "塔楼虽已替换为蓝银玻璃及银色竖肋，但轮廓过于笔直，呈平直三角楔形，未准确还原参考塔楼微扭转的多面体体量与侧面收分。塔尖相对原片向左下偏移，右侧棕榈叶的局部轮廓也被重绘。"
+   },
+   {
+    "scene": "B",
+    "at": 1.46,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\B-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the centrally framed stepped tower with a closer low-angle view of the same reference building, retaining its blue-silver glazing, vertical ribs and uninterrupted taper; match the original frame occupancy, crop, exposure, palm occlusions and movement without importing the reference photo's surrounding buildings or watermark.. The new The skyscraper in image 1: an extremely tall, slender blue-silver glass tower with tapering, subtly twisting faceted sides, strong vertical silver ribs, a fine curtain-wall grid and a sharp pointed crown. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The Burj Khalifa in the opening two shots, seen from ground level against a bright sky, with a stepped, tiered silver-blue facade, rounded projecting wings and a thin spire. in @image1. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Match the replacement tower to the original shot's dark backlit exposure, muted contrast, cyan atmospheric cast and softness. Remove the large bright cloud reflections that are inconsistent with the original sky. Retain the reference tower's blue-silver glass, silver ribs and tapered faceted geometry, while preserving the original framing, top crop, palm silhouettes and all background pixels outside the replacement mask.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\B-t3\\frame-1.png",
+    "ok": false,
+    "issue": "原片塔楼上部出画，改图却将完整尖冠放入画面，改变了原有取景与建筑尺度关系。塔身被简化为近乎直线收尖的对称体，参考图的微扭转折面结构不足；右上及左下棕榈叶的形状和覆盖范围也发生变化。"
+   },
+   {
+    "scene": "C",
+    "at": 3.13,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\C-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Establish one Russian male adult with a consistent new facial identity, retaining the original short hairstyle, trimmed beard, square sunglasses, navy textured polo, microphone, seat belt, seat position and extended arm; preserve the car and background, remove subtitles and synchronize natural Russian dialogue to the original delivery.. The new The skyscraper in image 1: an extremely tall, slender blue-silver glass tower with tapering, subtly twisting faceted sides, strong vertical silver ribs, a fine curtain-wall grid and a sharp pointed crown. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The Burj Khalifa in the opening two shots, seen from ground level against a bright sky, with a stepped, tiered silver-blue facade, rounded projecting wings and a thin spire. in @image1. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. @image3 shows the same thing already placed in another shot of this film: match it exactly. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Restore scene C directly from the original footage, including the same male driver, face, sunglasses, clothing, seat belt, driving pose, vehicle interior, window view and the subtitle \"It's so good\". This shot contains no authorized tower replacement. Remove the inserted tower exterior and all reference-image surroundings, and preserve the original shot boundary, duration, camera movement and audio.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\C-t3\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "D",
+    "at": 13.67,
+    "tries": 2,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\D-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Establish one Russian female adult with a consistent new facial identity across close and medium views, retaining the original slicked-back bun, narrow sunglasses, earrings, black satin blouse, microphone, jewelry, seat belt and exact seating position; preserve her gestures and steering relationship, keep shot 11's opening control close-up unchanged except for subtitle removal, and synchronize Russian dialogue without subtitles.. The new The skyscraper in image 1: an extremely tall, slender blue-silver glass tower with tapering, subtly twisting faceted sides, strong vertical silver ribs, a fine curtain-wall grid and a sharp pointed crown. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The Burj Khalifa in the opening two shots, seen from ground level against a bright sky, with a stepped, tiered silver-blue facade, rounded projecting wings and a thin spire. in @image1. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Restore the original scene D frame unchanged, preserving the woman's exact identity, facial proportions, speaking expression, sunglasses, earrings, hairstyle, blouse folds, microphone, seat belt, visible arm, seating position, car interior, background, lighting, and composition. Retain the subtitle \"I am so impressed that\" exactly as shown in the source. Do not regenerate this interior shot.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\D-t2\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "E",
+    "at": 6.65,
+    "tries": 2,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\E-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Create one two-panel reference image anchored to the female frame at 6.65 seconds, with the male segment represented in the second panel, using exactly the Russian identities established in scenes C and D; preserve each segment's original framing, car interior, seat assignment, clothing, accessories and actions, retain the existing internal cut, remove subtitles and use Russian speech synchronized to the original speaker timing; the panels are reference-only and must not appear in the finished video.. The new The skyscraper in image 1: an extremely tall, slender blue-silver glass tower with tapering, subtly twisting faceted sides, strong vertical silver ribs, a fine curtain-wall grid and a sharp pointed crown. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The Burj Khalifa in the opening two shots, seen from ground level against a bright sky, with a stepped, tiered silver-blue facade, rounded projecting wings and a thin spire. in @image1. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Restore the original scene E interior shot in full. Preserve the woman, her exact appearance, clothing, accessories, pose, seat belt, vehicle interior, window view, lighting, framing, and the subtitle \"Can't wait to try it out\". Remove the inserted building exterior and all surroundings copied from the reference image. Restrict the reference-tower replacement to the opening two exterior shots and preserve all original shot boundaries and durations.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\E-t2\\frame-1.png",
+    "ok": true,
+    "issue": ""
+   }
+  ],
+  "segments": [
+   {
+    "index": 0,
+    "start": 0,
+    "end": 7.63,
+    "genStart": 0,
+    "join": "start",
+    "scenes": [
+     "A",
+     "B",
+     "C",
+     "D",
+     "E"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\A-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\B-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\C-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\D-t2\\frame-1.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve every shot boundary, duration, camera angle, camera movement, composition, action, narrative beat, vehicle exterior and interior, seating assignment, person-to-car spatial relationship, clothing, accessories, background element, music, sound effect and final brand animation.. Change only this: Replace the opening tower with the building in image 1, recast the man and woman as two consistent Russian adults without changing their clothing, actions or positions relative to the cars, replace their dialogue with natural Russian speech matched to the original meaning and timing with synchronized lips, and remove all dialogue subtitles without adding new ones.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-0.75s: match @image1, colours blue-silver glass with silver structural ribs. The original tower rises diagonally from the lower left toward the upper center in an extreme low-angle view,  0.75-2.17s: match @image2, colours blue-silver glass with silver structural ribs. The original tower fills the center vertically in a closer low-angle view, with its lower portion cropped and  2.17-4.08s: match @image3, colours blue-silver glass with silver structural ribs. The building target is absent; the separately requested male cast replacement appears seated and belted in a d 4.08-5.67s: match @image4, colours blue-silver glass with silver structural ribs. The building target is absent; the separately requested female cast replacement appears in a medium close-up,  5.67-7.63s: apply the change, colours blue-silver glass with silver structural ribs. The building target is absent; this supplied shot contains an internal cut from the belted man in his dark int People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\segments\\seg0-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\segments\\seg0-t1-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变；外观小问题：镜头1、2的塔楼均保留蓝银玻璃、银色纵向结构肋、纤长收尖轮廓和尖顶，未见明显款式或颜色错误；幕墙网格较参考图模糊、简化，属于细节差异。镜头3、4未见可辨识的目标塔楼，人物和车内主体未见明显异常，不能仅因塔楼未入画判定漏换。镜头5仅有生成结果，且未见可辨识的目标塔楼，无法核验替换效果。",
+     "motion": -0.025
+    }
+   },
+   {
+    "index": 1,
+    "start": 11.579999999999998,
+    "end": 16.58,
+    "genStart": 11.579999999999998,
+    "join": "start",
+    "scenes": [
+     "D"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\keyframes\\D-t2\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\upload-1.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve every shot boundary, duration, camera angle, camera movement, composition, action, narrative beat, vehicle exterior and interior, seating assignment, person-to-car spatial relationship, clothing, accessories, background element, music, sound effect and final brand animation.. Change only this: Replace the opening tower with the building in image 1, recast the man and woman as two consistent Russian adults without changing their clothing, actions or positions relative to the cars, replace their dialogue with natural Russian speech matched to the original meaning and timing with synchronized lips, and remove all dialogue subtitles without adding new ones.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-0.50s: leave this shot exactly as in @video1. 0.50-1.67s: match @image1, colours blue-silver glass with silver structural ribs. The building target is absent; the supplied shot starts on the circular vehicle control and cuts to the woman  1.67-4.50s: match @image1, colours blue-silver glass with silver structural ribs. The building target is absent; the woman appears in a tighter seated close-up, speaks, briefly lifts a hand in 4.50-5.00s: leave this shot exactly as in @video1. @image2 shows The skyscraper in image 1: an extremely tall, slender blue-silver glass tower with tapering, subtly twisting faceted sides, strong vertical silver ribs, a fine curtain-wall grid and a sharp pointed crown.: the same design in every frame, from every angle. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\segments\\seg1-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-01d94f\\segments\\seg1-t1-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变",
+     "motion": -0.023
+    }
+   }
+  ],
+  "plan": {
+   "by": "llm",
+   "subject": "The skyscraper in image 1: an extremely tall, slender blue-silver glass tower with tapering, subtly twisting faceted sides, strong vertical silver ribs, a fine curtain-wall grid and a sharp pointed crown.",
+   "target": "The Burj Khalifa in the opening two shots, seen from ground level against a bright sky, with a stepped, tiered silver-blue facade, rounded projecting wings and a thin spire.",
+   "keep": "Preserve every shot boundary, duration, camera angle, camera movement, composition, action, narrative beat, vehicle exterior and interior, seating assignment, person-to-car spatial relationship, clothing, accessories, background element, music, sound effect and final brand animation.",
+   "change": "Replace the opening tower with the building in image 1, recast the man and woman as two consistent Russian adults without changing their clothing, actions or positions relative to the cars, replace their dialogue with natural Russian speech matched to the original meaning and timing with synchronized lips, and remove all dialogue subtitles without adding new ones.",
+   "summary": "开头两镜换成图片1的尖顶玻璃塔楼，男女角色换成身份连贯的俄罗斯演员并用俄语对白、去掉字幕，同时完整保留车辆、人物与车辆的位置关系及原片镜头节奏。",
+   "views": [],
+   "gaps": [],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "蓝银玻璃塔楼",
+     "desc": "blue-silver glass with silver structural ribs",
+     "main": true,
+     "at": 1.46
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1
+     ],
+     "keyAt": 0.38,
+     "edit": "Replace only the Burj Khalifa with the reference tower, showing its continuous taper, faceted glass sides, silver ribs and pointed crown from the original extreme upward angle; preserve the diagonal placement, bright backlighting, sky, palm silhouettes and camera movement, and exclude the reference photo's watermark.",
+     "variant": "v1"
+    },
+    {
+     "id": "B",
+     "shots": [
+      2
+     ],
+     "keyAt": 1.46,
+     "edit": "Replace the centrally framed stepped tower with a closer low-angle view of the same reference building, retaining its blue-silver glazing, vertical ribs and uninterrupted taper; match the original frame occupancy, crop, exposure, palm occlusions and movement without importing the reference photo's surrounding buildings or watermark.",
+     "variant": "v1"
+    },
+    {
+     "id": "C",
+     "shots": [
+      3
+     ],
+     "keyAt": 3.13,
+     "edit": "Establish one Russian male adult with a consistent new facial identity, retaining the original short hairstyle, trimmed beard, square sunglasses, navy textured polo, microphone, seat belt, seat position and extended arm; preserve the car and background, remove subtitles and synchronize natural Russian dialogue to the original delivery.",
+     "variant": "v1"
+    },
+    {
+     "id": "D",
+     "shots": [
+      4,
+      11,
+      12
+     ],
+     "keyAt": 13.67,
+     "edit": "Establish one Russian female adult with a consistent new facial identity across close and medium views, retaining the original slicked-back bun, narrow sunglasses, earrings, black satin blouse, microphone, jewelry, seat belt and exact seating position; preserve her gestures and steering relationship, keep shot 11's opening control close-up unchanged except for subtitle removal, and synchronize Russian dialogue without subtitles.",
+     "variant": "v1"
+    },
+    {
+     "id": "E",
+     "shots": [
+      5
+     ],
+     "keyAt": 6.65,
+     "edit": "Create one two-panel reference image anchored to the female frame at 6.65 seconds, with the male segment represented in the second panel, using exactly the Russian identities established in scenes C and D; preserve each segment's original framing, car interior, seat assignment, clothing, accessories and actions, retain the existing internal cut, remove subtitles and use Russian speech synchronized to the original speaker timing; the panels are reference-only and must not appear in the finished video.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 0.75,
+     "change": true,
+     "scene": "A",
+     "note": "The original tower rises diagonally from the lower left toward the upper center in an extreme low-angle view, strongly backlit, with dark palm fronds overlapping the right side; replace the building silhouette and facade while preserving its screen placement.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 2,
+     "start": 0.75,
+     "end": 2.17,
+     "change": true,
+     "scene": "B",
+     "note": "The original tower fills the center vertically in a closer low-angle view, with its lower portion cropped and palm fronds framing the edges; the replacement must retain its own smooth taper and pointed crown within the original composition.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 3,
+     "start": 2.17,
+     "end": 4.08,
+     "change": true,
+     "scene": "C",
+     "note": "The building target is absent; the separately requested male cast replacement appears seated and belted in a dark car interior, viewed from a front three-quarter angle with one arm extending toward the right edge and his head turning slightly while speaking.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 4,
+     "start": 4.08,
+     "end": 5.67,
+     "change": true,
+     "scene": "D",
+     "note": "The building target is absent; the separately requested female cast replacement appears in a medium close-up, seated and belted beside the side window, facing forward with an arm extending toward the right edge while speaking.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 5,
+     "start": 5.67,
+     "end": 7.63,
+     "change": true,
+     "scene": "E",
+     "note": "The building target is absent; this supplied shot contains an internal cut from the belted man in his dark interior to the belted woman in her original interior, followed by her head turning toward the window; replace both identities consistently and preserve the cut and each person's original position.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 6,
+     "start": 7.63,
+     "end": 9.17,
+     "change": false,
+     "scene": "A",
+     "note": "Neither the building target nor either featured person is visible; retain the original vehicle front-corner close-up, illuminated headlamp, side mirror, palm background and sun flare.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 7,
+     "start": 9.17,
+     "end": 10.25,
+     "change": false,
+     "scene": "A",
+     "note": "Neither the building target nor either featured person is visible; retain the original empty cream-colored cabin, two seats, center aisle, panoramic roof and existing vehicle displays.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 8,
+     "start": 10.25,
+     "end": 10.75,
+     "change": false,
+     "scene": "A",
+     "note": "Neither the building target nor either featured person is visible; retain the original close-up of the silver knurled console control and surrounding black and metallic trim.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 9,
+     "start": 10.75,
+     "end": 11.42,
+     "change": false,
+     "scene": "A",
+     "note": "Neither the building target nor either featured person is visible; preserve the supplied transition from the silver console control to the illuminated faceted circular control without regenerating either vehicle detail.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 10,
+     "start": 11.42,
+     "end": 12.08,
+     "change": false,
+     "scene": "A",
+     "note": "Neither the building target nor either featured person is visible; retain the original illuminated faceted circular control, center symbol, textured metallic panel and camera movement.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 11,
+     "start": 12.08,
+     "end": 13.25,
+     "change": true,
+     "scene": "D",
+     "note": "The building target is absent; the supplied shot starts on the circular vehicle control and cuts to the woman seated and belted with her forearm extended toward the steering area; preserve the control footage and internal cut, replace only the visible person, and remove subtitles throughout.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 12,
+     "start": 13.25,
+     "end": 16.08,
+     "change": true,
+     "scene": "D",
+     "note": "The building target is absent; the woman appears in a tighter seated close-up, speaks, briefly lifts a hand into the foreground and turns her head; maintain her replacement identity, sunglasses, earrings, blouse, seat belt, hand motion and original relationship to the car.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 13,
+     "start": 16.08,
+     "end": 19.16,
+     "change": false,
+     "scene": "A",
+     "note": "Neither the building target nor either featured person is visible; retain the original dark end card and animated ZEEKR logo and wordmark.",
+     "fit": "good",
+     "why": ""
+    }
+   ],
+   "dropText": false
+  },
+  "route": {
+   "kind": "full",
+   "reasons": [
+    "有 5 个场景，换场景后商品容易走样",
+    "19 秒，超过模型一次能做的 15 秒，要分段",
+    "有 6 个镜头不用改，要保留原片"
+   ]
+  },
+  "copyCheck": {
+   "heard": 0,
+   "done": true
+  },
+  "copy": [],
+  "variantAssets": []
+ },
+ "pid": 34016,
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "e555deea-d228-429e-b0d1-b7840351253b",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1794320159793
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "335efe32-b206-407c-b80e-27d22ee1584f",
+   "yuan": 0.1,
+   "step": "关键画面 D",
+   "at": 1794320210722
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "4e69a444-4779-471a-8537-d84fb849ef8b",
+   "yuan": 0.1,
+   "step": "关键画面 B",
+   "at": 1794320219861
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "6916171e-9eb1-476b-b7c3-788da8e5beb0",
+   "yuan": 0.1,
+   "step": "关键画面 C",
+   "at": 1794320221529
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "da3a244f-21b8-48c2-a9b3-a125d2aacc4f",
+   "yuan": 0.1,
+   "step": "关键画面 E",
+   "at": 1794320237655
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "ab8de5d5-fd3f-42d2-b1fa-01fa3e8450ee",
+   "yuan": 0.1,
+   "step": "关键画面 B",
+   "at": 1794320493712
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "0c462438-aa62-41a9-b176-3a38ae480e49",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1794320494601
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "fe777d89-d2eb-4fde-82a1-c3791c1a8342",
+   "yuan": 0.1,
+   "step": "关键画面 E",
+   "at": 1794320506738
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "890d89a5-2fcb-4644-b567-5186cb418afa",
+   "yuan": 0.1,
+   "step": "关键画面 D",
+   "at": 1794320513964
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "d5c3fb6a-2809-4921-9aa1-4dfe7976d221",
+   "yuan": 0.1,
+   "step": "关键画面 C",
+   "at": 1794320531113
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "e449819a-e609-4e3b-aad7-d5a8d96f0420",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1794320688196
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "23a40815-f776-42a1-8561-515280306387",
+   "yuan": 0.1,
+   "step": "关键画面 B",
+   "at": 1794320688626
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "adf2f4ae-8850-479c-93ac-bca68bde40cf",
+   "yuan": 0.1,
+   "step": "关键画面 C",
+   "at": 1794320712077
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "5 秒 480p · 2 张参考图",
+   "taskId": "d4bd358d-3cbf-4698-9f81-17e494252fd9",
+   "yuan": 3.5,
+   "step": "第 2/2 段",
+   "at": 1794320888277
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "8 秒 480p · 4 张参考图",
+   "taskId": "d74a251e-4118-4216-ac78-358c81c4ee5b",
+   "yuan": 6.46,
+   "step": "第 1/2 段",
+   "at": 1794320905721
+  }
+ ]
+}

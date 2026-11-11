@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { fitAspect } from './media';
+import { fitAspect, stackFor } from './media';
 import { planSegments } from './segments';
 
 const lens = (s: { start: number; end: number }[]) => s.map(x => +(x.end - x.start).toFixed(2));
@@ -10,6 +10,10 @@ describe('画幅', () => {
     expect(fitAspect(720, 2000)).toEqual({ width: 720, height: 1800 });
     expect(fitAspect(1920, 1080)).toBeUndefined();
     expect(fitAspect(1800, 720)).toBeUndefined();
+  });
+  it('keeps a landscape film landscape in the before/after pair', () => {
+    expect(stackFor(true)).toBe('hstack');
+    expect(stackFor(false)).toBe('vstack');
   });
 });
 

@@ -157,6 +157,7 @@ async function run(id: string, own: boolean) {
   }));
   // The scout works in the background: the confirm page does not wait for it.
   void findMissing(id).catch(e => say(id, `素材员没有完成（${e.message}）`));
+  await makeCast(id, true);
   await Promise.all([rep(id).voiceOn !== false ? reviewCopy(id, plan) : undefined, pickPhotos(id, plan, source)]);
 
   // Every job stops here before anything is paid for (6 Nov: a simple film used to run straight through, so the user never
@@ -205,10 +206,11 @@ async function build(id: string) {
   }
 
   await pickPhotos(id, rep(id).plan!, source);
+  await makeCast(id, false);
 
   // 制作关键画面 + 联合验收
   // Wrong captions would stay burned in, so when the copy changes the picture is made without them.
-  plan.dropText = !!rep(id).copy?.length;
+  plan.dropText = !!rep(id).copy?.length || !!plan.noCaptions;
   edit(id, x => { x.plan!.dropText = plan.dropText; });
   await makeKeyframes(id, plan, ratio, source);
 
@@ -222,7 +224,7 @@ async function buildSimple(id: string) {
   phase(id, 'keyframes', 'skipped', skip);
   let plan = rep(id).plan!, source = rep(id).source;
   await pickPhotos(id, plan, source);
-  plan.dropText = !!rep(id).copy?.length;
+  plan.dropText = !!rep(id).copy?.length || !!plan.noCaptions;
   edit(id, x => { x.plan!.dropText = plan.dropText; });
   const p = await providers(), info = await probe(source), max = p.video.maxSeconds;
   // A hair over the model's limit: the last frames go, rather than a second run and a seam.
@@ -235,6 +237,36 @@ async function buildSimple(id: string) {
 }
 
 type Picture = { data: Buffer; ext: string };
+
+/** The scenes a gap's shots belong to (only the shots that change). */
+function gapScenes(plan: Plan, g: Gap) {
+  const shots = g.shots?.length ? plan.shots.filter(s => g.shots!.includes(s.index)) : plan.shots.filter(s => g.at >= s.start && g.at < s.end);
+  return [...new Set(shots.filter(s => s.change).map(s => s.scene))];
+}
+
+/** 生成人物: a portrait of each new person nobody supplied. `before`: made before the confirm page, for the people the user
+ *  said AI should make (they see and can replace it there); otherwise made when the job starts, for those still missing. */
+async function makeCast(id: string, before: boolean) {
+  const r = rep(id), plan = r.plan!, gaps = plan.gaps || [];
+  const todo = gaps.map((g, i) => ({ g, i })).filter(({ g }) => g.kind === 'cast' && (before ? g.generate && !g.found : !(r.castRefs || []).some(c => c.label === g.label)));
+  if (!todo.length) return;
+  const p = await providers(), dir = path.join(dirOf(id), 'cast'); fs.mkdirSync(dir, { recursive: true });
+  say(id, `生成人物：${todo.map(x => x.g.label).join('、')}`);
+  await Promise.all(todo.map(async ({ g, i }) => {
+    const frame = await frameAt(r.source, g.at, path.join(dir, `cast-${i}-source.jpg`));
+    fs.mkdirSync(path.join(dir, `cast-${i}`), { recursive: true });
+    const prompt = `Portrait photograph of a new person: ${g.view}. A completely different person from the one in @image1: a new face and identity, not a look-alike. ` +
+      `Keep from @image1 only the clothes, accessories, hairstyle, pose and light. Head and shoulders, face clearly visible, sharp, natural skin. No text, no captions, no letters.`;
+    try {
+      const out = (await p.image.targetFrames({ prompt, refs: [frame], ratio: '3:4', count: 1, outDir: path.join(dir, `cast-${i}`), log: m => say(id, `生成人物 ${g.label}：${m}`), bill: biller(id, `人物 ${g.label}`) }))[0];
+      edit(id, x => {
+        const gap = x.plan!.gaps![i];
+        if (before) gap.found = { file: out, url: out, why: 'AI 生成的新人物' };
+        else x.castRefs = [...(x.castRefs || []), { file: out, label: gap.label, scenes: gapScenes(x.plan!, gap), ai: true }];
+      });
+    } catch (e: any) { say(id, `生成人物 ${g.label} 没有成功（${e.message}）`); }
+  }));
+}
 /** The user's answers on 开始前确认. All optional: `images` by variant id, `angles` by gap index, `answers` by copy index. */
 /** mode: 'all' makes every shot; 'fit' cuts the shots that cannot be made first; 'cancel' stops here, nothing spent. */
 export function continueSlots(id: string, x: { images?: Record<string, Picture>; angles?: Record<string, Picture>; answers?: Record<string, string>; /** Gaps whose found picture the page showed and the user kept. */ kept?: number[]; mode?: 'all' | 'fit' | 'cancel' }) {
@@ -245,10 +277,7 @@ export function continueSlots(id: string, x: { images?: Record<string, Picture>;
     update(id, o => { o.stage = 'failed'; o.message = '已取消'; o.error = '你选了不复刻。没有生成，也没有花钱。'; o.versions[0].status = 'failed'; o.versions[0].error = o.error; });
     return getJob(id);
   }
-  const scenesOf = (plan: Plan, g: Gap) => {
-    const shots = g.shots?.length ? plan.shots.filter(s => g.shots!.includes(s.index)) : plan.shots.filter(s => g.at >= s.start && g.at < s.end);
-    return [...new Set(shots.filter(s => s.change).map(s => s.scene))];
-  };
+  const scenesOf = gapScenes;
   const dir = path.join(dirOf(id), 'slots'); fs.mkdirSync(dir, { recursive: true });
   const save = (name: string, im: Picture) => { const file = path.join(dir, name + im.ext); fs.writeFileSync(file, im.data); return file; };
   update(id, o => {
@@ -263,6 +292,8 @@ export function continueSlots(id: string, x: { images?: Record<string, Picture>;
       const im = x.angles?.[i];
       if (!im) return;
       const file = save(`angle-${i}`, im);
+      // The user's photo of the new person: it rules that person's scenes, and it is not a photo of the product.
+      if (g.kind === 'cast') { r.castRefs = [...(r.castRefs || []), { file, label: g.label, scenes: scenesOf(plan, g), ai: false }]; return; }
       // A photo of a part (a cabin) is no photo of the whole thing: it rules that part in its own scenes only.
       if (g.kind === 'part') {
         r.partRefs = [...(r.partRefs || []), { file, label: g.label, scenes: scenesOf(plan, g), web: false }];
@@ -276,6 +307,7 @@ export function continueSlots(id: string, x: { images?: Record<string, Picture>;
     // picture of it); of an angle, it gives shape only.
     (plan.gaps || []).forEach((g, i) => {
       if (!g.found || x.angles?.[i] || !x.kept?.includes(i)) { g.found = undefined; return; }
+      if (g.kind === 'cast') { r.castRefs = [...(r.castRefs || []), { file: g.found.file, label: g.label, scenes: scenesOf(plan, g), ai: true }]; return; }
       if (g.kind === 'part') r.partRefs = [...(r.partRefs || []), { file: g.found.file, label: g.label, scenes: scenesOf(plan, g), web: true }];
       else r.shapeRefs = [...new Set([...(r.shapeRefs || []), g.found.file])];
       if (r.productId) addPhotos(r.productId, [{ file: g.found.file, angle: g.label, url: g.found.url, page: g.found.page }], id);
@@ -304,7 +336,7 @@ async function cutUnfit(id: string) {
 }
 
 export function saveCopy(id: string, items: CopyItem[]) {
-  edit(id, r => { r.copy = items.map(x => ({ at: Number(x.at), from: String(x.from), to: String(x.to).slice(0, 200), sure: !!x.sure, why: x.why, src: x.src })); });
+  edit(id, r => { r.copy = items.map(x => ({ at: Number(x.at), from: String(x.from), to: String(x.to).slice(0, 200), sure: !!x.sure, why: x.why, src: x.src, price: x.price || undefined })); });
   return getJob(id);
 }
 
@@ -318,10 +350,13 @@ ${heard.map(l => `${l.start.toFixed(1)}s ${l.from}`).join('\n')}
 1. 不矛盾的不要列，比如"又保暖又舒适"这类通用的话。
 2. 看图能确定的（颜色、图案、款式）直接改写，sure=true。
 3. 看图不能确定的（品牌、型号、材质、工艺、功效）绝不编造，改成通用说法，sure=false，why 用中文一句话说明要用户确认什么。
+   to 是会被念出来、烧进画面的话：不要写"待确认""以页面为准"这类说明，用自然的说法。用户图里看得出品牌的（瓶身、包装上的字），直接用这个品牌。
+3.5 价格和规格（如 1195、359、5195、100ml*3、8瓶）只有用户知道：每个不同的数字单独列一项，price=true，sure=false，from 和 to 都写原片的这个数字本身（只写数字和单位，如"1195"、"100ml*3"），why 写这个数字是什么（如"大瓶精华水的单价"）。
+   其他句子里出现这些数字时，数字保持原样不改，不要改成"另一个价""这个价"这种模糊说法。
 4. 改写后的字数尽量和原文一样，保持原来的语气，读起来要和原来的节奏对得上。
 5. 同一句连续出现多帧只列一次，at 取它第一次出现的秒数。
 6. 只列字幕和花字。画面角落的 Logo、品牌水印、衣服上的字不是文案，不要列。to 只写改写后的文字本身，不要写"改成"这类说明。
-只输出 JSON：{"items":[{"at":秒,"from":"原文","to":"改写","sure":true,"why":"","src":"voice"}]}`;
+只输出 JSON：{"items":[{"at":秒,"from":"原文","to":"改写","sure":true,"why":"","src":"voice","price":false}]}`;
 
 /** Listens to the voiceover and reads the captions off the review frames, and lists what no longer fits. Never blocks the job.
  *  7 Nov: captions alone missed films that only speak; a line saying the old car's colour went out unchanged. */
@@ -341,7 +376,8 @@ export async function reviewCopy(id: string, plan: Plan) {
     const seen = new Set<string>();
     const items: CopyItem[] = (j.items || []).filter((x: any) => x.from && !seen.has(x.from) && seen.add(x.from))
       .map((x: any) => ({ at: Number(x.at) || 0, from: String(x.from), to: String(x.to || ''), sure: x.sure !== false, why: x.why ? String(x.why) : undefined,
-        src: ['voice', 'caption', 'both'].includes(x.src) ? x.src : undefined }));
+        src: ['voice', 'caption', 'both'].includes(x.src) ? x.src : undefined, price: x.price === true || undefined }))
+      .map((x: CopyItem) => x.price ? { ...x, to: x.from, sure: false } : x);
     edit(id, x => { x.copy = items.sort((a, b) => a.at - b.at); x.copyCheck = { heard: heard.length, done: true }; });
   } catch (e: any) {
     say(id, `文案检查没有完成（${e.message}），不影响视频`);
@@ -526,13 +562,19 @@ const PLAN_ASK = (n: number, prompt: string, seconds: number) => `你是广告�
  "keep":"英文一句，必须保持不变的东西",
  "change":"英文一句，要变的东西（把用户说明融进去）",
  "summary":"中文一句话，给用户看的方案",
+ "recast":false,
+ "speech":"",
+ "noCaptions":false,
  "views":[{"view":"英文短语，只能是 side view / back view / sole / folded 这类","label":"中文，如 侧面","at":秒}],
- "needs":[{"kind":"part 或 screen","view":"英文短语，如 driver cockpit view","label":"中文，如 主驾内饰","at":秒,"need":"中文，具体要用户提供什么、怎么拍","fallback":"中文，用户不提供时这段怎么处理","shots":[用到它的镜头编号]}],
+ "needs":[{"kind":"part / screen / cast","view":"英文短语，如 driver cockpit view","label":"中文，如 主驾内饰","at":秒,"need":"中文，具体要用户提供什么、怎么拍","fallback":"中文，用户不提供时这段怎么处理","shots":[用到它的镜头编号],"generate":false}],
  "variants":[{"id":"v1","label":"中文，如 奶黄企鹅款","desc":"英文，只写这一版的颜色，12 个词以内，如 pale grey-blue with ivory collar；不写图案、款式和替换动作","main":true,"at":秒}],
  "scenes":[{"id":"A","variant":"v1","shots":[镜头编号],"keyAt":秒,"edit":"英文，这个场景的关键画面怎么改"}],
  "shots":[{"index":镜头编号,"change":true,"scene":"A","note":"英文，这个镜头里 target 的状态：角度、动作、形态、和手/人/其他物体的关系","fit":"good","why":""}]}
 
 规则：
+0. recast：用户的说明要求换掉画面里的人（换演员、换人种、换长相）时为 true，此时出现这些人的镜头都 change=true；否则 false。
+   speech：用户要求视频里的人改说另一种语言时，写这种语言的英文名（如 "Russian"、"English"、"Spanish"、"Chinese"），否则空字符串。
+   noCaptions：用户要求去掉原片字幕时为 true。
 1. 画面里出现 target 的镜头 change=true；完全没出现的镜头 change=false，直接用原片，不重新生成。
 2. 场景 = 同一地点、光线、人物组合，且 target 看起来差不多的一组镜头。target 在画面里的样子差到一张图说明不了时（比如汽车的正面、俯视、背面、车内），要分成不同场景：视频模型只能照着看得到的关键画面做，没有对应画面的镜头会照原片画。每个场景只出一张关键画面，这张图要同时表达该场景所有需要约束的信息（身份、外观、动作形态、构图），一张能说清的绝不出两张。
 3. keyAt 选该场景里 target 最大、最清楚、最接近正面、遮挡最少的一帧（时间必须落在该场景一个 change=true 的镜头内）。同一场景里只是角度略有变化的镜头共用这张。
@@ -540,6 +582,9 @@ const PLAN_ASK = (n: number, prompt: string, seconds: number) => `你是广告�
 4.5 views 只列原片里 target 清楚出现、而用户图里看不到的物体角度或形态，最多 3 个；人物的姿势和动作（坐着、拉衣角）不算；用户图已覆盖就空数组。at 选原片里这个角度最清楚的一帧的秒数。
 4.6 needs 列 AI 从用户图推测不出来的东西，最多 4 个；用户图已覆盖、或 views 已列的不要重复，没有就空数组。
   - part：原片拍到了 target 的另一个部位，用户图完全没有，且结构无法从外观推断（例如只有汽车外观图，原片却拍内饰）。
+  - cast：用户要求把画面里的某个人换成另一个人（换演员、换人种、换长相），但用户的图里没有这个新人物。每个要换的人列一条：label 写新人物（如"俄罗斯男演员"），
+    view 用英文描述新人物的样子（性别、年龄、人种、脸型、发色；衣服、发型、配饰默认照原片，写明 same clothes and accessories as in the footage），at 选原片里这个人脸最清楚的一帧，shots 列出这个人出现的全部镜头（这些镜头都 change=true），
+    need 写"上传一张这个人的正脸照"，fallback 写"不上传就由 AI 生成一个新人物"；用户明确说了让 AI 生成、随便生成、不用上传时 generate=true，否则 false。用户图里已经有这个人的，不要列。
   - screen：原片在演示屏幕上的真实操作或功能步骤（手指点设置、菜单路径）。这是事实，不是外观：换了商品，菜单和功能都可能不同。同一段连续操作合并成一条，need 按原片顺序列出每一步，要求用户从第一步开始连续拍一条视频，并说明路径不同就按实际操作拍。fallback 写去掉具体操作、文案怎么跟着改；绝不写让 AI 画界面。
 5. 先精准判断要换的到底是什么：只有用户图对应的那一类东西才是 target（比如用户图是一套家居服，就只换主角身上这套家居服）。其他人的衣服、配角、玩偶、毛毯、鞋、家具都不是 target，写进 keep，不换。屏幕文字和字幕不要写进 keep，它们另有处理。一个人穿着的非同类衣物也不换。
 6. 原片里 target 可能有多个版本（同款不同颜色、不同胸口图案）。每个版本一个 variant：出现时长最多的版本 main=true，其余 main=false；只有一个版本就只输出一个。用户图是这些版本全部的替换来源：所有版本都换成用户图里的这件东西，保留用户图的款式、版型、胸口图案，只有 main=false 的版本把颜色改成原片这一版的颜色。desc 只写主色和辅色，绝不提原片的图案（苹果、企鹅等），否则原图案会被带回来。at 选这一版最清楚的一帧的秒数。
@@ -565,8 +610,8 @@ async function makePlan(id: string, shots: { start: number; end: number }[], fra
     ], '你是严谨的广告复刻导演，只输出 JSON。', 2));
     const views: Gap[] = (j.views || []).slice(0, 3).map((v: any) => typeof v === 'string' ? { view: v, label: v, at: seconds / 2 }
       : { view: String(v.view), label: String(v.label || v.view), at: Math.min(Number(v.at) || 0, seconds - 0.1) });
-    const needs: Gap[] = (Array.isArray(j.needs) ? j.needs : []).filter((n: any) => n?.label && ['part', 'screen'].includes(n.kind)).slice(0, 4)
-      .map((n: any) => ({ kind: n.kind, view: String(n.view || n.label), label: String(n.label), at: Math.min(Number(n.at) || 0, seconds - 0.1), need: String(n.need || ''), fallback: String(n.fallback || ''), shots: (Array.isArray(n.shots) ? n.shots : []).map(Number).filter((k: number) => k > 0) }));
+    const needs: Gap[] = (Array.isArray(j.needs) ? j.needs : []).filter((n: any) => n?.label && ['part', 'screen', 'cast'].includes(n.kind)).slice(0, 6)
+      .map((n: any) => ({ kind: n.kind, view: String(n.view || n.label), label: String(n.label), at: Math.min(Number(n.at) || 0, seconds - 0.1), need: String(n.need || ''), fallback: String(n.fallback || ''), ...(n.kind === 'cast' ? { generate: n.generate === true } : {}), shots: (Array.isArray(n.shots) ? n.shots : []).map(Number).filter((k: number) => k > 0) }));
     const byIdx = new Map<number, any>((j.shots || []).map((s: any) => [Number(s.index), s]));
     const planShots = shots.map((s, i) => { const x = byIdx.get(i + 1) || {}; return { index: i + 1, start: s.start, end: s.end, change: x.change !== false, scene: String(x.scene || 'A'), note: String(x.note || ''),
       fit: (['good', 'rough', 'no'].includes(x.fit) ? x.fit : 'good') as 'good' | 'rough' | 'no', why: String(x.why || '') }; });
@@ -580,7 +625,8 @@ async function makePlan(id: string, shots: { start: number; end: number }[], fra
       const own = planShots.filter(s => s.change && s.scene === c.id);
       return own.some(s => c.keyAt >= s.start && c.keyAt < s.end) ? c : { ...c, keyAt: (own[0].start + own[0].end) / 2 };
     });
-    return { by: 'llm', subject: String(j.subject || ''), target: String(j.target || ''), keep: String(j.keep || ''), change: String(j.change || ''),
+    return { by: 'llm', recast: j.recast === true, speech: typeof j.speech === 'string' ? j.speech.trim().slice(0, 30) : '', noCaptions: j.noCaptions === true,
+      subject: String(j.subject || ''), target: String(j.target || ''), keep: String(j.keep || ''), change: String(j.change || ''),
       summary: String(j.summary || ''), views: views.map(g => g.view), gaps: [...views, ...needs], variants, scenes, shots: planShots };
   } catch (e: any) {
     say(id, `方案模型没有回应（${e.message}），改用基础方案`);
@@ -652,6 +698,9 @@ async function judge(id: string, parts: Parameters<typeof ask>[0]): Promise<{ ok
   catch (e: any) { say(id, `验收模型没有回应（${e.message}），按通过处理`); return { ok: true, issue: '', fix: '' }; }
 }
 
+/** The new people for these scenes, at most two (a run takes few pictures). */
+const castFor = (r: Replica, scenes: string[]) => (r.castRefs || []).filter(x => x.scenes.some(c => scenes.includes(c))).slice(0, 2);
+
 /** The pictures that define the user's thing: the completed sheet when there is one, else their uploads. */
 const baseRefs = (r: Replica, scene?: string) => {
   const real = scene ? photosForScenes(r.photoPicks, [scene], r.uploads) : r.uploads;
@@ -681,8 +730,26 @@ async function makeKeyframes(id: string, plan: Plan, ratio: Ratio, source: strin
   edit(id, r => { r.keyframes = kfs; });
   const kfEdit = (i: number, patch: Partial<Keyframe>) => edit(id, r => Object.assign(r.keyframes[i], patch));
   const partsOf = (i: number) => (rep(id).partRefs || []).filter(x => x.scenes.includes(plan.scenes[i].id)).slice(0, 2);
+  const castOf = (i: number) => castFor(rep(id), [plan.scenes[i].id]);
   const make = async (i: number, fix: string, anchor?: string) => {
-    const c = plan.scenes[i], v = variantOf(plan, c.id), parts = partsOf(i);
+    const c = plan.scenes[i], v = variantOf(plan, c.id), parts = partsOf(i), cast = castOf(i);
+    // A scene of new people is about those people: their portraits are the references, not the product's photos, and the
+    // prompt names the people that change instead of keeping "the same people" (10 Nov: both keyframes came back unchanged).
+    if (cast.length) {
+      const src = wide ? await letterbox(kfs[i].source, path.join(dir, `${c.id}-box.jpg`)) : kfs[i].source, refs = [src, ...cast.map(x => x.file)];
+      const prompt = `Photo edit. Keep the photograph @image1 as it is: the same framing, composition, poses, hands, clothes, accessories, background, light, focus and grain. ` +
+        cast.map((x, k) => `The person in @image1 to be recast as "${x.label}" (the one of the matching sex) becomes the person in @image${k + 2}: their face, skin and facial features in this exact pose, angle and expression; a different person from the one in @image1. `).join('') +
+        `Change: ${c.edit || plan.change}.` +
+        (wide ? ' @image1 has black bars above and below the picture: keep them exactly as they are, pure black, with nothing in them.' : '') +
+        (plan.dropText ? ' Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them.' : '') +
+        ` It must look photographed in this light, not pasted on. No text, no letters, no logos added.${fix}`;
+      kfEdit(i, { prompt, tries: rep(id).keyframes[i].tries + 1 });
+      const tmp = path.join(dir, `${c.id}-t${rep(id).keyframes[i].tries}`); fs.mkdirSync(tmp, { recursive: true });
+      const got = (await p.image.targetFrames({ prompt, refs, ratio: wide ? '16:9' : ratio, count: 1, outDir: tmp, log: m => say(id, `制作关键画面 ${c.id}：${m}`), bill: biller(id, `关键画面 ${c.id}`) }))[0];
+      const out = wide ? await unbox(got, aspect, path.join(tmp, 'frame-film.jpg')) : got;
+      kfEdit(i, { out });
+      return out;
+    }
     // A scene with a part picture is about that part: two pictures of the whole thing are enough, and no anchor from a
     // scene that shows the outside (6 Nov, Firefly: a cabin picture went to every scene and lost to the exterior's colours).
     const assets = parts.length ? assetRefs(rep(id), c.variant, c.id).slice(0, 2) : assetRefs(rep(id), c.variant, c.id).slice(0, 4);
@@ -697,7 +764,7 @@ async function makeKeyframes(id: string, plan: Plan, ratio: Ratio, source: strin
       `Change only this: ${c.edit || plan.change}. ${plan.subject ? `The new ${plan.subject} must look exactly like ${a}` : `The new subject must look exactly like ${a}`}: same shape, proportions, colours, materials and markings, ` +
       `at the same size, position, angle and state as ${plan.target || 'the original'} in @image1.` + (v?.desc && !v.main ? ` In this scene its colours are: ${v.desc}.` : '') +
       (shape.length ? ` ${shapeTags} show the same model from other angles, possibly in another colourway: take only its shape from them (sole, heel, side panels, silhouette) and use it for the angle seen in @image1. Every colour, material and marking comes from ${a} only, never from ${shapeTags}.` : '') +
-      partLine + ` ${NO_PHOTO_PEOPLE}` +
+      partLine + ` ${plan.recast ? 'Only the people this change names are replaced; the reference pictures\' own models and props are never copied.' : NO_PHOTO_PEOPLE}` +
       (wide ? ' @image1 has black bars above and below the picture: keep them exactly as they are, pure black, with nothing in them.' : '') +
       (anchor ? ` @image${refs.length} shows the same thing already placed in another shot of this film: match it exactly.` : '') +
       (plan.dropText ? ' Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them.' : '') +
@@ -713,7 +780,7 @@ async function makeKeyframes(id: string, plan: Plan, ratio: Ratio, source: strin
   // The first keyframe sets the look; the others get it as an anchor, so the thing is the same in every scene.
   // Anchors stay inside one colour version: a keyframe of another colour would pull this one towards it.
   // Scenes ruled by a part picture neither take nor give an anchor.
-  const plain = plan.scenes.map((c, i) => i).filter(i => !partsOf(i).length);
+  const plain = plan.scenes.map((c, i) => i).filter(i => !partsOf(i).length && !castOf(i).length);
   const lead = new Map<string | undefined, string>();
   for (const i of plain) if (kfs[i].out && kfs[i].ok !== false && !lead.has(plan.scenes[i].variant)) lead.set(plan.scenes[i].variant, kfs[i].out!);
   const open = plain.filter(i => todo.includes(i) && !lead.has(plan.scenes[i].variant));
@@ -750,6 +817,7 @@ async function judgeKeyframes(id: string, r: Replica, plan: Plan) {
 只输出 JSON：{"results":[{"id":"场景id","ok":true,"issue":"中文，问题","fix":"英文，重做时追加的修改要求"}]}${notesFor(r)}`),
       ...baseRefs(r).map(image), ...(r.shapeRefs || []).map(image),
       ...(r.partRefs || []).flatMap(x => [text(`部位图「${x.label}」，只用于场景 ${x.scenes.join('、')}：`), image(x.file)]),
+      ...(r.castRefs || []).flatMap(x => [text(`新人物「${x.label}」，场景 ${x.scenes.join('、')} 里对应的人必须换成这张图里的人：脸、五官和原片不同才算换了，人还是原片那张脸就不通过；姿势、衣服照原片：`), image(x.file)]),
       ...r.keyframes.flatMap(k => { const v = variantOf(plan, k.scene); return [text(`场景 ${k.scene}${v ? `（${v.label}：${v.desc}）` : ''}：原片帧 / 关键画面`), image(k.source), image(k.out!)]; })
     ], '你是严格的画面验收员，只输出 JSON。', 2));
     return r.keyframes.map(k => { const x = (j.results || []).find((y: any) => String(y.id) === k.scene) || {}; return { ok: x.ok !== false, issue: String(x.issue || ''), fix: String(x.fix || '') }; });
@@ -795,6 +863,15 @@ export function planSegs(plan: Plan, fps: number, minS: number, maxS: number): R
 /** A product photo may have a model in it (7 Nov: a woman reading in the 900L cabin). She and her things are not the product. */
 const NO_PHOTO_PEOPLE = 'People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage.';
 const MOUTHS = 'Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1.';
+/** The fixed rules, minus the ones the user's own request overrides. 10 Nov: "recast them as Russian actors speaking Russian"
+ *  went out with "the people on screen stay exactly those of the original" and "mouths stay as in @video1" at the end of every
+ *  prompt, and the model obeyed those: nobody was recast. */
+export const peopleRule = (plan: Plan) => plan.recast
+  ? 'The people on screen become the people shown in the pictures for their shots: their faces in every frame; clothes, hair, poses and actions stay as in @video1.'
+  : NO_PHOTO_PEOPLE;
+export const mouthRule = (plan: Plan) => plan.speech
+  ? `The people speak ${plan.speech}: their lips move naturally with ${plan.speech} speech wherever they speak in @video1.`
+  : MOUTHS;
 
 /** Which picture rules which seconds of the piece: this is what makes a 1 s pink shot come out pink. */
 export function timeline(plan: Plan, s: ReplicaSeg, refOf: (scene: string) => number | undefined) {
@@ -803,25 +880,33 @@ export function timeline(plan: Plan, s: ReplicaSeg, refOf: (scene: string) => nu
     const span = `${f(Math.max(x.start, s.genStart))}-${f(Math.min(x.end, s.end))}s`;
     if (!x.change) return `${span}: leave this shot exactly as in @video1.`;
     const v = variantOf(plan, x.scene), ref = refOf(x.scene);
-    return `${span}: ${ref ? `match @image${ref}` : 'apply the change'}${v?.desc ? `, colours ${v.desc}` : ''}.${x.note ? ' ' + x.note.slice(0, 110) : ''}`;
+    // A colour only for the other colour versions: the main one is what the pictures already show (10 Nov: "colours blue-silver" on a woman's close-up).
+    // The note is the planner's English description of the shot: kept short and cut at a word, never mid-word.
+    const note = x.note ? ' ' + (x.note.length > 110 ? x.note.slice(0, 110).replace(/[,;]?\s+\S*$/, '') + '.' : x.note) : '';
+    return `${span}: ${ref ? `match @image${ref}` : 'apply the change'}${v?.desc && !v.main ? `, colours ${v.desc}` : ''}.${note}`;
   });
 }
 
-export function segPrompt(plan: Plan, s: ReplicaSeg, kfScenes: string[], assetCount: number, userPrompt: string, fix: string) {
+/** Only what this piece needs (10 Nov: a 5 s close-up of the woman got 2,273 characters about the whole film, the tower included,
+ *  and a picture of the tower). The keyframes already show the change; the words say which picture rules which seconds.
+ *  `cast`: labels of the new people's portraits, which come right after the keyframes; `assetCount` 0 = no product here. */
+export function segPrompt(plan: Plan, s: ReplicaSeg, kfScenes: string[], assetCount: number, userPrompt: string, fix: string, cast: string[] = []) {
   const kfCount = kfScenes.length;
-  const as = Array.from({ length: assetCount }, (_, k) => `@image${kfCount + k + 1}`).join(' and ');
+  const as = Array.from({ length: assetCount }, (_, k) => `@image${kfCount + cast.length + k + 1}`).join(' and ');
   const ref = (scene: string) => { const i = kfScenes.indexOf(scene); return i < 0 ? undefined : i + 1; };
   const line = (lines: string[]) => [
-    '@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame.',
-    plan.keep ? `Keep unchanged: ${plan.keep}.` : '',
-    `Change only this: ${plan.change || 'the main subject becomes the one in the reference pictures'}.`,
-    kfCount ? `The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts:` : '',
+    '@video1 is the original footage: keep its shots, cuts, camera, timing, actions and light.',
+    kfCount ? 'The pictures show it with the change made:' : `Change: ${plan.change || 'the main subject becomes the one in the reference pictures'}.`,
     ...lines,
-    as ? `${as} ${assetCount > 1 ? 'show' : 'shows'} ${plan.subject || 'the new subject'}: the same design in every frame, from every angle.` : '',
+    ...cast.map((label, k) => `Replace the person in @video1 who is ${label} with the person in @image${kfCount + k + 1}.`),
+    as ? `${as} ${assetCount > 1 ? 'show' : 'shows'} the ${plan.subject.split(/[:,.]/)[0] || 'new subject'}: the same design in every frame.` : '',
     userPrompt && plan.by === 'basic' ? `Also: ${userPrompt}.` : '',
     fix ? `Fix: ${fix.slice(0, 300)}` : '',
-    plan.dropText ? 'Remove all captions, subtitles and decorative titles of @video1 from every frame.' : '',
-    NO_PHOTO_PEOPLE, MOUTHS, 'Nothing else changes. No new text, letters or logos.'
+    plan.dropText ? 'Remove all captions and subtitles.' : '',
+    plan.speech ? `They speak ${plan.speech}.` : MOUTHS,
+    // Product photos may have a model in them; without product pictures the warning has nothing to warn about.
+    as && !plan.recast ? NO_PHOTO_PEOPLE : '',
+    'No new text or logos.'
   ].filter(Boolean).join(' ');
   const lines = timeline(plan, s, ref);
   const full = line(lines);
@@ -872,9 +957,12 @@ async function generate(id: string, plan: Plan, ratio: Ratio, source: string, fp
     // The free slots go to the photos this piece's scenes need most.
     const own = r.variantAssets?.find(a => a.id === main)?.file;
     const best = own ? [own] : [...photosForScenes(r.photoPicks, s.scenes, r.uploads), ...(r.sheet?.file ? [r.sheet.file] : [])];
-    const assets = best.slice(0, Math.max(0, (p.video.maxRefs ?? 5) - kfs.length));
-    const images = [...kfs.map(k => k.out!), ...assets];
-    const prompt = segPrompt(plan, s, kfs.map(k => k.scene), assets.length, r.prompt, fix);
+    const cast = castFor(r, s.scenes).slice(0, Math.max(0, (p.video.maxRefs ?? 5) - kfs.length));
+    // A piece of only new people (no product in its scenes) gets no product pictures.
+    const people = s.scenes.every(c => castFor(r, [c]).length);
+    const assets = people ? [] : best.slice(0, Math.max(0, (p.video.maxRefs ?? 5) - kfs.length - cast.length));
+    const images = [...kfs.map(k => k.out!), ...cast.map(x => x.file), ...assets];
+    const prompt = segPrompt(plan, s, kfs.map(k => k.scene), assets.length, r.prompt, fix, cast.map(x => x.label));
     const sent = p.video.bindRefs ? p.video.bindRefs(prompt) : prompt;
     segEdit(id, s.index, { status: 'running', tries: tryNo, prompt, images, source: pieces[s.index] });
     const len = s.end - s.genStart;

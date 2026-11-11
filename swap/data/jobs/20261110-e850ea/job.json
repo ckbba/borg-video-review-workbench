@@ -1,0 +1,513 @@
+{
+ "id": "20261110-e850ea",
+ "templateId": "replica",
+ "created": 1794327032422,
+ "stage": "done",
+ "message": "完成",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\upload-1.png",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "00:10:32 看懂原片",
+  "00:10:38 制定方案",
+  "00:11:50 路线：完整路线（有 4 个场景，换场景后商品容易走样；19 秒，超过模型一次能做的 15 秒，要分段；有 6 个镜头不用改，要保留原片；需要处理 俄罗斯男演员、俄罗斯女演员）",
+  "00:11:50 听写口播没有完成（[out#0/mp3 @ 000002670565d6c0] Error opening output E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\review\\voice\\audio-turbo.mp3: No such file or directory\r\nError opening output file E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\review\\voice\\audio-turbo.mp3.\r\nError opening output files: No such file or directory\r\n），只看字幕",
+  "00:13:20 生成人物：俄罗斯男演员、俄罗斯女演员",
+  "00:13:20 生成人物 俄罗斯男演员：模拟生成预览图 1/1",
+  "00:13:20 生成人物 俄罗斯女演员：模拟生成预览图 1/1",
+  "00:13:22 生成人物 俄罗斯男演员 没有成功（.jpg\r\n[vost#0:0/mjpeg @ 0000023bf319dc40] Error submitting a packet to the muxer: No such file or directory\r\n    Last message repeated 1 times\r\n[out#0/image2 @ 0000023bf31851c0] Error muxing a packet\r\n[out#0/image2 @ 0000023bf31851c0] Task finished with error code: -2 (No such file or directory)\r\n[out#0/image2 @ 0000023bf31851c0] Terminating thread with return code -2 (No such file or directory)\r\n）",
+  "00:13:22 生成人物 俄罗斯女演员 没有成功（.jpg\r\n[vost#0:0/mjpeg @ 000001fff3e989c0] Error submitting a packet to the muxer: No such file or directory\r\n    Last message repeated 1 times\r\n[out#0/image2 @ 000001fff3e7b7c0] Error muxing a packet\r\n[out#0/image2 @ 000001fff3e7b7c0] Task finished with error code: -2 (No such file or directory)\r\n[out#0/image2 @ 000001fff3e7b7c0] Terminating thread with return code -2 (No such file or directory)\r\n）",
+  "00:13:22 制作关键画面：4 张",
+  "00:13:22 制作关键画面 A：模拟生成预览图 1/1",
+  "00:13:24 制作关键画面 B：模拟生成预览图 1/1",
+  "00:13:24 制作关键画面 C：模拟生成预览图 1/1",
+  "00:13:24 制作关键画面 D：模拟生成预览图 1/1",
+  "00:13:25 制作关键画面：一起验收",
+  "00:13:25 生成视频：2 段同时生成",
+  "00:13:28 第 1/2 段：模拟视频编辑…",
+  "00:13:28 第 2/2 段：模拟视频编辑…",
+  "00:13:45 检查修复：检查动作、外观和接缝",
+  "00:13:45 合成成片"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "done",
+   "startedAt": 1794327032424,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\final.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\compare.mp4",
+   "endedAt": 1794327240155,
+   "check": {
+    "pass": true,
+    "trimTail": 0,
+    "summary": "自动检查通过"
+   }
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\source.mp4",
+  "prompt": "把开头的建筑换成图片1.把视频中的人物换成俄罗斯人，视频中的车包括人物的位置关系不要变化。 去掉视频中的字幕，视频中的人用俄罗斯语。\n配音和字幕\n开",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\upload-1.png"
+  ],
+  "shapeRefs": [],
+  "scoutOn": false,
+  "voiceOn": true,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "19.2 秒，13 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "7/13 个镜头要改，4 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "skipped",
+    "note": "你的图已经够用"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "4 张，验收通过"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "done",
+    "note": "2 段"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "done",
+    "note": "外观和接缝没问题，不用重做"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "done"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "skipped",
+    "note": "原片没有口播，字幕也不用改"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 0.38,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the Burj Khalifa with the reference tower in the original extreme low-angle composition, rising diagonally from the lower left toward the upper center; show its continuous tapered, faceted glass body and pointed crown, match the original backlighting and atmospheric haze, retain the palm silhouettes and camera movement, and exclude the reference photo's watermark.. The new The skyscraper in image 1: a very tall, slender, tapering glass tower with a sharply pointed crown, subtly twisting faceted sides, blue-silver reflective glazing, prominent silver vertical ribs, a fine diagonal facade grid, and a low angular glass podium. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The Burj Khalifa in the two opening shots, seen from ground level against a bright hazy sky, with a stepped silhouette, clustered rounded setbacks, dark reflective glazing, and a needle-like spire framed by palm fronds. in @image1. Only the people this change names are replaced; the reference pictures' own models and props are never copied. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\A-t1\\frame-1.jpg",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "B",
+    "at": 1.46,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\B-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the centered Burj Khalifa with a closer low-angle view of the same reference tower, clearly establishing its blue-silver glazing, vertical ribs, diagonal facade grid and tapering crown; retain the original crop, palm framing, sky, exposure and camera movement, and exclude the reference photo's watermark.. The new The skyscraper in image 1: a very tall, slender, tapering glass tower with a sharply pointed crown, subtly twisting faceted sides, blue-silver reflective glazing, prominent silver vertical ribs, a fine diagonal facade grid, and a low angular glass podium. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The Burj Khalifa in the two opening shots, seen from ground level against a bright hazy sky, with a stepped silhouette, clustered rounded setbacks, dark reflective glazing, and a needle-like spire framed by palm fronds. in @image1. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\B-t1\\frame-1.jpg",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "C",
+    "at": 3.79,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\C-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Establish the new Russian male actor in the original man's exact seat, matching his short hairstyle, beard grooming, black rectangular sunglasses, dark textured polo, microphone, seat belt, arm position and speaking action; preserve the entire vehicle interior and exterior background, and synchronize the Russian dialogue without captions.. The new The skyscraper in image 1: a very tall, slender, tapering glass tower with a sharply pointed crown, subtly twisting faceted sides, blue-silver reflective glazing, prominent silver vertical ribs, a fine diagonal facade grid, and a low angular glass podium. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The Burj Khalifa in the two opening shots, seen from ground level against a bright hazy sky, with a stepped silhouette, clustered rounded setbacks, dark reflective glazing, and a needle-like spire framed by palm fronds. in @image1. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\C-t1\\frame-1.jpg",
+    "ok": true,
+    "issue": ""
+   },
+   {
+    "scene": "D",
+    "at": 13.67,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\D-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Establish the new Russian female actor in the original woman's exact seat with the same slicked-back bun, narrow sunglasses, earrings, black satin top, microphone and seat belt; preserve her expressions, steering posture and gestures across the medium and close views, match each shot's existing light, and use synchronized Russian dialogue without captions; in shot 5 retain the internal cut from the man to the woman and use the male identity established in scene C, while retaining the original control close-up at the start of shot 11.. The new The skyscraper in image 1: a very tall, slender, tapering glass tower with a sharply pointed crown, subtly twisting faceted sides, blue-silver reflective glazing, prominent silver vertical ribs, a fine diagonal facade grid, and a low angular glass podium. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The Burj Khalifa in the two opening shots, seen from ground level against a bright hazy sky, with a stepped silhouette, clustered rounded setbacks, dark reflective glazing, and a needle-like spire framed by palm fronds. in @image1. Only the people this change names are replaced; the reference pictures' own models and props are never copied. @image3 shows the same thing already placed in another shot of this film: match it exactly. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\D-t1\\frame-1.jpg",
+    "ok": true,
+    "issue": ""
+   }
+  ],
+  "segments": [
+   {
+    "index": 0,
+    "start": 0,
+    "end": 7.63,
+    "genStart": 0,
+    "join": "start",
+    "scenes": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\A-t1\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\B-t1\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\C-t1\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\D-t1\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\upload-1.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the original shot order, durations, cuts including cuts within numbered shots, framing, camera movement, lighting, actions, gestures, narrative, music, ambient sound, all cars and their exterior and interior details, each person's exact seat and position relative to the vehicles, clothing, hairstyles, accessories, surrounding scenery, and final brand animation.. Change only this: Replace the opening skyscraper with the tower from image 1, recast both visible adults as new Russian actors with consistent identities throughout, replace their dialogue with natural Russian that preserves the original meaning, delivery and timing with synchronized lip movements, and remove all original dialogue captions without adding new subtitles.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-0.75s: match @image1, colours Reflective blue-silver glass with silver structural ribs. 0.75-2.17s: match @image2, colours Reflective blue-silver glass with silver structural ribs. 2.17-4.08s: match @image3, colours Reflective blue-silver glass with silver structural ribs. 4.08-5.67s: match @image4, colours Reflective blue-silver glass with silver structural ribs. 5.67-7.63s: match @image4, colours Reflective blue-silver glass with silver structural ribs. @image5 shows The skyscraper in image 1: a very tall, slender, tapering glass tower with a sharply pointed crown, subtly twisting faceted sides, blue-silver reflective glazing, prominent silver vertical ribs, a fine diagonal facade grid, and a low angular glass podium.: the same design in every frame, from every angle. Remove all captions, subtitles and decorative titles of @video1 from every frame. The people on screen become the people shown in the pictures for their shots: their faces in every frame; clothes, hair, poses and actions stay as in @video1. The people speak Russian: their lips move naturally with Russian speech wherever they speak in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\segments\\seg0-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\segments\\seg0-t1-fit.mp4",
+    "qa": {
+     "pass": true,
+     "summary": "自动质检通过",
+     "motion": 0.998
+    }
+   },
+   {
+    "index": 1,
+    "start": 12.08,
+    "end": 16.08,
+    "genStart": 12.08,
+    "join": "start",
+    "scenes": [
+     "D"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\keyframes\\D-t1\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\upload-1.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the original shot order, durations, cuts including cuts within numbered shots, framing, camera movement, lighting, actions, gestures, narrative, music, ambient sound, all cars and their exterior and interior details, each person's exact seat and position relative to the vehicles, clothing, hairstyles, accessories, surrounding scenery, and final brand animation.. Change only this: Replace the opening skyscraper with the tower from image 1, recast both visible adults as new Russian actors with consistent identities throughout, replace their dialogue with natural Russian that preserves the original meaning, delivery and timing with synchronized lip movements, and remove all original dialogue captions without adding new subtitles.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-1.17s: match @image1, colours Reflective blue-silver glass with silver structural ribs. The numbered shot begins on the illuminated console control and cuts to the woman seated at the driving contro 1.17-4.00s: match @image1, colours Reflective blue-silver glass with silver structural ribs. The woman fills a tighter seated close-up, speaking, briefly raising a hand and turning toward the road; prese @image2 shows The skyscraper in image 1: a very tall, slender, tapering glass tower with a sharply pointed crown, subtly twisting faceted sides, blue-silver reflective glazing, prominent silver vertical ribs, a fine diagonal facade grid, and a low angular glass podium.: the same design in every frame, from every angle. Remove all captions, subtitles and decorative titles of @video1 from every frame. The people on screen become the people shown in the pictures for their shots: their faces in every frame; clothes, hair, poses and actions stay as in @video1. The people speak Russian: their lips move naturally with Russian speech wherever they speak in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\segments\\seg1-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\segments\\seg1-t1-fit.mp4",
+    "qa": {
+     "pass": true,
+     "summary": "自动质检通过",
+     "motion": 0.999
+    }
+   }
+  ],
+  "plan": {
+   "by": "llm",
+   "recast": true,
+   "speech": "Russian",
+   "noCaptions": true,
+   "subject": "The skyscraper in image 1: a very tall, slender, tapering glass tower with a sharply pointed crown, subtly twisting faceted sides, blue-silver reflective glazing, prominent silver vertical ribs, a fine diagonal facade grid, and a low angular glass podium.",
+   "target": "The Burj Khalifa in the two opening shots, seen from ground level against a bright hazy sky, with a stepped silhouette, clustered rounded setbacks, dark reflective glazing, and a needle-like spire framed by palm fronds.",
+   "keep": "Preserve the original shot order, durations, cuts including cuts within numbered shots, framing, camera movement, lighting, actions, gestures, narrative, music, ambient sound, all cars and their exterior and interior details, each person's exact seat and position relative to the vehicles, clothing, hairstyles, accessories, surrounding scenery, and final brand animation.",
+   "change": "Replace the opening skyscraper with the tower from image 1, recast both visible adults as new Russian actors with consistent identities throughout, replace their dialogue with natural Russian that preserves the original meaning, delivery and timing with synchronized lip movements, and remove all original dialogue captions without adding new subtitles.",
+   "summary": "将开头两镜的建筑替换为图片1中的尖顶玻璃塔，男女角色换成俄罗斯演员并使用俄语对白、去掉字幕，同时保留车辆、人物座位与位置关系以及原片镜头、动作和剪辑节奏。",
+   "views": [],
+   "gaps": [
+    {
+     "kind": "cast",
+     "view": "Russian male actor, approximately 25–35 years old, fair complexion, angular face, short brown hair and a neatly trimmed beard, same clothes and accessories as in the footage",
+     "label": "俄罗斯男演员",
+     "at": 5.96,
+     "need": "上传一张这个人的正脸照",
+     "fallback": "不上传就由 AI 生成一个新人物",
+     "generate": false,
+     "shots": [
+      3,
+      5
+     ],
+     "frame": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\review\\gap-0.jpg"
+    },
+    {
+     "kind": "cast",
+     "view": "Russian female actor, approximately 25–35 years old, fair complexion, oval face and dark brown hair, same clothes and accessories as in the footage",
+     "label": "俄罗斯女演员",
+     "at": 13.67,
+     "need": "上传一张这个人的正脸照",
+     "fallback": "不上传就由 AI 生成一个新人物",
+     "generate": false,
+     "shots": [
+      4,
+      5,
+      11,
+      12
+     ],
+     "frame": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-e850ea\\review\\gap-1.jpg"
+    }
+   ],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "蓝银玻璃建筑",
+     "desc": "Reflective blue-silver glass with silver structural ribs",
+     "main": true,
+     "at": 1.46
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1
+     ],
+     "keyAt": 0.38,
+     "edit": "Replace the Burj Khalifa with the reference tower in the original extreme low-angle composition, rising diagonally from the lower left toward the upper center; show its continuous tapered, faceted glass body and pointed crown, match the original backlighting and atmospheric haze, retain the palm silhouettes and camera movement, and exclude the reference photo's watermark.",
+     "variant": "v1"
+    },
+    {
+     "id": "B",
+     "shots": [
+      2
+     ],
+     "keyAt": 1.46,
+     "edit": "Replace the centered Burj Khalifa with a closer low-angle view of the same reference tower, clearly establishing its blue-silver glazing, vertical ribs, diagonal facade grid and tapering crown; retain the original crop, palm framing, sky, exposure and camera movement, and exclude the reference photo's watermark.",
+     "variant": "v1"
+    },
+    {
+     "id": "C",
+     "shots": [
+      3
+     ],
+     "keyAt": 3.79,
+     "edit": "Establish the new Russian male actor in the original man's exact seat, matching his short hairstyle, beard grooming, black rectangular sunglasses, dark textured polo, microphone, seat belt, arm position and speaking action; preserve the entire vehicle interior and exterior background, and synchronize the Russian dialogue without captions.",
+     "variant": "v1"
+    },
+    {
+     "id": "D",
+     "shots": [
+      4,
+      5,
+      11,
+      12
+     ],
+     "keyAt": 13.67,
+     "edit": "Establish the new Russian female actor in the original woman's exact seat with the same slicked-back bun, narrow sunglasses, earrings, black satin top, microphone and seat belt; preserve her expressions, steering posture and gestures across the medium and close views, match each shot's existing light, and use synchronized Russian dialogue without captions; in shot 5 retain the internal cut from the man to the woman and use the male identity established in scene C, while retaining the original control close-up at the start of shot 11.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 0.75,
+     "change": true,
+     "scene": "A",
+     "note": "The original tower rises diagonally from the lower-left edge in an extreme ground-level upward view, with its spire near the upper center and palm fronds along the right edge; replace only the building and preserve its screen placement and the camera movement.",
+     "fit": "rough",
+     "why": "新建筑的连续尖锥外形与原建筑的层层退台差别较大，需要重新适配仰拍透视和画面占比。"
+    },
+    {
+     "index": 2,
+     "start": 0.75,
+     "end": 2.17,
+     "change": true,
+     "scene": "B",
+     "note": "The original tower fills the center vertically in a closer upward view, with its lower body cropped by the bottom edge and palms framing the sides; preserve the framing while replacing its stepped body with the reference tower's tapered glass structure.",
+     "fit": "rough",
+     "why": "原片近景突出的是圆弧退台，新建筑是棱面玻璃塔身，替换后的局部结构和反光需要重新生成。"
+    },
+    {
+     "index": 3,
+     "start": 2.17,
+     "end": 4.08,
+     "change": true,
+     "scene": "C",
+     "note": "The man appears chest-up in a three-quarter view, seated with his seat belt across his torso and one arm extended toward the driving controls; replace his identity consistently while retaining his clothes, sunglasses, posture, car interior and Russian speaking rhythm.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 4,
+     "start": 4.08,
+     "end": 5.67,
+     "change": true,
+     "scene": "D",
+     "note": "The woman appears in a seated three-quarter medium view, looking ahead and speaking with one arm extended toward the driving controls; replace her identity while retaining her bun, sunglasses, earrings, satin clothing, seat belt and exact position inside the car.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 5,
+     "start": 5.67,
+     "end": 7.63,
+     "change": true,
+     "scene": "D",
+     "note": "The numbered shot contains an internal cut from the seated man to the seated woman; replace both with their established Russian identities, retain the exact cut timing and separate original seating arrangements, and preserve the woman's turn from the camera toward the road.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 6,
+     "start": 7.63,
+     "end": 9.17,
+     "change": false,
+     "scene": "A",
+     "note": "A vehicle front-corner close-up shows the headlamp, hood, windshield and side mirror in strong backlight; neither the opening tower nor either actor is visibly featured, so retain the original footage.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 7,
+     "start": 9.17,
+     "end": 10.25,
+     "change": false,
+     "scene": "A",
+     "note": "An unoccupied light-colored cabin is shown symmetrically with two seats, the center aisle, roof glazing and dashboard screens; retain the original footage.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 8,
+     "start": 10.25,
+     "end": 10.75,
+     "change": false,
+     "scene": "A",
+     "note": "A close-up shows a silver knurled vehicle control on a glossy black console without a visible person or building; retain the original footage.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 9,
+     "start": 10.75,
+     "end": 11.42,
+     "change": false,
+     "scene": "A",
+     "note": "The supplied frames transition from a silver console control to an illuminated faceted circular media control; no actor or opening tower appears, so preserve both details and the existing transition.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 10,
+     "start": 11.42,
+     "end": 12.08,
+     "change": false,
+     "scene": "A",
+     "note": "An illuminated crystal-like circular media control fills the frame against textured metallic trim; retain the original vehicle detail footage.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 11,
+     "start": 12.08,
+     "end": 13.25,
+     "change": true,
+     "scene": "D",
+     "note": "The numbered shot begins on the illuminated console control and cuts to the woman seated at the driving controls with her forearm extended; retain the initial control footage, replace the woman with the established Russian actress after the cut, remove dialogue captions throughout, and preserve the cut timing and vehicle geometry.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 12,
+     "start": 13.25,
+     "end": 16.08,
+     "change": true,
+     "scene": "D",
+     "note": "The woman fills a tighter seated close-up, speaking, briefly raising a hand and turning toward the road; preserve her gesture timing, nails, jewelry, sunglasses, seat belt and car surroundings while maintaining the same new Russian identity and synchronized Russian speech.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 13,
+     "start": 16.08,
+     "end": 19.16,
+     "change": false,
+     "scene": "A",
+     "note": "The final dark end card animates the white ZEEKR symbol and brand name; retain the original brand animation and timing.",
+     "fit": "good",
+     "why": ""
+    }
+   ],
+   "dropText": true
+  },
+  "route": {
+   "kind": "full",
+   "reasons": [
+    "有 4 个场景，换场景后商品容易走样",
+    "19 秒，超过模型一次能做的 8 秒，要分段",
+    "有 6 个镜头不用改，要保留原片",
+    "需要处理 俄罗斯男演员、俄罗斯女演员"
+   ]
+  },
+  "copyCheck": {
+   "heard": 0,
+   "done": true
+  },
+  "copy": [],
+  "variantAssets": []
+ },
+ "pid": 424,
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "人物 俄罗斯男演员",
+   "at": 1794327200821
+  },
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "人物 俄罗斯女演员",
+   "at": 1794327200831
+  },
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "关键画面 A",
+   "at": 1794327202631
+  },
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "关键画面 B",
+   "at": 1794327204243
+  },
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "关键画面 C",
+   "at": 1794327204246
+  },
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "关键画面 D",
+   "at": 1794327204249
+  },
+  {
+   "model": "mock",
+   "units": "8 秒",
+   "yuan": 0,
+   "step": "第 1/2 段",
+   "at": 1794327208591
+  },
+  {
+   "model": "mock",
+   "units": "4 秒",
+   "yuan": 0,
+   "step": "第 2/2 段",
+   "at": 1794327208594
+  }
+ ]
+}

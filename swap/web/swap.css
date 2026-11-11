@@ -308,3 +308,12 @@ ul.copyRows{list-style:none;margin:0 0 10px;padding:0}
 .review{margin-bottom:18px}
 .reviewHead{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .reviewHead h2{margin:0}.reviewHead h2 small{font-size:13px;font-weight:400;color:#6d6b73;margin-left:10px}
+.subsSwitch{display:flex;align-items:center;gap:8px;font-size:14px;margin:4px 0 10px}.subsSwitch .muted{margin-left:4px}
+/* 价格和规格: filled in by the user */
+.priceBox{background:#fff8ec;border-radius:10px;padding:10px 12px;margin:6px 0 10px;display:flex;flex-direction:column;gap:6px}
+.priceBox>b{font-size:14px}
+.priceRow{display:flex;align-items:center;gap:8px;font-size:14px}
+.priceRow .at{border:0;background:#f0eee9;border-radius:6px;padding:2px 7px;font-size:12px;font-variant-numeric:tabular-nums;cursor:pointer;flex:none}
+.priceRow .was{min-width:96px;text-decoration:line-through;color:#9a978f}.priceRow .was small{display:block;text-decoration:none;font-size:12px;color:#6d6b73}
+.priceRow>i{font-style:normal;color:#9a978f}
+.priceRow input{flex:1;min-width:0;box-sizing:border-box;border:1px solid #d6d2c9;border-radius:8px;padding:6px 9px;font:inherit;font-size:14px}.priceRow input:focus{outline:none;border-color:#ff5a36}

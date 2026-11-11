@@ -229,7 +229,7 @@ function ReplicaTrace({ job, at }: { job: any; at?: string }) {
     {r.route && <div className="qa pass"><b>走了{r.route.kind === 'simple' ? '简单路线' : '完整路线'}</b> {r.route.reasons.join('；')}</div>}
     {plan?.gaps?.length > 0 && <Box n={++n} title="找素材" sub={r.scout ? `${r.scout.rounds} 轮，看了 ${r.scout.viewed} 张图，找到 ${r.scout.found} 项。结束原因：${r.scout.stopped}` : '素材员没有运行'}>
       {plan.gaps.map((g: any, i: number) => <div key={i} className={'qa ' + (g.found ? 'pass' : 'warn')}>
-        <b>{({ part: '部位', screen: '屏幕操作' } as any)[g.kind] || '角度'} · {g.label}（原片 {g.at.toFixed(1)}s）· {g.found ? '找到了' : g.kind === 'screen' ? '只能用户提供' : '没找到'}</b>
+        <b>{({ part: '部位', screen: '屏幕操作', cast: '人物' } as any)[g.kind] || '角度'} · {g.label}（原片 {g.at.toFixed(1)}s）· {g.found ? (g.kind === 'cast' ? 'AI 生成了' : '找到了') : g.kind === 'screen' ? '只能用户提供' : '没找到'}</b>
         {g.need && <p>{g.need}</p>}{g.fallback && <p className="muted">不补：{g.fallback}</p>}
         <div className="inputs">{g.frame && <Fig src={g.frame} cap="原片这一帧" />}{g.found && <Fig src={g.found.file} cap={g.found.why || '选中的图'} wide />}</div>
       </div>)}
@@ -290,8 +290,8 @@ function ReplicaTrace({ job, at }: { job: any; at?: string }) {
     </Box>
 
     <Box n={++n} at="compose voice" title="合成 + 配音和字幕" sub={[sub('compose'), sub('voice')].filter(Boolean).join(' · ')} status={st('voice') || st('compose')}>
-      {r.voice?.lines?.length > 0 && <table className="costs"><thead><tr><th>时间</th><th>原口播</th><th>新口播</th></tr></thead>
-        <tbody>{r.voice.lines.map((l: any, i: number) => <tr key={i}><td>{l.start.toFixed(1)}s</td><td>{l.from}</td><td>{l.to}</td></tr>)}</tbody></table>}
+      {r.voice?.lines?.length > 0 && <table className="costs"><thead><tr><th>时间</th><th>谁说</th><th>原口播</th><th>新口播</th></tr></thead>
+        <tbody>{r.voice.lines.map((l: any, i: number) => <tr key={i}><td>{l.start.toFixed(1)}s</td><td>{({ m: '男', f: '女' } as any)[l.voice] || '—'}{l.onScreen === false ? ' · 画外' : ''}</td><td>{l.from}</td><td>{l.to}</td></tr>)}</tbody></table>}
       {r.voice?.error && <p className="error">{r.voice.error}</p>}
       {v.final ? <div className="inputs">
         {r.picture && r.picture !== v.final && <figure><video src={r.picture} controls /><figcaption>画面成片（原声）</figcaption></figure>}

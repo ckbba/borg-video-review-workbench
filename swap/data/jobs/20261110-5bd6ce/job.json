@@ -1,0 +1,370 @@
+{
+ "id": "20261110-5bd6ce",
+ "templateId": "replica",
+ "created": 1794319334561,
+ "stage": "done",
+ "message": "完成",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\upload-1.png",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "22:02:14 看懂原片",
+  "22:02:26 制定方案",
+  "22:02:26 路线：完整路线（没有方案模型的判断，不知道片子难不难；19 秒，超过模型一次能做的 8 秒，要分段）",
+  "22:03:08 制作关键画面：1 张",
+  "22:03:08 制作关键画面 A：模拟生成预览图 1/1",
+  "22:03:10 制作关键画面：一起验收",
+  "22:03:10 生成视频：3 段同时生成",
+  "22:03:17 第 1/3 段：模拟视频编辑…",
+  "22:03:17 第 2/3 段：模拟视频编辑…",
+  "22:03:17 第 3/3 段：模拟视频编辑…",
+  "22:03:48 检查修复：检查动作、外观和接缝",
+  "22:03:48 合成成片"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "done",
+   "startedAt": 1794319334565,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\final.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\compare.mp4",
+   "endedAt": 1794319452417,
+   "check": {
+    "pass": true,
+    "trimTail": 0,
+    "summary": "自动检查通过"
+   }
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\source.mp4",
+  "prompt": "把开头的建筑换成图片1.把视频中的人物换成俄罗斯人，视频中的车包括人物的位置关系不要变化。\n去掉视频中的字幕，视频中的人用俄罗斯语。",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\upload-1.png"
+  ],
+  "shapeRefs": [],
+  "scoutOn": false,
+  "voiceOn": true,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "19.2 秒，13 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "13/13 个镜头要改，1 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "skipped",
+    "note": "你的图已经够用"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "1 张，验收通过"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "done",
+    "note": "3 段"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "done",
+    "note": "外观和接缝没问题，不用重做"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "done"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "skipped",
+    "note": "口播和字幕都不用改"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 0.5,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: replace the main subject with the one from the reference pictures. The new the thing in @image2 must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as the matching main subject in @image1. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. It must look photographed in this light, not pasted on. No text, no letters, no logos added.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\keyframes\\A-t1\\frame-1.jpg",
+    "ok": true,
+    "issue": ""
+   }
+  ],
+  "segments": [
+   {
+    "index": 0,
+    "start": 0,
+    "end": 7.63,
+    "genStart": 0,
+    "join": "start",
+    "scenes": [
+     "A"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\keyframes\\A-t1\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\upload-1.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: everything else. Change only this: the main subject becomes the one in the reference pictures; 把开头的建筑换成图片1.把视频中的人物换成俄罗斯人，视频中的车包括人物的位置关系不要变化。\n去掉视频中的字幕，视频中的人用俄罗斯语。. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-0.75s: match @image1. 0.75-2.17s: match @image1. 2.17-4.08s: match @image1. 4.08-5.67s: match @image1. 5.67-7.63s: match @image1. @image2 shows the thing in @image2: the same design in every frame, from every angle. Also: 把开头的建筑换成图片1.把视频中的人物换成俄罗斯人，视频中的车包括人物的位置关系不要变化。\n去掉视频中的字幕，视频中的人用俄罗斯语。. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\segments\\seg0-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\segments\\seg0-t1-fit.mp4",
+    "qa": {
+     "pass": true,
+     "summary": "自动质检通过",
+     "motion": 0.998
+    }
+   },
+   {
+    "index": 1,
+    "start": 7.63,
+    "end": 13.25,
+    "genStart": 7.63,
+    "join": "hard",
+    "scenes": [
+     "A"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\keyframes\\A-t1\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\upload-1.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: everything else. Change only this: the main subject becomes the one in the reference pictures; 把开头的建筑换成图片1.把视频中的人物换成俄罗斯人，视频中的车包括人物的位置关系不要变化。\n去掉视频中的字幕，视频中的人用俄罗斯语。. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-1.54s: match @image1. 1.54-2.62s: match @image1. 2.62-3.12s: match @image1. 3.12-3.79s: match @image1. 3.79-4.45s: match @image1. 4.45-5.62s: match @image1. @image2 shows the thing in @image2: the same design in every frame, from every angle. Also: 把开头的建筑换成图片1.把视频中的人物换成俄罗斯人，视频中的车包括人物的位置关系不要变化。\n去掉视频中的字幕，视频中的人用俄罗斯语。. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\segments\\seg1-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\segments\\seg1-t1-fit.mp4",
+    "qa": {
+     "pass": true,
+     "summary": "自动质检通过",
+     "motion": 0.999
+    }
+   },
+   {
+    "index": 2,
+    "start": 13.25,
+    "end": 19.16,
+    "genStart": 13.25,
+    "join": "hard",
+    "scenes": [
+     "A"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\keyframes\\A-t1\\frame-1.jpg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\upload-1.png"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: everything else. Change only this: the main subject becomes the one in the reference pictures; 把开头的建筑换成图片1.把视频中的人物换成俄罗斯人，视频中的车包括人物的位置关系不要变化。\n去掉视频中的字幕，视频中的人用俄罗斯语。. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-2.83s: match @image1. 2.83-5.91s: match @image1. @image2 shows the thing in @image2: the same design in every frame, from every angle. Also: 把开头的建筑换成图片1.把视频中的人物换成俄罗斯人，视频中的车包括人物的位置关系不要变化。\n去掉视频中的字幕，视频中的人用俄罗斯语。. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\segments\\seg2-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-5bd6ce\\segments\\seg2-t1-fit.mp4",
+    "qa": {
+     "pass": true,
+     "summary": "自动质检通过",
+     "motion": 0.996
+    }
+   }
+  ],
+  "plan": {
+   "by": "basic",
+   "subject": "the thing in @image2",
+   "target": "the matching main subject",
+   "keep": "everything else",
+   "change": "the main subject becomes the one in the reference pictures; 把开头的建筑换成图片1.把视频中的人物换成俄罗斯人，视频中的车包括人物的位置关系不要变化。\n去掉视频中的字幕，视频中的人用俄罗斯语。",
+   "summary": "基础方案：所有镜头都按你的图替换主体",
+   "views": [],
+   "variants": [],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+     ],
+     "keyAt": 0.5,
+     "edit": "replace the main subject with the one from the reference pictures"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 0.75,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 2,
+     "start": 0.75,
+     "end": 2.17,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 3,
+     "start": 2.17,
+     "end": 4.08,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 4,
+     "start": 4.08,
+     "end": 5.67,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 5,
+     "start": 5.67,
+     "end": 7.63,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 6,
+     "start": 7.63,
+     "end": 9.17,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 7,
+     "start": 9.17,
+     "end": 10.25,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 8,
+     "start": 10.25,
+     "end": 10.75,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 9,
+     "start": 10.75,
+     "end": 11.42,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 10,
+     "start": 11.42,
+     "end": 12.08,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 11,
+     "start": 12.08,
+     "end": 13.25,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 12,
+     "start": 13.25,
+     "end": 16.08,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    },
+    {
+     "index": 13,
+     "start": 16.08,
+     "end": 19.16,
+     "change": true,
+     "scene": "A",
+     "note": ""
+    }
+   ],
+   "dropText": false
+  },
+  "route": {
+   "kind": "full",
+   "reasons": [
+    "没有方案模型的判断，不知道片子难不难",
+    "19 秒，超过模型一次能做的 8 秒，要分段"
+   ]
+  },
+  "variantAssets": []
+ },
+ "pid": 424,
+ "engine": {
+  "image": "模拟预览图",
+  "video": "模拟视频编辑",
+  "guard": "方案：基础（不调模型）",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "mock",
+   "units": "1 张",
+   "yuan": 0,
+   "step": "关键画面 A",
+   "at": 1794319388542
+  },
+  {
+   "model": "mock",
+   "units": "8 秒",
+   "yuan": 0,
+   "step": "第 1/3 段",
+   "at": 1794319397643
+  },
+  {
+   "model": "mock",
+   "units": "6 秒",
+   "yuan": 0,
+   "step": "第 2/3 段",
+   "at": 1794319397647
+  },
+  {
+   "model": "mock",
+   "units": "6 秒",
+   "yuan": 0,
+   "step": "第 3/3 段",
+   "at": 1794319397652
+  }
+ ]
+}

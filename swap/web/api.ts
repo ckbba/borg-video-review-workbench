@@ -11,11 +11,11 @@ export type JobView = {
   replica?: ReplicaView;
 };
 export type PhaseView = { id: string; label: string; status: 'waiting' | 'running' | 'done' | 'skipped' | 'failed'; note?: string };
-export type CopyItem = { at: number; from: string; to: string; sure: boolean; why?: string; src?: 'voice' | 'caption' | 'both' };
+export type CopyItem = { at: number; from: string; to: string; sure: boolean; why?: string; src?: 'voice' | 'caption' | 'both'; price?: boolean };
 export type SlotView = { id: string; label: string; main: boolean; at: number; frame?: string; image?: string; own: boolean };
-export type GapView = { label: string; at: number; frame?: string; kind: 'angle' | 'part' | 'screen'; shots?: number[]; need?: string; fallback?: string; found?: { url: string; page?: string; why?: string } };
+export type GapView = { label: string; at: number; frame?: string; kind: 'angle' | 'part' | 'screen' | 'cast'; shots?: number[]; generate?: boolean; need?: string; fallback?: string; found?: { url: string; page?: string; why?: string } };
 export type FitView = { start: number; end: number; fit: 'good' | 'rough' | 'no'; why: string; change?: boolean; thumb?: string; variant?: string; pics?: string[] };
-export type ReplicaView = { photoIssue?: string; keyframeStop?: boolean; route?: { kind: 'simple' | 'full'; reasons: string[] }; scouting: boolean; fit: FitView[]; gaps: GapView[]; styles: { id: string; label: string }[]; voice?: { status: 'running' | 'done' | 'failed'; error?: string; lines?: number }; copy: CopyItem[]; copyCheck?: { heard: number; done: boolean; error?: string }; slots: SlotView[]; phases: PhaseView[]; summary?: string; uploads: string[]; source: string; sheet?: string; variants: { label: string; url: string }[];
+export type ReplicaView = { photoIssue?: string; keyframeStop?: boolean; route?: { kind: 'simple' | 'full'; reasons: string[] }; scouting: boolean; fit: FitView[]; gaps: GapView[]; styles: { id: string; label: string }[]; voice?: { status: 'running' | 'done' | 'failed'; error?: string; lines?: number }; copy: CopyItem[]; copyCheck?: { heard: number; done: boolean; error?: string }; subtitles: boolean; slots: SlotView[]; phases: PhaseView[]; summary?: string; uploads: string[]; source: string; sheet?: string; variants: { label: string; url: string }[];
   keyframes: { scene: string; url: string; ok?: boolean }[]; redoError?: string; segments: { status: string; repaired?: boolean; pass?: boolean; start: number; end: number; lookBad: boolean; yuan?: number }[] };
 export type JobSummary = { id: string; templateId: string; title: string; created: number; stage: string; message: string; upload: string; versions: string[];
   mode?: string; results: { label: string; final: string; compare: string; pass?: boolean }[];
@@ -46,7 +46,7 @@ export const api = {
   hidePhoto: (id: string, file: string) => call<ProductView>(`/products/${id}/photos/hide`, { file }),
   slots: (id: string, x: { images: Record<string, string>; angles: Record<string, string>; answers: Record<number, string>; kept: number[]; mode?: 'all' | 'fit' | 'cancel' }) => call<JobView>(`/jobs/${id}/slots`, x),
   restyle: (id: string, style: string) => call<JobView>(`/jobs/${id}/restyle`, { style }),
-  voiceover: (id: string) => call<JobView>(`/jobs/${id}/voiceover`, {}),
+  voiceover: (id: string, subtitles?: boolean) => call<JobView>(`/jobs/${id}/voiceover`, { subtitles }),
   saveCopy: (id: string, items: CopyItem[]) => call<JobView>(`/jobs/${id}/copy`, { items }),
   pick: (id: string, index: number) => call<JobView>(`/jobs/${id}/pick`, { index }),
   redo: (id: string, index: number) => call<JobView>(`/jobs/${id}/redo`, { index }),

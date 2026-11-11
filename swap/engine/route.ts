@@ -16,7 +16,8 @@ export function routeOf(plan: Plan, seconds: number, maxSeconds: number, force =
   if (seconds > maxSeconds + OVER_LIMIT) reasons.push(`${seconds.toFixed(0)} 秒，超过模型一次能做的 ${maxSeconds} 秒，要分段`);
   const keep = plan.shots.filter(s => !s.change).length;
   if (keep) reasons.push(`有 ${keep} 个镜头不用改，要保留原片`);
-  const hard = (plan.gaps || []).filter(g => g.kind === 'part' || g.kind === 'screen');
+  // A new person has to be put into keyframes first and checked there: one run straight from the footage keeps the old faces (10 Nov).
+  const hard = (plan.gaps || []).filter(g => g.kind === 'part' || g.kind === 'screen' || g.kind === 'cast');
   if (hard.length) reasons.push(`需要处理 ${hard.map(g => g.label).join('、')}`);
   if (plan.shots.some(s => s.fit === 'no')) reasons.push('有做不出来的镜头');
   if (force === 'simple') return { kind: 'simple', reasons: ['手动指定（SWAP_ROUTE）'] };
@@ -30,7 +31,9 @@ export function simplePrompt(plan: Plan, pictures: number, userPrompt: string, d
   return [
     `Replace ${(plan.target || 'the main subject').slice(0, 300).replace(/^The /, 'the ').replace(/\.$/, '')} in @video1 with the one in @image1.`,
     more ? `Its details and logos must be exactly as in ${more}.` : '',
-    'Everything else stays exactly as in @video1: people, faces, motion, camera, cuts and timing.',
+    // A recast or a new language is the user's own request: "people and faces stay" would forbid it.
+    `Everything else stays exactly as in @video1: ${plan.recast ? '' : 'people, faces, '}motion, camera, cuts and timing.`,
+    plan.speech ? `The people speak ${plan.speech}, their lips moving naturally with it.` : '',
     userPrompt ? `Also: ${userPrompt}.` : '',
     dropText ? 'Remove all captions and decorative titles of @video1.' : '',
     fix

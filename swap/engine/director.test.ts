@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { planSegs, segPrompt, timeline } from './director';
+import { simplePrompt } from './route';
 import { applyCopy, assText, captions, fitTempo, trustedSpeech } from './voice';
 import type { Plan, ReplicaSeg } from './types';
 
@@ -19,6 +20,9 @@ describe('voice', () => {
     expect(trustedSpeech({ start: 0, end: 15, text: '请点赞 订阅 转发 打赏 打赏 打赏', no_speech_prob: 0.1 })).toBe(false);
     expect(trustedSpeech({ start: 2, end: 5, text: '又保暖又舒适的家居服', no_speech_prob: 0.02 })).toBe(true);
     expect(trustedSpeech({ start: 0, end: 1, text: '好', no_speech_prob: 0.1 })).toBe(true);
+    // 9 Nov, La Mer: loud talk-over film, every clear line scored 0.60 for no speech but with confident words.
+    expect(trustedSpeech({ start: 0, end: 2, text: '诶!海南之民过多少水,你知道吗?', no_speech_prob: 0.6, avg_logprob: -0.32 })).toBe(true);
+    expect(trustedSpeech({ start: 0, end: 2, text: '嗯', no_speech_prob: 0.9, avg_logprob: -1.4 })).toBe(false);
   });
 });
 
@@ -89,5 +93,34 @@ describe('voice and subtitles', () => {
     expect(ass).toContain('Dialogue: 0,0:00:01.00,0:00:03.00,Default,第一句');
     expect(ass).toContain('Default,第二句');
     expect(ass).toContain('PlayResY: 1280');
+  });
+});
+
+// 10 Nov: "recast them as Russian actors speaking Russian" ended every prompt with "people stay as in the footage" and
+// "mouths stay as in @video1"; the model obeyed those and nobody changed.
+describe('the user own request beats the fixed rules', () => {
+  const seg = planSegs(plan, 30, 5, 15)[0];
+  it('keeps people and mouths by default', () => {
+    const p = segPrompt(plan, seg, [], 1, '', '');
+    expect(p).toContain('The people on screen stay exactly those of the original footage');
+    expect(p).toContain('Mouths stay exactly as in @video1');
+  });
+  it('drops them when the plan recasts and changes the language', () => {
+    const p = segPrompt({ ...plan, recast: true, speech: 'Russian' }, seg, [], 1, '', '');
+    expect(p).not.toContain('stay exactly those of the original footage');
+    expect(p).not.toContain('Mouths stay exactly');
+    expect(p).toContain('speak Russian');
+    const s = simplePrompt({ ...plan, recast: true, speech: 'Russian' }, 1, '');
+    expect(s).not.toContain('people, faces');
+    expect(s).toContain('speak Russian');
+  });
+});
+
+describe('new people', () => {
+  it('names each portrait after the keyframes and before the product pictures', () => {
+    const seg = planSegs(plan, 30, 5, 15)[0];
+    const p = segPrompt({ ...plan, recast: true }, seg, ['A'], 1, '', '', ['俄罗斯男演员']);
+    expect(p).toContain('who is 俄罗斯男演员 with the person in @image2');
+    expect(p).toContain('@image3 shows');
   });
 });

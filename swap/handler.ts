@@ -46,8 +46,8 @@ const publicJob = (j: Job) => ({
     fit: (j.replica.plan?.shots || []).map((s, i) => ({ start: s.start, end: s.end, fit: s.fit || 'good', why: s.why || '', change: s.change, variant: j.replica!.plan!.scenes.find(c => c.id === s.scene)?.variant, pics: j.replica!.photoPicks ? photosForScenes(j.replica!.photoPicks, [s.scene], j.replica!.uploads).map(url) : undefined,
       thumb: url([1, 0].map(k => path.join(dirOf(j.id), 'review', `s${i + 1}-${k}.jpg`)).find(f => fs.existsSync(f))) })), uploads: j.replica.uploads.map(url), source: url(j.replica.source),
     styles: Object.entries(STYLES).map(([id, x]) => ({ id, label: x.label })),
-    copy: j.replica.copy || [], copyCheck: j.replica.copyCheck, voice: j.replica.voice && { status: j.replica.voice.status, error: j.replica.voice.error, lines: j.replica.voice.lines?.length },
-    gaps: (j.replica.plan?.gaps || []).map(g => ({ label: g.label, at: g.at, frame: url(g.frame), kind: g.kind || 'angle', shots: g.shots, need: g.need, fallback: g.fallback,
+    copy: j.replica.copy || [], copyCheck: j.replica.copyCheck, subtitles: j.replica.subtitles !== false, voice: j.replica.voice && { status: j.replica.voice.status, error: j.replica.voice.error, lines: j.replica.voice.lines?.length },
+    gaps: (j.replica.plan?.gaps || []).map(g => ({ label: g.label, at: g.at, frame: url(g.frame), kind: g.kind || 'angle', generate: g.generate, shots: g.shots, need: g.need, fallback: g.fallback,
       found: g.found && { url: url(g.found.file), page: g.found.page, why: g.found.why } })),
     slots: (j.replica.plan?.variants || []).map(v => {
       const a = j.replica!.variantAssets?.find(x => x.id === v.id);
@@ -81,7 +81,9 @@ function serveFile(req: any, res: any, file: string) {
   const m = /bytes=(\d*)-(\d*)/.exec(req.headers.range || '');
   res.setHeader('Content-Type', type); res.setHeader('Accept-Ranges', 'bytes');
   if (!m) { res.setHeader('Content-Length', st.size); return fs.createReadStream(file).pipe(res); }
-  const a = m[1] ? Number(m[1]) : st.size - Number(m[2]), b = m[1] && m[2] ? Number(m[2]) : st.size - 1;
+  const a = m[1] ? Number(m[1]) : Math.max(0, st.size - Number(m[2])), b = Math.min(st.size - 1, m[1] && m[2] ? Number(m[2]) : st.size - 1);
+  // A player asking past the end (the file was just replaced by a shorter one) used to throw here and kill the dev server (9 Nov).
+  if (!(a <= b)) { res.statusCode = 416; res.setHeader('Content-Range', `bytes */${st.size}`); return res.end(); }
   res.statusCode = 206; res.setHeader('Content-Range', `bytes ${a}-${b}/${st.size}`); res.setHeader('Content-Length', b - a + 1);
   fs.createReadStream(file, { start: a, end: b }).pipe(res);
 }
@@ -157,6 +159,13 @@ export async function handleApi(req: any, res: any) {
       };
     }));
     if (parts[0] === 'jobs' && parts[1]) {
+      // The demo server (5180) and the real one (5185) share swap/data: a click on the wrong page used to run a real job on the
+      // mock models (10 Nov, the Russian case). A job only moves on under the engine it was made with.
+      if (req.method === 'POST' && parts[2]) {
+        const j = getJob(parts[1]), p = await providers();
+        if (j.engine && /模拟/.test(j.engine.video) !== /模拟/.test(p.video.name))
+          throw new Error(/模拟/.test(p.video.name) ? '这个任务是真实模式建的，这里是演示模式。请到真实模式的页面（5185）继续，否则不会真实生成' : '这个任务是演示模式建的，请到演示模式的页面继续');
+      }
       if (req.method === 'GET' && parts.length === 2) return json(res, 200, publicJob(getJob(parts[1])));
       if (req.method === 'GET' && parts[2] === 'trace') return json(res, 200, traceOf(getJob(parts[1])));
       if (req.method === 'POST' && parts[2] === 'pick') return json(res, 200, publicJob(await pickFrame(parts[1], Number((await body(req)).index))));
@@ -172,7 +181,7 @@ export async function handleApi(req: any, res: any) {
         return json(res, 200, publicJob(getJob(j.id)));
       }
       if (req.method === 'POST' && parts[2] === 'restyle') return json(res, 200, publicJob(await restyle(parts[1], String((await body(req)).style || ''))));
-      if (req.method === 'POST' && parts[2] === 'voiceover') return json(res, 200, publicJob(startVoiceover(parts[1])));
+      if (req.method === 'POST' && parts[2] === 'voiceover') return json(res, 200, publicJob(startVoiceover(parts[1], await body(req).then(b => typeof b.subtitles === 'boolean' ? b.subtitles : undefined))));
       if (req.method === 'POST' && parts[2] === 'copy') return json(res, 200, publicJob(saveCopy(parts[1], (await body(req)).items || [])));
       if (req.method === 'POST' && parts[2] === 'redo') return json(res, 200, publicJob(redoSegment(parts[1], Number((await body(req)).index))));
       if (req.method === 'POST' && parts[2] === 'refit') return json(res, 200, publicJob(refitFilm(parts[1])));

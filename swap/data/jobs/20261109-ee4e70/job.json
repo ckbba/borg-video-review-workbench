@@ -1,0 +1,1165 @@
+{
+ "id": "20261109-ee4e70",
+ "templateId": "replica",
+ "created": 1794193439619,
+ "stage": "done",
+ "message": "配音和字幕：完成",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-1.jpeg",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "11:03:59 看懂原片",
+  "11:04:32 视频超过 60 秒，只处理前 60 秒",
+  "11:04:36 制定方案",
+  "11:05:28 路线：完整路线（有 3 个场景，换场景后商品容易走样；60 秒，超过模型一次能做的 15 秒，要分段）",
+  "11:05:29 给每个场景挑图（3 张）",
+  "11:05:29 听写口播没有完成（[out#0/mp3 @ 0000023c6e8b9300] Error opening output E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\review\\voice\\audio.mp3: No such file or directory\r\nError opening output file E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\review\\voice\\audio.mp3.\r\nError opening output files: No such file or directory\r\n），只看字幕",
+  "11:06:02 素材提醒：照片1较照片2、3明显偏暖偏黄，因此未排在场景首位，瓶身实际淡稻草色与光线偏色需区分；三张照片均未展示开盖瓶口、瓶盖内侧或侧背面，无法直接支持场景A的开盖细节及转动后的外观；照片3含洁面管和红色霜罐，仅使用其中两款目标瓶及其比例。",
+  "11:29:25 制作关键画面：3 张",
+  "11:29:26 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "11:30:33 制作关键画面 B：生成预览图（image-2.5-flare）…",
+  "11:30:33 制作关键画面 C：生成预览图（image-2.5-flare）…",
+  "11:32:05 制作关键画面：一起验收",
+  "11:33:22 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "11:33:22 制作关键画面 B：生成预览图（image-2.5-flare）…",
+  "11:33:22 制作关键画面 C：生成预览图（image-2.5-flare）…",
+  "11:34:48 制作关键画面：第 2 次验收",
+  "11:36:37 制作关键画面 B：生成预览图（image-2.5-flare）…",
+  "11:36:37 制作关键画面 C：生成预览图（image-2.5-flare）…",
+  "11:38:08 制作关键画面：第 3 次验收",
+  "失败：3 张关键画面都没通过验收，已停下，还没有生成视频。比如：大瓶瓶身偏短、偏粗，肩部收缩及瓶颈过于突出，未准确还原参考图1修长、近直筒的磨砂玻璃瓶身；正面SK-II标志偏鲜红，与参考图的深酒红色不一致。",
+  "12:26:00 生成视频：6 段同时生成",
+  "12:27:02 第 3/6 段：已提交视频任务 df89c243-d095-4c46-9cd4-2225f31e9d4b",
+  "12:27:04 第 1/6 段：已提交视频任务 703be71d-73cf-4b08-a2ae-80fa824f9717",
+  "12:27:04 第 2/6 段：已提交视频任务 4f9c2138-5ebb-4881-b5b0-449119967d34",
+  "12:27:05 第 3/6 段：生成中…（processing 10%）",
+  "12:27:08 第 1/6 段：生成中…（processing 10%）",
+  "12:27:08 第 2/6 段：生成中…（processing 10%）",
+  "12:28:18 第 3/6 段：生成中…（processing 10%）",
+  "12:28:19 第 2/6 段：生成中…（processing 10%）",
+  "12:28:52 第 4/6 段：已提交视频任务 380a1fff-aef7-463d-8028-f95c30637499",
+  "12:28:56 第 4/6 段：生成中…（processing 10%）",
+  "12:29:04 第 6/6 段：已提交视频任务 3bc2d222-6cf9-4396-8390-2d194dba57b5",
+  "12:29:08 第 6/6 段：生成中…（processing 10%）",
+  "12:29:12 第 5/6 段：已提交视频任务 ba1b84a7-b5ec-4e0e-89c2-5579214c93f1",
+  "12:29:18 第 5/6 段：生成中…（processing 10%）",
+  "12:32:01 检查修复：检查动作、外观和接缝",
+  "12:32:04 检查修复：重做 3 段",
+  "12:32:14 第 2/6 段：已提交视频任务 432466f9-4e77-4e89-97ee-1b2981eafada",
+  "12:32:16 第 2/6 段：生成中…（submitted）",
+  "12:32:28 第 4/6 段：已提交视频任务 ba11ba3c-ac04-4ef2-b8ff-808cfba37000",
+  "12:32:30 第 4/6 段：生成中…（processing 10%）",
+  "12:32:43 第 3/6 段：已提交视频任务 58806e17-c7d9-43fb-b774-a984fc5afc83",
+  "12:32:46 第 3/6 段：生成中…（processing 10%）",
+  "12:33:28 第 2/6 段：生成中…（processing 10%）",
+  "12:33:40 第 4/6 段：生成中…（processing 10%）",
+  "12:34:04 第 3/6 段：生成中…（processing 10%）",
+  "12:34:41 验收模型没有回应（没有可用渠道, model: gpt-6.1-sol），按通过处理",
+  "12:34:58 验收模型没有回应（没有可用渠道, model: gpt-6.1-sol），按通过处理",
+  "12:35:55 合成成片",
+  "12:37:39 配音和字幕",
+  "12:37:40 配音和字幕：听写原片口播",
+  "13:35:31 配音和字幕：听写原片口播",
+  "13:35:31 配音和字幕：改写文案",
+  "13:36:01 配音和字幕：配音 50 句",
+  "13:37:01 配音和字幕：完成",
+  "14:38:41 配音和字幕：听写原片口播",
+  "14:38:41 配音和字幕：改写文案",
+  "14:38:41 配音和字幕：分辨每句是谁说的",
+  "14:39:47 配音和字幕：配音 50 句",
+  "14:41:05 配音和字幕：完成",
+  "15:28:15 配音和字幕：听写原片口播",
+  "15:30:30 配音和字幕：改写文案",
+  "15:30:30 配音和字幕：分辨每句是谁说的",
+  "15:31:27 配音和字幕：配音 49 句",
+  "15:32:04 配音和字幕：完成",
+  "15:40:44 配音和字幕：听写原片口播",
+  "15:40:44 配音和字幕：校对、改写文案，分辨每句是谁说的",
+  "15:41:49 配音和字幕：配音 49 句",
+  "15:42:56 配音和字幕：完成"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "done",
+   "startedAt": 1794198360213,
+   "final": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\voiced-1794210143318.mp4",
+   "compare": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\compare.mp4",
+   "endedAt": 1794199163777,
+   "check": {
+    "pass": true,
+    "trimTail": 0,
+    "summary": "自动检查通过"
+   }
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\source.mp4",
+  "prompt": "海蓝之谜的小绿瓶和海蓝之谜银盖小瓶都可以参考sk小瓶，这张图就是图二，然后海蓝之谜的大绿瓶可以参考s two大瓶图一，然后如果是合影的话，可以参考sk two大瓶和小瓶合影，就是第三张图，，他们会有图片的相对大小。",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-1.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-2.jpeg",
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-3.jpeg"
+  ],
+  "shapeRefs": [],
+  "scoutOn": false,
+  "voiceOn": true,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "60.0 秒，4 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "4/4 个镜头要改，3 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "skipped",
+    "note": "你的图已经够用"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "done",
+    "note": "没通过验收，你选择继续"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "done",
+    "note": "6 段"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "done",
+    "note": "修了 2/3 段"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "done"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "skipped",
+    "note": "原片没有口播，保留原声"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 0.31,
+    "tries": 2,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the open green bottle beside the presenter's face with the small SK-II Clear Lotion bottle from image 2, and replace the detached green cap in his other hand with its matching silver cap. Show the bottle uncapped at the original tilt, preserving the hand contact, exposed mouth position and proximity to his face; infer the unseen neck conservatively from the supplied bottle.. The new The two SK-II bottles supplied by the user: a larger Facial Treatment Essence bottle with a tall frosted cylindrical glass body, pale straw-colored contents, a broad reflective silver cylindrical cap, a dark red SK-II logo, black product lettering and embossed PITERA near the base; and a smaller Facial Treatment Clear Lotion bottle with a slimmer frosted translucent body, a reflective silver cap, a dark red SK-II logo and fine dark lettering near the bottom. Use image 1 for the large bottle, image 2 for the small bottle, and image 3 for their relative proportions. must look exactly like @image2 and @image3: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The La Mer skincare bottles appearing as physical products and floating product cutouts: larger rounded green translucent bottles with glossy metallic green caps and pale labels, smaller green bottles with matching green caps, and a smaller frosted pale bottle with a silver cap, including the detached cap and exposed bottle mouth in the opening shot. in @image1. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Replace the opening large La Mer bottle with the large Facial Treatment Essence bottle from image 1, retaining its frosted cylindrical glass body, pale straw contents, dark red SK-II logo, three-line black product name and embossed PITERA near the base. Match the detached broad silver cap to this large bottle and preserve the original uncapped action, bottle angle, hand positions and occlusions. Keep all original non-product pixels and subtitle placement; do not erase the source text overlays.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\A-t2\\frame-1.png",
+    "ok": false,
+    "issue": "大瓶瓶身偏短、偏粗，肩部收缩及瓶颈过于突出，未准确还原参考图1修长、近直筒的磨砂玻璃瓶身；正面SK-II标志偏鲜红，与参考图的深酒红色不一致。"
+   },
+   {
+    "scene": "B",
+    "at": 43.51,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\B-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Build the complete eight-bottle display using three large SK-II Essence bottles across the bottom, three small SK-II Clear Lotion bottles above them and two small Clear Lotion bottles at the lower right. Use image 3 for relative bottle dimensions, preserve the original support and stacking relationships, and keep labels facing the camera. Replace the floating lineup with three large and five small SK-II bottles in the corresponding positions. Apply these same bottle identities to the earlier two-bottle arrangement and all placement actions within shot 2.. The new The two SK-II bottles supplied by the user: a larger Facial Treatment Essence bottle with a tall frosted cylindrical glass body, pale straw-colored contents, a broad reflective silver cylindrical cap, a dark red SK-II logo, black product lettering and embossed PITERA near the base; and a smaller Facial Treatment Clear Lotion bottle with a slimmer frosted translucent body, a reflective silver cap, a dark red SK-II logo and fine dark lettering near the bottom. Use image 1 for the large bottle, image 2 for the small bottle, and image 3 for their relative proportions. must look exactly like @image2 and @image3 and @image4: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The La Mer skincare bottles appearing as physical products and floating product cutouts: larger rounded green translucent bottles with glossy metallic green caps and pale labels, smaller green bottles with matching green caps, and a smaller frosted pale bottle with a silver cap, including the detached cap and exposed bottle mouth in the opening shot. in @image1. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. @image5 shows the same thing already placed in another shot of this film: match it exactly. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Restore every original price, volume, quantity and central caption overlay at its original position, size, color and stacking order. Keep all eight floating product cutouts in their original arrangement. Adjust the floating Clear Lotion bottles to match the large-to-small height and width proportions shown in reference image 3, and maintain consistent product proportions between the floating cutouts and physical bottles. Preserve the original person, hands, jewelry, background, acrylic blocks and framing.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\B-t3\\frame-1.png",
+    "ok": false,
+    "issue": "前景三只精华大瓶明显偏宽、偏矮，瓶身与银盖的整体比例不符合参考图1；上方悬浮大瓶也存在同样的粗短化，且与前景大瓶的轮廓比例不完全统一。替换物边缘和瓶底过于规整，前景瓶与亚克力台面的接触阴影不足，有合成贴图感。"
+   },
+   {
+    "scene": "C",
+    "at": 52.25,
+    "tries": 3,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\C-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Show three large SK-II Essence bottles standing across the foreground while the presenter gathers the smaller SK-II Clear Lotion bottles in both hands. Use image 3 for their relative sizes, preserve finger overlap, bottle tilts and the original gathering and lowering actions, and replace the floating lineup with the corresponding large and small SK-II bottles.. The new The two SK-II bottles supplied by the user: a larger Facial Treatment Essence bottle with a tall frosted cylindrical glass body, pale straw-colored contents, a broad reflective silver cylindrical cap, a dark red SK-II logo, black product lettering and embossed PITERA near the base; and a smaller Facial Treatment Clear Lotion bottle with a slimmer frosted translucent body, a reflective silver cap, a dark red SK-II logo and fine dark lettering near the bottom. Use image 1 for the large bottle, image 2 for the small bottle, and image 3 for their relative proportions. must look exactly like @image2 and @image3 and @image4: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as The La Mer skincare bottles appearing as physical products and floating product cutouts: larger rounded green translucent bottles with glossy metallic green caps and pale labels, smaller green bottles with matching green caps, and a smaller frosted pale bottle with a silver cap, including the detached cap and exposed bottle mouth in the opening shot. in @image1. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. @image5 shows the same thing already placed in another shot of this film: match it exactly. Remove all captions, subtitles and decorative titles from the picture, restoring what is behind them. It must look photographed in this light, not pasted on. No text, no letters, no logos added. Fix: Restore all original top-row price, volume and quantity overlays, including the parenthesized prices, with their original placement, typography, colors and overlap order. Retain the existing lower Chinese subtitle. Resize the floating Clear Lotion bottles to match the relative bottle dimensions in reference image 3, and use consistent bottle geometry and size relationships across scenes B and C. Preserve the original floating count, handheld count, hand gestures, person, jewelry, shelving, lighting, acrylic blocks and framing.",
+    "out": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\C-t3\\frame-1.png",
+    "ok": false,
+    "issue": "前景三只精华大瓶仍偏粗短，未达到参考图1的修长瓶身比例；与上方悬浮精华瓶相比，实体瓶的肩部、瓶身宽高比和瓶盖比例也不够一致。三只大瓶的液体与瓶身整体偏浓黄，较参考要求的淡稻草色磨砂半透明质感更浑浊。"
+   }
+  ],
+  "segments": [
+   {
+    "index": 0,
+    "start": 0,
+    "end": 5,
+    "genStart": 0,
+    "join": "start",
+    "scenes": [
+     "A",
+     "B"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\A-t2\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\B-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-2.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-3.jpeg"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the original people, faces, hairstyles, clothing, jewelry, room, shelving, acrylic display blocks, lighting, camera positions, framing, hand gestures, product counts, stacking relationships, movement, editing, timing and narrative sequence.. Change only this: Replace every large green La Mer bottle with the large SK-II bottle from image 1 and every small green or silver-capped La Mer bottle with the small SK-II bottle from image 2, including floating product cutouts, using image 3 to maintain the large-to-small size relationship and retaining the supplied SK-II colors, silver caps and branding throughout.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-2.04s: match @image1, colours Frosted translucent ivory, pale straw, reflective silver and dark red.. 2.04-5.00s: match @image2, colours Frosted translucent ivory, pale straw, reflective silver and dark red.. @image3 and @image4 show The two SK-II bottles supplied by the user: a larger Facial Treatment Essence bottle with a tall frosted cylindrical glass body, pale straw-colored contents, a broad reflective silver cylindrical cap, a dark red SK-II logo, black product lettering and embossed PITERA near the base; and a smaller Facial Treatment Clear Lotion bottle with a slimmer frosted translucent body, a reflective silver cap, a dark red SK-II logo and fine dark lettering near the bottom. Use image 1 for the large bottle, image 2 for the small bottle, and image 3 for their relative proportions.: the same design in every frame, from every angle. Remove all captions, subtitles and decorative titles of @video1 from every frame. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg0-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg0-t1-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；替换可能没生效，或改动范围不对；动作和原片对不上；有跳帧或突变",
+     "motion": 0.399
+    }
+   },
+   {
+    "index": 1,
+    "start": 5,
+    "end": 15.803,
+    "genStart": 4.791666666666667,
+    "join": "soft",
+    "scenes": [
+     "B"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\B-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-3.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-1.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-2.jpeg"
+    ],
+    "tries": 2,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the original people, faces, hairstyles, clothing, jewelry, room, shelving, acrylic display blocks, lighting, camera positions, framing, hand gestures, product counts, stacking relationships, movement, editing, timing and narrative sequence.. Change only this: Replace every large green La Mer bottle with the large SK-II bottle from image 1 and every small green or silver-capped La Mer bottle with the small SK-II bottle from image 2, including floating product cutouts, using image 3 to maintain the large-to-small size relationship and retaining the supplied SK-II colors, silver caps and branding throughout.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-11.01s: match @image1, colours Frosted translucent ivory, pale straw, reflective silver and dark red.. @image2 and @image3 and @image4 show The two SK-II bottles supplied by the user: a larger Facial Treatment Essence bottle with a tall frosted cylindrical glass body, pale straw-colored contents, a broad reflective silver cylindrical cap, a dark red SK-II logo, black product lettering and embossed PITERA near the base; and a smaller Facial Treatment Clear Lotion bottle with a slimmer frosted translucent body, a reflective silver cap, a dark red SK-II logo and fine dark lettering near the bottom. Use image 1 for the large bottle, image 2 for the small bottle, and image 3 for their relative proportions.: the same design in every frame, from every angle. Fix: Remove the additional person on the left, including their hair, black clothing, arm, and hand reaching toward the bottles. Keep only the original male presenter, and preserve the current SK-II bottle designs, colors, and relative proportions. The first frames must continue seamlessly from the previo Remove all captions, subtitles and decorative titles of @video1 from every frame. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg1-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg1-t2-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变",
+     "motion": 0.192,
+     "seam": 0.15
+    },
+    "repaired": true
+   },
+   {
+    "index": 2,
+    "start": 15.803,
+    "end": 29.567,
+    "genStart": 15.594666666666667,
+    "join": "soft",
+    "scenes": [
+     "B"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\B-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-3.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-1.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-2.jpeg"
+    ],
+    "tries": 2,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the original people, faces, hairstyles, clothing, jewelry, room, shelving, acrylic display blocks, lighting, camera positions, framing, hand gestures, product counts, stacking relationships, movement, editing, timing and narrative sequence.. Change only this: Replace every large green La Mer bottle with the large SK-II bottle from image 1 and every small green or silver-capped La Mer bottle with the small SK-II bottle from image 2, including floating product cutouts, using image 3 to maintain the large-to-small size relationship and retaining the supplied SK-II colors, silver caps and branding throughout.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-13.97s: match @image1, colours Frosted translucent ivory, pale straw, reflective silver and dark red.. The display develops from two upright large green bottles into eight capped bottles: three large green bottles @image2 and @image3 and @image4 show The two SK-II bottles supplied by the user: a larger Facial Treatment Essence bottle with a tall frosted cylindrical glass body, pale straw-colored contents, a broad reflective silver cylindrical cap, a dark red SK-II logo, black product lettering and embossed PITERA near the base; and a smaller Facial Treatment Clear Lotion bottle with a slimmer frosted translucent body, a reflective silver cap, a dark red SK-II logo and fine dark lettering near the bottom. Use image 1 for the large bottle, image 2 for the small bottle, and image 3 for their relative proportions.: the same design in every frame, from every angle. Fix: The first frames must continue seamlessly from the previous shot: same positions, same look. Remove all captions, subtitles and decorative titles of @video1 from every frame. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg2-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg2-t2-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；动作和原片对不上；有跳帧或突变；外观小问题：大小瓶的款式、相对比例、磨砂半透明瓶身、淡稻草色内容物、银色瓶盖及暗红色标识基本符合目标。部分产品文字和瓶底PITERA浮雕略模糊，属于细节差异，无明显替换错误。",
+     "motion": 0.212,
+     "seam": 0.76
+    },
+    "repaired": true
+   },
+   {
+    "index": 3,
+    "start": 29.567,
+    "end": 43.33,
+    "genStart": 29.358666666666668,
+    "join": "soft",
+    "scenes": [
+     "B"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\B-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-3.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-1.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-2.jpeg"
+    ],
+    "tries": 2,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the original people, faces, hairstyles, clothing, jewelry, room, shelving, acrylic display blocks, lighting, camera positions, framing, hand gestures, product counts, stacking relationships, movement, editing, timing and narrative sequence.. Change only this: Replace every large green La Mer bottle with the large SK-II bottle from image 1 and every small green or silver-capped La Mer bottle with the small SK-II bottle from image 2, including floating product cutouts, using image 3 to maintain the large-to-small size relationship and retaining the supplied SK-II colors, silver caps and branding throughout.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-13.97s: match @image1, colours Frosted translucent ivory, pale straw, reflective silver and dark red.. The display develops from two upright large green bottles into eight capped bottles: three large green bottles @image2 and @image3 and @image4 show The two SK-II bottles supplied by the user: a larger Facial Treatment Essence bottle with a tall frosted cylindrical glass body, pale straw-colored contents, a broad reflective silver cylindrical cap, a dark red SK-II logo, black product lettering and embossed PITERA near the base; and a smaller Facial Treatment Clear Lotion bottle with a slimmer frosted translucent body, a reflective silver cap, a dark red SK-II logo and fine dark lettering near the bottom. Use image 1 for the large bottle, image 2 for the small bottle, and image 3 for their relative proportions.: the same design in every frame, from every angle. Fix: The first frames must continue seamlessly from the previous shot: same positions, same look. Remove all captions, subtitles and decorative titles of @video1 from every frame. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg3-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg3-t1-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；替换可能没生效，或改动范围不对；动作和原片对不上；有跳帧或突变；外观小问题：大小瓶的款式、配色及相对比例基本符合目标，无明显畸形或新增人物；部分瓶身黑色产品文字略模糊、变形，属于细节差异。",
+     "motion": -0.027,
+     "seam": 0.32
+    },
+    "repaired": false
+   },
+   {
+    "index": 4,
+    "start": 43.33,
+    "end": 52.25,
+    "genStart": 43.33,
+    "join": "hard",
+    "scenes": [
+     "B",
+     "C"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\B-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\C-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-3.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-1.jpeg"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the original people, faces, hairstyles, clothing, jewelry, room, shelving, acrylic display blocks, lighting, camera positions, framing, hand gestures, product counts, stacking relationships, movement, editing, timing and narrative sequence.. Change only this: Replace every large green La Mer bottle with the large SK-II bottle from image 1 and every small green or silver-capped La Mer bottle with the small SK-II bottle from image 2, including floating product cutouts, using image 3 to maintain the large-to-small size relationship and retaining the supplied SK-II colors, silver caps and branding throughout.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-1.17s: match @image1, colours Frosted translucent ivory, pale straw, reflective silver and dark red.. 1.17-8.92s: match @image2, colours Frosted translucent ivory, pale straw, reflective silver and dark red.. @image3 and @image4 show The two SK-II bottles supplied by the user: a larger Facial Treatment Essence bottle with a tall frosted cylindrical glass body, pale straw-colored contents, a broad reflective silver cylindrical cap, a dark red SK-II logo, black product lettering and embossed PITERA near the base; and a smaller Facial Treatment Clear Lotion bottle with a slimmer frosted translucent body, a reflective silver cap, a dark red SK-II logo and fine dark lettering near the bottom. Use image 1 for the large bottle, image 2 for the small bottle, and image 3 for their relative proportions.: the same design in every frame, from every angle. Remove all captions, subtitles and decorative titles of @video1 from every frame. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg4-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg4-t1-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；中间有一段画面跑偏；中间有一段画面跑偏；动作和原片对不上；有跳帧或突变；外观小问题：镜头3、4均保留了SK-II大小瓶的主要款式、大小关系、淡稻草色与乳白色磨砂半透明瓶身、反光银色瓶盖及暗红色标志，未见明显错款、畸形或新增人物。细节问题：部分瓶身黑色产品文字模糊、变形；镜头3顶部最右侧小瓶的红色标志有重复错位。",
+     "motion": -0.001
+    }
+   },
+   {
+    "index": 5,
+    "start": 52.25,
+    "end": 60,
+    "genStart": 52.041666666666664,
+    "join": "soft",
+    "scenes": [
+     "C"
+    ],
+    "images": [
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\keyframes\\C-t3\\frame-1.png",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-3.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-1.jpeg",
+     "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-2.jpeg"
+    ],
+    "tries": 1,
+    "status": "done",
+    "prompt": "@video1 is the original footage. Recreate it exactly: the same shots and cuts, camera movement, framing, composition, timing, actions, hands and light, frame for frame. Keep unchanged: Preserve the original people, faces, hairstyles, clothing, jewelry, room, shelving, acrylic display blocks, lighting, camera positions, framing, hand gestures, product counts, stacking relationships, movement, editing, timing and narrative sequence.. Change only this: Replace every large green La Mer bottle with the large SK-II bottle from image 1 and every small green or silver-capped La Mer bottle with the small SK-II bottle from image 2, including floating product cutouts, using image 3 to maintain the large-to-small size relationship and retaining the supplied SK-II colors, silver caps and branding throughout.. The pictures show this footage with the change already made; each second follows its own picture, and the colours change exactly at the cuts: 0.00-7.96s: match @image1, colours Frosted translucent ivory, pale straw, reflective silver and dark red.. Three capped large green bottles remain upright across the foreground while the presenter gathers several smal @image2 and @image3 and @image4 show The two SK-II bottles supplied by the user: a larger Facial Treatment Essence bottle with a tall frosted cylindrical glass body, pale straw-colored contents, a broad reflective silver cylindrical cap, a dark red SK-II logo, black product lettering and embossed PITERA near the base; and a smaller Facial Treatment Clear Lotion bottle with a slimmer frosted translucent body, a reflective silver cap, a dark red SK-II logo and fine dark lettering near the bottom. Use image 1 for the large bottle, image 2 for the small bottle, and image 3 for their relative proportions.: the same design in every frame, from every angle. Remove all captions, subtitles and decorative titles of @video1 from every frame. People in the reference pictures, and what they hold or wear, are not part of the product: never copy them. The people on screen stay exactly those of the original footage. Mouths stay exactly as in @video1: nobody sings, speaks or mouths words unless they do in @video1. Nothing else changes. No new text, letters or logos.",
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg5-src.mp4",
+    "fit": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\segments\\seg5-t1-fit.mp4",
+    "qa": {
+     "pass": false,
+     "summary": "自动质检提示：改动太多，画面结构和原片差别大；外观小问题：大小瓶组合符合目标，磨砂浅稻草色大瓶、半透明乳白色小瓶、反光银盖及深红色标识均保留，未见明显款式错误、畸形或新增人物；部分瓶身文字略模糊，属于细节差异。",
+     "motion": 0.763,
+     "seam": 0.63
+    }
+   }
+  ],
+  "plan": {
+   "by": "llm",
+   "subject": "The two SK-II bottles supplied by the user: a larger Facial Treatment Essence bottle with a tall frosted cylindrical glass body, pale straw-colored contents, a broad reflective silver cylindrical cap, a dark red SK-II logo, black product lettering and embossed PITERA near the base; and a smaller Facial Treatment Clear Lotion bottle with a slimmer frosted translucent body, a reflective silver cap, a dark red SK-II logo and fine dark lettering near the bottom. Use image 1 for the large bottle, image 2 for the small bottle, and image 3 for their relative proportions.",
+   "target": "The La Mer skincare bottles appearing as physical products and floating product cutouts: larger rounded green translucent bottles with glossy metallic green caps and pale labels, smaller green bottles with matching green caps, and a smaller frosted pale bottle with a silver cap, including the detached cap and exposed bottle mouth in the opening shot.",
+   "keep": "Preserve the original people, faces, hairstyles, clothing, jewelry, room, shelving, acrylic display blocks, lighting, camera positions, framing, hand gestures, product counts, stacking relationships, movement, editing, timing and narrative sequence.",
+   "change": "Replace every large green La Mer bottle with the large SK-II bottle from image 1 and every small green or silver-capped La Mer bottle with the small SK-II bottle from image 2, including floating product cutouts, using image 3 to maintain the large-to-small size relationship and retaining the supplied SK-II colors, silver caps and branding throughout.",
+   "summary": "将原片大绿瓶统一换成图一的SK-II大瓶，小绿瓶和银盖小瓶统一换成图二的SK-II小瓶，合影大小关系参考图三，并保留原片人物、动作、摆放逻辑、镜头和节奏。",
+   "views": [],
+   "gaps": [],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "SK-II大小瓶组合",
+     "desc": "Frosted translucent ivory, pale straw, reflective silver and dark red.",
+     "main": true,
+     "at": 22.68
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1
+     ],
+     "keyAt": 0.31,
+     "edit": "Replace the open green bottle beside the presenter's face with the small SK-II Clear Lotion bottle from image 2, and replace the detached green cap in his other hand with its matching silver cap. Show the bottle uncapped at the original tilt, preserving the hand contact, exposed mouth position and proximity to his face; infer the unseen neck conservatively from the supplied bottle.",
+     "variant": "v1"
+    },
+    {
+     "id": "B",
+     "shots": [
+      2,
+      3
+     ],
+     "keyAt": 43.51,
+     "edit": "Build the complete eight-bottle display using three large SK-II Essence bottles across the bottom, three small SK-II Clear Lotion bottles above them and two small Clear Lotion bottles at the lower right. Use image 3 for relative bottle dimensions, preserve the original support and stacking relationships, and keep labels facing the camera. Replace the floating lineup with three large and five small SK-II bottles in the corresponding positions. Apply these same bottle identities to the earlier two-bottle arrangement and all placement actions within shot 2.",
+     "variant": "v1"
+    },
+    {
+     "id": "C",
+     "shots": [
+      4
+     ],
+     "keyAt": 52.25,
+     "edit": "Show three large SK-II Essence bottles standing across the foreground while the presenter gathers the smaller SK-II Clear Lotion bottles in both hands. Use image 3 for their relative sizes, preserve finger overlap, bottle tilts and the original gathering and lowering actions, and replace the floating lineup with the corresponding large and small SK-II bottles.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 2.04,
+     "change": true,
+     "scene": "A",
+     "note": "A single small green bottle is held uncapped near the presenter's face, initially tilted with its exposed neck pointing upward toward his nose, then lowered and turned for inspection; the detached metallic green cap is held separately in the other hand.",
+     "fit": "rough",
+     "why": "用户图里的小瓶都盖着盖子，开盖后的瓶口和内塞细节只能估计，可能与实物不完全一致。"
+    },
+    {
+     "index": 2,
+     "start": 2.04,
+     "end": 43.33,
+     "change": true,
+     "scene": "B",
+     "note": "The display develops from two upright large green bottles into eight capped bottles: three large green bottles across the bottom, two small green bottles and one pale silver-capped bottle stacked above, and two additional small green bottles at the lower right; hands place and point at the products, and matching product cutouts appear along the top.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 3,
+     "start": 43.33,
+     "end": 44.5,
+     "change": true,
+     "scene": "B",
+     "note": "A closer frontal view fills the foreground with the same eight-bottle stack, with three large green bottles below, three smaller bottles balanced above and two small green bottles at the lower right; the presenter stands behind the display and points beside it while the floating lineup remains overhead.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 4,
+     "start": 44.5,
+     "end": 60,
+     "change": true,
+     "scene": "C",
+     "note": "Three capped large green bottles remain upright across the foreground while the presenter gathers several small green and silver-capped bottles in both hands at chest height, tilts them together and lowers them out of view; the floating product lineup remains visible above.",
+     "fit": "good",
+     "why": ""
+    }
+   ],
+   "dropText": true
+  },
+  "route": {
+   "kind": "full",
+   "reasons": [
+    "有 3 个场景，换场景后商品容易走样",
+    "60 秒，超过模型一次能做的 15 秒，要分段"
+   ]
+  },
+  "copyCheck": {
+   "heard": 0,
+   "done": true
+  },
+  "copy": [
+   {
+    "at": 0.3,
+    "from": "《海蓝之谜精萃水",
+    "to": "《SK2瓶装护肤品",
+    "sure": true,
+    "src": "caption"
+   },
+   {
+    "at": 0.3,
+    "from": "2390买200ml送250ml》",
+    "to": "入手规格赠品以页面为准》",
+    "sure": false,
+    "why": "请用户确认替换商品的售价、购买容量及赠品容量。",
+    "src": "caption"
+   },
+   {
+    "at": 1,
+    "from": "海蓝之谜不能当水用",
+    "to": "这款护肤品该怎么用",
+    "sure": false,
+    "why": "请用户确认替换商品的正式品名及正确使用方法。",
+    "src": "caption"
+   },
+   {
+    "at": 22.7,
+    "from": "5195",
+    "to": "价格待确认",
+    "sure": false,
+    "why": "请用户确认替换后商品组合的实际售价。",
+    "src": "caption"
+   },
+   {
+    "at": 22.7,
+    "from": "100ml*3",
+    "to": "大瓶装*3",
+    "sure": false,
+    "why": "请用户确认替换后大瓶商品的实际容量。",
+    "src": "caption"
+   },
+   {
+    "at": 22.7,
+    "from": "(1195*3)",
+    "to": "(单价待确认)",
+    "sure": false,
+    "why": "请用户确认替换后对应商品的单瓶售价。",
+    "src": "caption"
+   },
+   {
+    "at": 22.7,
+    "from": "30ml*4",
+    "to": "小瓶装*4",
+    "sure": false,
+    "why": "请用户确认替换后四瓶商品的实际容量。",
+    "src": "caption"
+   },
+   {
+    "at": 22.7,
+    "from": "(359*4)",
+    "to": "(单价待确认)",
+    "sure": false,
+    "why": "请用户确认替换后对应商品的单瓶售价。",
+    "src": "caption"
+   },
+   {
+    "at": 22.7,
+    "from": "30ml",
+    "to": "小瓶装",
+    "sure": false,
+    "why": "请用户确认替换后该瓶商品的实际容量。",
+    "src": "caption"
+   },
+   {
+    "at": 22.7,
+    "from": "5,195呀",
+    "to": "看页面价呀",
+    "sure": false,
+    "why": "请用户确认替换后商品组合的实际售价。",
+    "src": "caption"
+   },
+   {
+    "at": 37.1,
+    "from": "4999",
+    "to": "价格待确认",
+    "sure": false,
+    "why": "请用户确认替换后商品组合是否适用该售价。",
+    "src": "caption"
+   },
+   {
+    "at": 43.5,
+    "from": "3999",
+    "to": "价格待确认",
+    "sure": false,
+    "why": "请用户确认替换后商品组合是否适用该售价。",
+    "src": "caption"
+   },
+   {
+    "at": 43.5,
+    "from": "8瓶3585？！",
+    "to": "8瓶什么价？！",
+    "sure": false,
+    "why": "请用户确认替换后八瓶商品组合的实际售价。",
+    "src": "caption"
+   },
+   {
+    "at": 52.3,
+    "from": "不止150毫升",
+    "to": "这几瓶一起看",
+    "sure": false,
+    "why": "请用户确认替换后所指商品的实际总容量。",
+    "src": "caption"
+   }
+  ],
+  "photoPicks": {
+   "photos": [
+    {
+     "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-1.jpeg",
+     "view": "大瓶正面全身",
+     "note": "大瓶占比大，银色瓶盖、正面文字及瓶底PITERA浮雕清楚，整体光线偏暖。"
+    },
+    {
+     "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-2.jpeg",
+     "view": "小瓶正面全身略俯视",
+     "note": "小瓶轮廓完整，银盖顶面可见，底部细字较小，适合参考小瓶外观。"
+    },
+    {
+     "file": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-3.jpeg",
+     "view": "大小瓶正面组合",
+     "note": "可参考大小瓶的相对比例，大瓶底缘贴近画面边界，其他套装商品不用于替换。"
+    }
+   ],
+   "scenes": {
+    "A": {
+     "files": [
+      "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-2.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-3.jpeg"
+     ],
+     "why": "照片2最适合参考手持小瓶的完整外观和银盖形状，照片3补充大小比例，但均无法提供开盖瓶口及瓶盖内侧细节。"
+    },
+    "B": {
+     "files": [
+      "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-3.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-1.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-2.jpeg"
+     ],
+     "why": "照片3最便于确定堆叠实物及顶部悬浮产品的大小比例，照片1和照片2分别补充大瓶正面细节与小瓶完整外观。"
+    },
+    "C": {
+     "files": [
+      "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-3.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-1.jpeg",
+      "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\upload-2.jpeg"
+     ],
+     "why": "照片3提供前景大瓶与手中小瓶的比例依据，照片1补充前景大瓶文字和浮雕，照片2补充手持小瓶及银盖外观。"
+    }
+   },
+   "issue": "照片1较照片2、3明显偏暖偏黄，因此未排在场景首位，瓶身实际淡稻草色与光线偏色需区分；三张照片均未展示开盖瓶口、瓶盖内侧或侧背面，无法直接支持场景A的开盖细节及转动后的外观；照片3含洁面管和红色霜罐，仅使用其中两款目标瓶及其比例。",
+   "of": 3
+  },
+  "variantAssets": [],
+  "picture": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261109-ee4e70\\final.mp4",
+  "voice": {
+   "status": "done",
+   "lines": [
+    {
+     "start": 0,
+     "end": 2,
+     "from": "诶！海蓝之谜不能当水用，你知道吗？",
+     "to": "诶！这款护肤品该怎么用，你知道吗？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 2,
+     "end": 4,
+     "from": "这不精萃水吗？不当水用咋用啊？",
+     "to": "这不神仙水吗？不当水用咋用啊？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 4,
+     "end": 5,
+     "from": "你知道是海蓝之谜吗？",
+     "to": "你知道是SK-II吗？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 5,
+     "end": 8,
+     "from": "是啊，海蓝之谜，大牌精萃水啊，这一瓶1195呢！",
+     "to": "是啊，SK-II，大牌神仙水啊，这一瓶可不便宜呢！",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 8,
+     "end": 9,
+     "from": "那这一瓶呢？",
+     "to": "那这一瓶呢？",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 9,
+     "end": 10,
+     "from": "那再来一瓶呢？",
+     "to": "那再来一瓶呢？",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 10,
+     "end": 11,
+     "from": "这也是1195呀。",
+     "to": "这也是一样的价呀。",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 11,
+     "end": 12,
+     "from": "这小的359。",
+     "to": "这小的另一个价。",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 12,
+     "end": 13,
+     "from": "那再来一瓶。",
+     "to": "那再来一瓶。",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 13,
+     "end": 14,
+     "from": "哎不是，你要干啥呀？",
+     "to": "哎不是，你要干啥呀？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 14,
+     "end": 15,
+     "from": "哪还有一瓶呢？你告诉我怎么用啊？",
+     "to": "哪还有一瓶呢？你告诉我怎么用啊？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 15,
+     "end": 17,
+     "from": "359，359，359，干啥呀？",
+     "to": "这个价，这个价，这个价，干啥呀？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 17,
+     "end": 18,
+     "from": "这个又不一样了吧？",
+     "to": "这个又不一样了吧？",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 18,
+     "end": 20,
+     "from": "这174，你干嘛？怎么用到底？",
+     "to": "这另一个价，你干嘛？怎么用到底？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 20,
+     "end": 21,
+     "from": "全部一起8瓶多少钱嘛？",
+     "to": "全部一起8瓶多少钱嘛？",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 21,
+     "end": 23,
+     "from": "5,195呀，要干啥？",
+     "to": "看页面价呀，要干啥？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 23,
+     "end": 24,
+     "from": "带货呀。",
+     "to": "带货呀。",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 24,
+     "end": 25,
+     "from": "5,000块让我给你带货？",
+     "to": "这么贵让我给你带货？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 25,
+     "end": 26,
+     "from": "我现在给你4999。",
+     "to": "我现在给你优惠价。",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 26,
+     "end": 27,
+     "from": "我现在给你4999。",
+     "to": "我现在给你优惠价。",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 27,
+     "end": 28,
+     "from": "还不是5,000块钱？",
+     "to": "还不是差不多的价钱？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 28,
+     "end": 29,
+     "from": "我们是海蓝之谜。",
+     "to": "我们是SK-II。",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 29,
+     "end": 30,
+     "from": "99%都是精华。",
+     "to": "99%都是精华。",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 30,
+     "end": 31,
+     "from": "99%都是精华，1%才是水。",
+     "to": "99%都是精华，1%才是水。",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 31,
+     "end": 33,
+     "from": "一瓶搞定。",
+     "to": "一瓶搞定。",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 33,
+     "end": 35,
+     "from": "还能帮你抗老那一个。",
+     "to": "还能帮你抗老那一个。",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 35,
+     "end": 37,
+     "from": "但是你价格太贵了呀，搞什么口碑销售？",
+     "to": "但是你价格太贵了呀，搞什么口碑销售？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 37,
+     "end": 38,
+     "from": "哦，我懂你意思。",
+     "to": "哦，我懂你意思。",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 38,
+     "end": 39,
+     "from": "4799。",
+     "to": "再给你优惠。",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 39,
+     "end": 40,
+     "from": "你根本不懂我意思好吧？",
+     "to": "你根本不懂我意思好吧？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 40,
+     "end": 41,
+     "from": "你这样懂我意思吗？",
+     "to": "你这样懂我意思吗？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 41,
+     "end": 42,
+     "from": "3585，你这叫破价吗？",
+     "to": "再优惠，你这叫破价吗？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 42,
+     "end": 43,
+     "from": "懂了没有？",
+     "to": "懂了没有？",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 43,
+     "end": 44,
+     "from": "8瓶3585？！",
+     "to": "8瓶什么价？！",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 44,
+     "end": 46,
+     "from": "买3瓶，送5瓶。",
+     "to": "买3瓶，送5瓶。",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 46,
+     "end": 47,
+     "from": "对呀，送5瓶？！这一瓶全部都是送的。",
+     "to": "对呀，送5瓶？！这一瓶全部都是送的。",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 47,
+     "end": 49,
+     "from": "直接送了150毫升。",
+     "to": "直接送了这么多。",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 49,
+     "end": 50,
+     "from": "你送假货吧？",
+     "to": "你送假货吧？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 50,
+     "end": 51,
+     "from": "新鲜日期啊。",
+     "to": "新鲜日期啊。",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 51,
+     "end": 52,
+     "from": "不是，你正装都不止150毫升。",
+     "to": "不是，你正装都这几瓶一起看。",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 52,
+     "end": 53,
+     "from": "你这个比正装还多，直接白送了？",
+     "to": "你这个比正装还多，直接白送了？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 53,
+     "end": 55,
+     "from": "对啊，我找你开大专场，给你好机制。",
+     "to": "对啊，我找你开大专场，给你好机制。",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 55,
+     "end": 56,
+     "from": "给你好机制啊。",
+     "to": "给你好机制啊。",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 56,
+     "end": 57,
+     "from": "专场还是国庆专场啊？",
+     "to": "专场还是国庆专场啊？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 57,
+     "end": 58,
+     "from": "专场还是国庆专场啊？",
+     "to": "专场还是国庆专场啊？",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 58,
+     "end": 59,
+     "from": "那你直接把这瓶给我白送。",
+     "to": "那你直接把这瓶给我白送。",
+     "voice": "m",
+     "onScreen": true
+    },
+    {
+     "start": 59,
+     "end": 60,
+     "from": "什么意思啊？",
+     "to": "什么意思啊？",
+     "voice": "f",
+     "onScreen": false
+    },
+    {
+     "start": 60,
+     "end": 61,
+     "from": "那你直接把这瓶给我白送。",
+     "to": "那你直接把这瓶给我白送。",
+     "voice": "m",
+     "onScreen": false
+    },
+    {
+     "start": 61,
+     "end": 62,
+     "from": "什么意思啊？",
+     "to": "什么意思啊？",
+     "voice": "f",
+     "onScreen": false
+    }
+   ],
+   "by": "zh-CN-YunxiNeural / zh-CN-XiaoxiaoNeural"
+  }
+ },
+ "pid": 42216,
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "77064295-d5fe-4c42-8ebd-41b23a7bb7bb",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1794195032308
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "a9889ecf-ed9f-4fdf-8ae7-0e12b2ff6794",
+   "yuan": 0.1,
+   "step": "关键画面 C",
+   "at": 1794195117578
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "87959b1c-f70b-457e-85ec-135e71cbe43d",
+   "yuan": 0.1,
+   "step": "关键画面 B",
+   "at": 1794195124582
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "4bb375d4-1a16-4578-8861-ad86b0c4188a",
+   "yuan": 0.1,
+   "step": "关键画面 A",
+   "at": 1794195270613
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "76e0f214-2a28-4c62-b8cb-63491589232c",
+   "yuan": 0.1,
+   "step": "关键画面 B",
+   "at": 1794195280502
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "06a8f0c7-4ce7-48b7-ad63-86272aa220a4",
+   "yuan": 0.1,
+   "step": "关键画面 C",
+   "at": 1794195287671
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "8b954d54-686f-4fb4-9fa2-091464f2b81b",
+   "yuan": 0.1,
+   "step": "关键画面 C",
+   "at": 1794195486439
+  },
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "56a94f9b-3821-4961-b09d-83432ecffc0f",
+   "yuan": 0.1,
+   "step": "关键画面 B",
+   "at": 1794195487623
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "5 秒 480p · 4 张参考图",
+   "taskId": "703be71d-73cf-4b08-a2ae-80fa824f9717",
+   "yuan": 4.5,
+   "step": "第 1/6 段",
+   "at": 1794198502889
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "14 秒 480p · 4 张参考图",
+   "taskId": "df89c243-d095-4c46-9cd4-2225f31e9d4b",
+   "yuan": 10.8,
+   "step": "第 3/6 段",
+   "at": 1794198518076
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "12 秒 480p · 4 张参考图",
+   "taskId": "4f9c2138-5ebb-4881-b5b0-449119967d34",
+   "yuan": 9.03,
+   "step": "第 2/6 段",
+   "at": 1794198518342
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "14 秒 480p · 4 张参考图",
+   "taskId": "380a1fff-aef7-463d-8028-f95c30637499",
+   "yuan": 10.78,
+   "step": "第 4/6 段",
+   "at": 1794198615930
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "8 秒 480p · 4 张参考图",
+   "taskId": "3bc2d222-6cf9-4396-8390-2d194dba57b5",
+   "yuan": 6.58,
+   "step": "第 6/6 段",
+   "at": 1794198626925
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "9 秒 480p · 4 张参考图",
+   "taskId": "ba1b84a7-b5ec-4e0e-89c2-5579214c93f1",
+   "yuan": 7.27,
+   "step": "第 5/6 段",
+   "at": 1794198636369
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "12 秒 480p · 4 张参考图",
+   "taskId": "432466f9-4e77-4e89-97ee-1b2981eafada",
+   "yuan": 9.03,
+   "step": "第 2/6 段 · 修复",
+   "at": 1794198826844
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "14 秒 480p · 4 张参考图",
+   "taskId": "ba11ba3c-ac04-4ef2-b8ff-808cfba37000",
+   "yuan": 10.78,
+   "step": "第 4/6 段 · 修复",
+   "at": 1794198843359
+  },
+  {
+   "model": "minimax-h3-max",
+   "units": "14 秒 480p · 4 张参考图",
+   "taskId": "58806e17-c7d9-43fb-b774-a984fc5afc83",
+   "yuan": 10.8,
+   "step": "第 3/6 段 · 修复",
+   "at": 1794198888088
+  }
+ ]
+}

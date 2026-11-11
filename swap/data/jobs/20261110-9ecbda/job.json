@@ -1,0 +1,492 @@
+{
+ "id": "20261110-9ecbda",
+ "templateId": "replica",
+ "created": 1794331074977,
+ "stage": "failed",
+ "message": "生成失败",
+ "upload": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\upload-1.png",
+ "frames": [],
+ "extras": [],
+ "log": [
+  "01:17:54 看懂原片",
+  "01:18:00 制定方案",
+  "01:20:51 路线：完整路线（有 12 个场景，换场景后商品容易走样；30 秒，超过模型一次能做的 15 秒，要分段）",
+  "01:20:51 听写口播没有完成（[out#0/mp3 @ 000001e877946780] Error opening output E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\review\\voice\\audio-turbo.mp3: No such file or directory\r\nError opening output file E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\review\\voice\\audio-turbo.mp3.\r\nError opening output files: No such file or directory\r\n），只看字幕",
+  "01:23:43 制作关键画面：12 张",
+  "01:23:44 制作关键画面 A：生成预览图（image-2.5-flare）…",
+  "失败：图片生成失败: java.lang.RuntimeException: AIRouter 图片生成失败: AIRouter渠道图片模型调用失败: 502 Bad Gateway from POST https://airoutertest.vitamazing.top/v1/images/generations"
+ ],
+ "versions": [
+  {
+   "id": "replica",
+   "label": "成片",
+   "status": "failed",
+   "startedAt": 1794331074979,
+   "error": "图片生成失败: java.lang.RuntimeException: AIRouter 图片生成失败: AIRouter渠道图片模型调用失败: 502 Bad Gateway from POST https://airoutertest.vitamazing.top/v1/images/generations"
+  }
+ ],
+ "replica": {
+  "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\source.mp4",
+  "prompt": "视频中的主角全部换成参考图",
+  "uploads": [
+   "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\upload-1.png"
+  ],
+  "shapeRefs": [],
+  "scoutOn": false,
+  "voiceOn": true,
+  "styles": [],
+  "phases": [
+   {
+    "id": "review",
+    "label": "看懂原片",
+    "status": "done",
+    "note": "30.1 秒，16 个镜头"
+   },
+   {
+    "id": "plan",
+    "label": "制定方案",
+    "status": "done",
+    "note": "16/16 个镜头要改，12 张关键画面"
+   },
+   {
+    "id": "assets",
+    "label": "补全素材",
+    "status": "skipped",
+    "note": "你的图已经够用"
+   },
+   {
+    "id": "keyframes",
+    "label": "制作关键画面",
+    "status": "failed",
+    "note": "12 张"
+   },
+   {
+    "id": "generate",
+    "label": "生成视频",
+    "status": "waiting"
+   },
+   {
+    "id": "repair",
+    "label": "检查修复",
+    "status": "waiting"
+   },
+   {
+    "id": "compose",
+    "label": "合成成片",
+    "status": "waiting"
+   },
+   {
+    "id": "voice",
+    "label": "配音和字幕",
+    "status": "waiting"
+   }
+  ],
+  "keyframes": [
+   {
+    "scene": "A",
+    "at": 2.4,
+    "tries": 1,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\A-source.jpg",
+    "prompt": "Photo retouch. Keep the photograph @image1 exactly as it is: the same framing, composition, people, poses, hands, background, light, focus and grain. Change only this: Replace the foreground lead with the reference Shiba superhero in the dark backstage passage, using a clear frontal walking pose with the chest insignia, belt and armor visible; retain the microphone, crew and equipment, and apply the same identity to the brief alternate female lead appearance in shot 1.. The new A single anthropomorphic Shiba Inu superhero with a muscular human-shaped body, an orange-tan canine head, upright triangular ears, dark almond-shaped eyes, a black nose, and cream-white cheeks, muzzle and throat; wearing olive-green segmented armor with a subtle hexagonal texture over a black and deep-purple fitted suit, silver wing-shaped chest insignia, a circular silver back emblem, a green utility belt, armored gloves, silver forearm guards, knee guards and green armored boots. The reference shows front, side and back views of the same character. must look exactly like @image2: same shape, proportions, colours, materials and markings, at the same size, position, angle and state as All foreground lead performer identities throughout the footage: the long-haired woman in a black satin shirt and black trousers, the long-haired woman in a flowing ivory and dark teal costume, the horned silver-and-black armored performer, the short-haired traveler in a dark short dress with a red scarf and tan backpack, the bucket-hatted performer in loose dark streetwear, the dark-clad ponytailed ninja, and the astronaut in a white spacesuit. in @image1. Only the people this change names are replaced; the reference pictures' own models and props are never copied. It must look photographed in this light, not pasted on. No text, no letters, no logos added."
+   },
+   {
+    "scene": "B",
+    "at": 4.1,
+    "tries": 0,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\B-source.jpg"
+   },
+   {
+    "scene": "C",
+    "at": 4.54,
+    "tries": 0,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\C-source.jpg"
+   },
+   {
+    "scene": "D",
+    "at": 6.33,
+    "tries": 0,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\D-source.jpg"
+   },
+   {
+    "scene": "E",
+    "at": 16.17,
+    "tries": 0,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\E-source.jpg"
+   },
+   {
+    "scene": "F",
+    "at": 10.78,
+    "tries": 0,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\F-source.jpg"
+   },
+   {
+    "scene": "G",
+    "at": 12.13,
+    "tries": 0,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\G-source.jpg"
+   },
+   {
+    "scene": "H",
+    "at": 13.74,
+    "tries": 0,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\H-source.jpg"
+   },
+   {
+    "scene": "I",
+    "at": 15.67,
+    "tries": 0,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\I-source.jpg"
+   },
+   {
+    "scene": "J",
+    "at": 17.75,
+    "tries": 0,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\J-source.jpg"
+   },
+   {
+    "scene": "K",
+    "at": 20.21,
+    "tries": 0,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\K-source.jpg"
+   },
+   {
+    "scene": "L",
+    "at": 25.31,
+    "tries": 0,
+    "source": "E:\\模型视频分析提示词复刻还原\\swap\\data\\jobs\\20261110-9ecbda\\keyframes\\L-source.jpg"
+   }
+  ],
+  "segments": [],
+  "plan": {
+   "by": "llm",
+   "recast": true,
+   "speech": "",
+   "noCaptions": false,
+   "subject": "A single anthropomorphic Shiba Inu superhero with a muscular human-shaped body, an orange-tan canine head, upright triangular ears, dark almond-shaped eyes, a black nose, and cream-white cheeks, muzzle and throat; wearing olive-green segmented armor with a subtle hexagonal texture over a black and deep-purple fitted suit, silver wing-shaped chest insignia, a circular silver back emblem, a green utility belt, armored gloves, silver forearm guards, knee guards and green armored boots. The reference shows front, side and back views of the same character.",
+   "target": "All foreground lead performer identities throughout the footage: the long-haired woman in a black satin shirt and black trousers, the long-haired woman in a flowing ivory and dark teal costume, the horned silver-and-black armored performer, the short-haired traveler in a dark short dress with a red scarf and tan backpack, the bucket-hatted performer in loose dark streetwear, the dark-clad ponytailed ninja, and the astronaut in a white spacesuit.",
+   "keep": "Preserve the original camera angles, framing, camera movement, cuts, timing, choreography, narrative, locations, lighting, crowds, crew, background performers and their clothing, stage equipment, handheld microphones, the traveler's scarf and backpack, the ninja's sword, environmental effects and reflections.",
+   "change": "Replace every foreground protagonist in every shot with the same reference Shiba Inu superhero, including its canine head, body, armor, gloves and boots, while transferring each original performance and preserving interaction with retained props.",
+   "summary": "将原片所有主角统一替换为参考图中的绿紫装甲柴犬英雄，保留原有动作、运镜、剪辑节奏、场景切换和道具互动。",
+   "views": [],
+   "gaps": [],
+   "variants": [
+    {
+     "id": "v1",
+     "label": "绿紫装甲柴犬英雄",
+     "desc": "Olive green, black, deep purple, silver, orange-tan and cream-white.",
+     "main": true,
+     "at": 2.4
+    }
+   ],
+   "scenes": [
+    {
+     "id": "A",
+     "shots": [
+      1,
+      2
+     ],
+     "keyAt": 2.4,
+     "edit": "Replace the foreground lead with the reference Shiba superhero in the dark backstage passage, using a clear frontal walking pose with the chest insignia, belt and armor visible; retain the microphone, crew and equipment, and apply the same identity to the brief alternate female lead appearance in shot 1.",
+     "variant": "v1"
+    },
+    {
+     "id": "B",
+     "shots": [
+      3,
+      5,
+      6
+     ],
+     "keyAt": 4.1,
+     "edit": "Place the Shiba superhero at the sunlit stage edge in a front three-quarter pose with one armored arm raised overhead holding the original microphone; preserve the subsequent arm lowering, forward steps, head movement and turn toward the crowd.",
+     "variant": "v1"
+    },
+    {
+     "id": "C",
+     "shots": [
+      4
+     ],
+     "keyAt": 4.54,
+     "edit": "Replace the foreground horned armored lead with the reference Shiba superhero, clearly showing the canine head and green-purple armor beneath the raised microphone arm; match the dark stage exposure, red rim light and original body position.",
+     "variant": "v1"
+    },
+    {
+     "id": "D",
+     "shots": [
+      7
+     ],
+     "keyAt": 6.33,
+     "edit": "Show the Shiba superhero in side profile moving along the nighttime stage with the microphone near its chest, matching the original silhouette, rim lighting and dense audience phone lights.",
+     "variant": "v1"
+    },
+    {
+     "id": "E",
+     "shots": [
+      8,
+      13
+     ],
+     "keyAt": 16.17,
+     "edit": "Replace the traveler with the Shiba superhero in a full-body side three-quarter raised-knee pose on the moving train roof; retain the red scarf and tan backpack over the reference armor, the handheld prop, strong backlight, steam, fields and all turns between side and rear views.",
+     "variant": "v1"
+    },
+    {
+     "id": "F",
+     "shots": [
+      9
+     ],
+     "keyAt": 10.78,
+     "edit": "Replace the streetwear lead with a rear-view Shiba superhero on the sunset concert runway, showing the reference back armor, circular silver emblem and armored boots while preserving the forward-leaning dance and audience composition.",
+     "variant": "v1"
+    },
+    {
+     "id": "G",
+     "shots": [
+      10
+     ],
+     "keyAt": 12.13,
+     "edit": "Replace the robed lead with the rear-view Shiba superhero dancing along the narrow grass platform toward the lake; show the reference back armor and boots, retain the handheld microphone and match the warm backlight, plants and distant mountains.",
+     "variant": "v1"
+    },
+    {
+     "id": "H",
+     "shots": [
+      11
+     ],
+     "keyAt": 13.74,
+     "edit": "Replace the horned armored lead with a full-body rear-view Shiba superhero centered on the concert runway, with its hands at the waist and reference back emblem visible; preserve the knee lifts, backlit silhouette and surrounding audience phone lights.",
+     "variant": "v1"
+    },
+    {
+     "id": "I",
+     "shots": [
+      12
+     ],
+     "keyAt": 15.67,
+     "edit": "Replace the ninja with the Shiba superhero in a side three-quarter raised-knee pose on the giant tree trunk; preserve the original sword and its attachment, rear-to-side turn, moonlight, cherry blossoms, temple and lanterns.",
+     "variant": "v1"
+    },
+    {
+     "id": "J",
+     "shots": [
+      14
+     ],
+     "keyAt": 17.75,
+     "edit": "Replace the entire astronaut figure, including helmet, spacesuit and life-support pack, with the reference Shiba superhero viewed from behind on the reflective platform; preserve the running steps, final arm spread, asteroid field, directional light and moving reflection.",
+     "variant": "v1"
+    },
+    {
+     "id": "K",
+     "shots": [
+      15
+     ],
+     "keyAt": 20.21,
+     "edit": "Use the rear-view Shiba superhero in the airborne arms-out pose on the sunset vehicle roof as the key appearance; apply the identical character to the opening moonlit bridge segment and preserve the exact bridge-to-street transition, jump continuity, landing and camera framing.",
+     "variant": "v1"
+    },
+    {
+     "id": "L",
+     "shots": [
+      16
+     ],
+     "keyAt": 25.31,
+     "edit": "Replace the robed woman with the reference Shiba superhero in the close three-quarter high-knee dance pose, clearly establishing its canine face, chest insignia, armor and raised boot; preserve the wide-to-close camera progression, subsequent wider composition, reflective platform, mountain lake and transition into enormous surrounding waves.",
+     "variant": "v1"
+    }
+   ],
+   "shots": [
+    {
+     "index": 1,
+     "start": 0,
+     "end": 1.33,
+     "change": true,
+     "scene": "A",
+     "note": "The foreground lead walks toward the camera through a dark backstage passage with a microphone held low; the sampled ending briefly shows the alternate robed female lead in the same passage, who must also become the same Shiba superhero. Keep background people and the camera operator unchanged.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 2,
+     "start": 1.33,
+     "end": 3.46,
+     "change": true,
+     "scene": "A",
+     "note": "The black-clad lead approaches in frontal and three-quarter views, then lifts the microphone arm above the head while the other arm stays lower; preserve hand contact with the microphone and the nearby camera crew.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 3,
+     "start": 3.46,
+     "end": 4.21,
+     "change": true,
+     "scene": "B",
+     "note": "The robed lead appears from the front and slightly to the side, bows the head and raises a microphone overhead while stepping toward the sunlit stage edge; replace the entire lead silhouette with the reference armored body.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 4,
+     "start": 4.21,
+     "end": 4.88,
+     "change": true,
+     "scene": "C",
+     "note": "The foreground horned armored performer holds a microphone above the head and dips forward in a front three-quarter view; replace the helmet and all original armor, while leaving distant stage personnel and background figures unchanged.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 5,
+     "start": 4.88,
+     "end": 5.75,
+     "change": true,
+     "scene": "B",
+     "note": "The robed lead continues the overhead microphone gesture near the stage edge, then bends the elbow and lowers the arm while looking down; the crowd and wedge monitors remain in their original positions.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 6,
+     "start": 5.75,
+     "end": 6.25,
+     "change": true,
+     "scene": "B",
+     "note": "The lead lowers the microphone toward the waist and turns into a right-facing side profile toward the daylight audience; preserve the forward movement and microphone grip with the reference armored glove.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 7,
+     "start": 6.25,
+     "end": 6.75,
+     "change": true,
+     "scene": "D",
+     "note": "The long-haired lead moves in side profile along a nighttime stage, holding a microphone near the torso before lowering the hand; replace the visible head and body while preserving the audience phone lights and camera tracking.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 8,
+     "start": 6.75,
+     "end": 10.67,
+     "change": true,
+     "scene": "E",
+     "note": "The traveler dances on a moving train roof, turning from side profile to rear view with alternating raised knees; retain the tan backpack and red scarf over the replacement armor and keep the handheld prop in the corresponding gloved hand.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 9,
+     "start": 10.67,
+     "end": 11.42,
+     "change": true,
+     "scene": "F",
+     "note": "The bucket-hatted lead is viewed from behind on a concert runway, leaning forward and alternating raised legs while holding a microphone low; replace the hat, streetwear and shoes with the reference canine head and complete armored outfit.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 10,
+     "start": 11.42,
+     "end": 12.25,
+     "change": true,
+     "scene": "G",
+     "note": "The robed lead dances away from the camera along a narrow grass platform beside the lake, bending forward and lifting a leg with a microphone held low; replace the flowing costume with the reference back armor and boots while retaining the step timing.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 11,
+     "start": 12.25,
+     "end": 14,
+     "change": true,
+     "scene": "H",
+     "note": "The horned armored lead is seen from behind, centered on the nighttime runway, performing alternating knee lifts and bringing both hands toward the hips; show the reference back emblem and preserve the strong light behind the head.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 12,
+     "start": 14,
+     "end": 15.96,
+     "change": true,
+     "scene": "I",
+     "note": "The ninja moves along a broad tree trunk, initially seen from behind and then turning side-on with a raised knee and bent arms; replace the human head, ponytail, clothing and footwear while retaining the sword and its relationship to the body.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 13,
+     "start": 15.96,
+     "end": 17.38,
+     "change": true,
+     "scene": "E",
+     "note": "The traveler continues dancing on the train roof, lifting a knee in side view, rotating to show the backpack and moving away; retain the scarf, backpack, handheld prop, foot placement and train motion.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 14,
+     "start": 17.38,
+     "end": 19.88,
+     "change": true,
+     "scene": "J",
+     "note": "The astronaut is viewed from behind running and skipping along a reflective platform in an asteroid field, then spreading both arms; replace the complete astronaut silhouette with the Shiba superhero and update its reflection and shadow.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 15,
+     "start": 19.88,
+     "end": 20.54,
+     "change": true,
+     "scene": "K",
+     "note": "The opening shows a distant dark-clad lead with arms spread on a moonlit wooden bridge, then transitions to a rear-view streetwear lead jumping and landing on a moving vehicle roof at sunset; replace both lead appearances with the same Shiba superhero and preserve the internal transition exactly.",
+     "fit": "good",
+     "why": ""
+    },
+    {
+     "index": 16,
+     "start": 20.54,
+     "end": 30.08,
+     "change": true,
+     "scene": "L",
+     "note": "The robed lead dances on a transparent reflective platform, progressing from a wide full-body view to a close raised-knee pose and back to a wider view as the mountain lake transforms into towering waves; replace the entire performer with the armored Shiba superhero, preserving choreography, platform contact, camera motion and synchronized reflection.",
+     "fit": "good",
+     "why": ""
+    }
+   ],
+   "dropText": false
+  },
+  "route": {
+   "kind": "full",
+   "reasons": [
+    "有 12 个场景，换场景后商品容易走样",
+    "30 秒，超过模型一次能做的 15 秒，要分段"
+   ]
+  },
+  "copyCheck": {
+   "heard": 0,
+   "done": true
+  },
+  "copy": [],
+  "variantAssets": []
+ },
+ "pid": 34016,
+ "engine": {
+  "image": "博观 image-2.5-flare",
+  "video": "博观 minimax-h3-max",
+  "guard": "方案：多模态模型",
+  "checker": "ALTER 质检"
+ },
+ "costs": [
+  {
+   "model": "image-2.5-flare",
+   "units": "1 张",
+   "taskId": "d76adea5-7bd4-4576-91bc-52bc5ee2f5dd",
+   "yuan": 0,
+   "note": "失败未计费：图片生成失败: java.lang.RuntimeException: AIRo",
+   "step": "关键画面 A",
+   "at": 1794331453967
+  }
+ ],
+ "error": "图片生成失败: java.lang.RuntimeException: AIRouter 图片生成失败: AIRouter渠道图片模型调用失败: 502 Bad Gateway from POST https://airoutertest.vitamazing.top/v1/images/generations"
+}

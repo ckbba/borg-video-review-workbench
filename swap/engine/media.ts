@@ -49,12 +49,14 @@ export async function finish(source: string, output: string, out: string, trimTa
   return out;
 }
 
+/** How the two films go together: a landscape film side by side, a portrait film stacked, so the pair keeps the film's shape. */
+export const stackFor = (wide: boolean) => wide ? 'hstack' : 'vstack';
 /** Source and result side by side (or stacked for portrait), source sound, for sharing a before/after. */
 export async function compare(source: string, final: string, out: string) {
   const s = await probe(source), wide = s.width >= s.height;
   const h = wide ? 540 : 960;
   await run(FFMPEG, ['-nostdin', '-v', 'error', '-y', '-i', source, '-i', final, '-filter_complex',
-    `[0:v]scale=-2:${h}[a];[1:v]scale=-2:${h}[b];[a][b]${wide ? 'vstack' : 'hstack'}=inputs=2,format=yuv420p[v]`,
+    `[0:v]scale=-2:${h}[a];[1:v]scale=-2:${h}[b];[a][b]${stackFor(wide)}=inputs=2,format=yuv420p[v]`,
     '-map', '[v]', ...(s.audio ? ['-map', '0:a:0', '-c:a', 'aac'] : []), '-c:v', 'libx264', '-crf', '20', '-shortest', '-movflags', '+faststart', out]);
   return out;
 }

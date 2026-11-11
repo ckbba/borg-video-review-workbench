@@ -441,7 +441,7 @@ function shotAssets(r: Replica, slotPic: (id: string) => string | undefined, gap
   return r.fit.map((s, k) => {
     if (s.change === false) return { kind: 'keep', label: '不用改，直接用原片' };
     if (s.fit === 'no') return { kind: 'none', label: '做不出来' };
-    const part = r.gaps.findIndex(g => g.kind === 'part' && covers(g, s, k));
+    const part = r.gaps.findIndex(g => (g.kind === 'part' || g.kind === 'cast') && covers(g, s, k));
     if (part >= 0) { const pic = gapPic(r.gaps[part], part); return { kind: pic ? 'part' : 'missing', gap: part, pic, label: r.gaps[part].label }; }
     const v = r.slots.find(x => x.id === s.variant), own = v && slotPic(v.id);
     if (v) return { kind: 'slot', slot: v.id, pic: own || (v.main && s.pics?.[0]) || v.image, pics: v.main && !own ? s.pics : undefined, label: v.label, own: !!own, auto: !v.main && !own };
@@ -464,7 +464,7 @@ function FitSummary({ fit }: { fit: FitView[] }) {
   </div>;
 }
 const gapMarks = (gaps: GapView[], pic: (g: GapView, i: number) => string | undefined) =>
-  gaps.map((g, i) => ({ at: g.at, label: ({ part: '缺部位', screen: '屏幕操作', angle: '缺角度' } as any)[g.kind] + '：' + g.label, kind: g.kind, pic: g.kind === 'screen' ? undefined : pic(g, i) }));
+  gaps.map((g, i) => ({ at: g.at, label: ({ part: '缺部位', screen: '屏幕操作', angle: '缺角度', cast: '换人物' } as any)[g.kind] + '：' + g.label, kind: g.kind, pic: g.kind === 'screen' ? undefined : pic(g, i) }));
 
 /** 回看: a started job's 开始前确认 as it was decided — the timeline, the plan and the copy — without changing anything. */
 function PlanReview({ job, at, close }: { job: JobView; at: string; close: () => void }) {
@@ -488,7 +488,17 @@ const SRC = { voice: '口播', caption: '字幕', both: '口播+字幕' } as con
 function CopyRows({ items, edit }: { items: CopyItem[]; edit?: (i: number, to: string) => void }) {
   const [open, setOpen] = useState<number[]>([]);
   const seek = (t: number) => { const v = document.querySelector<HTMLVideoElement>('.replicaMain video'); if (v) { v.currentTime = t; v.play().catch(() => {}); } };
-  return <ul className="copyRows">{items.map((c, i) => { const editing = edit && (!c.sure || open.includes(i));
+  // Prices come first and on their own: only the user knows them, and the film's number stays until they fill one in.
+  const prices = items.map((c, i) => ({ c, i })).filter(x => x.c.price);
+  return <>{prices.length > 0 && <div className="priceBox">
+    <b>价格和规格，只有你知道</b><span className="muted small">不填就保留原片的数字，发布前请核对</span>
+    {prices.map(({ c, i }) => <label key={i} className="priceRow">
+      <button type="button" className="at" onClick={e => { e.preventDefault(); seek(c.at); }}>{clock(c.at)}</button>
+      <span className="was">{c.from}{c.why ? <small>{c.why}</small> : null}</span><i>→</i>
+      {edit ? <input value={c.to === c.from ? '' : c.to} maxLength={40} placeholder="你的价格 / 规格" onChange={e => edit(i, e.target.value.trim() ? e.target.value : c.from)} /> : <em>{c.to === c.from ? '保留原片' : c.to}</em>}
+    </label>)}
+  </div>}
+  <ul className="copyRows">{items.map((c, i) => { if (c.price) return null; const editing = edit && (!c.sure || open.includes(i));
     return <li key={i} className={c.sure ? '' : 'check'}>
       <button className="at" onClick={() => seek(c.at)}>{clock(c.at)}</button>
       <i>{c.sure ? '✓' : '!'}</i>
@@ -498,7 +508,7 @@ function CopyRows({ items, edit }: { items: CopyItem[]; edit?: (i: number, to: s
         {editing && <input value={c.to} maxLength={200} onChange={e => edit!(i, e.target.value)} />}
         {c.why && <span>{c.why}</span>}
       </div>
-    </li>; })}</ul>;
+    </li>; })}</ul></>;
 }
 
 /** 开始前确认: what only the user can settle, before money is spent. Everything has a default, so it can all be skipped. */
@@ -514,7 +524,7 @@ function Slots({ job, update }: { job: JobView; update: (j: JobView) => void }) 
   const read = async (f: File | undefined, use: (d: string) => void) => { if (f?.type.startsWith('image/')) use(await readImage(f)); };
   const go = async (mode: 'all' | 'fit' | 'cancel' = 'all') => {
     setBusy(true); setErr(undefined);
-    try { update(await api.slots(job.id, { images, angles, answers: Object.fromEntries(Object.entries(answers).filter(([, t]) => t.trim())), kept: gaps.flatMap((g, i) => found(g, i) ? [i] : []), mode })); } catch (e: any) { setErr(e.message); setBusy(false); }
+    try { update(await api.slots(job.id, { images, angles, answers: Object.fromEntries(Object.entries(answers).filter(([i, t]) => t.trim() && !(r.copy[Number(i)].price && t === r.copy[Number(i)].from))), kept: gaps.flatMap((g, i) => found(g, i) ? [i] : []), mode })); } catch (e: any) { setErr(e.message); setBusy(false); }
   };
   const fit = r.fit || [], secs = (k: string) => fit.filter(s => s.fit === k).reduce((a, s) => a + s.end - s.start, 0);
   const total = fit.length ? fit[fit.length - 1].end : 0, no = secs('no');
@@ -557,9 +567,9 @@ function Slots({ job, update }: { job: JobView; update: (j: JobView) => void }) 
       {pics.map(({ g, i }) => { const f = found(g, i); return <div key={i} className="slot">
         {g.frame && <img src={g.frame} />}<i>→</i>
         {angles[i] ? <img src={angles[i]} /> : f ? <img src={f.url} /> : <div className="emptyPic">{looking(g, i) ? <span className="dot" /> : '?'}</div>}
-        <div><b>原片 {clock(g.at)} 拍到了{g.label}</b>
+        <div><b>{g.kind === 'cast' ? <>原片 {clock(g.at)} 的人换成：{g.label}</> : <>原片 {clock(g.at)} 拍到了{g.label}</>}</b>
           {looking(g, i) && <span className="looking">正在联网找同款图，找到会自动显示在这里。不用等，也可以自己补一张。</span>}
-          <span>{angles[i] ? '会用你这张图' : f ? <>联网找到的图，只参考结构，不当实拍。{f.why} {f.page && <a href={f.page} target="_blank" rel="noreferrer">来源</a>}</>
+          <span>{angles[i] ? '会用你这张图' : f && g.kind === 'cast' ? '按你的要求，AI 生成了这个人。不满意可以换成你自己的照片' : f ? <>联网找到的图，只参考结构，不当实拍。{f.why} {f.page && <a href={f.page} target="_blank" rel="noreferrer">来源</a>}</>
             : g.need || '你的图里没有这个角度。不补的话，AI 只按大致样子推测，细节可能和实物不一样'}</span>
           {!angles[i] && !f && g.fallback && <span>不补：{g.fallback}</span>}
         </div>
@@ -603,6 +613,7 @@ function Slots({ job, update }: { job: JobView; update: (j: JobView) => void }) 
 function ChangeList({ job, update }: { job: JobView; update: (j: JobView) => void }) {
   const [items, setItems] = useState<CopyItem[]>(job.replica!.copy);
   const [dirty, setDirty] = useState(false);
+  const [subs, setSubs] = useState(job.replica!.subtitles);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string>();
   const voice = job.replica!.voice;
@@ -616,14 +627,15 @@ function ChangeList({ job, update }: { job: JobView; update: (j: JobView) => voi
   const set = (i: number, to: string) => { setItems(x => x.map((c, k) => k === i ? { ...c, to } : c)); setDirty(true); };
   const save = async () => {
     setBusy(true); setErr(undefined);
-    try { await api.saveCopy(job.id, items); update(await api.voiceover(job.id)); setDirty(false); } catch (e: any) { setErr(e.message); }
+    try { await api.saveCopy(job.id, items); update(await api.voiceover(job.id, subs)); setDirty(false); } catch (e: any) { setErr(e.message); }
     setBusy(false);
   };
-  const check = items.filter(c => !c.sure).length;
+  const check = items.filter(c => !c.sure && !(c.price && c.to !== c.from)).length;
   if (!items.length) return <div className="changes"><h3>字幕和口播</h3><p className="muted small"><CopyNone r={job.replica!} /></p></div>;
   return <div className="changes">
     <h3>字幕和口播要改 {items.length} 处{check ? <small>{check} 处需要你确认</small> : null}</h3>
     <CopyRows items={items} edit={set} />
+    <label className="subsSwitch"><input type="checkbox" checked={subs} onChange={e => { setSubs(e.target.checked); setDirty(true); }} />成片加字幕<span className="muted small">关掉就只有新配音，字幕你可以自己在剪辑软件里加</span></label>
     <div className="row">
       <button className="primary small" disabled={busy || voicing || job.stage !== 'done' || (!dirty && voice?.status === 'done')} onClick={save}>{voicing ? '更新中…' : '更新配音和字幕'}</button>
       <span className="muted small">{voicing ? '大约一分钟，不用重新生成视频' : voice?.status === 'failed' ? `没有成功：${voice.error}` : voice?.status === 'done' ? `已配好 ${voice.lines || ''} 句，不花视频的钱` : '只重做声音和字幕，不花视频的钱'}</span>
