@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { localFrameAt, planSegs, segKfs, segPrompt, timeline } from './director';
+import { localFrameAt, lostFix, planSegs, segKfs, segPrompt, timeline } from './director';
 import { simplePrompt } from './route';
 import { applyCopy, assText, captions, fitTempo, trustedSpeech } from './voice';
 import type { Plan, ReplicaSeg } from './types';
@@ -77,6 +77,17 @@ describe('shot actions', () => {
     expect(out).toContain('then lands.');
     expect(out).not.toContain(long);
     expect(out).toContain('never from the pictures');
+  });
+});
+
+describe('a swallowed shot', () => {
+  it('is named with its time and action in the redo', () => {
+    const p: Plan = { ...plan, shots: [{ index: 8, start: 6.75, end: 10.67, change: true, scene: 'A', note: '' }, { index: 9, start: 10.67, end: 11.42, change: true, scene: 'A', note: '', beats: ['Skip along the crowd-lined runway', 'Lean forward'] }, { index: 10, start: 11.42, end: 14, change: true, scene: 'A', note: '' }] };
+    const s = { index: 1, start: 6.75, end: 14, genStart: 6.75, join: 'hard', scenes: ['A'], images: [], tries: 0, status: 'waiting' } as ReplicaSeg;
+    const f = lostFix(p, s, [9]);
+    expect(f).toContain('3 shots, cutting at 3.92, 4.67s');
+    expect(f).toContain('3.92-4.67s (Skip along the crowd-lined runway, then Lean forward)');
+    expect(lostFix(p, s, [])).toBe('');
   });
 });
 

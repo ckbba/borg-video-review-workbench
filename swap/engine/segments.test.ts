@@ -1,8 +1,24 @@
 import { describe, expect, it } from 'vitest';
 import { fitAspect, stackFor } from './media';
-import { planSegments } from './segments';
+import { matchShots, planSegments } from './segments';
 
 const lens = (s: { start: number; end: number }[]) => s.map(x => +(x.end - x.start).toFixed(2));
+
+// 11 Nov, 936637 segment 2: source shots train / crowd runway (0.75 s) / lake / night runway; the output had no crowd runway.
+describe('matchShots', () => {
+  it('finds the swallowed shot by picture, not by time', () => {
+    // rows: output train, lake, night runway; columns: source train, crowd runway, lake, night runway
+    const sim = [[0.8, 0.3, 0.2, 0.1], [0.2, 0.35, 0.75, 0.2], [0.1, 0.3, 0.2, 0.7]];
+    const r = matchShots(sim, [1.96, 4.3, 6.3], [1.96, 4.3, 5.1, 6.4]);
+    expect(r.map).toEqual([0, 2, 3]);
+    expect(r.lost).toEqual([1]);
+  });
+  it('lets a false cut map two output shots to one source shot', () => {
+    const r = matchShots([[0.8, 0.1], [0.7, 0.2], [0.1, 0.9]], [1, 2, 4], [1.5, 4]);
+    expect(r.map).toEqual([0, 0, 1]);
+    expect(r.lost).toEqual([]);
+  });
+});
 
 describe('画幅', () => {
   it('crops only what the video model refuses', () => {

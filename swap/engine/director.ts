@@ -21,7 +21,7 @@ import { compare, cropCentre, finish, fitAspect, frameAt, letterbox, prepare, pr
 import { biller, dirOf, fail, getJob, newJobId, save, say, slot, update } from './pipeline';
 import { providers } from './registry';
 import { buildPrompt } from './presets';
-import { cutPiece, conformPiece, planSegments, ssim, stitch } from './segments';
+import { cutPiece, conformPiece, matchShots, planSegments, retime, ssim, stitch } from './segments';
 import { addPhotos, getProduct, linkJob, photoFiles, createProduct, webPhotos } from './products';
 import { parsePicks, PICK_ASK, photosForScenes } from './picks';
 import { OVER_LIMIT, routeOf, simplePrompt } from './route';
@@ -995,7 +995,7 @@ export function segPrompt(plan: Plan, s: ReplicaSeg, kfScenes: string[], assetCo
     ...cast.map((label, k) => `Replace the person in @video1 who is ${label} with the person in @image${kfCount + k + 1}.`),
     as ? `${as} ${assetCount > 1 ? 'show' : 'shows'} the ${plan.subject.split(/[:,.]/)[0] || 'new subject'}: the same design in every frame.` : '',
     userPrompt && plan.by === 'basic' ? `Also: ${userPrompt}.` : '',
-    fix ? `Fix: ${fix.slice(0, 300)}` : '',
+    fix ? `Fix: ${fix.slice(0, 500)}` : '',
     plan.dropText ? 'Remove all captions and subtitles.' : '',
     plan.speech ? `They speak ${plan.speech}.` : MOUTHS,
     // Product photos may have a model in them; without product pictures the warning has nothing to warn about.
@@ -1032,6 +1032,58 @@ async function generateSimple(id: string, plan: Plan, ratio: Ratio, source: stri
   phase(id, 'repair', 'done', v.ok ? '外观通过' : '外观有问题，没有自动重做');
 }
 
+/** What a redo is told when a shot was swallowed: every cut of the piece, and the missing shot by time and action. */
+export function lostFix(plan: Plan, s: ReplicaSeg, lost?: number[]) {
+  if (!lost?.length) return '';
+  const shots = pieceShots(plan, s), f = (t: number) => t.toFixed(2);
+  const named = shots.filter(x => lost.includes(x.index)).map(x => {
+    const beats = plan.shots.find(y => y.index === x.index)?.beats;
+    return `${f(x.a)}-${f(x.b)}s${beats?.length ? ` (${beats.slice(0, 2).join(', then ')})` : ''}`;
+  });
+  return `Keep every cut of @video1: this piece has ${shots.length} shots, cutting at ${shots.slice(1).map(x => f(x.a)).join(', ')}s. ` +
+    `The short shot at ${named.join(' and ')} was skipped last time: it must appear as its own shot for its full length.`;
+}
+
+/** The piece's shots, seconds from its own start. */
+export const pieceShots = (plan: Plan, s: ReplicaSeg) => plan.shots.filter(x => x.end > s.genStart + 0.01 && x.start < s.end - 0.01)
+  .map(x => ({ index: x.index, a: Math.max(x.start, s.genStart) - s.genStart, b: Math.min(x.end, s.end) - s.genStart }));
+
+/** Puts every cut of a generated piece back where the source has it. The generated cuts are found, each generated shot
+ *  is matched to the source shot it shows by picture (the background survives the swap), and each is stretched to its
+ *  source length. A source shot no generated shot shows was swallowed; its time goes to its neighbour and it is reported.
+ *  Nothing changes when the cuts already agree, or when the match looks unreliable. */
+export async function alignPiece(piece: string, fit: string, plan: Plan, s: ReplicaSeg, fps: number, base: string) {
+  const src = pieceShots(plan, s);
+  if (src.length < 2) return { fit, lost: [] as number[] };
+  const { frames } = await probe(fit), len = frames / fps;
+  // Only cuts the detector can see in the source too: a cut it misses there is no evidence when it is missing here.
+  const seen = (await detectShots(piece, 0.3, 0.2)).cuts;
+  const visible = (t: number) => seen.some(c => Math.abs(c - t) < 0.15);
+  const checkable = (k: number) => (k === 0 || visible(src[k].a)) && (k === src.length - 1 || visible(src[k].b));
+  const out = (await detectShots(fit, 0.3, 0.2)).shots;
+  const mid = (a: number, b: number) => (a + b) / 2;
+  fs.mkdirSync(base, { recursive: true });
+  const srcPics = await Promise.all(src.map((x, k) => frameAt(piece, mid(x.a, x.b), path.join(base, `src${k}.jpg`), 320)));
+  const outPics = await Promise.all(out.map((x, k) => frameAt(fit, mid(x.start, x.end), path.join(base, `out${k}.jpg`), 320)));
+  const sim = await Promise.all(outPics.map(o => Promise.all(srcPics.map(p => ssim(o, p).catch(() => 0)))));
+  const { map, lost } = matchShots(sim.map(r => r.map(v => (Number.isFinite(v) ? v : 0))), out.map(x => mid(x.start, x.end)), src.map(x => mid(x.a, x.b)));
+  // Each source shot's time, with a swallowed shot's time given to the shot before it (or after, for the first).
+  const owner = src.map((_, k) => { if (map.includes(k)) return k; for (let j = k - 1; j >= 0; j--) if (map.includes(j)) return j; return map[0]; });
+  const parts: { a: number; b: number; len: number }[] = [];
+  for (let o = 0; o < out.length; o++) {
+    const k = map[o];
+    if (o && map[o - 1] === k) { parts[parts.length - 1].b = out[o].end; continue; }
+    const time = src.reduce((t, x, j) => t + (owner[j] === k ? x.b - x.a : 0), 0);
+    parts.push({ a: out[o].start, b: out[o].end, len: time });
+  }
+  parts[parts.length - 1].b = len;
+  const lostShots = lost.filter(checkable).map(k => src[k].index);
+  const off = parts.reduce((m, p, i) => { const at = parts.slice(0, i).reduce((t, q) => t + q.len, 0); return Math.max(m, Math.abs(at - p.a)); }, 0);
+  const sane = parts.every(p => p.b - p.a > 1 / fps && p.len / (p.b - p.a) > 0.4 && p.len / (p.b - p.a) < 2.5);
+  if (!sane || off < 2 / fps) return { fit, lost: lostShots };
+  return { fit: await retime(fit, parts, fps, frames, base + '.mp4'), lost: lostShots };
+}
+
 async function generate(id: string, plan: Plan, ratio: Ratio, source: string, fps: number, only?: number) {
   const p = await providers(), dir = path.join(dirOf(id), 'segments');
   fs.mkdirSync(dir, { recursive: true });
@@ -1039,10 +1091,10 @@ async function generate(id: string, plan: Plan, ratio: Ratio, source: string, fp
   phase(id, 'generate', 'running', `${n} 段同时生成`);
   phase(id, 'repair', 'waiting');
   const pieces = await Promise.all(segs.map(s => cutPiece(source, { index: s.index, start: s.genStart, end: s.end, join: s.join }, path.join(dir, `seg${s.index}-src.mp4`))));
-  const reports: (CheckReport & { look?: string; lookBad?: boolean })[] = [];
+  const reports: (CheckReport & { look?: string; lookBad?: boolean; lost?: number[] })[] = [];
   // ALTER's structure and motion scores are kept for comparing takes but do not cause a redo: a white top turned navy
   // changes 46% of the picture and "fails" every time (6 Nov, Kelme: 12.86 yuan for two takes no better than the first).
-  const qaOf = (q: CheckReport & { look?: string; lookBad?: boolean }) => ({ pass: q.pass, summary: q.summary, lookBad: q.lookBad, motion: q.raw?.motion_correlation });
+  const qaOf = (q: CheckReport & { look?: string; lookBad?: boolean; lost?: number[] }) => ({ pass: q.pass, summary: q.summary, lookBad: q.lookBad, motion: q.raw?.motion_correlation, lost: q.lost?.length ? q.lost : undefined });
 
   const once = async (s: ReplicaSeg, fix: string) => {
     const r = rep(id), tryNo = r.segments[s.index].tries + 1, tag = n > 1 ? `第 ${s.index + 1}/${n} 段` : '视频';
@@ -1063,9 +1115,17 @@ async function generate(id: string, plan: Plan, ratio: Ratio, source: string, fp
     const raw = await slot(() => p.video.edit({ prompt: sent, source: pieces[s.index], images, ratio,
       duration: Math.min(p.video.maxSeconds, Math.max(p.video.minSeconds, Math.ceil(len))), outFile: path.join(dir, `seg${s.index}-t${tryNo}.mp4`),
       log: m => say(id, `${tag}：${m}`), bill: biller(id, `${tag}${only != null ? ' · 重做这段' : tryNo > 1 ? ' · 修复' : ''}`) }));
-    const fit = await conformPiece(pieces[s.index], raw, path.join(dir, `seg${s.index}-t${tryNo}-fit.mp4`));
-    const qa: CheckReport & { look?: string; lookBad?: boolean } = await p.checker.check(pieces[s.index], fit, 'swap', path.join(dir, `seg${s.index}-t${tryNo}-qa`))
+    const fitted = await conformPiece(pieces[s.index], raw, path.join(dir, `seg${s.index}-t${tryNo}-fit.mp4`));
+    const aligned = await alignPiece(pieces[s.index], fitted, plan, s, fps, path.join(dir, `seg${s.index}-t${tryNo}-cuts`))
+      .catch(e => { say(id, `${tag}：剪辑点没对齐（${e.message}）`); return { fit: fitted, lost: [] as number[] }; });
+    const fit = aligned.fit;
+    if (fit !== fitted) say(id, `${tag}：剪辑点已按原片对齐`);
+    const qa: CheckReport & { look?: string; lookBad?: boolean; lost?: number[] } = await p.checker.check(pieces[s.index], fit, 'swap', path.join(dir, `seg${s.index}-t${tryNo}-qa`))
       .catch(e => ({ pass: true, trimTail: 0, summary: `没能质检（${e.message}）` }));
+    if (aligned.lost.length) {
+      qa.lost = aligned.lost; qa.pass = false;
+      qa.summary = [qa.summary.replace(/^自动质检通过.*/, ''), `镜头 ${aligned.lost.join('、')} 在生成结果里没出现`].filter(Boolean).join('；');
+    }
     // The look of the new thing, judged on every changed shot: one frame per scene missed an overhead shot left unchanged
     // (7 Nov, 900L). Only an obvious fault counts: small differences are reported, but a redo costs as much as the first run.
     const shots = plan.shots.filter(x => x.change && x.end > s.start + 0.01 && x.start < s.end - 0.01).slice(0, 8);
@@ -1110,21 +1170,22 @@ async function generate(id: string, plan: Plan, ratio: Ratio, source: string, fp
     const seam = await seamScore(rep(id).segments[s.index]);
     if (seam != null) segEdit(id, s.index, { qa: { ...rep(id).segments[s.index].qa!, seam: Math.round(seam * 100) / 100 } });
   }
-  const needs = rep(id).segments.filter(s => s.qa?.lookBad || (s.qa?.seam != null && s.qa.seam < SEAM_MIN));
+  const needs = rep(id).segments.filter(s => s.qa?.lookBad || s.qa?.lost?.length || (s.qa?.seam != null && s.qa.seam < SEAM_MIN));
   if (!needs.length) return phase(id, 'repair', 'done', '外观和接缝没问题，不用重做');
   phase(id, 'repair', 'running', `重做 ${needs.length} 段`);
   let fixed = 0;
   await Promise.all(needs.map(async s => {
     if (s.tries >= SEGMENT_TRIES) return;
     const seamBad = s.qa?.seam != null && s.qa.seam < SEAM_MIN;
-    const fix = [reports[s.index]?.look, seamBad ? 'The first frames must continue seamlessly from the previous shot: same positions, same look.' : ''].filter(Boolean).join(' ');
+    const fix = [lostFix(plan, s, s.qa?.lost), reports[s.index]?.look, seamBad ? 'The first frames must continue seamlessly from the previous shot: same positions, same look.' : ''].filter(Boolean).join(' ');
     try {
       const again = await once(s, fix);
       const old = rep(id).segments[s.index];
       segEdit(id, s.index, { fit: again.fit, qa: qaOf(again.qa), status: 'done', repaired: true });
       const seam = await seamScore(rep(id).segments[s.index]);
-      const score = (lookBad?: boolean, sm?: number) => (lookBad ? 0 : 2) + ((sm ?? 1) >= SEAM_MIN ? 1 : 0);
-      const a = score(again.qa.lookBad, seam), b = score(old.qa?.lookBad, old.qa?.seam), m = again.qa.raw?.motion_correlation;
+      // A swallowed shot weighs like a wrong look: both put the wrong thing on screen.
+      const score = (lookBad?: boolean, sm?: number, lost?: number[]) => (lookBad ? 0 : 2) + (lost?.length ? 0 : 2) + ((sm ?? 1) >= SEAM_MIN ? 1 : 0);
+      const a = score(again.qa.lookBad, seam, again.qa.lost), b = score(old.qa?.lookBad, old.qa?.seam, old.qa?.lost), m = again.qa.raw?.motion_correlation;
       // A tie used to go to the new take, which on 6 Nov kept motion 0.07 over 0.28.
       const better = a > b || (a === b && m != null && old.qa?.motion != null && m > old.qa.motion);
       if (better) { fixed++; segEdit(id, s.index, { qa: { ...qaOf(again.qa), seam: seam != null ? Math.round(seam * 100) / 100 : undefined } }); }

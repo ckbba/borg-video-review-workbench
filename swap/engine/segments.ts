@@ -113,6 +113,37 @@ export async function stitch(items: { file: string; overlap: number }[], fps: nu
   return out;
 }
 
+/** Which source shot each generated shot shows. `sim[o][s]`: how alike output shot o and source shot s look (0..1).
+ *  Order is kept and several output shots may show one source shot (a false cut), so the best monotone assignment is
+ *  found; source shots no output shot shows were swallowed (11 Nov, 936637: a 0.75 s runway shot vanished and every
+ *  later cut came 0.75 s early). A small timing term breaks ties between look-alike shots. */
+export function matchShots(sim: number[][], outMid: number[], srcMid: number[]) {
+  const O = sim.length, S = srcMid.length, span = Math.max(1, ...srcMid, ...outMid);
+  const score = (o: number, s: number) => sim[o][s] - 0.15 * Math.abs(outMid[o] - srcMid[s]) / span;
+  const best: number[][] = Array.from({ length: O }, () => Array(S).fill(-Infinity));
+  const from: number[][] = Array.from({ length: O }, () => Array(S).fill(-1));
+  for (let s = 0; s < S; s++) best[0][s] = score(0, s);
+  for (let o = 1; o < O; o++) for (let s = 0; s < S; s++) {
+    let m = -Infinity, at = -1;
+    for (let p = 0; p <= s; p++) if (best[o - 1][p] > m) { m = best[o - 1][p]; at = p; }
+    best[o][s] = m + score(o, s); from[o][s] = at;
+  }
+  let s = best[O - 1].indexOf(Math.max(...best[O - 1]));
+  const map = Array(O).fill(0);
+  for (let o = O - 1; o >= 0; o--) { map[o] = s; s = from[o][s]; }
+  return { map, lost: Array.from({ length: S }, (_, k) => k).filter(k => !map.includes(k)) };
+}
+
+/** Stretches each part of a clip to a new length and joins them: `parts` [a, b) seconds of `file` become `len` seconds.
+ *  The result has exactly `frames` frames at `fps`. */
+export async function retime(file: string, parts: { a: number; b: number; len: number }[], fps: number, frames: number, out: string) {
+  const f = parts.map((p, i) => `[0:v]trim=start=${p.a.toFixed(4)}:end=${p.b.toFixed(4)},setpts=(PTS-STARTPTS)*${(p.len / (p.b - p.a)).toFixed(6)}[p${i}]`);
+  await run(FFMPEG, ['-nostdin', '-v', 'error', '-y', '-i', file, '-filter_complex',
+    [...f, `${parts.map((_, i) => `[p${i}]`).join('')}concat=n=${parts.length}:v=1:a=0,fps=${fps},tpad=stop_mode=clone:stop=${Math.ceil(fps)},trim=end_frame=${frames},setpts=PTS-STARTPTS,format=yuv420p[v]`].join(';'),
+    '-map', '[v]', '-an', '-c:v', 'libx264', '-crf', '17', out]);
+  return out;
+}
+
 /** Structural similarity of two pictures, 0..1 (1 = identical). */
 export async function ssim(a: string, b: string) {
   const o = await run(FFMPEG, ['-nostdin', '-i', a, '-i', b, '-lavfi', '[0:v]scale=320:180,format=gray[x];[1:v]scale=320:180,format=gray[y];[x][y]ssim', '-f', 'null', '-']);

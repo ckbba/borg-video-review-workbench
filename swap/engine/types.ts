@@ -227,7 +227,8 @@ export type ReplicaSeg = {
   scenes: string[]; prompt?: string; images: string[]; source?: string; fit?: string;
   tries: number; status: 'waiting' | 'running' | 'done' | 'failed';
   /** lookBad: the look check found a real fault; only that and a bad seam cause a redo. motion: ALTER's score, to compare takes. */
-  qa?: { pass: boolean; summary: string; seam?: number; look?: string; lookBad?: boolean; motion?: number };
+  /** lost: source shots (plan indexes) that never appear in the generated piece. */
+  qa?: { pass: boolean; summary: string; seam?: number; look?: string; lookBad?: boolean; motion?: number; lost?: number[] };
   repaired?: boolean; error?: string;
 };
 export type Replica = {
